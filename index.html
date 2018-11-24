@@ -379,6 +379,432 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/24/正则表达式/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qingliu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qingliu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/11/24/正则表达式/" class="post-title-link" itemprop="http://yoursite.com/index.html">正则表达式</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-11-24 18:30:43 / Modified: 18:32:54" itemprop="dateCreated datePublished" datetime="2018-11-24T18:30:43+08:00">2018-11-24</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/11/24/正则表达式/" class="leancloud_visitors" data-flag-title="正则表达式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views: </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><h2 id="菜鸟教程"><a href="#菜鸟教程" class="headerlink" title="菜鸟教程"></a>菜鸟教程</h2><p>Regular expression<br>正则表达式是一种文本模式，包括普通字符和特殊字符(也称为元字符)。正则表达式使用单个字符来描述、匹配一系列匹配某个句法规则的字符串。</p>
+<p>在练Codewars的时候，意识到了正则表达式的重要性，尤其是在字符串处理方面。另外正则表达式在Linux文件操作上也比较重要。</p>
+<p>之前多多少少接触过一点，但是也意识到了他的复杂性。如果说shell编程那一套是鬼画符，那么这个应该也是差不多的。</p>
+<p>但是正则表达式在某些情况下真的特别好用(听说学会正则表达式还能提升成就感)，于是就下定决心入这个坑了。</p>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>?通配符匹配文件名中的0个或1个字符，而*通配符匹配0个或多个字符。相比于通配符，正则表达式功能更强大，而且更加灵活。<br>实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^[0-9]+abc$</span><br></pre></td></tr></table></figure>
+<p>说明：</p>
+<p>^匹配输入字符串的开始位置</p>
+<p>[0-9]+匹配多个数字，[0-9]匹配单个，+匹配一个或多个</p>
+<p>abc$匹配字母abc并以abc结尾，$表示输入字符串的结束位置</p>
+<p>为什么要用正则表达式？</p>
+<ul>
+<li>测试字符串内的模式。称为数据验证</li>
+<li>替换文本。使用正则表达式来识别文档中的特定文本，完全删除该文本或者用其他文本来替换他</li>
+<li>基于模式匹配从字符串中提取子字符串</li>
+</ul>
+<p>发展历史：</p>
+<p>可以追溯到对人类神经系统如何工作的早期研究，科学家提出数学的方式描述神经网络。后来有科学家发表神经网络方面的文章正式提出了正则表达式的概念。</p>
+<p>应用领域：</p>
+<p>目前，正则表达式在众多软件中得到广泛应用，包括*nix(Linux, Unix等)、HP操作系统、PHP、C#、Java开发环境</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p>正则表达式描述了一种字符串匹配的模式(pattern)，可以用来检查一个串中是否含有某种子串、将匹配的子串替换或者从某个串中提取出符合某个条件的子串等。</p>
+<p>正则表达式的组件可以是单个字符、字符集合、字符范围、字符间的选择或者所有这些组件的任意组合</p>
+<p>普通字符：</p>
+<p>没有显式指定为元字符的所有可打印和不可打印字符。包括所有大写和小写字母、所有数字、所有标点符号和一些其他符号。</p>
+<p>非打印字符：</p>
+<ul>
+<li>\cx: 匹配由x指明的控制字符</li>
+<li>\f: 匹配一个换页符，等价于\x0c和\cL</li>
+<li>\n: 匹配一个换行符，等价于\x0a和\cJ</li>
+<li>\r: 匹配匹配一个回车符，等价于\x0d和\cM</li>
+<li>\s: 匹配任何空白字符，包括空格、制表符、换页符等等</li>
+<li>\S: 匹配任何非空白字符</li>
+<li>\t: 匹配一个制表符，等价于\x09和\cl</li>
+<li>\v: 匹配一个垂直制表符，等价于\x0b和\cK</li>
+</ul>
+<p>特殊字符：</p>
+<p>如果要匹配特殊字符，要进行转义</p>
+<ul>
+<li>$: 匹配输入字符串的结尾位置</li>
+<li>(): 标记一个子表达式的开始和结束位置</li>
+<li>*: 匹配前面的子表达式零次或多次</li>
+<li>+: 匹配前面的子表达式一次或多次</li>
+<li>.: 匹配除换行符之外的任何单字符</li>
+<li>[: 标记一个中括号表达式的开始</li>
+<li>?: 匹配前面的子表达式零次或一次</li>
+<li>\: 将下一个字符标记为特殊字符</li>
+<li>^: 匹配输入表达式的开始位置</li>
+<li>{: 标记限定表达式的开始</li>
+<li>|: 指明两项之间的一个选择</li>
+</ul>
+<p>限定符：</p>
+<p>指定正则表达式的一个给定组件必须出现多少次才能满足匹配</p>
+<ul>
+<li>*: 匹配前面的子表达式零次或多次</li>
+<li>+: 匹配前面的子表达式一次或多次</li>
+<li>?: 匹配前面的子表达式零次或一次</li>
+<li>{n}: n是一个非负整数，匹配确定的n次。例如’o{2}’用来匹配两个o</li>
+<li>{n,}: n是一个非负整数，至少匹配n次，例如’o{2,}’用来匹配两个或多个o</li>
+<li>{n,m}: m和n均为非负整数，最少匹配n次且最多匹配m次，例如’o{1,3}’匹配1-3个o</li>
+</ul>
+<p>实例：</p>
+<p>以章节号为例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//任何位数的章节标题</span><br><span class="line">/chapter [1-9][0-9]*/</span><br><span class="line"></span><br><span class="line">//匹配0-99章</span><br><span class="line">/chapter [0-9]&#123;1,2&#125;/</span><br><span class="line"></span><br><span class="line">//匹配1-99章</span><br><span class="line">/chapter [1-9][0-9]?/</span><br></pre></td></tr></table></figure>
+<p>定位符：</p>
+<p>定位符能够将正则表达式固定到行首或行尾，定位符用来描述字符串或单词的边界</p>
+<ul>
+<li>^: 匹配输入字符串开始的位置</li>
+<li>$: 匹配输入字符串结尾的位置</li>
+<li>\b: 匹配一个单词边界，即字与空格间的位置</li>
+<li>B: 非单词边界匹配</li>
+</ul>
+<p>限定符和定位符不能一起用</p>
+<p>选择：</p>
+<p>用圆括号将所有选择项括起来</p>
+<p>反向引用：</p>
+<p>不太明白</p>
+<h3 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h3><ul>
+<li><p>\: 将下一个字符标记为特殊字符、或一个原义字符、或一个向后引用、或一个八进制转义符</p>
+</li>
+<li><p>^: 匹配输入字符串的开始位置</p>
+</li>
+<li><p>$: 匹配输入字符串的结束位置</p>
+</li>
+<li><p>*: 匹配前面的子表达式零次或多次</p>
+</li>
+<li><p>+: 匹配前面的子表达式一次或多次</p>
+</li>
+<li><p>?: 匹配前面的子表达式零次或一次</p>
+</li>
+<li><p>{n}: n是一个非负整数，匹配确定的n次</p>
+</li>
+<li><p>{n,}: n是一个非负整数，至少匹配n次</p>
+</li>
+<li><p>{n,m}: 至少匹配n次，最多m次</p>
+</li>
+<li><p>.: 匹配换行符\n \r之外的任何单个字符</p>
+</li>
+<li><p>(pattern): 匹配pattern并获取这一匹配 </p>
+</li>
+<li><p>(?:pattern): 非获取匹配</p>
+</li>
+<li><p>(?=pattern): 正向匹配预查</p>
+</li>
+<li><p>(?!pattern): 正向否定预查</p>
+</li>
+<li><p>(?&lt;=pattern): 反向肯定预查</p>
+</li>
+<li><p>(?&lt;!pattern): 反向否定预查</p>
+</li>
+<li><p>x|y: 匹配x或y</p>
+</li>
+<li><p>[xyz]: 字符集合，匹配所包含的任意一个字符</p>
+</li>
+<li><p>[^xyz]: 负值字符集合，匹配未包含的任意单个字符 </p>
+</li>
+<li><p>[a-z]: 字符范围，匹配指定范围内的任意字符</p>
+</li>
+<li><p>[^a-z]: 负值字符范围，匹配任何不在指定范围内的任意字符</p>
+</li>
+<li><p>\b: 匹配一个单词边界，也就是单词和空格间的位置</p>
+</li>
+<li><p>\B: 匹配非单词边界</p>
+</li>
+<li><p>\cx: 匹配由x指明的控制字符</p>
+</li>
+<li><p>\d: 匹配一个数字字符，等价于[0-9]</p>
+</li>
+<li><p>\D: 匹配一个非数字字符，等价于[^0-9]</p>
+</li>
+<li><p>\f: 匹配一个换页符 </p>
+</li>
+<li><p>\n: 匹配一个换行符</p>
+</li>
+<li><p>\r: 匹配一个回车符</p>
+</li>
+<li><p>\s: 匹配任何空白字符，包括空白、制表符、换页符等</p>
+</li>
+<li><p>\S: 匹配任何非空白字符</p>
+</li>
+<li><p>\t: 匹配一个制表符 </p>
+</li>
+<li><p>\v: 匹配一个垂直制表符</p>
+</li>
+<li><p>\w: 匹配字母、数字、下划线。等价于[A-Za-z0-9_]</p>
+</li>
+<li><p>\W: 匹配非字母、数字、下划线。等价于[^A-Za-z0-9_]</p>
+</li>
+<li><p>\xn: 匹配n，其中n为十六进制转义值</p>
+</li>
+<li><p>\num: 匹配num，其中num是一个正整数</p>
+</li>
+<li><p>\nm: 标志一个八进制转义值或向后引用</p>
+</li>
+<li><p>\un: 匹配n，n是一个用四个十六进制数字表示的Unicode字符</p>
+</li>
+</ul>
+<h3 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h3><p>从左到右计算，并遵循运算符优先级</p>
+<p>优先级由高到低：</p>
+<ul>
+<li>\: 转义符</li>
+<li>(),(?:),(?=),[]: 圆括号和方括号 </li>
+<li>*,+,?,{n},{n,},{n,m}: 限定符</li>
+<li>^,$,\,任何元字符，任何字符: 定位点和序列</li>
+<li>|: 替换</li>
+</ul>
+<h3 id="匹配规则"><a href="#匹配规则" class="headerlink" title="匹配规则"></a>匹配规则</h3><p>基本模式匹配</p>
+<p>模式是正则表达式最基本的元素，是一组描述字符串特征的字符。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^once</span><br></pre></td></tr></table></figure>
+<p>这个模式包含^，表示字符串开头，用来匹配那些以once为开头的字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bucket$</span><br></pre></td></tr></table></figure>
+<p>这个模式包含$，表示字符串结尾，用来匹配以bucket为结尾的字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^bucket$</span><br></pre></td></tr></table></figure>
+<p>表示只匹配bucket</p>
+<p>字符簇：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[AaEeIiOoUu]</span><br></pre></td></tr></table></figure>
+<p>确定重复出现：</p>
+<p>{x}的意思是前面的字符或字符簇只出现x次，{x,}的意思是前面的内容出现x或更多的次数，{x,y}表示前面的内容至少出现x次，至多出现y次。特殊字符*和{0,}是等价的，+和{1,}是等价的。</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>简单表达式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/a7M/</span><br></pre></td></tr></table></figure>
+<p>匹配a7M</p>
+<p>字符匹配：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/a.7/</span><br><span class="line">/filename\.txt/</span><br></pre></td></tr></table></figure>
+<p>中括号表达式：</p>
+<p>创建匹配字符组的一个列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/Chapter [12345]/</span><br><span class="line">/Chapter [1-5]/</span><br></pre></td></tr></table></figure>
+<p>中括号表达式的典型应用是指定任何大写或小写字母或数字匹配：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/[A-Za-z0-9]/</span><br></pre></td></tr></table></figure>
+<h2 id="实验楼"><a href="#实验楼" class="headerlink" title="实验楼"></a>实验楼</h2><h3 id="正则表达式基础"><a href="#正则表达式基础" class="headerlink" title="正则表达式基础"></a>正则表达式基础</h3><p>grep, expr, sed, awk或vi中会经常用到正则表达式</p>
+<p>正则表达式的特殊符号：</p>
+<ul>
+<li><p>[:alnum:]: 代表英文大小写字母和数字</p>
+</li>
+<li><p>[:alpha:]: 代表英文大小写字母</p>
+</li>
+<li><p>[:blank:]: 代表空格和tab键</p>
+</li>
+<li><p>[:cntrl:]: 代表键盘上的控制按键，如CR,LF,TAB,DEL</p>
+</li>
+<li><p>[:digit:]: 代表数字</p>
+</li>
+<li><p>[:graph:]: 代表空白字符以外的其他</p>
+</li>
+<li><p>[:lower:]: 代表小写字母</p>
+</li>
+<li><p>[:print:]: 代表可以被打印出来的任何字符</p>
+</li>
+<li><p>[:punct:]: 代表标点符号</p>
+</li>
+<li><p>[:upper:]: 代表大写字母</p>
+</li>
+<li><p>[:space:]: 代表会产生空白的字符如空格，tab，CR等</p>
+</li>
+<li><p>[:xdigt:]: 代表十六进制数字类型</p>
+</li>
+</ul>
+<p>在使用正则表达式时需要留意语系，不同语系同一模式匹配结果可能有差异</p>
+<h3 id="通过grep命令使用正则表达式"><a href="#通过grep命令使用正则表达式" class="headerlink" title="通过grep命令使用正则表达式"></a>通过grep命令使用正则表达式</h3><p>grep参数</p>
+<ul>
+<li>-a: 将binary档案以text档案的形式搜索</li>
+<li>-c: 计算找到“搜索字符串”的次数</li>
+<li>-i: 忽略大小写，所以大小写视为相同</li>
+<li>-n: 顺便输出行号</li>
+<li>-v: 反向选择，即输出不包含搜索字符串的内容</li>
+</ul>
+<p>[]中包含的字符，只能是一个，-用来表示字符范围，[^…]排除型字符组，跟反向选择是一样的。例如：</p>
+<ul>
+<li><p>[abc]: 表示a或b或c</p>
+</li>
+<li><p>[0-9]: 表示0-9中任意一个数字，等价于0123456789</p>
+</li>
+<li><p>[^a1&lt;]: 表示除a，1，&lt;外的任意一个字符</p>
+</li>
+<li><p>[^a-z]: 表示除小写字母外的任意一个字符</p>
+</li>
+</ul>
+<p>行首行尾控制，例如：</p>
+<ul>
+<li>^[A-Z]: 表示以大写字母开头</li>
+<li>$[A-Z]: 表示以大写字母结尾</li>
+</ul>
+<p>重复次数控制：</p>
+<p>{}可以用来限定字符重复出现的次数</p>
+<ul>
+<li>{n}: 表示只匹配n次</li>
+<li>{n,}: 表示至少匹配n次</li>
+<li>{n,m}: 表示至少匹配n次，至多匹配m次</li>
+</ul>
+<h3 id="通过sed命令使用正则表达式"><a href="#通过sed命令使用正则表达式" class="headerlink" title="通过sed命令使用正则表达式"></a>通过sed命令使用正则表达式</h3><p>sed是非交互式编辑器。它不会修改文件。sed编辑器逐行处理文件，并将结果发送到屏幕。处理过程为：把当前正在处理的行保存到一个临时缓冲区中（也称为模式空间），然后处理临时缓冲区中的行，完成后发送到屏幕上，sed每处理好一行就把它从临时缓冲区中删除，然后读入下一行，进行处理和显示。处理完最后一行后，sed就结束运行。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nl regular_express.txt | sed <span class="string">'2,5d'</span></span><br></pre></td></tr></table></figure>
+<p>2,5表示2到5行，d表示删除</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nl regular_express.txt | sed <span class="string">'2,$d'</span></span><br></pre></td></tr></table></figure>
+<p>删除2到最后一行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i <span class="string">'1d'</span> regular_express</span><br></pre></td></tr></table></figure>
+<p>在源文件中删除第一行</p>
+<h3 id="扩展正则表达式"><a href="#扩展正则表达式" class="headerlink" title="扩展正则表达式"></a>扩展正则表达式</h3><p>知识点:egrep命令</p>
+<p>可以使用grep -E 来使用扩展正则表达式，效果和egrep相同</p>
+<h3 id="挑战"><a href="#挑战" class="headerlink" title="挑战"></a>挑战</h3><ol>
+<li>找到登录shell为bash的用户:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -n <span class="string">'bash'</span> user</span><br></pre></td></tr></table></figure>
+<ol>
+<li>找到UID或GID是5位数或以上的用户行记录</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -n <span class="string">'[0-9]\&#123;5,\&#125;'</span> user</span><br></pre></td></tr></table></figure>
+<ol>
+<li>有主目录在/var/spo??l下的用户，但想不起来spo后面到底有几个o，找出满足条件的用户行记录</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -n <span class="string">'/var/spo\+l'</span> user</span><br></pre></td></tr></table></figure>
+<ol>
+<li>已知有个用户其用户名形如 ‘mi..M’，中间有未知多个mi，找出该用户的用户行记录</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -n <span class="string">'[mi]\+M'</span> user</span><br></pre></td></tr></table></figure>
+<p>至于输出到文件，简单重定向就完事了</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/hello-world/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -565,7 +991,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -573,6 +999,19 @@
 
               
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
               
             </nav>
           
@@ -650,7 +1089,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 73 words</span>
+  <span class="post-count">Total 3.1k words</span>
 </div>
 
         
