@@ -85,22 +85,4 @@
     
   </entry>
   
-  <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2017/10/28/hello-world/"/>
-    <id>http://yoursite.com/2017/10/28/hello-world/</id>
-    <published>2017-10-28T00:39:58.000Z</published>
-    <updated>2018-11-24T10:44:25.386Z</updated>
-    
-    <content type="html"><![CDATA[<p>这是世界上的另一个我。</p><a id="more"></a><p><a href="https://github.com/Aden-Q" target="_blank" rel="noopener">Github Page</a></p><p><a href="https://www.zhihu.com/people/king-35-38/activities" target="_blank" rel="noopener">知乎er</a></p><p>Welcome!</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这是世界上的另一个我。&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
 </feed>
