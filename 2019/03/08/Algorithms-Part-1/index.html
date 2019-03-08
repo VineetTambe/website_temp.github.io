@@ -116,10 +116,14 @@
 <meta property="og:site_name" content="Qingliu">
 <meta property="og:description" content="Princeton Algorithm course on coursera. Part 1">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-08T20:15:08.926Z">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1g0w2nx25iwj30jm06yjse.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g0w31l36egj30nt0j2k6w.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1g0w3d6dfv8j30co09zabx.jpg">
+<meta property="og:updated_time" content="2019-03-08T21:42:07.782Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Algorithms, Part 1">
 <meta name="twitter:description" content="Princeton Algorithm course on coursera. Part 1">
+<meta name="twitter:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1g0w2nx25iwj30jm06yjse.jpg">
 
 
 
@@ -425,7 +429,7 @@
                 
               
 
-              <time title="Created: 2019-03-08 14:06:34 / Modified: 14:15:08" itemprop="dateCreated datePublished" datetime="2019-03-08T14:06:34-06:00">2019-03-08</time>
+              <time title="Created: 2019-03-08 14:06:34 / Modified: 15:42:07" itemprop="dateCreated datePublished" datetime="2019-03-08T14:06:34-06:00">2019-03-08</time>
             
 
             
@@ -490,7 +494,67 @@
 <li>BST</li>
 <li>Hash Table</li>
 </ul>
-<h1 id="Week-1"><a href="#Week-1" class="headerlink" title="Week 1"></a>Week 1</h1>
+<p>Learning Purpose: </p>
+<ul>
+<li>Being familiar with Java. </li>
+<li>Having fun with algorithms.</li>
+</ul>
+<p>Reference Books:</p>
+<ul>
+<li><a href="https://algs4.cs.princeton.edu/home/" target="_blank" rel="noopener">Algorithms, 4th Edition</a></li>
+<li><a href="https://introcs.cs.princeton.edu/java/home/" target="_blank" rel="noopener">Computer Science:   An Interdisciplinary Approach</a></li>
+</ul>
+<h1 id="Week-1"><a href="#Week-1" class="headerlink" title="Week 1"></a>Week 1</h1><h2 id="Why-study-algorithms"><a href="#Why-study-algorithms" class="headerlink" title="Why study algorithms"></a>Why study algorithms</h2><p><em>“Great algorithms are the poetry of computation.” — Francis Sullivan</em></p>
+<p><em>“Algorithms + Data Structures = Programs.” — Niklaus Wirth</em></p>
+<h2 id="Union-Find"><a href="#Union-Find" class="headerlink" title="Union-Find"></a>Union-Find</h2><p>Steps to developing a usable algorithm</p>
+<ul>
+<li>Model the problem.</li>
+<li><p>Find an algorithm to solve it.</p>
+</li>
+<li><p>Fast enough? Fits in memory?</p>
+</li>
+<li>If not, figure out why.</li>
+<li>Find a way to address the problem.</li>
+<li>Iterate until satisfied.</li>
+</ul>
+<h3 id="dynamic-connectivity"><a href="#dynamic-connectivity" class="headerlink" title="dynamic connectivity"></a>dynamic connectivity</h3><p>Given a set of N objects.</p>
+<ul>
+<li>Union command: connect two objects</li>
+<li>Find/conneted query: is there a path connecting the two objects?</li>
+</ul>
+<center><br>    <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g0w2nx25iwj30jm06yjse.jpg" style="zoom:60%"><br></center>
+
+
+
+
+
+<p><u><strong>Connectivity example</strong></u></p>
+<font color="blue">Q. Is there a path connecting <em>p</em> and <em>q</em>?</font>
+
+<center><br>    <img src="https://ws3.sinaimg.cn/large/006tKfTcly1g0w31l36egj30nt0j2k6w.jpg" style="zoom:60%"><br></center>
+
+
+
+<p>Some common understandings:</p>
+<ul>
+<li>Reflexive: <em>p</em> is connected to <em>p</em> itself.</li>
+<li>Symmetric: if <em>p</em> is connected to <em>q</em>, then <em>q</em> is connected to <em>p</em>.</li>
+<li>Transitive: if <em>p</em> is connected to <em>q</em> and <em>q</em> is connected to <em>r</em>, then <em>p</em> is connected to <em>r</em>.</li>
+</ul>
+<p><strong>Connected components.</strong> Maximal set of objects that are mutually connected.</p>
+<p>e.g.</p>
+<center><br>    <img src="https://ws4.sinaimg.cn/large/006tKfTcly1g0w3d6dfv8j30co09zabx.jpg" style="zoom:60%"><br>    </center>
+
+
+<p>​    </p>
+<p><font color="blue"> Goal. </font> Design efficient data structure for union-find.</p>
+<ul>
+<li>Number of objects <em>N</em> can be huge.</li>
+<li>Number of operations <em>M</em> can be huge.</li>
+<li>Find queries and union commands may be intermixed.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// API</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UF</span></span></span><br><span class="line"><span class="class">    <span class="title">UF</span>(<span class="title">int</span> <span class="title">N</span>)	// <span class="title">initialize</span> <span class="title">union</span>-<span class="title">find</span> <span class="title">data</span> <span class="title">structure</span> <span class="title">with</span> <span class="title">N</span> <span class="title">objects</span> (0 <span class="title">to</span> <span class="title">N</span>-1)</span></span><br><span class="line"><span class="class">    <span class="title">void</span> <span class="title">union</span>(<span class="title">int</span> <span class="title">p</span>, <span class="title">int</span> <span class="title">q</span>)	// <span class="title">add</span> <span class="title">connection</span> <span class="title">between</span> <span class="title">p</span> <span class="title">and</span> <span class="title">q</span></span></span><br><span class="line"><span class="class">    <span class="title">boolean</span> <span class="title">connected</span>(<span class="title">int</span> <span class="title">p</span>, <span class="title">int</span> <span class="title">q</span>)	// <span class="title">are</span> <span class="title">p</span> <span class="title">and</span> <span class="title">q</span> <span class="title">the</span> <span class="title">same</span> <span class="title">component</span>?</span></span><br><span class="line"><span class="class">    <span class="title">int</span> <span class="title">find</span>(<span class="title">int</span> <span class="title">p</span>)	//<span class="title">component</span> <span class="title">identifier</span> <span class="title">for</span> <span class="title">p</span> (0 <span class="title">to</span> <span class="title">N</span>-1)</span></span><br><span class="line"><span class="class">    <span class="title">int</span> <span class="title">count</span>()	// <span class="title">number</span> <span class="title">of</span> <span class="title">components</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="quick-find"><a href="#quick-find" class="headerlink" title="quick find"></a>quick find</h3><h3 id="quick-union"><a href="#quick-union" class="headerlink" title="quick union"></a>quick union</h3><h3 id="improvements"><a href="#improvements" class="headerlink" title="improvements"></a>improvements</h3><h3 id="applications"><a href="#applications" class="headerlink" title="applications"></a>applications</h3>
       
     </div>
 
@@ -658,7 +722,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-1"><span class="nav-number">1.</span> <span class="nav-text">Week 1</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-1"><span class="nav-number">1.</span> <span class="nav-text">Week 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-study-algorithms"><span class="nav-number">1.1.</span> <span class="nav-text">Why study algorithms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Union-Find"><span class="nav-number">1.2.</span> <span class="nav-text">Union-Find</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dynamic-connectivity"><span class="nav-number">1.2.1.</span> <span class="nav-text">dynamic connectivity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quick-find"><span class="nav-number">1.2.2.</span> <span class="nav-text">quick find</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quick-union"><span class="nav-number">1.2.3.</span> <span class="nav-text">quick union</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#improvements"><span class="nav-number">1.2.4.</span> <span class="nav-text">improvements</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#applications"><span class="nav-number">1.2.5.</span> <span class="nav-text">applications</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -720,7 +784,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 17.2k words</span>
+  <span class="post-count">Total 17.4k words</span>
 </div>
 
         
