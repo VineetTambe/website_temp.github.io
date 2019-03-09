@@ -120,7 +120,8 @@
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g0w31l36egj30nt0j2k6w.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1g0w3d6dfv8j30co09zabx.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1g0xaw2d1qzj30ok03lwfw.jpg">
-<meta property="og:updated_time" content="2019-03-09T22:48:07.787Z">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g0xbfl4c0kj30au06aaav.jpg">
+<meta property="og:updated_time" content="2019-03-09T23:34:37.303Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Algorithms, Part 1">
 <meta name="twitter:description" content="Princeton Algorithm course on coursera. Part 1">
@@ -447,7 +448,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-03-09 16:48:07" itemprop="dateModified" datetime="2019-03-09T16:48:07-06:00">2019-03-09</time>
+                <time title="Modified: 2019-03-09 17:34:37" itemprop="dateModified" datetime="2019-03-09T17:34:37-06:00">2019-03-09</time>
               
             
           </span>
@@ -597,7 +598,88 @@
 </tbody>
 </table>
 <p>N union commands on N object: quadratic time. Much too slow.</p>
-<h3 id="quick-union"><a href="#quick-union" class="headerlink" title="quick union"></a>quick union</h3><h3 id="improvements"><a href="#improvements" class="headerlink" title="improvements"></a>improvements</h3><h3 id="applications"><a href="#applications" class="headerlink" title="applications"></a>applications</h3>
+<p>Quadratic algorithms don’t scale with technology.</p>
+<h3 id="quick-union"><a href="#quick-union" class="headerlink" title="quick union"></a>quick union</h3><p>Data structure</p>
+<ul>
+<li>Integer array id[] of size N.</li>
+<li>Interpretation: id[i] is parent of i.</li>
+<li>Root of i is id[id[id[…id[i]…]]].</li>
+</ul>
+<center><br><img src="https://ws3.sinaimg.cn/large/006tKfTcly1g0xbfl4c0kj30au06aaav.jpg" style="zoom:60%"><br></center>
+
+<p>Each root represents the connected components.</p>
+<p>Find: Check if <em>p</em> and <em>q</em> have the same root.</p>
+<p>Union: To merge components containing <em>p</em> and <em>q</em>, set the id of p’s root to the id of q’s root.</p>
+<p>(path compression)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuickUnionUF</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] id;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">QuickUnionUF</span><span class="params">(<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        id = <span class="keyword">new</span> <span class="keyword">int</span>[N];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)	id[i] = i;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">root</span><span class="params">(<span class="keyword">int</span> i)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (i != id[i])	i = id[i];</span><br><span class="line">        <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">connected</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> root(p) == root(q);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = root(p);</span><br><span class="line">        <span class="keyword">int</span> j = root(q);</span><br><span class="line">        id[i] = j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>Worst case:</p>
+<table>
+<thead>
+<tr>
+<th>algorithm</th>
+<th>initialize</th>
+<th>union</th>
+<th>find</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Quick-union</td>
+<td>N</td>
+<td>N</td>
+<td>N</td>
+</tr>
+</tbody>
+</table>
+<p>Quick-union defect</p>
+<ul>
+<li>Trees can get tall</li>
+<li>Find too expensive (could be N array accesses).</li>
+</ul>
+<h3 id="improvements"><a href="#improvements" class="headerlink" title="improvements"></a>improvements</h3><h4 id="Improvement-1-weighting"><a href="#Improvement-1-weighting" class="headerlink" title="Improvement 1: weighting"></a>Improvement 1: weighting</h4><hr>
+<p>Weighted quick-union</p>
+<ul>
+<li>Modify quick-union to avoid tall trees.</li>
+<li>Keep track of size of each tree (number of objects).</li>
+<li>Balance by linking root of smaller tree to root of larger tree.</li>
+</ul>
+<p>Data structure： Same as quick-union, but maintain extra array sz[i] to count number of objects in the tree rooted at i.</p>
+<p>Find: Identical to quick-union. <code>return root(p) == root(q)</code></p>
+<p>Union: Modify quick-union to:</p>
+<ul>
+<li>Link root of samller tree to root of larger tree.</li>
+<li>Update the sz[] array.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = root(p);</span><br><span class="line">itn j = root(q);</span><br><span class="line"><span class="keyword">if</span> (i == j) <span class="keyword">return</span>;</span><br><span class="line"><span class="keyword">if</span> (sz[i] &lt; sz[j])	&#123; id[i] = j; sz[j] += sz[i]; &#125;</span><br><span class="line"><span class="keyword">else</span>				&#123; id[j] = i; sz[i] += sz[j]; &#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>Proposition: Depth of any node x is at most  $lg N$</p>
+<table>
+<thead>
+<tr>
+<th>algorithm</th>
+<th>initialize</th>
+<th>union</th>
+<th>find</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Weighted QU</td>
+<td>N</td>
+<td>lg N</td>
+<td>Lg N</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Improvement-2-path-compression"><a href="#Improvement-2-path-compression" class="headerlink" title="Improvement 2: path compression"></a>Improvement 2: path compression</h4><p>Quick union with path compression: Just after computing the root of p, set the id of each examined node to point to that root.</p>
+<p>Two-pass implementation: add second loop to root() to set the id[] of each examined node to the root.</p>
+<p>Simpler one-pass variant: Make every other node in path point to its grandparent (thereby halving path length).</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// variant</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">root</span><span class="params">(<span class="keyword">int</span> i)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (i != id[i])</span><br><span class="line">    &#123;</span><br><span class="line">        id[i] = id[id[i]]</span><br><span class="line">            i = id[i]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>Weighted QU + path compression: worst-case time is N + M lg* N</p>
+<p>(lg * is an iterate function, plz refer to slide for more information)</p>
+<h3 id="applications"><a href="#applications" class="headerlink" title="applications"></a>applications</h3>
       
     </div>
 
@@ -730,8 +812,6 @@
                     
                       
                     
-                      
-                    
                     <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
@@ -767,7 +847,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-1"><span class="nav-number">1.</span> <span class="nav-text">Week 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-study-algorithms"><span class="nav-number">1.1.</span> <span class="nav-text">Why study algorithms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Union-Find"><span class="nav-number">1.2.</span> <span class="nav-text">Union-Find</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dynamic-connectivity"><span class="nav-number">1.2.1.</span> <span class="nav-text">dynamic connectivity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quick-find"><span class="nav-number">1.2.2.</span> <span class="nav-text">quick find</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quick-union"><span class="nav-number">1.2.3.</span> <span class="nav-text">quick union</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#improvements"><span class="nav-number">1.2.4.</span> <span class="nav-text">improvements</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#applications"><span class="nav-number">1.2.5.</span> <span class="nav-text">applications</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-1"><span class="nav-number">1.</span> <span class="nav-text">Week 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-study-algorithms"><span class="nav-number">1.1.</span> <span class="nav-text">Why study algorithms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Union-Find"><span class="nav-number">1.2.</span> <span class="nav-text">Union-Find</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dynamic-connectivity"><span class="nav-number">1.2.1.</span> <span class="nav-text">dynamic connectivity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quick-find"><span class="nav-number">1.2.2.</span> <span class="nav-text">quick find</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quick-union"><span class="nav-number">1.2.3.</span> <span class="nav-text">quick union</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#improvements"><span class="nav-number">1.2.4.</span> <span class="nav-text">improvements</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Improvement-1-weighting"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">Improvement 1: weighting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Improvement-2-path-compression"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">Improvement 2: path compression</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#applications"><span class="nav-number">1.2.5.</span> <span class="nav-text">applications</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -829,7 +909,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 17.6k words</span>
+  <span class="post-count">Total 18k words</span>
 </div>
 
         
