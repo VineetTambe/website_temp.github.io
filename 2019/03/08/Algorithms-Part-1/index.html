@@ -121,7 +121,9 @@
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1g0w3d6dfv8j30co09zabx.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1g0xaw2d1qzj30ok03lwfw.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g0xbfl4c0kj30au06aaav.jpg">
-<meta property="og:updated_time" content="2019-03-09T23:39:19.492Z">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1g0xgesix2pj30xn0m511g.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1g0xhbzceq9j310l0ekwl9.jpg">
+<meta property="og:updated_time" content="2019-03-10T02:28:26.100Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Algorithms, Part 1">
 <meta name="twitter:description" content="Princeton Algorithm course on coursera. Part 1">
@@ -448,7 +450,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-03-09 17:39:19" itemprop="dateModified" datetime="2019-03-09T17:39:19-06:00">2019-03-09</time>
+                <time title="Modified: 2019-03-09 20:28:26" itemprop="dateModified" datetime="2019-03-09T20:28:26-06:00">2019-03-09</time>
               
             
           </span>
@@ -695,7 +697,123 @@
 <li><p>Subroutine of many other algorithms</p>
 </li>
 </ul>
-<h2 id="Analysis-of-Algorithms"><a href="#Analysis-of-Algorithms" class="headerlink" title="Analysis of Algorithms"></a>Analysis of Algorithms</h2>
+<h3 id="Programming-Assignment-1"><a href="#Programming-Assignment-1" class="headerlink" title="Programming Assignment 1"></a>Programming Assignment 1</h3><p>Problem:</p>
+<p><a href="http://coursera.cs.princeton.edu/algs4/assignments/percolation.html" target="_blank" rel="noopener">Programming Assignment 1</a></p>
+<p>Code is on my Github page:</p>
+<p><a href="https://github.com/Aden-Q/Percolation" target="_blank" rel="noopener">Percolation</a></p>
+<p>Missing the optional task of running time analysis, but I don’t want to do it again because this task is somewhat discouraging for some beginners I think.</p>
+<h2 id="Analysis-of-Algorithms"><a href="#Analysis-of-Algorithms" class="headerlink" title="Analysis of Algorithms"></a>Analysis of Algorithms</h2><h3 id="observations"><a href="#observations" class="headerlink" title="observations"></a>observations</h3><p>Analytic Engine</p>
+<p>Reasons to analyze algorithms</p>
+<ul>
+<li>Predict performance</li>
+<li>Compare algorithms</li>
+<li>Provide guarantees</li>
+<li>Understand theoretical basis</li>
+</ul>
+<p>Primary practical reason: avoid performance bugs.</p>
+<p>Discrete Fourier transform</p>
+<p>N-body simulation</p>
+<p>Scientific method</p>
+<ul>
+<li>Observe</li>
+<li>Hypothesize</li>
+<li>Predict</li>
+<li>Verify</li>
+<li>Validate</li>
+</ul>
+<p>Principles</p>
+<ul>
+<li>Experiments must be reproducible</li>
+<li>Hypotheses must be falsifiable</li>
+</ul>
+<p>3-sum problem</p>
+<p>Standard plot on running time</p>
+<p>Log-log scale strategy</p>
+<p>Doubling hypothesis: run program, doubling the size of the input.</p>
+<p>System independent effects</p>
+<ul>
+<li>Algorithm</li>
+<li>Input data</li>
+</ul>
+<p>System dependent effects</p>
+<ul>
+<li>Hardware: CPU, memory, cache</li>
+<li>Software: compiler, interpreter, garbage collector</li>
+<li>System: operating system, network, other apps</li>
+</ul>
+<h3 id="mathematical-models"><a href="#mathematical-models" class="headerlink" title="mathematical models"></a>mathematical models</h3><p>Total running time: sum of cost * frequency for all operations</p>
+<p>General concepts</p>
+<p>1-sum problem</p>
+<p>2-sum problem</p>
+<p>tilde notation</p>
+<p>Estimating a discrete sum</p>
+<h3 id="order-of-growth-classification"><a href="#order-of-growth-classification" class="headerlink" title="order-of-growth classification"></a>order-of-growth classification</h3><p>1, log N, N, N lgN, N^2, N^3, 2^N</p>
+<center><br><img src="https://ws4.sinaimg.cn/large/006tKfTcly1g0xgesix2pj30xn0m511g.jpg" style="zoom:60%"><br></center>
+
+<p>Recurence</p>
+<p>Easy concepts</p>
+<h3 id="theory-of-algorithms"><a href="#theory-of-algorithms" class="headerlink" title="theory of algorithms"></a>theory of algorithms</h3><p>Best case: Lower bound on cost</p>
+<ul>
+<li>Determined by “easiest” input</li>
+<li>Provides a goal for all inputs</li>
+</ul>
+<p>Worst case: Upper bound on cost</p>
+<ul>
+<li>Determined by “most difficult” input</li>
+<li>Provides a way to predict performance</li>
+</ul>
+<p>Average case: Expected cost for random input</p>
+<ul>
+<li>Need a model for “random” input</li>
+<li>Provides a way to predict performance</li>
+</ul>
+<p>Actual data</p>
+<ul>
+<li>Need to understand input to effectively process it</li>
+<li>Approach 1: design for the worst case</li>
+<li>Approach 2: randomize, depend on probailistic guarantee</li>
+</ul>
+<p>Goals</p>
+<ul>
+<li>Establish “difficulty” of a problem</li>
+<li>Develop “optimal” algorithms</li>
+</ul>
+<p>Approach</p>
+<ul>
+<li>Suppress details in analyze “to within a constant factor”</li>
+<li>Eliminate variability in input model by focusing on the worst case</li>
+</ul>
+<p>Algorithm design approach</p>
+<hr>
+<p>Start</p>
+<ul>
+<li>Develop an algorithm</li>
+<li>Prove a lower bound</li>
+</ul>
+<p>Gap?</p>
+<ul>
+<li>Lower the upper bound (discover a new algorithm)</li>
+<li>Raise the lower bound (more difficult)</li>
+</ul>
+<h3 id="memory"><a href="#memory" class="headerlink" title="memory"></a>memory</h3><p>Bit</p>
+<p>Byte</p>
+<p>Megabyte (MB)</p>
+<p>Gigabyte (GB)</p>
+<p>Old machine: We used to assume a 32-bit machine with 4 byte pointers</p>
+<p>Modern machine: We now assume a 64-bit machine with 8 byte pointers</p>
+<p>Typical memory usage for objects in Java</p>
+<ul>
+<li>Object overhead: 16 bytes</li>
+<li>Reference: 8 bytes</li>
+<li>Padding: Each object uses a multiple of 8 bytes</li>
+</ul>
+<center><br><img src="https://ws2.sinaimg.cn/large/006tKfTcly1g0xhbzceq9j310l0ekwl9.jpg" style="zoom:60%"><br></center>
+
+
+
+
+
+<h1 id="Week-2"><a href="#Week-2" class="headerlink" title="Week 2"></a>Week 2</h1><h2 id="Stacks-and-Queues"><a href="#Stacks-and-Queues" class="headerlink" title="Stacks and Queues"></a>Stacks and Queues</h2><h3 id="stacks"><a href="#stacks" class="headerlink" title="stacks"></a>stacks</h3><h3 id="resizing-arrays"><a href="#resizing-arrays" class="headerlink" title="resizing arrays"></a>resizing arrays</h3><h3 id="queues"><a href="#queues" class="headerlink" title="queues"></a>queues</h3><h3 id="generics"><a href="#generics" class="headerlink" title="generics"></a>generics</h3><h3 id="iterators"><a href="#iterators" class="headerlink" title="iterators"></a>iterators</h3><h3 id="applications-1"><a href="#applications-1" class="headerlink" title="applications"></a>applications</h3><h2 id="Elementary-Sorts"><a href="#Elementary-Sorts" class="headerlink" title="Elementary Sorts"></a>Elementary Sorts</h2><h3 id="rules-of-the-game"><a href="#rules-of-the-game" class="headerlink" title="rules of the game"></a>rules of the game</h3><h3 id="selection-sort"><a href="#selection-sort" class="headerlink" title="selection sort"></a>selection sort</h3><h3 id="insertion-sort"><a href="#insertion-sort" class="headerlink" title="insertion sort"></a>insertion sort</h3><h3 id="shellsort"><a href="#shellsort" class="headerlink" title="shellsort"></a>shellsort</h3><h3 id="shuffling"><a href="#shuffling" class="headerlink" title="shuffling"></a>shuffling</h3><h3 id="convex-hull"><a href="#convex-hull" class="headerlink" title="convex hull"></a>convex hull</h3>
       
     </div>
 
@@ -863,7 +981,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-1"><span class="nav-number">1.</span> <span class="nav-text">Week 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-study-algorithms"><span class="nav-number">1.1.</span> <span class="nav-text">Why study algorithms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Union-Find"><span class="nav-number">1.2.</span> <span class="nav-text">Union-Find</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dynamic-connectivity"><span class="nav-number">1.2.1.</span> <span class="nav-text">dynamic connectivity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quick-find"><span class="nav-number">1.2.2.</span> <span class="nav-text">quick find</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quick-union"><span class="nav-number">1.2.3.</span> <span class="nav-text">quick union</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#improvements"><span class="nav-number">1.2.4.</span> <span class="nav-text">improvements</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Improvement-1-weighting"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">Improvement 1: weighting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Improvement-2-path-compression"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">Improvement 2: path compression</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#applications"><span class="nav-number">1.2.5.</span> <span class="nav-text">applications</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis-of-Algorithms"><span class="nav-number">1.3.</span> <span class="nav-text">Analysis of Algorithms</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-1"><span class="nav-number">1.</span> <span class="nav-text">Week 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-study-algorithms"><span class="nav-number">1.1.</span> <span class="nav-text">Why study algorithms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Union-Find"><span class="nav-number">1.2.</span> <span class="nav-text">Union-Find</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dynamic-connectivity"><span class="nav-number">1.2.1.</span> <span class="nav-text">dynamic connectivity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quick-find"><span class="nav-number">1.2.2.</span> <span class="nav-text">quick find</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quick-union"><span class="nav-number">1.2.3.</span> <span class="nav-text">quick union</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#improvements"><span class="nav-number">1.2.4.</span> <span class="nav-text">improvements</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Improvement-1-weighting"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">Improvement 1: weighting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Improvement-2-path-compression"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">Improvement 2: path compression</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#applications"><span class="nav-number">1.2.5.</span> <span class="nav-text">applications</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Programming-Assignment-1"><span class="nav-number">1.2.6.</span> <span class="nav-text">Programming Assignment 1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis-of-Algorithms"><span class="nav-number">1.3.</span> <span class="nav-text">Analysis of Algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#observations"><span class="nav-number">1.3.1.</span> <span class="nav-text">observations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mathematical-models"><span class="nav-number">1.3.2.</span> <span class="nav-text">mathematical models</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#order-of-growth-classification"><span class="nav-number">1.3.3.</span> <span class="nav-text">order-of-growth classification</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#theory-of-algorithms"><span class="nav-number">1.3.4.</span> <span class="nav-text">theory of algorithms</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#memory"><span class="nav-number">1.3.5.</span> <span class="nav-text">memory</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-2"><span class="nav-number">2.</span> <span class="nav-text">Week 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Stacks-and-Queues"><span class="nav-number">2.1.</span> <span class="nav-text">Stacks and Queues</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#stacks"><span class="nav-number">2.1.1.</span> <span class="nav-text">stacks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#resizing-arrays"><span class="nav-number">2.1.2.</span> <span class="nav-text">resizing arrays</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#queues"><span class="nav-number">2.1.3.</span> <span class="nav-text">queues</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#generics"><span class="nav-number">2.1.4.</span> <span class="nav-text">generics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iterators"><span class="nav-number">2.1.5.</span> <span class="nav-text">iterators</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#applications-1"><span class="nav-number">2.1.6.</span> <span class="nav-text">applications</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Elementary-Sorts"><span class="nav-number">2.2.</span> <span class="nav-text">Elementary Sorts</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rules-of-the-game"><span class="nav-number">2.2.1.</span> <span class="nav-text">rules of the game</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#selection-sort"><span class="nav-number">2.2.2.</span> <span class="nav-text">selection sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#insertion-sort"><span class="nav-number">2.2.3.</span> <span class="nav-text">insertion sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shellsort"><span class="nav-number">2.2.4.</span> <span class="nav-text">shellsort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shuffling"><span class="nav-number">2.2.5.</span> <span class="nav-text">shuffling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#convex-hull"><span class="nav-number">2.2.6.</span> <span class="nav-text">convex hull</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -925,7 +1043,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 18.1k words</span>
+  <span class="post-count">Total 18.4k words</span>
 </div>
 
         
