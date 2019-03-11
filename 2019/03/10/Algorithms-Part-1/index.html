@@ -112,7 +112,7 @@
 <meta name="keywords" content="Programming">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Algorithms, Part 1">
-<meta property="og:url" content="http://yoursite.com/2019/03/08/Algorithms-Part-1/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/03/10/Algorithms-Part-1/index.html">
 <meta property="og:site_name" content="Qingliu">
 <meta property="og:description" content="Princeton Algorithm course on coursera. Part 1">
 <meta property="og:locale" content="default">
@@ -131,7 +131,7 @@
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1g0yeeyme4uj30ln0av795.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1g0yej8db99j30ue0i1qc8.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1g0yenl6vckj30vo0d8443.jpg">
-<meta property="og:updated_time" content="2019-03-10T22:11:30.037Z">
+<meta property="og:updated_time" content="2019-03-11T03:36:08.495Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Algorithms, Part 1">
 <meta name="twitter:description" content="Princeton Algorithm course on coursera. Part 1">
@@ -142,7 +142,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/08/Algorithms-Part-1/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/10/Algorithms-Part-1/">
 
 
 
@@ -399,7 +399,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/Algorithms-Part-1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/Algorithms-Part-1/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Qingliu">
@@ -441,24 +441,12 @@
                 
               
 
-              <time title="Created: 2019-03-08 14:06:34" itemprop="dateCreated datePublished" datetime="2019-03-08T14:06:34-06:00">2019-03-08</time>
+              <time title="Created: 2019-03-10 14:06:34 / Modified: 22:36:08" itemprop="dateCreated datePublished" datetime="2019-03-10T14:06:34-05:00">2019-03-10</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-03-10 17:11:30" itemprop="dateModified" datetime="2019-03-10T17:11:30-05:00">2019-03-10</time>
               
             
           </span>
@@ -471,7 +459,7 @@
 
           
           
-             <span id="/2019/03/08/Algorithms-Part-1/" class="leancloud_visitors" data-flag-title="Algorithms, Part 1">
+             <span id="/2019/03/10/Algorithms-Part-1/" class="leancloud_visitors" data-flag-title="Algorithms, Part 1">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -896,10 +884,8 @@
 <li>Rotate to make lean left (if needed)</li>
 <li>Repeat case 1 or case 2 up the tree (if needed)</li>
 </ul>
-<center><br><img src="https://ws2.sinaimg.cn/large/006tKfTcly1g0yenl6vckj30vo0d8443.jpg" style="zoom:60%"><br></center>
-
-<hr>
-<p>Java implementation</p>
+<p><center><br><img src="https://ws2.sinaimg.cn/large/006tKfTcly1g0yenl6vckj30vo0d8443.jpg" style="zoom:60%"></center></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><p>Java implementation</p>
 <p>Reduce one case to another</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> Node <span class="title">put</span><span class="params">(Node h, Key key, Value val)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (h == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">new</span> Node(key, val, RED);</span><br><span class="line">    <span class="keyword">int</span> cmp = key.compareTo(h.key);</span><br><span class="line">    <span class="keyword">if</span>		(cmp &lt; <span class="number">0</span>) h.left = put(h.left, key, val);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>	(cmp &gt; <span class="number">0</span>) h.right = put(h.right, key, val);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (cmp == <span class="number">0</span>) h.val = val;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (isRed(h.right) &amp;&amp; !isRed(h.left))		h = rotateLeft(h;</span><br><span class="line">    <span class="keyword">if</span> (isRed(h.left) &amp;&amp; isRed(h.left.left))	h = rotateRight(h);</span><br><span class="line">    <span class="keyword">if</span> (isRed(h.left) &amp;&amp; isRed(h.right))		flipColors(h);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> h;                                                              </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="B-trees-Bayer-McCreight-1972"><a href="#B-trees-Bayer-McCreight-1972" class="headerlink" title="B-trees (Bayer-McCreight, 1972)"></a>B-trees (Bayer-McCreight, 1972)</h3><p>File system model:</p>
@@ -980,8 +966,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/08/卷积神经网络编程作业/" rel="next" title="Covolutional Neural Network, Programming Assignments">
-                <i class="fa fa-chevron-left"></i> Covolutional Neural Network, Programming Assignments
+              <a href="/2019/03/08/卷积神经网络课堂笔记/" rel="next" title="Convolutional Neural Network, Course Notes">
+                <i class="fa fa-chevron-left"></i> Convolutional Neural Network, Course Notes
               </a>
             
           </div>
@@ -989,10 +975,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/08/Linux系统编程/" rel="prev" title="Linux System Programming">
-                Linux System Programming <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -1133,7 +1115,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-1"><span class="nav-number">1.</span> <span class="nav-text">Week 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-study-algorithms"><span class="nav-number">1.1.</span> <span class="nav-text">Why study algorithms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Union-Find"><span class="nav-number">1.2.</span> <span class="nav-text">Union-Find</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dynamic-connectivity"><span class="nav-number">1.2.1.</span> <span class="nav-text">dynamic connectivity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quick-find"><span class="nav-number">1.2.2.</span> <span class="nav-text">quick find</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quick-union"><span class="nav-number">1.2.3.</span> <span class="nav-text">quick union</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#improvements"><span class="nav-number">1.2.4.</span> <span class="nav-text">improvements</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Improvement-1-weighting"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">Improvement 1: weighting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Improvement-2-path-compression"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">Improvement 2: path compression</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#applications"><span class="nav-number">1.2.5.</span> <span class="nav-text">applications</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Programming-Assignment-1"><span class="nav-number">1.2.6.</span> <span class="nav-text">Programming Assignment 1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis-of-Algorithms"><span class="nav-number">1.3.</span> <span class="nav-text">Analysis of Algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#observations"><span class="nav-number">1.3.1.</span> <span class="nav-text">observations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mathematical-models"><span class="nav-number">1.3.2.</span> <span class="nav-text">mathematical models</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#order-of-growth-classification"><span class="nav-number">1.3.3.</span> <span class="nav-text">order-of-growth classification</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#theory-of-algorithms"><span class="nav-number">1.3.4.</span> <span class="nav-text">theory of algorithms</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#memory"><span class="nav-number">1.3.5.</span> <span class="nav-text">memory</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-2"><span class="nav-number">2.</span> <span class="nav-text">Week 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Stacks-and-Queues"><span class="nav-number">2.1.</span> <span class="nav-text">Stacks and Queues</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#stacks"><span class="nav-number">2.1.1.</span> <span class="nav-text">stacks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#resizing-arrays"><span class="nav-number">2.1.2.</span> <span class="nav-text">resizing arrays</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#queues"><span class="nav-number">2.1.3.</span> <span class="nav-text">queues</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#generics"><span class="nav-number">2.1.4.</span> <span class="nav-text">generics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iterators"><span class="nav-number">2.1.5.</span> <span class="nav-text">iterators</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#applications-1"><span class="nav-number">2.1.6.</span> <span class="nav-text">applications</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Elementary-Sorts"><span class="nav-number">2.2.</span> <span class="nav-text">Elementary Sorts</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rules-of-the-game"><span class="nav-number">2.2.1.</span> <span class="nav-text">rules of the game</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#selection-sort"><span class="nav-number">2.2.2.</span> <span class="nav-text">selection sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#insertion-sort"><span class="nav-number">2.2.3.</span> <span class="nav-text">insertion sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shellsort"><span class="nav-number">2.2.4.</span> <span class="nav-text">shellsort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shuffling"><span class="nav-number">2.2.5.</span> <span class="nav-text">shuffling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#convex-hull"><span class="nav-number">2.2.6.</span> <span class="nav-text">convex hull</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-5"><span class="nav-number">3.</span> <span class="nav-text">Week 5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Balanced-Search-Trees"><span class="nav-number">3.1.</span> <span class="nav-text">Balanced Search Trees</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-search-trees"><span class="nav-number">3.1.1.</span> <span class="nav-text">2-3 search trees</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#red-black-BSTs"><span class="nav-number">3.1.2.</span> <span class="nav-text">red-black BSTs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-trees-Bayer-McCreight-1972"><span class="nav-number">3.1.3.</span> <span class="nav-text">B-trees (Bayer-McCreight, 1972)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Geometric-Applications-of-BSTs"><span class="nav-number">3.2.</span> <span class="nav-text">Geometric Applications of BSTs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1d-range-search"><span class="nav-number">3.2.1.</span> <span class="nav-text">1d range search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#line-segment-intersection"><span class="nav-number">3.2.2.</span> <span class="nav-text">line segment intersection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kd-trees"><span class="nav-number">3.2.3.</span> <span class="nav-text">kd trees</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#interval-search-trees"><span class="nav-number">3.2.4.</span> <span class="nav-text">interval search trees</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rectangle-intersection"><span class="nav-number">3.2.5.</span> <span class="nav-text">rectangle intersection</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-1"><span class="nav-number">1.</span> <span class="nav-text">Week 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-study-algorithms"><span class="nav-number">1.1.</span> <span class="nav-text">Why study algorithms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Union-Find"><span class="nav-number">1.2.</span> <span class="nav-text">Union-Find</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dynamic-connectivity"><span class="nav-number">1.2.1.</span> <span class="nav-text">dynamic connectivity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quick-find"><span class="nav-number">1.2.2.</span> <span class="nav-text">quick find</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quick-union"><span class="nav-number">1.2.3.</span> <span class="nav-text">quick union</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#improvements"><span class="nav-number">1.2.4.</span> <span class="nav-text">improvements</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Improvement-1-weighting"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">Improvement 1: weighting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Improvement-2-path-compression"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">Improvement 2: path compression</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#applications"><span class="nav-number">1.2.5.</span> <span class="nav-text">applications</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Programming-Assignment-1"><span class="nav-number">1.2.6.</span> <span class="nav-text">Programming Assignment 1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis-of-Algorithms"><span class="nav-number">1.3.</span> <span class="nav-text">Analysis of Algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#observations"><span class="nav-number">1.3.1.</span> <span class="nav-text">observations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mathematical-models"><span class="nav-number">1.3.2.</span> <span class="nav-text">mathematical models</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#order-of-growth-classification"><span class="nav-number">1.3.3.</span> <span class="nav-text">order-of-growth classification</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#theory-of-algorithms"><span class="nav-number">1.3.4.</span> <span class="nav-text">theory of algorithms</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#memory"><span class="nav-number">1.3.5.</span> <span class="nav-text">memory</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-2"><span class="nav-number">2.</span> <span class="nav-text">Week 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Stacks-and-Queues"><span class="nav-number">2.1.</span> <span class="nav-text">Stacks and Queues</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#stacks"><span class="nav-number">2.1.1.</span> <span class="nav-text">stacks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#resizing-arrays"><span class="nav-number">2.1.2.</span> <span class="nav-text">resizing arrays</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#queues"><span class="nav-number">2.1.3.</span> <span class="nav-text">queues</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#generics"><span class="nav-number">2.1.4.</span> <span class="nav-text">generics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iterators"><span class="nav-number">2.1.5.</span> <span class="nav-text">iterators</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#applications-1"><span class="nav-number">2.1.6.</span> <span class="nav-text">applications</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Elementary-Sorts"><span class="nav-number">2.2.</span> <span class="nav-text">Elementary Sorts</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rules-of-the-game"><span class="nav-number">2.2.1.</span> <span class="nav-text">rules of the game</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#selection-sort"><span class="nav-number">2.2.2.</span> <span class="nav-text">selection sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#insertion-sort"><span class="nav-number">2.2.3.</span> <span class="nav-text">insertion sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shellsort"><span class="nav-number">2.2.4.</span> <span class="nav-text">shellsort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shuffling"><span class="nav-number">2.2.5.</span> <span class="nav-text">shuffling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#convex-hull"><span class="nav-number">2.2.6.</span> <span class="nav-text">convex hull</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-5"><span class="nav-number">3.</span> <span class="nav-text">Week 5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Balanced-Search-Trees"><span class="nav-number">3.1.</span> <span class="nav-text">Balanced Search Trees</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-search-trees"><span class="nav-number">3.1.1.</span> <span class="nav-text">2-3 search trees</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#red-black-BSTs"><span class="nav-number">3.1.2.</span> <span class="nav-text">red-black BSTs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">3.2.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#B-trees-Bayer-McCreight-1972"><span class="nav-number">3.2.1.</span> <span class="nav-text">B-trees (Bayer-McCreight, 1972)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Geometric-Applications-of-BSTs"><span class="nav-number">3.3.</span> <span class="nav-text">Geometric Applications of BSTs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1d-range-search"><span class="nav-number">3.3.1.</span> <span class="nav-text">1d range search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#line-segment-intersection"><span class="nav-number">3.3.2.</span> <span class="nav-text">line segment intersection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kd-trees"><span class="nav-number">3.3.3.</span> <span class="nav-text">kd trees</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#interval-search-trees"><span class="nav-number">3.3.4.</span> <span class="nav-text">interval search trees</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rectangle-intersection"><span class="nav-number">3.3.5.</span> <span class="nav-text">rectangle intersection</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
