@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="操作系统精髓与设计原理笔记计算机系统概述顶层看，计算机由处理器，存储器和输入/输出部件组成，每类部件有多个模块： 处理器与存储器交换数据需要用两个内部寄存器：存储器地址寄存器MAR，确定下一次读写的存储器地址，存储器缓冲寄存器MBR存放要写入存储器的数据或从存储器中总读取的数据。同理，输入输出地址寄存器确定一个特定的输入输出设备，输入输出缓冲寄存器存放要写入或写出的数据，数据交换通过系统总线来实现">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Qingliu">
+<meta property="og:url" content="http://yoursite.com/2018/11/13/操作系统精髓与设计原理笔记/index.html">
+<meta property="og:site_name" content="Qingliu">
+<meta property="og:description" content="操作系统精髓与设计原理笔记计算机系统概述顶层看，计算机由处理器，存储器和输入/输出部件组成，每类部件有多个模块： 处理器与存储器交换数据需要用两个内部寄存器：存储器地址寄存器MAR，确定下一次读写的存储器地址，存储器缓冲寄存器MBR存放要写入存储器的数据或从存储器中总读取的数据。同理，输入输出地址寄存器确定一个特定的输入输出设备，输入输出缓冲寄存器存放要写入或写出的数据，数据交换通过系统总线来实现">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-13T16:26:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Qingliu">
+<meta name="twitter:description" content="操作系统精髓与设计原理笔记计算机系统概述顶层看，计算机由处理器，存储器和输入/输出部件组成，每类部件有多个模块： 处理器与存储器交换数据需要用两个内部寄存器：存储器地址寄存器MAR，确定下一次读写的存储器地址，存储器缓冲寄存器MBR存放要写入存储器的数据或从存储器中总读取的数据。同理，输入输出地址寄存器确定一个特定的输入输出设备，输入输出缓冲寄存器存放要写入或写出的数据，数据交换通过系统总线来实现">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/13/操作系统精髓与设计原理笔记/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title> | Qingliu</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+<a href="https://github.com/Aden-Q" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Qingliu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/13/操作系统精髓与设计原理笔记/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qingliu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qingliu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-11-13 10:26:46" itemprop="dateCreated datePublished" datetime="2018-11-13T10:26:46-06:00">2018-11-13</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/11/13/操作系统精髓与设计原理笔记/" class="leancloud_visitors" data-flag-title="">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views: </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="操作系统精髓与设计原理笔记"><a href="#操作系统精髓与设计原理笔记" class="headerlink" title="操作系统精髓与设计原理笔记"></a>操作系统精髓与设计原理笔记</h1><h2 id="计算机系统概述"><a href="#计算机系统概述" class="headerlink" title="计算机系统概述"></a>计算机系统概述</h2><p>顶层看，计算机由处理器，存储器和输入/输出部件组成，每类部件有多个模块：</p>
+<p>处理器与存储器交换数据需要用两个内部寄存器：存储器地址寄存器MAR，确定下一次读写的存储器地址，存储器缓冲寄存器MBR存放要写入存储器的数据或从存储器中总读取的数据。同理，输入输出地址寄存器确定一个特定的输入输出设备，输入输出缓冲寄存器存放要写入或写出的数据，数据交换通过系统总线来实现。</p>
+<h3 id="处理器寄存器"><a href="#处理器寄存器" class="headerlink" title="处理器寄存器"></a>处理器寄存器</h3><p>分为用户可见寄存器和控制和状态寄存器。</p>
+<p>用户可见寄存器分为数据寄存器和地址寄存器，数据寄存器也存在一些限制，比如浮点数运算使用专用的寄存器，而整数运算使用其他寄存器</p>
+<p>地址寄存器存放数据和指令的内存地址或者存放用于计算完整地址或有效地址的部分地址。例如变址寄存器，变址寻址是常用的寻址方式，它通过给基值加一个索引来获得有效地址。</p>
+<p>段指针，对于分段寻址方式，存储器被划分为段，一个存储器引用由一个特定段号和段内的偏移量组成</p>
+<p>栈指针：对用户可见的栈进行寻址，则需要一个专门的寄存器指向栈顶</p>
+<p>控制和状态寄存器：程序计数器PC，包含将取指令的地址，指令寄存器（IR），包含最近取的指令内容，还包括一个或一组寄存器，通常称为程序状态字，包含状态信息，PSW通常包含条件码和其他状态信息，如中断允许/禁止位和内核/用户态</p>
+<p>条件码：如算术运算后，会设置一个条件码，可以作为条件分支运算的一部分被测试</p>
+<p>指令的执行：一个单一的指令需要的处理称为一个指令周期。两个步骤分别称为取指阶段和执行阶段。在指令周期开始时，处理器从存储器取一条指令，程序计数器PC保存下一次要取的指令地址，取到的指令被放到指令寄存器中，处理器解释并执行相应的操作。操作分为：</p>
+<p>处理器-存储器：数据可以从处理器传送到存储器，或者从存储器传送到处理器</p>
+<p>处理器-I/O：处理器和I/O模块之间的数据传送，数据可以输出到外部设备，或者从外部设备输入数据</p>
+<p>数据处理：处理器可以执行很多与数据处理相关的算术操作或逻辑操作</p>
+<p>控制：指令转移等</p>
+<p>指令I/O操作，可以直接与处理器交换数据。处理器还允许I/O模块直接与内存发生数据交换，I/O模块对存储器发出读命令或写命令，免去处理器负责数据交换的任务。这个操作称为直接内存存取DMA。</p>
+<h3 id="中断"><a href="#中断" class="headerlink" title="中断"></a>中断</h3><p>所有计算机都提供了允许其他米快（I/O，存储器）中断处理器正常处理过程的机制</p>
+<p>分类：</p>
+<p>程序中断：指令执行的结果，如除法溢出，非法访问等</p>
+<p>时钟中断：处理器内部计时器产生</p>
+<p>I/O中断：I/O控制器产生</p>
+<p>硬件故障中断：如掉电和存储器奇偶错误</p>
+<p>利用中断功能，处理器可以在I/O操作的执行过程中执行其他命令</p>
+<p>用户程序不需要管中断，处理器和操作系统负责挂起用户程序，然后再同一个地方恢复执行</p>
+<p>指令周期：在允许中断的情况下，处理器会检查中断信号，如果有，则挂起当前程序的执行，由中断处理程序去处理中断，这个程序是操作系统的一部分，当中断处理程序完成后，处理器在中断点恢复对用户程序的执行。</p>
+<p>中断处理程序需要执行额外的指令确定中断的性质</p>
+<p>中断处理的事件：包括处理器硬件中的事件和软件事件</p>
+<p>硬件包括：设备控制器或其他系统硬件产生一个中断，处理器结束当前指令的执行，处理器发送中断应答信号，处理器将PSW和PC压入控制栈，根据中断，处理器重新加载新的PC值，然后到软件部分，保存剩余的状态信息，中断处理程序处理中断，处理完后恢复处理状态信息，恢复老PSW和PC值</p>
+<p>多个中断：一个程序可能从一条通信线中接收数据并打印结果</p>
+<p>处理中断有两种方法：一是正在处理一个中断时，禁止再发生中断，意思是处理器对任何新的中断请求信号不予理睬。如果期间发生了中断，通常中断保持挂起，再次允许中断时，处理器再检查。这种方法的缺点是不考虑优先级</p>
+<p>第二种方法是定义中断优先级，允许高优先级的中断打断低优先级的中断处理程序的运行，是一种嵌套中断的方式</p>
+<p>多道程序设计：对于单道程序而言，如果完成I/O操作的时间远远大于I/O调用期间用户代码的执行时间，则在大部分时间处理器是空闲的，解决这个问题的方法是允许多道用户程序同时处于活动状态。</p>
+<h3 id="存储器层次结构"><a href="#存储器层次结构" class="headerlink" title="存储器层次结构"></a>存储器层次结构</h3><p>存储器的设计目标可以归纳为：多大的容量，多快的速度，多贵的价格，trade-off</p>
+<p>问题：</p>
+<p>存取时间越快，每一个位的价格越高</p>
+<p>容量越大，每一个位的价格越低</p>
+<p>容量越大，存取速度越慢</p>
+<p>为了解决这些问题，存储器的层次结构被提出</p>
+<p>关键在于<strong>低层访问频率递减</strong>，也是告诉缓存和虚拟内存的关键内容</p>
+<p>这部分看不太懂，之后再细看</p>
+<h3 id="高速缓存"><a href="#高速缓存" class="headerlink" title="高速缓存"></a>高速缓存</h3><p>设计动机：处理器在取指令时至少访问一次存储器，通常要多次访问，因为涉及取数据和存数据，处理器执行指令的速度回收到存储周期的限制。理想情况下，内存的构造技术可以采用与处理器中的寄存器相同的构造技术，这样主存的存储周期才能跟得上处理器周期。但这样成本太高，解决方法是利用局部性原理，即在处理器和内存之间提供一个小容量而速度快的存储器，称作高速缓存。</p>
+<p>高速缓存的原理：</p>
+<p>高速缓存使访问速度接近现有最快的存储器，维持一个相对容量大而速度慢的内存和一个容量较小且速度较快的高速缓存，高速缓存包含一部分内存数据的副本，当处理器视图读取存储器中一个字节或字时，要检查一下它是不是在高速缓存中，如果不在，则由固定数目的字节组成一块内存数据线被读入高速缓存，然后该字节或字从高速缓存传递给处理器。注意是一块。</p>
+<p>高速缓存中有C个存储槽slot或line，每个槽有一个标签，以标识当前存储的是哪个块。标签通常是地址中较高的若干位，标识以这些位开始的所有地址。</p>
+<p>高速缓存设计的关键性问题：高速缓存大小，块大小，映射函数，替换算法，写策略</p>
+<p>块大小：当块大小从很小增加到很大时，由于局部性原理，命中率会增加，局部性原理指的是位于被访问字附近的数据在近期被访问到的概率比较大。但是，当块变得更大时，新取的数据会把原先告诉缓存中的那些块移除，反而降低命中率，所以这里也有一个trade-off</p>
+<p>当一个新块被读入高速缓存中时，由应设函数确定这个块将占据哪个高速缓存单元。映射函数的关键在于设计可以增大命中率的替换算法，其次，如果映射函数越灵活，则完成相应功能的电路设计更复杂。合理的替换策略是替换高速缓存汇总最长时间未被访问的块。叫做最近最少使用LRU算法。标识最近最少使用块需要由硬件支持。</p>
+<p>另外如果高速缓存中某个块的内容被修改，则需要在它被换出高速缓存之前把它写会内存。写策略规定何时发生存储器写操作，极端情况是每当块被更新后就发生写操作；另一种极端情况是只有当块被替换时才发生写操作。后一种策略减少了存储器写操作的次数，但是使内存处于一种过时的状态，会妨碍多处理器操作以及I/O模块的直接内存存取。</p>
+<h3 id="I-O通信技术"><a href="#I-O通信技术" class="headerlink" title="I/O通信技术"></a>I/O通信技术</h3><p>有三种：可编程I/O，中断驱动I/O，直接内存存取DMA</p>
+<p>可编程I/O：处理器在执行程序时遇到一个与I/O有关的指令时，通过给相应的I/O模块发命令来执行这个指令。I/O模块来完成，不会中断处理器，指令集：控制，状态是，传送。这种技术的问题是处理器总是处于没有用的繁忙之中。因为处理器需要时刻检查I/O模块的状态，是否完成是否就绪。</p>
+<p>中断驱动I/O：处理器给模块发送I/O命令，然后继续做其它任务，当I/O模块准备好与处理器交换数据时，它打断处理器的执行并请求服务。从I/O模块的角度来看看工作原理，对于输入操作，I/O模块从处理器中接收一个READ命令，然后开始从相关的外围设备读数据。一旦数据被读入该模块的数据寄存器，模块通过控制线给处理器发送一个中断信号，然后等待直到处理器请求该数据，当处理器发出请求后，模块把数据放到数据总线上，然后准备下一次的I/O操作。</p>
+<p>从处理器的角度看看原理：输入操作，处理器发出一个READ命令，然后保存当前程序的上下文，离开当前程序，去做其它事情，在CPU时间片空闲阶段检查中断，当发生来自I/O模块的中断时，处理器保存上下文并执行中断操作</p>
+<p>中断驱动比可编程更加高效</p>
+<p>直接内存存取：中断驱动中处理器需要主动干预在存储器和I/O模块之间的数据传送，并且任何数据传送都必须完全通过处理器。当发生大量的数据移动时，需要用一种更有效的技术：直接内存存取DMA，当处理器要读或写一块数据时，它给DMA模块产生一条命令，然后自己管自己干别的事，DMA模块负责处理I/O，完成后，DMA发一个中断信号给处理器，只有在开始和结束的时候处理器才参与</p>
+<h2 id="操作系统概述"><a href="#操作系统概述" class="headerlink" title="操作系统概述"></a>操作系统概述</h2><p>操作系统由一开始的批处理系统演变成高级的多任务，多用户系统</p>
+<p>实现用户与操作系统之间的接口，操作系统需要提供一些系统程序，其中一部分称作实用工具</p>
+<p>早期串行处理计算机：调度和准备时间的问题，计算机很可能长期处于闲置状态</p>
+<p>简单批处理系统：简单批处理的中心思想是用一个监控程序软件，通过这类操作系统，用户不再直接访问机器，用户把卡片或磁带中的作业提供给计算机操作员，由他把这些任务组成一批，将整个批放在输入设备上供监控程序使用。监控程序来完成调度。</p>
+<p>多个程序（进程）之间的切换是多道程序设计的模式（multiprogramming）或多任务处理（multitasking），也是现代操作系统的主要方案</p>
+<p>多道批处理系统必须依赖某些计算机硬件功能，对多道程序设计有用的最显著的辅助功能是支持I/O中断和直接存储器访问DMA的硬件，处理器可以发出一个I/O指令，指挥设备控制器进行I/O操作，当设备控制器在执行I/O操作时，处理器可以干别的事情。当I/O完成时，处理器被中断，控制权移交给中断处理程序，然后操作系统把控制权交给另一个作业。</p>
+<p>多道程序需要保留在内存中，所以需要内存管理</p>
+<p>如果多个作业都要运行，那么需要调度算法</p>
+<p>多个用户分享处理器时间，因而该技术成为分时，多个用户可以通过终端同时访问系统，由操作系统控制每个用户程序以很短的时间为单位交替执行，批处理和分时都用到了多道程序设计，主要区别在于批处理多道程序设计充分利用处理器，分时的目标是减少相应时间</p>
+<p>进程：</p>
+<p>多种定义，比如：一个正在执行的程序。计算机中正在运行的程序的一个实例。可以分配给处理器并由处理器执行的一个实体。由单一的顺序的执行线程，一个当前状态和一组相关的系统资源所描述的活动单元。</p>
+<p>计算机系统发展的三条主线：多道批处理操作、分时和实时事物系统，它们在时间安排和同步中所产生的问题推动了进程概念的发展。</p>
+<p>错误：</p>
+<ul>
+<li>不正确的同步：常常会出现一个进程必须挂起，等待系统中其他地方某一事件。不正确的信号机制可能会导致信号丢失或收到重复信号</li>
+<li>失败的互斥：常常有多个用户或程序试图同时使用一个共享资源的情况。必须有某种互斥机制，以保证一次只允许一个例程进行处理。如果互斥机制设计不好就会出问题</li>
+<li>不确定的程序操作：程序调度顺序可能会影响某个特定程序的输出</li>
+<li>死锁：两个或多个程序互相挂起等待</li>
+</ul>
+<p>内存管理：</p>
+<p>如果处理器在很多进程间切换，很难把它们紧密压入内存中，因此引进了分页系统。在分页系统中，进程由许多固定大小的块组成，这些块称做页。程序通过虚地址(virtual address)访问字，虚地址由页号和页中偏移量组成。进程每一页可以放在内存中任何地方，分页系统提供了程序中使用的虚地址和内存中的实地址或物理地址之间的动态映射。</p>
+<p>一个进程的所有页都保留在磁盘中，当进程执行时，一部分页在内存中。如果需要访问的某一页不在内存中，存储管理硬件可以检测到，然后安排载入这个缺页。这个配置称为虚拟内存。</p>
+<p>虚拟存储器方案中的寻址方式：存储器由内存和低速的辅助存储器组成。地址映射器位于处理器和内存之间。程序使用虚地址访问，虚地址将映射成真实的内存地址，如果访问的虚地址不在实际内存中，实际内存的一部分会换到外存中。然后换入所需要的数据块。在过程中，产生地址访问的进程必须被挂起。</p>
+<p>调度和资源管理：</p>
+<ul>
+<li>公平性</li>
+<li>有差别的响应性：例如，一个进程正在等待使用一个IO设备，操作系统会尽可能迅速地调度这个进程，从而释放这个设备以方便其他进程使用</li>
+<li>有效性：期望获得最大吞吐量和最小的响应时间</li>
+</ul>
+<p>微软操作系统概述：</p>
+<p>1993年第一版Windows NT发布，是一个32位操作系统，具有支持老的DOS和Windows应用程序的能力。</p>
+<p>2001年发布了XP，同年发布了64位版本的XP</p>
+<p>单用户多任务：多个窗口之间可以自由切换</p>
+<p>体系结构：软件的模块化结构</p>
+<p>Windows的内核态组件：</p>
+<ul>
+<li>执行体：操作系统基础服务，例如内存管理、进程和线程管理、安全、I/O和进程间通信</li>
+<li>内核：内核是操作系统中唯一不可抢占或分页的一部分</li>
+<li>硬件抽象层HAL：将硬件相关特性抽象成API，对对称多处理SMP提供支持 </li>
+<li>设备驱动：扩展执行体</li>
+<li>窗口和图形系统：实现图形用户界面函数(GUI函数)<br>执行体API：</li>
+<li>I/O管理器</li>
+<li>高速缓存管理器</li>
+<li>对象管理器</li>
+<li>即插即用管理器</li>
+<li>电源管理器</li>
+<li>安全访问监控程序</li>
+<li>虚拟内存管理器</li>
+<li>进程/线程管理器</li>
+<li>配置管理器</li>
+<li>本地过程调用</li>
+</ul>
+<p>Unix操作系统：</p>
+<p>操作系统提供了直接和硬件交互的原子例程(primitive routine)</p>
+<p>Linux可加载模块loadable module，两个重要特性：</p>
+<ul>
+<li>动态链接：当内核已经在内存中并正在运行时，内核模块可以被加载和链接到内核。模块也可以在任何时刻被断开链接，从内存中移出</li>
+<li>可堆栈模块：当被高层模块访问时，它们作为库；当被低层模块访问时它们作为客户</li>
+</ul>
+<p>内核组件介绍：</p>
+<ul>
+<li>信号：内核通过信号通知进程</li>
+<li>系统调用：进程通过系统调用来请求系统服务</li>
+<li>进程和调度器</li>
+<li>虚拟内存</li>
+<li>文件系统</li>
+<li>网络协议</li>
+<li>字符设备驱动</li>
+<li>块设备驱动</li>
+<li>网络设备驱动</li>
+<li>陷阱和错误</li>
+<li>物理内存</li>
+<li>中断</li>
+</ul>
+<h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><p>操作系统用PCB进程控制块来管理进程，描述进程的状态和资源所有权，使操作系统进行进程控制</p>
+<p>进程的两个基本的元素是程序代码和代码相关联的数据集。在进程执行时，任意给定一个时间，进程都可以唯一地表征为以下元素：</p>
+<ul>
+<li>标识符：跟进程相关的唯一标识符</li>
+<li>状态</li>
+<li>优先级</li>
+<li>程序计数器</li>
+<li>内存指针：包括程序代码和进程相关数据的指针，还有和其他进程共享内存块的指针</li>
+<li>上下文数据：进程执行时处理器的寄存器中的数据</li>
+<li>I/O状态信息：显式I/O请求、分配给进程的I/O设备和被进程使用的文件列表等</li>
+<li>记账信息：处理器时间总和、使用的时钟数总和、时间限制、记账号等</li>
+</ul>
+<p>前述列表信息存放在PCB中，PCB由操作系统创建和管理，PCB是操作系统能够支持多进程和提供多处理的关键之一。</p>
+<p>当操作系统为另一个进程的显式请求创建一个进程时，这个动作称为进程派生</p>
+<p>五状态模型：</p>
+<ul>
+<li>运行态：该进程正在执行</li>
+<li>就绪态：进程做好了准备，只要有机会既可以开始执行</li>
+<li>阻塞/等待态：进程在某些事件发生前不能执行，如I/O操作完成</li>
+<li>新建态：刚刚出创建的进程</li>
+<li>退出态：操作系统从可执行进程组中释放出的进程</li>
+</ul>
+<p>进程状态转换：</p>
+<ul>
+<li>空-&gt;新建：创建执行一个程序的新进程</li>
+<li>新建-&gt;就绪</li>
+<li>就绪-&gt;运行：需要选择一个新进程运行时，操作系统选择一个处于就绪态的进程</li>
+<li>运行-&gt;退出：如果当前正在运行的进程表示自己已经完成或取消，则它被操作系统终止</li>
+<li>运行-&gt;就绪：CPU重新调度</li>
+<li>运行-&gt;阻塞：如果进程请求它必须等待的某些事件，则进入阻塞态</li>
+<li>阻塞-&gt;就绪：当所等待的事件发生后，处于阻塞态的进程转换到就绪态</li>
+<li>就绪-&gt;退出：父进程终止子进程</li>
+<li>阻塞-&gt;退出</li>
+</ul>
+<p>大型操作系统阻塞队列中的进程数会非常多，常见的做法是一个事件对应一个阻塞队列，这样此事件发生时就将该事件阻塞队列中的事件全部划到就绪队列中</p>
+<p>进程控制结构：属性的集合称为进程控制块PCB。程序、数据、栈和属性的集合称做进程映像。</p>
+<p>进程映像保存在外存中，如果操作系统要管理进程，其进程映像至少要有一部分位于内存中，为执行进程，整个进程映像必须载入内存中或至少载入虚拟内存中。</p>
+<p>进程属性：可以把进程控制块信息分成三类：</p>
+<ul>
+<li>进程标识信息</li>
+<li>处理器状态信息</li>
+<li>进程控制信息</li>
+</ul>
+<p>其他则是一些零零碎碎的知识点，非通用，比如Unix进程描述</p>
+<h2 id="线程、SMP和微内核"><a href="#线程、SMP和微内核" class="headerlink" title="线程、SMP和微内核"></a>线程、SMP和微内核</h2><p>关于进程，有两个独立概念：资源所有权和执行权。导致了线程的出现。</p>
+<p>操作系统分派单位称为线程或轻量级进程(LWP,Light Weight Process)，拥有资源所有权的单位通常仍称做进程或任务。</p>
+<p>单线程进程模型包括：进程控制块PCB，用户栈，用户地址空间，内核栈</p>
+<p>多线程进程模型包括：进程控制块PCB，用户地址空间，线程包括：线程控制块，用户栈和内核栈</p>
+<p>线程的优点有：</p>
+<ul>
+<li>在一个已有进程中创建一个新线程比创建一个新进程耗时少</li>
+<li>终止一个线程比终止一个进程花费时间少</li>
+<li>同一进程内线程间切换比进程间切换花费时间少</li>
+<li>线程提高了不同的执行程序间通信的效率</li>
+</ul>
+<p>使用用户级线程而不是内核级线程的优点：</p>
+<ul>
+<li>线程管理数据结构都在一个进程的用户栈地址空间中(应该大于用户栈概念吧)，线程切换不需要内核态特权，节省了状态转换的开销</li>
+<li>调度可以是应用程序相关的，可以让应用程序来调度管理，不同的应用程序可以自主选择不同的调度算法，不过缺点就是不懂OS的人编不好多线程的应用程序了</li>
+<li>兼容性好，内核无关</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>一个线程阻塞和引起整个进程都阻塞</li>
+<li>不能算真正的多线程，只是应用程序级别的多线程而已，因为上层进程还是只能指派给一个处理器</li>
+</ul>
+<p>某些操作系统组合用户级线程和内核级线程来实现，线程调度和同步在应用程序用户态下完成，这样节省了模式切换的额外开支，然后把用户级线程映射到内核级线程，从而能指派给多个处理器，实现内核级别的多线程，达到整体最佳。</p>
+<h2 id="并发性：互斥和同步"><a href="#并发性：互斥和同步" class="headerlink" title="并发性：互斥和同步"></a>并发性：互斥和同步</h2><p>不论是单处理器多道程序设计技术还是多处理技术亦或是分布式系统，都需要解决并发的问题：</p>
+<ul>
+<li>全局资源的共享充满了危险：如果两个进程都使用同一个全局变量，不同的读写顺序可能会影响最后结果</li>
+<li>操作系统难以对资源进行最优分配：死锁</li>
+<li>定位程序设计错误困难</li>
+</ul>
+<p>共享内存区的问题：在单处理器系统的情况下，出现问题的原因是中断可能会在进程中任何地方停止指令的执行；在多处理器系统的情况下，当两个进程同时执行并试图访问同一个全局变量时，也会引发问题。这两类问题的解决方案是相同的：控制对共享资源的访问</p>
+<p>操作系统关注的问题：</p>
+<ul>
+<li>处操作系统必须能够记住各个活跃进程</li>
+<li>操作系统必须为每个活跃进程分配和释放各种资源，资源包括：处理器时间，存储器，文件，I/O设备</li>
+<li>操作系统必须保护每个进程的数据和物理资源，避免其他进程的无意干涉</li>
+<li>一个进程的功能和输出结果必须与执行速度无关</li>
+</ul>
+<p>进程交互：</p>
+<p>进程之间互相了解的程度不同，可以是完全不知道对方的存在，可以通过共享数据来合作，可以直接知道彼此的存在</p>
+<p>进程间的资源竞争会引发是哪个问题，一个是如何互斥，一个是死锁，一个是饥饿</p>
+<p>互斥条件：</p>
+<ul>
+<li>必须强制互斥，在与相同资源或共享对象的临界区有关的所有进程中，一次只允许一个进程进入临界区</li>
+<li>一个在非临界区停止的进程不能干涉其他进程</li>
+<li>绝不允许出现需要访问临界区的进程被无限延迟的情况。即不会产生死锁或饥饿</li>
+<li>当没有进程在临界区时，任何需要进入临界区的进程必须能够立即进入</li>
+<li>对相关进程的执行速度和处理器数目没有任何要求和限制</li>
+<li>一个进程驻留在临界区中的时间必须是有限的</li>
+</ul>
+<p>互斥的硬件支持：</p>
+<p>在单处理器机器中，并发进程是交替执行的，不能重叠，也就是多道程序，一个进程将一直运行直到发生系统调用或被中断，所以要保证互斥，只要保证一个进程不被中断就行了。策略是在进程进入临界区之间禁用中断，在离开临界区后启用中断。多处理器的机器中这种方法会失效。</p>
+<p>在硬件级别上，处理器设计者弄了一些机器指令来保证一些动作的原子性，如在一个取指周期对一个存储器单元的读或者读和测试，在该指令执行过程中，其他指令访问内存将被阻止</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/30/卷积神经网络编程作业/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/24/正则表达式/" rel="prev" title="正则表达式">
+                正则表达式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Qingliu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">0</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#操作系统精髓与设计原理笔记"><span class="nav-number">1.</span> <span class="nav-text">操作系统精髓与设计原理笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机系统概述"><span class="nav-number">1.1.</span> <span class="nav-text">计算机系统概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#处理器寄存器"><span class="nav-number">1.1.1.</span> <span class="nav-text">处理器寄存器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中断"><span class="nav-number">1.1.2.</span> <span class="nav-text">中断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储器层次结构"><span class="nav-number">1.1.3.</span> <span class="nav-text">存储器层次结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高速缓存"><span class="nav-number">1.1.4.</span> <span class="nav-text">高速缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#I-O通信技术"><span class="nav-number">1.1.5.</span> <span class="nav-text">I/O通信技术</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统概述"><span class="nav-number">1.2.</span> <span class="nav-text">操作系统概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程"><span class="nav-number">1.3.</span> <span class="nav-text">进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程、SMP和微内核"><span class="nav-number">1.4.</span> <span class="nav-text">线程、SMP和微内核</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并发性：互斥和同步"><span class="nav-number">1.5.</span> <span class="nav-text">并发性：互斥和同步</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qingliu</span>
+
+  
+
+  
+</div>
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+    Number of visitors: <span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+<!--
+<span class="post-meta-divider">|</span>
+
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v6.5.0</div>
+
+
+
+-->
+
+<span class="post-meta-divider">|</span>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">Total 59.5k words</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "rVxfKyGhtqSYeEiEg7aA7yJ2-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "rVxfKyGhtqSYeEiEg7aA7yJ2-gzGzoHsz",
+                'X-LC-Key': "M8A7XnaWbrt9p9K4cEY2gqJ7",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
