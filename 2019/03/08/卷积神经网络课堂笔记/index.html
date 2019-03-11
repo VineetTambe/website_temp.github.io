@@ -108,24 +108,25 @@
 
 
 
-  <meta name="description" content="操作系统实验笔记同步互斥和Linux内核模块涉及知识点：系统调用，pthread线程库，共享变量，原子操作，进程和线程，同步与互斥，多线程，内核模块 内核模块是在内核空间运行的，而应用程序运行在用户空间，内核空间和用户空间是操作系统重要的两个概念 内核符号表：存放所有模块可以访问的那些符号以及相应地址的特殊的表，模块的连接就是将模块插入内核的过程，模块声明的任何全局符号都成为内核符号表的一部分。内">
+  <meta name="description" content="Convolutional Neural Network, Course Notes">
+<meta name="keywords" content="Programming">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Qingliu">
-<meta property="og:url" content="http://yoursite.com/2018/12/03/操作系统实验笔记/index.html">
+<meta property="og:title" content="Convolutional Neural Network, Course Notes">
+<meta property="og:url" content="http://yoursite.com/2019/03/08/卷积神经网络课堂笔记/index.html">
 <meta property="og:site_name" content="Qingliu">
-<meta property="og:description" content="操作系统实验笔记同步互斥和Linux内核模块涉及知识点：系统调用，pthread线程库，共享变量，原子操作，进程和线程，同步与互斥，多线程，内核模块 内核模块是在内核空间运行的，而应用程序运行在用户空间，内核空间和用户空间是操作系统重要的两个概念 内核符号表：存放所有模块可以访问的那些符号以及相应地址的特殊的表，模块的连接就是将模块插入内核的过程，模块声明的任何全局符号都成为内核符号表的一部分。内">
+<meta property="og:description" content="Convolutional Neural Network, Course Notes">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-03T12:41:13.000Z">
+<meta property="og:updated_time" content="2019-03-11T03:16:26.292Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Qingliu">
-<meta name="twitter:description" content="操作系统实验笔记同步互斥和Linux内核模块涉及知识点：系统调用，pthread线程库，共享变量，原子操作，进程和线程，同步与互斥，多线程，内核模块 内核模块是在内核空间运行的，而应用程序运行在用户空间，内核空间和用户空间是操作系统重要的两个概念 内核符号表：存放所有模块可以访问的那些符号以及相应地址的特殊的表，模块的连接就是将模块插入内核的过程，模块声明的任何全局符号都成为内核符号表的一部分。内">
+<meta name="twitter:title" content="Convolutional Neural Network, Course Notes">
+<meta name="twitter:description" content="Convolutional Neural Network, Course Notes">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/12/03/操作系统实验笔记/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/08/卷积神经网络课堂笔记/">
 
 
 
@@ -135,7 +136,7 @@
   };
 </script>
 
-  <title> | Qingliu</title>
+  <title>Convolutional Neural Network, Course Notes | Qingliu</title>
   
 
 
@@ -382,7 +383,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/03/操作系统实验笔记/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/卷积神经网络课堂笔记/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Qingliu">
@@ -399,7 +400,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">Convolutional Neural Network, Course Notes
               
             
           </h1>
@@ -424,9 +425,25 @@
                 
               
 
-              <time title="Created: 2018-12-03 06:41:13" itemprop="dateCreated datePublished" datetime="2018-12-03T06:41:13-06:00">2018-12-03</time>
+              <time title="Created: 2019-03-08 14:06:34" itemprop="dateCreated datePublished" datetime="2019-03-08T14:06:34-06:00">2019-03-08</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-03-10 22:16:26" itemprop="dateModified" datetime="2019-03-10T22:16:26-05:00">2019-03-10</time>
+              
             
           </span>
 
@@ -438,7 +455,7 @@
 
           
           
-             <span id="/2018/12/03/操作系统实验笔记/" class="leancloud_visitors" data-flag-title="">
+             <span id="/2019/03/08/卷积神经网络课堂笔记/" class="leancloud_visitors" data-flag-title="Convolutional Neural Network, Course Notes">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -470,160 +487,215 @@
       
 
       
-        <h1 id="操作系统实验笔记"><a href="#操作系统实验笔记" class="headerlink" title="操作系统实验笔记"></a>操作系统实验笔记</h1><h2 id="同步互斥和Linux内核模块"><a href="#同步互斥和Linux内核模块" class="headerlink" title="同步互斥和Linux内核模块"></a>同步互斥和Linux内核模块</h2><p>涉及知识点：系统调用，pthread线程库，共享变量，原子操作，进程和线程，同步与互斥，多线程，内核模块</p>
-<p>内核模块是在内核空间运行的，而应用程序运行在用户空间，内核空间和用户空间是操作系统重要的两个概念</p>
-<p>内核符号表：存放所有模块可以访问的那些符号以及相应地址的特殊的表，模块的连接就是将模块插入内核的过程，模块声明的任何全局符号都成为内核符号表的一部分。内核符号表根据系统符号表从内核空间中获取符号的地址，可以从/proc/kallsytms中以文本方式读取，数据格式为：</p>
-<p>内存地址 属性 符号名称 所属模块</p>
-<p>模块依赖</p>
-<p>ksyms命令可以显示内核和模块符号表的信息，可以读/proc/kallsyms文件</p>
-<p>Linux为了便于管理管理，用task_struct结构来表示一个进程，每个进程都有自己独立的task_struct。包含这个进程的所有资源。</p>
-<p>task_struct与内核栈：</p>
-<p>task_struct和内核栈放在同一个4K空间中</p>
-<p>状态转换：</p>
-<p>volatile long state</p>
-<p>long exit_state</p>
-<p>前者表示进程的可运行性，后者表示进程退出时的状态</p>
-<p>kernel thread：</p>
-<p>用内核模块编程创建一个kernel thread，这个内核线程定时统计当前系统中进程的状态，然后通过printk打印出来</p>
-<h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><p>系统调用是内核提供的，功能强大的一系列函数。他们在内核中实现，并通过一定的方式呈现给用户，是用户和内核交互的一个接口</p>
-<p>user mode和kernel mode，处于user mode的用户态程序只有通过中断门gate陷入trap到系统内核中去，才能执行一些具有特权的内核函数</p>
-<p>Intel CPU提供了实模式、保护模式，这是硬件层面上的概念，实模式只能进行20位寻址，只能访问1M内存空间，电脑刚启动的时候就是处于这种模式，所以才需要什么grub引导，另一种模式是保护模式，保护模式又分为4个特权态，其中我们所说的软件层面的用户态和内核态就是其中的两个特权态，内核态和用户态分别适用自己的堆栈。模式切换一般应该指的是用户态和内核态的切换。</p>
-<p>虚存机制的存在提供了进程隔离和地址映射，每个进程的虚拟地址空间又可以分为用户空间和内核空间，在用户态下只能访问用户空间，在内核态下既能访问用户空间又能访问内核空间。因为只有一个运行的内核，所有进程的内核空间都映射到单一内核地址空间，在内核态下，进程可以访问到其他进程的地址空间</p>
-<p>上下文就是一个环境，对进程而言，就是各个变量和数据、所有的寄存器变量、进程打开的文件、内存信息等，上下文可以分为： </p>
-<ul>
-<li>用户级上下文：正文、数据、用户栈以及共享存储区</li>
-<li>寄存器上下文：通用寄存器、程序寄存器IP、状态寄存器、栈指针</li>
-<li>系统级上下文：进程控制块task_struct、内存管理信息、内核栈等</li>
-</ul>
-<p>模式切换相比于进程切换要容易和省时得多</p>
-<p>段页机制：两级地址转换，段地址偏移地址，逻辑地址、线性地址和物理地址，普通应用程序面对的只是逻辑地址，其他地址转换全由操作系统和硬件接管</p>
-<p>逻辑地址转换为线性地址：选择子选择描述符，描述符描述了一个特定的段，然后再在此段基址上加上偏移量换算成32位线性地址</p>
-<p>线性地址转换为物理地址：在分页机制中完成，i386机器采用两级分页，它在物理地址上的页帧和线性地址上的页面建立一一映射，线性地址被分为三部分：前两部分每部分10位分别作为页目录和页表的索引，最后一个部分12位寻址4K空间作为一个页帧内的索引。</p>
-<p>系统调用表保存着所有系统调用的函数指针，以便进行索引调用</p>
-<p>系统调用是一类特殊的中断，属于软中断，系统调用对应着中断向量表中的一项，也就是说中断的概念还要牛逼</p>
-<p>一刷原理部分没有看懂，后面的实践模块也就没有进行下去，需要再去学些东西才行，汇编源码那部分有点难理解，关于堆栈切换，寄存器那块</p>
-<h2 id="进程创建"><a href="#进程创建" class="headerlink" title="进程创建"></a>进程创建</h2><p>进程、线程原理+三个实验</p>
-<p>操作系统通过进程调度来调度每个进程，并且通过虚拟内存机制来保护每个进程自己独立的内存地址空间，这样一个进程崩溃就不会对其他进程产生影响</p>
-<p>linux内核用task_struct来描述进程</p>
-<p>task_struct有越来越臃肿的趋势，一方面，进程必须知道/控制它所拥有的所有系统资源；另一方面，内核越来越复杂，进程相关的信息也越来越多</p>
-<p>早期linux内核把内核栈和task_struct放在同一个4K页面里，这样的话，当程序在内核态下，就可以通过栈指针获取当前进程的task_struct，进程管理方便，但是可能4K页面容不下整个内核栈以及task_struct。后面的内核试图增大这部分空间，把这部分空间从4K增加到8K，也就是从原来的一个页面增加到了两个页面，以及把原本task_struct的位置替换为thread_info，而把指向task_struct的指针存放到这个thread_info里面</p>
-<p>进程状态转化：<code>volatile long state</code>以及<code>long exit_state</code>，分别表示进程的可运行性以及进程退出时候的状态，linux为其定义了一系列的宏：</p>
-<ul>
-<li>TASK_RUNNING: 正占用CPU的进程或在RUNNING队列中的进程，只有处于该状态的进程才能参与实际调度</li>
-<li>TASK_INTERRUPTIBLE: 处于等待资源状态的进程，允许被中断</li>
-<li>TASK_UNINTERRUPTIBLE: 处于等待资源状态的进程，不允许被中断</li>
-<li>TASK_STOPPED: 进程被暂停，收到某些信号后会进入该状态</li>
-<li>TASK_TRACED: 进程被跟踪，调试的时候</li>
-<li>TASK_ZOMBIE: 正在终止的进程，是进程结束运行前的一个过渡状态，此时已经释放了内存、文件等资源，但是在内核中仍然保留一些这个进程的数据结构(比如task_struct)等待父进程回收</li>
-<li>EXIT_DEAD: 进程消亡前的最后一个状态</li>
-<li>TASK_NONINTERACTIVE: 表示是非交互式进程</li>
-</ul>
-<p>进程标志位：和状态位不同，标志位是为了对每个进程运行进行更细粒度的控制，即一些flags</p>
-<p>进程调度：task_struct里面定义了几种调度策略的宏，调度器根据每个进程的调度策略给予不同的优先级，进程有着动态的调度优先级</p>
-<p>进程权限，ID这部分讲了一些特殊标志位的问题</p>
-<p>进程与虚拟存储、进程的地址空间、内存分布：分页式内存管理，MMU内存管理单元完成从虚拟地址到物理地址的映射，linux系统和i386体系结构下，每个进程都有固定的4G虚拟地址空间。MMU和进程页表机制能够把虚拟地址转换为物理地址进行访问，如果虚拟地址和物理地址没有建立映射，就会触发缺页中断，然后操作系统会试图去建立一个映射，对进程来说，整个地址转换的过程都是透明的。虚拟地址的优点：</p>
-<ul>
-<li>每次进程被装载入内存的地址可能是不同的，对程序员而言，根本不需要关心这个</li>
-<li>每个进程有独自的地址空间，通过地址转换机制，可以有效地实现地址隔离和共享</li>
-</ul>
-<p>task_struct可以链接到很多属于该进程的资源，比如mm_struct, fs_struct, files_struct等，分别管理进程内存、进程使用的文件系统、进程操作的所有文件</p>
-<p>进程产生：</p>
-<p>讲了fork, clone以及内核线程、exec系统调用、exit系统调用等</p>
-<h1 id="proc文件系统"><a href="#proc文件系统" class="headerlink" title="/proc文件系统"></a>/proc文件系统</h1><p>/proc文件系统是一个虚拟文件系统，只存在于内存中，而不占用外存空间，从内核动态读取系统信息，主要有两个用途：</p>
-<ul>
-<li>只读文件，用于读取系统信息</li>
-<li>可写文件，用于向内核传递参数<br>用strings或cat可以访问/proc里面的相关文件</li>
-</ul>
-<p>/proc下很多以10进制为标题的目录，他们记录的是系统中正在运行的每个用户级进程的信息，数字表示进程号pid，/proc/self是当前进程目录的符号链接，这个目录下存放很多进程相关文件，比如/proc/self/status存放PCB信息</p>
-<p>/proc/sys目录是一个特殊的目录，它支持直接使用文件系统的写操作，向内核传递参数</p>
-<p>在内核编程/调试中，经常需要内核释放出一些状态信息给应用层</p>
-<p>在/proc文件系统中创建文件：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/proc_fs.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function">struct proc_dir_entry* <span class="title">create_proc_entry</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* name, <span class="keyword">mode_t</span> mode, struct proc_dir_entry* parent)</span></span>;</span><br></pre></td></tr></table></figure></p>
-<p>参数说明：</p>
-<ul>
-<li>name: 要创建的文件名，可以包含多级目录</li>
-<li>mode: 要创建的文件的属性</li>
-<li>parent: 这个文件的父目录</li>
-</ul>
-<p>如果只需创建一个只读文件，可以用下面这个更方便的函数:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct proc_dir_entry* <span class="title">create_proc_read_entry</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* name,</span></span></span><br><span class="line"><span class="function"><span class="params">	<span class="keyword">mode_t</span> mode,</span></span></span><br><span class="line"><span class="function"><span class="params">    struct proc_dir_entry* parent,</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">read_proc_t</span>* read_proc,</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">void</span>* data</span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br></pre></td></tr></table></figure></p>
-<p>参数说明：</p>
-<ul>
-<li>name: 要创建的文件名</li>
-<li>mode: 要创建的文件属性</li>
-<li>parent: 这个文件的父目录</li>
-<li>read_proc: 当用户读这个proc文件的时候，内核调用的函数</li>
-</ul>
-<p>这个函数和前面的区别是在调用之后会给文件挂接上read_proc函数，而前面的函数没有挂接，要手动挂接读写函数</p>
-<p>创建符号链接：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct proc_dir_entry* <span class="title">proc_symlink</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* name,</span></span></span><br><span class="line"><span class="function"><span class="params">	struct proc_dir_entry* parent,</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">const</span> <span class="keyword">char</span>* dest</span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br></pre></td></tr></table></figure></p>
-<p>参数说明：</p>
-<ul>
-<li>name: 要创建的文件名</li>
-<li>parent: 这个文件的父目录</li>
-<li>dest: 符号链接的目标文件</li>
-</ul>
-<p>可以把这个函数理解为<code>ln -s dest parent/name</code></p>
-<p>创建目录：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct proc_dir_entry* <span class="title">proc_mkdir</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* name,</span></span></span><br><span class="line"><span class="function"><span class="params">	struct proc_dir_entry* parent</span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br></pre></td></tr></table></figure></p>
-<p>参数说明：</p>
-<ul>
-<li>name: 要创建的文件名</li>
-<li>parent: 这个目录的父目录</li>
-</ul>
-<p>删除文件或目录<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">remove_proc_entry</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* name,</span></span></span><br><span class="line"><span class="function"><span class="params">	struct proc_dir_entry* parent</span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br></pre></td></tr></table></figure></p>
-<p>参数说明：</p>
-<ul>
-<li>name: 要删除的文件或目录名</li>
-<li>parent: 所在的父目录</li>
-</ul>
-<p>需要注意的是该函数不会递归删除目录，然后内存需要手动释放</p>
-<p>读写回调：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">proc_dir_entry</span>* <span class="title">entry</span>;</span></span><br><span class="line"></span><br><span class="line">entry-&gt;read_proc = read_proc_foo;</span><br><span class="line">entry-&gt;write_proc = write_proc_foo;</span><br></pre></td></tr></table></figure>
-<p>实现读写函数的原型并注册回调即可，具体细节见本章第一个实验</p>
-<p>后面的一些比如用seq_file编程接口、/proc文件系统的操作实验等感觉都比较高阶了，以后再来细学，现在是把基础的部分学完了</p>
-<h2 id="内核模块"><a href="#内核模块" class="headerlink" title="内核模块"></a>内核模块</h2><p>内核模块操作工具：<code>lsmod</code>,<code>insmod</code>,<code>rmmod</code></p>
-<p>模块是在内核空间上运行的程序，实际上是一种目标对象文件，没有链接，不能独立运行，但是其代码可以在运行时链接到系统中作为内核的一部分运行或从内核中取下，从而可以动态扩充内核的功能。模块机制的完整叫法是动态可加载内核模块(Loadable Kernel Module)或LKM。</p>
-<p>内核模块的优点：</p>
-<ul>
-<li>使得内核更加紧凑和灵活</li>
-<li>修改内核时，不必全部重新编译整个内核，可节省不少时间，避免人工操作的错误。系统中如果需要使用新模块，只要编译响应模块然后使用特定用户空间的程序将模块装入即可</li>
-<li>模块可以不依赖于某个固定的硬件平台</li>
-<li>模块的目标代码一旦被链接到内核，它的作用和静态链接的内核目标代码完全等价</li>
-</ul>
-<p>内核模块带来的问题：</p>
-<ul>
-<li>由于内核所占用的内存是不会被换出的，所以链接进内核的模块会给整个系统带来一定的性能和内存利用方面的损失</li>
-<li>装入内核的模块就称为了内核的一部分，可以修改内核中的其他部分，因此模块的使用不当会导致系统崩溃</li>
-<li>为了让内核模块能访问所有内核资源，内核必须维护符号表，并在装入和卸载模块时修改符号表</li>
-<li>模块会要求利用其他模块的功能，所以，内核要维护模块之间的依赖性</li>
-</ul>
-<p>模块和内核处于同类的地址空间，所以模块编程和内核编程其实是等同的</p>
-<p>在实现模块程序的时候有几个注意点：</p>
-<ul>
-<li><code>#define MODULE</code> 声明是一个模块</li>
-<li><code>int init_module(void)</code> 向内核模块注册模块所提供的功能，内核符号表</li>
-<li><code>void cleanup_module(void)</code> 注销所有由模块提供的功能</li>
-</ul>
-<p>内核模块和应用程序的比价：</p>
-<p>为了保护内核不受应用程序干扰，多用户操作系统都实现了对硬件资源的授权访问，这种授权访问机制得益于CPU内部实现不同的操作保护级别，linux使用了两级保护级别</p>
-<p>内核符号表：</p>
-<p>是公开的，可以通过<code>/proc/kallsyms</code>以文本方式读取，格式为：</p>
-<p>内存地址 属性 符号名称 所属模块</p>
-<p>内核符号表处于内核代码段的_ksymtab部分，其开始地址和结束地址是c编译器所产生的两个符号来指定：<strong>start</strong>ksymtab和<strong>stop</strong>ksymtab</p>
-<p>内核符号表的存在也引出了模块依赖的问题</p>
-<p>跟模块有关的数据结构存放在<code>include/linux/module.h</code>里面，每个模块信息都由一个模块对象描述，所有module对象由一个链表链接在一起，<code>kernel/module.c</code>里有模块相关系统调用的实现</p>
-<p>insmod所做的事：</p>
-<ol>
-<li>从命令行参数读入要链接的模块名，通常是扩展名为.ko，elf格式的文件</li>
-<li>确定模块对象代码所在位置，通常这个文件在<code>lib/modules</code>的某个子目录里</li>
-<li>计算存放模块代码、模块名和module对象所需内存大小</li>
-<li>在用户空间分配内存区</li>
-<li>调用init_module，注册模块实现功能</li>
-<li>释放用户态内存</li>
-</ol>
-<p>模块实用工具集modutils，在加载linux内核的时候就被装入了，其包含的功能有：</p>
-<ol>
-<li>lsmod: 和cat /proc/modules等价</li>
-<li>ksyms: 显示内核符号和模块符号表的信息，可以读取/proc/kallsyms文件</li>
-<li>modprobe: 自动根据模块之间的依赖性插入模块的程序</li>
-</ol>
+        <p>Convolutional Neural Network, Course Notes</p>
+<a id="more"></a>
+<h2 id="课时1-1"><a href="#课时1-1" class="headerlink" title="课时1.1"></a>课时1.1</h2><p>计算机视觉</p>
+<p>分为两个任务：</p>
+<p>Image Classification和Object Detection</p>
+<p>另外还有一个Neural Style Transfer</p>
+<p>标准全连接网络连接所有输入和神经元</p>
+<p>难以用数据的方式来解决过拟合的问题</p>
+<h2 id="课时1-2"><a href="#课时1-2" class="headerlink" title="课时1.2"></a>课时1.2</h2><p>边缘检测实例</p>
+<p>edge detection</p>
+<p>filter/kernel convolve，卷积核/过滤器</p>
+<p>用*表示卷积运算，在原图上进行element wise product，结果求和</p>
+<p>卷积后得到的图片可以理解为另一张图片</p>
+<p>python conv_forward函数。tensorflow tf.nn.conv2d</p>
+<p>Keras Conv2d</p>
+<p>后面讲了为什么卷积可以进行边缘检测</p>
+<h2 id="课时1-3"><a href="#课时1-3" class="headerlink" title="课时1.3"></a>课时1.3</h2><p>进一步讲了边缘检测</p>
+<p>区分正边和负边，亮到暗和暗到亮</p>
+<p>不同的filter可以过滤出不同的边缘</p>
+<p>有一些公认的filter：Sobel， Scharr</p>
+<p>filter里的数字也可以learn出来，当参数训练，甚至可以识别不同的角度的edges</p>
+<h2 id="课时1-4"><a href="#课时1-4" class="headerlink" title="课时1.4"></a>课时1.4</h2><p>Padding 划重点</p>
+<p>一个n*n的原图，用f*f的kernel做卷积，得到的结果是(n-f+1)*(n-f+1)</p>
+<p>不做Padding原图会缩小，因为边缘上的像素点被触碰到的概率远小于中间像素点，可能会丢失边缘信息</p>
+<p>解决方案是在做conv前做pad</p>
+<p>padding amout: p</p>
+<p>让2p-f+1为0，这样conv后图像就不会缩小了</p>
+<p>如果选择padding amount：对于Valid conv，不做padding；对于Same conv，padding到无损</p>
+<p>在conv kernel中有一个central pixel会方便-&gt;选择奇数filter</p>
+<h2 id="课时1-5"><a href="#课时1-5" class="headerlink" title="课时1.5"></a>课时1.5</h2><p>卷积步长 strided conv</p>
+<p>带卷积步长时的输入输出维度关系：</p>
+<p>n*n输入，f*f filter，padding p，stride s。得到的输出维度将会是(n+2p-f)/s+1方阵，如果商不是整数，就向下取整，这么做是限制卷积核不会移到原图之外</p>
+<p>cross -correction 和 conv：不同领域的不同叫法</p>
+<h2 id="课时1-6"><a href="#课时1-6" class="headerlink" title="课时1.6"></a>课时1.6</h2><p>如何在3D图像上做卷积</p>
+<p>在RGB图像上做卷积，假设输入是6*6*3，其中三个数字分别表示height, width和channel。卷积核也是height, width和channel，channel必须匹配</p>
+<p>这节课讲的有点慢，一点点东西讲了一整节课</p>
+<p>Multiple filters： 把最后得到的卷积图像叠加</p>
+<p>维度总结：n*n*channels的输入图像，f*f*channels的kernel，得到的是(n-f+1)*(n-f+1)的图像，用多个kernel，这样输出结果的通道数可以表征需要检测的特征数</p>
+<h2 id="课时1-7"><a href="#课时1-7" class="headerlink" title="课时1.7"></a>课时1.7</h2><p>单层卷积神经网络</p>
+<p>在卷积层实际应用的时候，也是需要增加一个偏执项</p>
+<p>Ng在这一节2:10左右又有一个地方讲错了</p>
+<p>和之前神经网络相似，卷积层也是先做线性运算，然后做激活</p>
+<p>卷积层的representation：</p>
+<p>convolutional layer</p>
+<p>$$f^{[l]}$$表示卷积核的大小filter size</p>
+<p>$$p^{[l]}$$表示padding</p>
+<p>$$s^{[l]}$$表示步幅stride</p>
+<p>$$n^{[l-1]}<em>{H} * n^{[l-1]}</em>{W} * n^{[l-1]}_{C}$$表示l-1层的高度维度，宽度维度，以及通道数，输出的通道数由filter数量来决定</p>
+<p>别的公式就不打算写了，感觉Ng一直是在炒冷饭，一个representation讲了真TM久</p>
+<p>在做batch或mini batch的时候把第一个维度改成number of samples，后面再和上面一样就行了</p>
+<h2 id="课时1-8"><a href="#课时1-8" class="headerlink" title="课时1.8"></a>课时1.8</h2><p>卷积神经网络实例</p>
+<p>深层卷积神经网络</p>
+<p>在卷积最后输出进行flatten，平滑处理成一个列向量，然后再经过最后一层输出激活进行预测</p>
+<p>设计神经网络的时候，设置参数比较麻烦</p>
+<p>一个典型的深层卷积神经网络至少有三层，一个conv层，一个pool层，一个FC层(全连接)</p>
+<h2 id="课时1-9"><a href="#课时1-9" class="headerlink" title="课时1.9"></a>课时1.9</h2><p>pooling layers</p>
+<p>max pooling，有超参数，但是没有要学习的参数</p>
+<p>之前卷积计算维度的公式同样适用于最大池化</p>
+<p>average pooling</p>
+<p>目前来说，maxpooling比average pooling更加常用</p>
+<p>很少把padding作为超参数</p>
+<h2 id="课时1-10"><a href="#课时1-10" class="headerlink" title="课时1.10"></a>课时1.10</h2><p>卷积神经网络实例</p>
+<p>在文献中有两类约定：一类是把一次conv和一次pool当做一个卷积层，另外=一类则是分别计算</p>
+<p>就是讲了一下深层卷积神经网络的整体架构，卷积，池化，全连接这些</p>
+<p>通常高度宽度维度会逐渐减小，而通道数会逐渐增加</p>
+<p>还有种卷积神经网络的架构是若干的卷积层加上一个池化层</p>
+<p>Ng说如何构建高效的网络需要看别人的文献，学习他们的做法</p>
+<h2 id="课时1-11"><a href="#课时1-11" class="headerlink" title="课时1.11"></a>课时1.11</h2><p>为什么使用卷积</p>
+<p>想象一下一张输入图片的size如果特别大，用传统方法的话需要训练的参数矩阵就会特别大，但是用卷积的话，参数只在卷积核里面，就很小了</p>
+<p>卷积核参数少的原因是：参数共享，即在图片的不同区域可以使用相同的参数，如果图片的不同部分有相似特征，那么用相同的特征检测器(conv kernel)来提取特征效果就比较好。另一个原因是稀疏连接：输出矩阵中呃某一个元素与原始图片的一小部分稀疏连接，其他部分对这个输出没有影响。</p>
+<p><strong>卷积神经网络善于捕捉平移不变</strong></p>
+<p>最后又讲了如何在实际任务中构建卷积神经网络，这TM的不是已经在上一节课里讲过了么</p>
+<p>通过本周课程学会了整个卷积神经网络的各个基本模块</p>
+<p>下周会讲卷积神经网路的实例，用来学习人家是怎么设置超参数和构建网络的</p>
+<h2 id="课时2-1"><a href="#课时2-1" class="headerlink" title="课时2.1"></a>课时2.1</h2><p>一些神经网络的实例探究</p>
+<p>LeNet-5</p>
+<p>AlexNet</p>
+<p>VGG</p>
+<p>ResNet：残差网络，Residual Network</p>
+<p>Inception Network</p>
+<h2 id="课时2-2"><a href="#课时2-2" class="headerlink" title="课时2.2"></a>课时2.2</h2><p>经典神经网络架构：LeNet-5, AlexNet, VGGNet</p>
+<p>LeNet-5: 识别手写数字。在那个年代，还没有padding和softmax，所以算是比较古老的一个神经网络模型。用的sigmoid激活和tanh，还没有用ReLU。这个网络比较神奇的一点是在做pooling之后还做了非线性激活</p>
+<p>AlexNet: 用RGB图片做输入，与LeNet网络结构相似，但是AlexNet大很多，另外就是AlexNet用了ReLU作为激活函数，还有个另外的层：Local Response Normalization Layer。现在应用不多。而且研究者也发现这个层没啥用。</p>
+<p>VGG-16: 简化了网络结构，名字里的16指示这个网络包含16个卷积层和全连接层</p>
+<h2 id="课时2-3"><a href="#课时2-3" class="headerlink" title="课时2.3"></a>课时2.3</h2><p>残差网络</p>
+<p>ResNets</p>
+<p>深度神经网络是比较难训练的，因为有梯度爆炸和梯度消失的问题</p>
+<p>这节课讲Skip Connection，通过某一层获取激活，然后马上反馈给另外一层</p>
+<p>用跳远链接Skip Connection来训练ResNet，有时深度超度100</p>
+<p>ResNet由残差块组成，Residual Block</p>
+<p>残差网络的short cut</p>
+<p>插入的残差块应该是某一层的激活值，插入到另一层的线性输出之后，激活之前</p>
+<p>Plain Network加上Skip Connection就可以变成Residual Network</p>
+<p>每个Skip Connection会创建一个Residual Block</p>
+<p>对于Plain Network而言，实际上网络层数越多，训练准确率先下降后上升，与理论有差距。但是对ResNet而言，网络越深，训练准确率就越低</p>
+<h2 id="课时2-4"><a href="#课时2-4" class="headerlink" title="课时2.4"></a>课时2.4</h2><p>为什么ResNet表现这么好？</p>
+<p>$$a^{[l+2]} = g(z^{[l+2]}+a^{[l]})$$</p>
+<p>残差跳远连接的好处是如果中间的神经元失活了，通过残差仍然可以将前层的激活值传递下去</p>
+<p>残差快学习恒等式是很容易的</p>
+<p>有一个key point是残差跳远连接的输入维度应该保持一致，这也成为限制卷积层构造的原因之一。如果维度不一致，那么在构造残差块的时候还需要再引入一个矩阵</p>
+<h2 id="课时2-5"><a href="#课时2-5" class="headerlink" title="课时2.5"></a>课时2.5</h2><p>1*1的卷积层</p>
+<p>网络中的网络</p>
+<p>1*1的卷积网络在深度channel输入上有用：比如1*1*32的filter对原输入上同一个位置但不同通道的数据进行element wise product，这样的一个卷积层可以理解为一次全连接</p>
+<p>举个例子讲，如何把一个28*28*192的输入shrink成一个28*28*32的输出？</p>
+<p>可以用32个filter，每个filter都是1*1*192的，相当于每个filter在原输入上做全连接，然后把所有的filter进行堆叠，就得到了32个通道的输出了。理解1*1卷积只是增加了非线性函数激活，允许网络学习更复杂的特征</p>
+<h2 id="课时2-6"><a href="#课时2-6" class="headerlink" title="课时2.6"></a>课时2.6</h2><p>Inception Network</p>
+<p>代替人工来决定是否要加某些层</p>
+<p>用1*1卷积核可以减小计算成本</p>
+<p>使用1*1卷积核的策略是把原来的输入先压缩，完成压缩操作的层叫做bottleneck layer</p>
+<p>大幅缩小数据规模是否会影响网络的性能？如果bottlenect layer选择合适就不会出现这个问题</p>
+<h2 id="课时2-7"><a href="#课时2-7" class="headerlink" title="课时2.7"></a>课时2.7</h2><p>完整的Inception Network的结构</p>
+<p>把输入经过各个层处理，然后最后做Channel Concat进行堆叠</p>
+<p>GoogLeNet</p>
+<p>Inception名字来源于盗梦空间和小李子。。。</p>
+<h2 id="课时2-8"><a href="#课时2-8" class="headerlink" title="课时2.8"></a>课时2.8</h2><p>使用开源代码</p>
+<p>通过阅读他人论文来复现是非常非常难的</p>
+<p>这节课就教了一下怎么用Google找到开源代码和下载</p>
+<h2 id="课时2-9"><a href="#课时2-9" class="headerlink" title="课时2.9"></a>课时2.9</h2><p>迁移学习Transfer Learning</p>
+<p>在别人训练好的网络权重的基础上再进行训练，这样效率会高很多</p>
+<p>计算机视觉数据集：ImageNet，MS COCO，Pascal</p>
+<p>Transfer选择把输出层的激活改成自己的激活函数，冻结网络层的前层参数</p>
+<p>另一个加速训练的策略是把固定的前层封装成一个函数，将输入映射到固定层的最后一层，然后保存起来，这样就不用每次都计算固定的值了</p>
+<p>计算机视觉是经常用到transfer learning的一个领域</p>
+<h2 id="课时2-10"><a href="#课时2-10" class="headerlink" title="课时2.10"></a>课时2.10</h2><p>数据扩充，数据增强，data augmentation</p>
+<p>对计算机视觉领域而言，最大的一个问题就是缺少训练数据</p>
+<p>数据增强的常用方法有：垂直镜像对称，随机裁剪，旋转rotation，剪切shearing，色彩转换color shifting(在通道上加减值)，实际应用中颜色转换是根据某种概率分布来做的</p>
+<p>对RGB有不同的采样方式，一种是PCA主成分分析，PCA颜色增强。在AlexNet论文里有实现PCA的方法</p>
+<p>实现数据增强：用一个CPU线程或多个CPU线程加载数据和实现distortion，然后传递给其他线程</p>
+<h2 id="课时2-11"><a href="#课时2-11" class="headerlink" title="课时2.11"></a>课时2.11</h2><p>计算机视觉研究现状</p>
+<p>如果没有足够多的数据就要做hand-engineering</p>
+<p>另一种解决数据量小的问题的技术是Transfer Learing，也就是上一节课里讲到的</p>
+<p>后面讲了实际工业领域的几个tricks</p>
+<h2 id="课时3-1"><a href="#课时3-1" class="headerlink" title="课时3.1"></a>课时3.1</h2><p>Object localization目标定位</p>
+<p>先有图像分类，然后有classification with localization，再有detection</p>
+<p>Classification：bounding box，红框中心点(bx, by), bh, bw，训练集还需要上面的数据</p>
+<p>输出标签包含多种信息：是否属于要检测的目标，输出要检测目标的bx, by, bh, bw, c1, c2, c3，表示输出哪一类，这个的话输出层就不只是一个神经元了，不同的神经元可以用不同的激活函数，计算不同的损失</p>
+<h2 id="课时3-2"><a href="#课时3-2" class="headerlink" title="课时3.2"></a>课时3.2</h2><p>landmark detection</p>
+<p>特征点检测</p>
+<p>比如要检测眼角，可以在输出层加两个entry，来表征眼角信息</p>
+<p>检测关键点也是计算机图形模块的一个重要部分，比如脸部扭曲等</p>
+<h2 id="课时3-3"><a href="#课时3-3" class="headerlink" title="课时3.3"></a>课时3.3</h2><p>Object detection</p>
+<p>对象检测</p>
+<p>示例是基于滑动窗口的目标检测算法，sliding windows detection</p>
+<p>滑动窗口算法缺点是计算cost，与stride有关系，又是一个trade off</p>
+<p>这个想法好天真啊，我也是醉了，难道这就是目标检测吗</p>
+<h2 id="课时3-4"><a href="#课时3-4" class="headerlink" title="课时3.4"></a>课时3.4</h2><p>卷积的滑动窗口实现</p>
+<p>把FC层转成Conv层，想法也比较简单，就是用很多个filters去conv就行了</p>
+<p>讲义内容借鉴了OverFeat论文</p>
+<p>可以发现滑动窗口中有很多计算是重复的</p>
+<p>trick就是在跑conv的时候实际不是把裁剪下来的输入，而是把整个都输入，然后分部分标记。在整张输入图片上做卷积，然后对输出进行滑动裁剪就行了</p>
+<p>这个卷积滑动窗口的缺点是可能bounding box不太准确</p>
+<h2 id="课时3-5"><a href="#课时3-5" class="headerlink" title="课时3.5"></a>课时3.5</h2><p> Bounding  Box预测</p>
+<p> YOLO算法的思想大概是把输入图像分割成一个个的grid，然后再每个grid跑图像识别的算法，判断一个物体是否属于这个格子，看的是这个物体的中心点是否在这个格子里面，实际用的时候会用19*19\这样的精细划分</p>
+<p>如何编码边界坐标？</p>
+<h2 id="课时3-6"><a href="#课时3-6" class="headerlink" title="课时3.6"></a>课时3.6</h2><p>抑制交并比intersection over union</p>
+<p>IoU交并比函数是个评价函数，计算交集和并集之比，一般约定，如果IoU大于0.5，那么预测正确，当然阈值是可以人为设定的</p>
+<h2 id="课时3-7"><a href="#课时3-7" class="headerlink" title="课时3.7"></a>课时3.7</h2><p>非最大值抑制 Non-max suppression</p>
+<p>可以确保每个对象只识别一次</p>
+<p>先丢弃所有低概率边框预测结果</p>
+<p>然后跑一个while，每次选出最高概率的box预测，丢弃所有和这个box有高IoU值的预测结果</p>
+<h2 id="课时3-8"><a href="#课时3-8" class="headerlink" title="课时3.8"></a>课时3.8</h2><p>Anchor box</p>
+<p>让一个格子检测出多个对象</p>
+<p>思想是预先定义几个不同shape的Anchor boxes</p>
+<p>输出y的值由这几个Anchor boxes分别的预测结果堆叠</p>
+<h2 id="课时3-9"><a href="#课时3-9" class="headerlink" title="课时3.9"></a>课时3.9</h2><p>YOLO network</p>
+<p>把之前几节课讲的综合起来放到一个网络来实现</p>
+<h2 id="课时3-10"><a href="#课时3-10" class="headerlink" title="课时3.10"></a>课时3.10</h2><p>RPN网络，区域生成网络</p>
+<p>R-CNN：区域卷积网络，在少数窗口上跑CNN来做预测，找窗口的方法是用图像分割的技巧，segmentation，R-CNN的问题是太慢了，F-R-CNN是用卷积实现滑动窗口，也就是在之前的情况下做了一点点优化，还是不如YOLO，just for fun</p>
+<h2 id="课时4-1"><a href="#课时4-1" class="headerlink" title="课时4.1"></a>课时4.1</h2><p>什么是人脸识别</p>
+<p>face recognition</p>
+<p>百度Andrew Ng，林元庆哈哈哈哈</p>
+<p>人脸识别和活体检测配合使用</p>
+<p>face verification是验证是否匹配，是一对一的问题，face recognition是一对多的问题，比验证问题难很多</p>
+<h2 id="课时4-2"><a href="#课时4-2" class="headerlink" title="课时4.2"></a>课时4.2</h2><p>One-shot learning problem: 只有一个训练样例</p>
+<p>学习一个似然函数Similarity function，一个差异函数d，拿到两张图片后用这个差异函数去比对输入</p>
+<h2 id="课时4-3"><a href="#课时4-3" class="headerlink" title="课时4.3"></a>课时4.3</h2><p>Siamese network</p>
+<p>是一个编码网络，当两张图片是同一个人的时候，编码相似度要很大，对应的范数小</p>
+<h2 id="课时4-4"><a href="#课时4-4" class="headerlink" title="课时4.4"></a>课时4.4</h2><p>triplet loss function</p>
+<p>引入一个margin防止恒等于0的输出，margin parameter：拉大了正样本和负样本之间的距离</p>
+<p>引入损失函数为范数差的形式</p>
+<p>将训练样本以三元组的形式进行分组，需要有同一个人的很多图片</p>
+<p>选择训练样本的原则是使两个范数尽可能相似，这样的数据才有训练意义(学难学的东西才能有成长)</p>
+<h2 id="课时4-5"><a href="#课时4-5" class="headerlink" title="课时4.5"></a>课时4.5</h2><p>面部验证和二分类</p>
+<p>想法比较简单，感觉这节课就没啥东西</p>
+<h2 id="课时4-6"><a href="#课时4-6" class="headerlink" title="课时4.6"></a>课时4.6</h2><p>神经风格迁移(编程作业里面)</p>
+<p>neural style transfer</p>
+<p>C表示图像内容，S表示图像风格，G表示生成的图像</p>
+<h2 id="课时4-7"><a href="#课时4-7" class="headerlink" title="课时4.7"></a>课时4.7</h2><p>深度神经网络到底在学什么</p>
+<p>找到最大化激活隐藏单元的图片块</p>
+<h2 id="课时4-8"><a href="#课时4-8" class="headerlink" title="课时4.8"></a>课时4.8</h2><p>代价函数</p>
+<p>评价函数用于评价生成的图像的好坏</p>
+<p>代价函数可以分为内容代价和风格代价</p>
+<p>内容代价用来度量生成图像的内容和原来图像的内容有多相似，风格同理</p>
+<p>提出神经风格迁移的作者提出用两个超参数</p>
+<p>在做梯度下降的时候更新的实际上是图像的像素值</p>
+<p>随机初始化的图像时白噪声图像</p>
+<h2 id="课时4-9"><a href="#课时4-9" class="headerlink" title="课时4.9"></a>课时4.9</h2><p>内容代价函数</p>
+<p>content cost component</p>
+<h2 id="课时4-10"><a href="#课时4-10" class="headerlink" title="课时4.10"></a>课时4.10</h2><p>风格损失函数style cost function</p>
+<p>把图像的style定义为不同通道之间的互相关系</p>
+<p>什么时候两个通道之间有高度互相关性呢？correlation，不同块之间的激活特征高度重合，那么是高度correlated，否则不然</p>
+<p>style matrix风格矩阵</p>
+<p>Frobenius范数</p>
+<h2 id="课时4-11"><a href="#课时4-11" class="headerlink" title="课时4.11"></a>课时4.11</h2><p>一维和三维的卷积</p>
+<p>心电图处理的是一维数据，时间序列</p>
+<p>一维的卷积思想比较简单</p>
+<p>CT：3D数据块</p>
+<p>3D volume，3D filter</p>
+<p>完结了</p>
 
       
     </div>
@@ -645,6 +717,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Programming/" rel="tag"><i class="fa fa-tag"></i> Programming</a>
+          
+        </div>
+      
 
       
       
@@ -654,8 +732,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/24/Mac删除launchpad中无法正常删除的图标/" rel="next" title="Mac删除launchpad中无法正常删除的图标">
-                <i class="fa fa-chevron-left"></i> Mac删除launchpad中无法正常删除的图标
+              <a href="/2019/03/08/Linux系统编程/" rel="next" title="Linux System Programming">
+                <i class="fa fa-chevron-left"></i> Linux System Programming
               </a>
             
           </div>
@@ -663,10 +741,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/06/论文阅读笔记(手势)/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -736,7 +810,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -805,7 +879,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#操作系统实验笔记"><span class="nav-number">1.</span> <span class="nav-text">操作系统实验笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#同步互斥和Linux内核模块"><span class="nav-number">1.1.</span> <span class="nav-text">同步互斥和Linux内核模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统调用"><span class="nav-number">1.2.</span> <span class="nav-text">系统调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程创建"><span class="nav-number">1.3.</span> <span class="nav-text">进程创建</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#proc文件系统"><span class="nav-number">2.</span> <span class="nav-text">/proc文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#内核模块"><span class="nav-number">2.1.</span> <span class="nav-text">内核模块</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#课时1-1"><span class="nav-number">1.</span> <span class="nav-text">课时1.1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时1-2"><span class="nav-number">2.</span> <span class="nav-text">课时1.2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时1-3"><span class="nav-number">3.</span> <span class="nav-text">课时1.3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时1-4"><span class="nav-number">4.</span> <span class="nav-text">课时1.4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时1-5"><span class="nav-number">5.</span> <span class="nav-text">课时1.5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时1-6"><span class="nav-number">6.</span> <span class="nav-text">课时1.6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时1-7"><span class="nav-number">7.</span> <span class="nav-text">课时1.7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时1-8"><span class="nav-number">8.</span> <span class="nav-text">课时1.8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时1-9"><span class="nav-number">9.</span> <span class="nav-text">课时1.9</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时1-10"><span class="nav-number">10.</span> <span class="nav-text">课时1.10</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时1-11"><span class="nav-number">11.</span> <span class="nav-text">课时1.11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时2-1"><span class="nav-number">12.</span> <span class="nav-text">课时2.1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时2-2"><span class="nav-number">13.</span> <span class="nav-text">课时2.2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时2-3"><span class="nav-number">14.</span> <span class="nav-text">课时2.3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时2-4"><span class="nav-number">15.</span> <span class="nav-text">课时2.4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时2-5"><span class="nav-number">16.</span> <span class="nav-text">课时2.5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时2-6"><span class="nav-number">17.</span> <span class="nav-text">课时2.6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时2-7"><span class="nav-number">18.</span> <span class="nav-text">课时2.7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时2-8"><span class="nav-number">19.</span> <span class="nav-text">课时2.8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时2-9"><span class="nav-number">20.</span> <span class="nav-text">课时2.9</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时2-10"><span class="nav-number">21.</span> <span class="nav-text">课时2.10</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时2-11"><span class="nav-number">22.</span> <span class="nav-text">课时2.11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时3-1"><span class="nav-number">23.</span> <span class="nav-text">课时3.1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时3-2"><span class="nav-number">24.</span> <span class="nav-text">课时3.2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时3-3"><span class="nav-number">25.</span> <span class="nav-text">课时3.3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时3-4"><span class="nav-number">26.</span> <span class="nav-text">课时3.4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时3-5"><span class="nav-number">27.</span> <span class="nav-text">课时3.5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时3-6"><span class="nav-number">28.</span> <span class="nav-text">课时3.6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时3-7"><span class="nav-number">29.</span> <span class="nav-text">课时3.7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时3-8"><span class="nav-number">30.</span> <span class="nav-text">课时3.8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时3-9"><span class="nav-number">31.</span> <span class="nav-text">课时3.9</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时3-10"><span class="nav-number">32.</span> <span class="nav-text">课时3.10</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时4-1"><span class="nav-number">33.</span> <span class="nav-text">课时4.1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时4-2"><span class="nav-number">34.</span> <span class="nav-text">课时4.2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时4-3"><span class="nav-number">35.</span> <span class="nav-text">课时4.3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时4-4"><span class="nav-number">36.</span> <span class="nav-text">课时4.4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时4-5"><span class="nav-number">37.</span> <span class="nav-text">课时4.5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时4-6"><span class="nav-number">38.</span> <span class="nav-text">课时4.6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时4-7"><span class="nav-number">39.</span> <span class="nav-text">课时4.7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时4-8"><span class="nav-number">40.</span> <span class="nav-text">课时4.8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时4-9"><span class="nav-number">41.</span> <span class="nav-text">课时4.9</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时4-10"><span class="nav-number">42.</span> <span class="nav-text">课时4.10</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时4-11"><span class="nav-number">43.</span> <span class="nav-text">课时4.11</span></a></li></ol></div>
             
 
           </div>
@@ -867,7 +941,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 59.5k words</span>
+  <span class="post-count">Total 58.2k words</span>
 </div>
 
         
