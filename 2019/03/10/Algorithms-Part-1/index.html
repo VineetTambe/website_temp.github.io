@@ -131,7 +131,13 @@
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1g0yeeyme4uj30ln0av795.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1g0yej8db99j30ue0i1qc8.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1g0yenl6vckj30vo0d8443.jpg">
-<meta property="og:updated_time" content="2019-03-11T03:36:08.495Z">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1g13eil2g5ij30fc0itdib.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1g13et5rhmvj30xj0em0x2.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1g13es1t253j30xm0ey0wn.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g13friuhaaj30o90duq6b.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1g13gi5ehrlj30vf0dojtf.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g13glc65gbj30we0pewlm.jpg">
+<meta property="og:updated_time" content="2019-03-15T06:25:45.713Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Algorithms, Part 1">
 <meta name="twitter:description" content="Princeton Algorithm course on coursera. Part 1">
@@ -441,12 +447,24 @@
                 
               
 
-              <time title="Created: 2019-03-10 14:06:34 / Modified: 22:36:08" itemprop="dateCreated datePublished" datetime="2019-03-10T14:06:34-05:00">2019-03-10</time>
+              <time title="Created: 2019-03-10 14:06:34" itemprop="dateCreated datePublished" datetime="2019-03-10T14:06:34-05:00">2019-03-10</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-03-15 01:25:45" itemprop="dateModified" datetime="2019-03-15T01:25:45-05:00">2019-03-15</time>
               
             
           </span>
@@ -884,53 +902,113 @@
 <li>Rotate to make lean left (if needed)</li>
 <li>Repeat case 1 or case 2 up the tree (if needed)</li>
 </ul>
-<p><center><br><img src="https://ws2.sinaimg.cn/large/006tKfTcly1g0yenl6vckj30vo0d8443.jpg" style="zoom:60%"></center></p>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2><p>Java implementation</p>
-<p>Reduce one case to another</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> Node <span class="title">put</span><span class="params">(Node h, Key key, Value val)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (h == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">new</span> Node(key, val, RED);</span><br><span class="line">    <span class="keyword">int</span> cmp = key.compareTo(h.key);</span><br><span class="line">    <span class="keyword">if</span>		(cmp &lt; <span class="number">0</span>) h.left = put(h.left, key, val);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>	(cmp &gt; <span class="number">0</span>) h.right = put(h.right, key, val);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (cmp == <span class="number">0</span>) h.val = val;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (isRed(h.right) &amp;&amp; !isRed(h.left))		h = rotateLeft(h;</span><br><span class="line">    <span class="keyword">if</span> (isRed(h.left) &amp;&amp; isRed(h.left.left))	h = rotateRight(h);</span><br><span class="line">    <span class="keyword">if</span> (isRed(h.left) &amp;&amp; isRed(h.right))		flipColors(h);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> h;                                                              </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="B-trees-Bayer-McCreight-1972"><a href="#B-trees-Bayer-McCreight-1972" class="headerlink" title="B-trees (Bayer-McCreight, 1972)"></a>B-trees (Bayer-McCreight, 1972)</h3><p>File system model:</p>
+<center><br><img src="https://ws2.sinaimg.cn/large/006tKfTcly1g0yenl6vckj30vo0d8443.jpg" style="zoom:60%"><br></center><br>—<br><br>Java implementation<br><br>Reduce one case to another<br><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> Node <span class="title">put</span><span class="params">(Node h, Key key, Value val)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (h == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">new</span> Node(key, val, RED);</span><br><span class="line">    <span class="keyword">int</span> cmp = key.compareTo(h.key);</span><br><span class="line">    <span class="keyword">if</span>		(cmp &lt; <span class="number">0</span>) h.left = put(h.left, key, val);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>	(cmp &gt; <span class="number">0</span>) h.right = put(h.right, key, val);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (cmp == <span class="number">0</span>) h.val = val;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (isRed(h.right) &amp;&amp; !isRed(h.left))		h = rotateLeft(h;</span><br><span class="line">    <span class="keyword">if</span> (isRed(h.left) &amp;&amp; isRed(h.left.left))	h = rotateRight(h);</span><br><span class="line">    <span class="keyword">if</span> (isRed(h.left) &amp;&amp; isRed(h.right))		flipColors(h);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> h;                                                              </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><br>### B-trees (Bayer-McCreight, 1972)<br><br>File system model:<br><br>+ Page: Contiguous block of data<br>+ Probe: First access to a page<br>+ Property: Time required for a probe is much larger than time to access data within a page<br>+ Cost model: Number of probes<br>+ Goal: Access data using minimum number of probes<br><br>B-tree: Generalize 2-3 trees by allowing up to M-1 key-link pairs per node<br><br>+ At least 2 key-link pairs at root<br>+ At least M/2 key-link pairs in other nodes<br>+ External nodes contain client keys<br>+ Internal nodes contain copies of keys to guide search<br><br>Searching in a B-tree:<br><br>+ Start at root<br>+ Find interval for search key and take corresponding link<br>+ Search terminates in external node<br><br>Insertion in a B-tree:<br><br>+ Search for new key<br>+ Insert at bottom<br>+ Split nodes with M key-link pairs on the way up the tree<br><br><br><br>Red-black trees are widely used as system symbol tables<br><br>+ Java: java.util.TreeMap, java.util.TreeSet<br>+ C++ STL: map, multimap, multiset<br>+ Linux kernel: completely fair scheduler, linux/rbtree.h<br>+ Emacs: conservative stack scanning<br><br>B-tree variants: B+ tree, B* tree, B# tree, …<br><br>B-trees (and variants) are videly used for file systems and databases<br><br>+ Windows: NTFS<br>+ Mac: HFS, HFS+<br>+ Linux: ReiserFS, XFS, Ext3FS, JFS<br>+ Databases: Oracle, DB2, Ingres, SQL, PostgreSQL<br><br><br><br>## Geometric Applications of BSTs<br><br>Applications: CAD, games, movies, virtual reality, databases, …<br><br>### 1d range search<br><br>+ Insert key-value pair<br>+ Search for key k<br>+ Delete key k<br>+ Range search: find all keys between $k_1$ and $k_2$<br>+ Range count: number of keys between $k_1$ and $k_2$<br><br>——<br><br><br><br>Implementations:<br><br>| data structure  | insert | range count | range search |<br>| ————— | —— | ———– | ———— |<br>| unordered array | 1      | N           | N            |<br>| ordered array   | N      | log N       | R + log N    |<br>| goal            | log N  | log N       | R + log N    |<br><br>N = number of keys<br><br>R = number of keys that match<br><br><br><br>BST implementation:<br><br>Proposition: Running time proportional to log N.<br><br>Pf: Nodes examined = search path to lo + search path to hi.<br><br><br><br>### line segment intersection<br><br>Orthogonal line segment intersection search<br><br>Quadratic algorithm: Check all pairs of line segments for intersection.<br><br>Nondegeneracy assumption: All x- and y- coordinates are distinct.<br><br><br><br>Sweep-line algorithm:<br><br>Sweep vertical line from left to right<br><br>+ X-coordinates define events.<br>+ H-segment (left endpoint): insert y-coordinate into BST.<br>+ H-segment (right endpoint): remove y-coordinate from BST.<br>+ When hit a vertical line segment, do a 1-d search<br><br>Proposition: The sweep-line algorithm takes time proportional to N log N + R to find all R intersections among N orthogonal line segments.<br><br>Pf.<br><br>+ Put x-coordinates on a PQ (or sort).    N log N<br>+ Insert y-coordinates into BST  N log N<br>+ Delete y-coordinates from BST  N log N<br>+ Range searches in BST  N log N + R<br><br>Bottom line: Sweep line reduces 2d orthogonal line segment intersection search to 1d range search<br><br><br><br>### kd trees<br><br>Extension of ordered symbol-table to 2d keys<br><br>+ Insert a 2d key<br>+ Delete a 2d key<br>+ Search for a 2d key<br>+ Range search: find all keys that lie in a 2d range<br>+ Range count: number of keys that lie in a 2d range<br><br>Geometric interpretation:<br><br>+ Keys are point in the plane<br>+ Find/count points in a given h-v rectangle<br><br>—–<br><br>Grid implementation:<br><br>+ Divide space into M-by-M grid of squares<br>+ Create list of points contained in each square<br>+ Use 2d array to directly index relevant square<br>+ Insert: add(x, y) to list for corresponding square<br>+ Range search: examine only squares that intersect 2d range query<br><br>Space-time tradeoff<br><br>+ Space: $M^2+N$<br>+ Time: 1 + $N/M^2$ per square examined, on average<br><br>Choose grid square size to tune performance<br><br>+ Too small: waste space<br>+ Too large: too many points per square<br><br>It’s fast, simple solution for evenly-distributed points<br><br>Problem: Clustering a well-knwon phenomenon in geometric data<br><br>+ Lists are too long, even though average length is short<br>+ Need data structure that adapts gracefully to data<br><br>—<br><br>2d tree construction<br><br>Recursively partition plane into two halfplanes.<br><br><center><br><img src="https://ws4.sinaimg.cn/large/006tKfTcly1g13eil2g5ij30fc0itdib.jpg" style="zoom:60%"><br></center>
+
+<p>Data structure: BST, but alternate using x- and y- coordinates as key.</p>
 <ul>
-<li>Page: Contiguous block of data</li>
-<li>Probe: First access to a page</li>
-<li>Property: Time required for a probe is much larger than time to access data within a page</li>
-<li>Cost model: Number of probes</li>
-<li>Goal: Access data using minimum number of probes</li>
+<li>Search gives rectangle containing point</li>
+<li>Insert further subdivides the plane</li>
 </ul>
-<p>B-tree: Generalize 2-3 trees by allowing up to M-1 key-link pairs per node</p>
+<p>Range search in a 2d tree</p>
+<p>Goal: Find all points in a query axis-aligned rectangle.</p>
 <ul>
-<li>At least 2 key-link pairs at root</li>
-<li>At least M/2 key-link pairs in other nodes</li>
-<li>External nodes contain client keys</li>
-<li>Internal nodes contain copies of keys to guide search</li>
+<li>Check if point in node lies in given rectangle</li>
+<li>Recursively search left/bottom (if any could fall in rectangle)</li>
+<li>Recursively search right/top (if any could fall in rectangle)</li>
 </ul>
-<p>Searching in a B-tree:</p>
+<center><br><img src="https://ws1.sinaimg.cn/large/006tKfTcly1g13et5rhmvj30xj0em0x2.jpg" style="zoom:60%"><br></center>
+
+
+
+<p>Nearest neighbor search in a 2d tree</p>
+<p>Goal: Find closest point to query point</p>
+<center><br><img src="https://ws1.sinaimg.cn/large/006tKfTcly1g13es1t253j30xm0ey0wn.jpg" style="zoom:60%"><br></center>
+
 <ul>
-<li>Start at root</li>
-<li>Find interval for search key and take corresponding link</li>
-<li>Search terminates in external node</li>
+<li>Check distance from point in node to query point</li>
+<li>Recursively search left/bottom (if it could contain a closer point)</li>
+<li>Recursively search right/top (if it could contain a closer point)</li>
+<li>Organize method so that it begins by searching for query point</li>
 </ul>
-<p>Insertion in a B-tree:</p>
+<hr>
+<p>Kd tree</p>
+<p>Recursively partition k-dimensional space into 2 halfspaces</p>
+<p>Efficient, simple data structure for processing k-dimensional data</p>
 <ul>
-<li>Search for new key</li>
-<li>Insert at bottom</li>
-<li>Split nodes with M key-link pairs on the way up the tree</li>
+<li>Widely used</li>
+<li>Apapts well to high-dimensional and clustered data</li>
+<li>Discovered by an undergrad in an algorithms class!</li>
 </ul>
-<p>Red-black trees are widely used as system symbol tables</p>
+<hr>
+<p>N-body simulation</p>
 <ul>
-<li>Java: java.util.TreeMap, java.util.TreeSet</li>
-<li>C++ STL: map, multimap, multiset</li>
-<li>Linux kernel: completely fair scheduler, linux/rbtree.h</li>
-<li>Emacs: conservative stack scanning</li>
+<li>Build 3d-tree with N particles sa nodes</li>
+<li>Store center-of-mass of subtree in each node.</li>
+<li>To compute total force acting on a particle, traverse tree, but stop as soon as distance from particle to subdivision is sufficiently large.</li>
 </ul>
-<p>B-tree variants: B+ tree, B* tree, B# tree, …</p>
-<p>B-trees (and variants) are videly used for file systems and databases</p>
+<h3 id="interval-search-trees"><a href="#interval-search-trees" class="headerlink" title="interval search trees"></a>interval search trees</h3><p>1d interval search: Data structure to hold set of (overlapping) intervals</p>
 <ul>
-<li>Windows: NTFS</li>
-<li>Mac: HFS, HFS+</li>
-<li>Linux: ReiserFS, XFS, Ext3FS, JFS</li>
-<li>Databases: Oracle, DB2, Ingres, SQL, PostgreSQL</li>
+<li>Insert an interval (lo, hi).</li>
+<li>Search for an interval (lo, hi).</li>
+<li>Delete an interval (lo, hi).</li>
+<li>Interval intersection query: given an interval (lo, hi), find all intervals (or one interval) in data structure that intersects (lo, hi).</li>
 </ul>
-<h2 id="Geometric-Applications-of-BSTs"><a href="#Geometric-Applications-of-BSTs" class="headerlink" title="Geometric Applications of BSTs"></a>Geometric Applications of BSTs</h2><h3 id="1d-range-search"><a href="#1d-range-search" class="headerlink" title="1d range search"></a>1d range search</h3><h3 id="line-segment-intersection"><a href="#line-segment-intersection" class="headerlink" title="line segment intersection"></a>line segment intersection</h3><h3 id="kd-trees"><a href="#kd-trees" class="headerlink" title="kd trees"></a>kd trees</h3><h3 id="interval-search-trees"><a href="#interval-search-trees" class="headerlink" title="interval search trees"></a>interval search trees</h3><h3 id="rectangle-intersection"><a href="#rectangle-intersection" class="headerlink" title="rectangle intersection"></a>rectangle intersection</h3>
+<p>API</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntervalST</span></span></span><br><span class="line"><span class="class">  <span class="title">IntervalST</span>()</span></span><br><span class="line"><span class="class">  <span class="title">void</span> <span class="title">put</span>(<span class="title">Key</span> <span class="title">lo</span>, <span class="title">Key</span> <span class="title">hi</span>, <span class="title">Value</span> <span class="title">val</span>)</span></span><br><span class="line"><span class="class">  <span class="title">Value</span> <span class="title">get</span>(<span class="title">Key</span> <span class="title">lo</span>, <span class="title">Key</span> <span class="title">hi</span>)</span></span><br><span class="line"><span class="class">  <span class="title">void</span> <span class="title">delete</span>(<span class="title">Key</span> <span class="title">lo</span>, <span class="title">Key</span> <span class="title">hi</span>)</span></span><br><span class="line"><span class="class">  <span class="title">Iterable</span>&lt;<span class="title">Value</span>&gt; <span class="title">intersects</span>(<span class="title">Key</span> <span class="title">lo</span>, <span class="title">Key</span> <span class="title">hi</span>)</span></span><br></pre></td></tr></table></figure>
+<p>Interval search trees</p>
+<p>Create BST, where each node stores an interval (lo, hi).</p>
+<ul>
+<li>Use left endpoint as BST key.</li>
+<li>Store max endpoint in subtree rooted at node.</li>
+</ul>
+<center><br><img src="https://ws3.sinaimg.cn/large/006tKfTcly1g13friuhaaj30o90duq6b.jpg" style="zoom:60%"><br></center>
+
+<p>To insert an interval (lo, hi):</p>
+<ul>
+<li>Insert into BST, using lo as the key.</li>
+<li>Update max in each node on search path.</li>
+</ul>
+<p>To search for any one interval that intersects query interval (lo, hi):</p>
+<ul>
+<li>If interval in node intersects query interval, return it.</li>
+<li>Else if left subtree is null, go right.</li>
+<li>Else if max endpoint in left subtree is less than lo, go right.</li>
+<li>Else go left.</li>
+</ul>
+<p>Case 1. If search goes right, then no intersection in left.</p>
+<p>Case 2. If search goes left, then there is either an intersection in left subtree or no intersections in either</p>
+<p>Pf. Suppose no intersection in left.</p>
+<ul>
+<li>Since went left, we have lo ≤ max.</li>
+<li>Then for any interval (a,b) in right subtree of x, hi &lt; c ≤ a, no intersection in right.</li>
+</ul>
+<h3 id="rectangle-intersection"><a href="#rectangle-intersection" class="headerlink" title="rectangle intersection"></a>rectangle intersection</h3><p>Orthogonal rectangle intersection search</p>
+<p>Goal: Find all intersections among a set of N orthogonal rectangles</p>
+<p>Quadratic algorithm: Check all pairs of rectangles for intersection</p>
+<p>Non-degeneracy assumption: All x- and y- coordinates are distinct.</p>
+<p>Design-rule checking:</p>
+<ul>
+<li>Certain wires cannot intersect</li>
+<li>Certain spacing needed between different types of wires</li>
+<li>Debugging = orthogonal rectangle intersection search</li>
+</ul>
+<p>Sweep-line algorithm (similar to previous one)</p>
+<ul>
+<li>X-coordinates of left and right endpoints define events.</li>
+<li>Maintain set of rectangles that intersect the sweep line in an interval search tree (using y-intervals of rectangle).</li>
+<li>Left endpoint: interval search for y-interval of rectangle; insert y-interval.</li>
+<li>Right endpoint: remove y-interval.</li>
+</ul>
+<center><br><img src="https://ws4.sinaimg.cn/large/006tKfTcly1g13gi5ehrlj30vf0dojtf.jpg" style="zoom:60%"><br></center>
+
+<p>Bottom line: Sweep line reduces 2d orthogonal rectangle intersection search to 1d interval search.</p>
+<h3 id="Summary-Of-Geometric-Applications-of-BSTs"><a href="#Summary-Of-Geometric-Applications-of-BSTs" class="headerlink" title="Summary Of Geometric Applications of BSTs"></a>Summary Of Geometric Applications of BSTs</h3><center><br><img src="https://ws3.sinaimg.cn/large/006tKfTcly1g13glc65gbj30we0pewlm.jpg" style="zoom:60%"><br></center>
+
+
+
+
+
+<h1 id="Week-6"><a href="#Week-6" class="headerlink" title="Week 6"></a>Week 6</h1>
       
     </div>
 
@@ -1115,7 +1193,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-1"><span class="nav-number">1.</span> <span class="nav-text">Week 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-study-algorithms"><span class="nav-number">1.1.</span> <span class="nav-text">Why study algorithms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Union-Find"><span class="nav-number">1.2.</span> <span class="nav-text">Union-Find</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dynamic-connectivity"><span class="nav-number">1.2.1.</span> <span class="nav-text">dynamic connectivity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quick-find"><span class="nav-number">1.2.2.</span> <span class="nav-text">quick find</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quick-union"><span class="nav-number">1.2.3.</span> <span class="nav-text">quick union</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#improvements"><span class="nav-number">1.2.4.</span> <span class="nav-text">improvements</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Improvement-1-weighting"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">Improvement 1: weighting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Improvement-2-path-compression"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">Improvement 2: path compression</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#applications"><span class="nav-number">1.2.5.</span> <span class="nav-text">applications</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Programming-Assignment-1"><span class="nav-number">1.2.6.</span> <span class="nav-text">Programming Assignment 1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis-of-Algorithms"><span class="nav-number">1.3.</span> <span class="nav-text">Analysis of Algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#observations"><span class="nav-number">1.3.1.</span> <span class="nav-text">observations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mathematical-models"><span class="nav-number">1.3.2.</span> <span class="nav-text">mathematical models</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#order-of-growth-classification"><span class="nav-number">1.3.3.</span> <span class="nav-text">order-of-growth classification</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#theory-of-algorithms"><span class="nav-number">1.3.4.</span> <span class="nav-text">theory of algorithms</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#memory"><span class="nav-number">1.3.5.</span> <span class="nav-text">memory</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-2"><span class="nav-number">2.</span> <span class="nav-text">Week 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Stacks-and-Queues"><span class="nav-number">2.1.</span> <span class="nav-text">Stacks and Queues</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#stacks"><span class="nav-number">2.1.1.</span> <span class="nav-text">stacks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#resizing-arrays"><span class="nav-number">2.1.2.</span> <span class="nav-text">resizing arrays</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#queues"><span class="nav-number">2.1.3.</span> <span class="nav-text">queues</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#generics"><span class="nav-number">2.1.4.</span> <span class="nav-text">generics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iterators"><span class="nav-number">2.1.5.</span> <span class="nav-text">iterators</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#applications-1"><span class="nav-number">2.1.6.</span> <span class="nav-text">applications</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Elementary-Sorts"><span class="nav-number">2.2.</span> <span class="nav-text">Elementary Sorts</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rules-of-the-game"><span class="nav-number">2.2.1.</span> <span class="nav-text">rules of the game</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#selection-sort"><span class="nav-number">2.2.2.</span> <span class="nav-text">selection sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#insertion-sort"><span class="nav-number">2.2.3.</span> <span class="nav-text">insertion sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shellsort"><span class="nav-number">2.2.4.</span> <span class="nav-text">shellsort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shuffling"><span class="nav-number">2.2.5.</span> <span class="nav-text">shuffling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#convex-hull"><span class="nav-number">2.2.6.</span> <span class="nav-text">convex hull</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-5"><span class="nav-number">3.</span> <span class="nav-text">Week 5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Balanced-Search-Trees"><span class="nav-number">3.1.</span> <span class="nav-text">Balanced Search Trees</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-search-trees"><span class="nav-number">3.1.1.</span> <span class="nav-text">2-3 search trees</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#red-black-BSTs"><span class="nav-number">3.1.2.</span> <span class="nav-text">red-black BSTs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">3.2.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#B-trees-Bayer-McCreight-1972"><span class="nav-number">3.2.1.</span> <span class="nav-text">B-trees (Bayer-McCreight, 1972)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Geometric-Applications-of-BSTs"><span class="nav-number">3.3.</span> <span class="nav-text">Geometric Applications of BSTs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1d-range-search"><span class="nav-number">3.3.1.</span> <span class="nav-text">1d range search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#line-segment-intersection"><span class="nav-number">3.3.2.</span> <span class="nav-text">line segment intersection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kd-trees"><span class="nav-number">3.3.3.</span> <span class="nav-text">kd trees</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#interval-search-trees"><span class="nav-number">3.3.4.</span> <span class="nav-text">interval search trees</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rectangle-intersection"><span class="nav-number">3.3.5.</span> <span class="nav-text">rectangle intersection</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-1"><span class="nav-number">1.</span> <span class="nav-text">Week 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-study-algorithms"><span class="nav-number">1.1.</span> <span class="nav-text">Why study algorithms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Union-Find"><span class="nav-number">1.2.</span> <span class="nav-text">Union-Find</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dynamic-connectivity"><span class="nav-number">1.2.1.</span> <span class="nav-text">dynamic connectivity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quick-find"><span class="nav-number">1.2.2.</span> <span class="nav-text">quick find</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quick-union"><span class="nav-number">1.2.3.</span> <span class="nav-text">quick union</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#improvements"><span class="nav-number">1.2.4.</span> <span class="nav-text">improvements</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Improvement-1-weighting"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">Improvement 1: weighting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Improvement-2-path-compression"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">Improvement 2: path compression</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#applications"><span class="nav-number">1.2.5.</span> <span class="nav-text">applications</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Programming-Assignment-1"><span class="nav-number">1.2.6.</span> <span class="nav-text">Programming Assignment 1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis-of-Algorithms"><span class="nav-number">1.3.</span> <span class="nav-text">Analysis of Algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#observations"><span class="nav-number">1.3.1.</span> <span class="nav-text">observations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mathematical-models"><span class="nav-number">1.3.2.</span> <span class="nav-text">mathematical models</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#order-of-growth-classification"><span class="nav-number">1.3.3.</span> <span class="nav-text">order-of-growth classification</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#theory-of-algorithms"><span class="nav-number">1.3.4.</span> <span class="nav-text">theory of algorithms</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#memory"><span class="nav-number">1.3.5.</span> <span class="nav-text">memory</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-2"><span class="nav-number">2.</span> <span class="nav-text">Week 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Stacks-and-Queues"><span class="nav-number">2.1.</span> <span class="nav-text">Stacks and Queues</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#stacks"><span class="nav-number">2.1.1.</span> <span class="nav-text">stacks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#resizing-arrays"><span class="nav-number">2.1.2.</span> <span class="nav-text">resizing arrays</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#queues"><span class="nav-number">2.1.3.</span> <span class="nav-text">queues</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#generics"><span class="nav-number">2.1.4.</span> <span class="nav-text">generics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iterators"><span class="nav-number">2.1.5.</span> <span class="nav-text">iterators</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#applications-1"><span class="nav-number">2.1.6.</span> <span class="nav-text">applications</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Elementary-Sorts"><span class="nav-number">2.2.</span> <span class="nav-text">Elementary Sorts</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rules-of-the-game"><span class="nav-number">2.2.1.</span> <span class="nav-text">rules of the game</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#selection-sort"><span class="nav-number">2.2.2.</span> <span class="nav-text">selection sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#insertion-sort"><span class="nav-number">2.2.3.</span> <span class="nav-text">insertion sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shellsort"><span class="nav-number">2.2.4.</span> <span class="nav-text">shellsort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shuffling"><span class="nav-number">2.2.5.</span> <span class="nav-text">shuffling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#convex-hull"><span class="nav-number">2.2.6.</span> <span class="nav-text">convex hull</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-5"><span class="nav-number">3.</span> <span class="nav-text">Week 5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Balanced-Search-Trees"><span class="nav-number">3.1.</span> <span class="nav-text">Balanced Search Trees</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-search-trees"><span class="nav-number">3.1.1.</span> <span class="nav-text">2-3 search trees</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#red-black-BSTs"><span class="nav-number">3.1.2.</span> <span class="nav-text">red-black BSTs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#interval-search-trees"><span class="nav-number">3.1.3.</span> <span class="nav-text">interval search trees</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rectangle-intersection"><span class="nav-number">3.1.4.</span> <span class="nav-text">rectangle intersection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary-Of-Geometric-Applications-of-BSTs"><span class="nav-number">3.1.5.</span> <span class="nav-text">Summary Of Geometric Applications of BSTs</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-6"><span class="nav-number">4.</span> <span class="nav-text">Week 6</span></a></li></ol></div>
             
 
           </div>
@@ -1177,7 +1255,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 58.2k words</span>
+  <span class="post-count">Total 59.2k words</span>
 </div>
 
         
