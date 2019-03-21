@@ -125,6 +125,9 @@
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1g0xhbzceq9j310l0ekwl9.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcgy1g1a6m19n84j30fk0h6wh8.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g1a6o6h045j30jr0lhdl9.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1g1a85oktmyj30nb0bqwhr.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1g1a8en2iayj30vt0iutex.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1g1a8gkxa8ij30i90jptdz.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g0yd3afksej30ka0bsgov.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g0yde48g5vj30nb0gdgs4.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1g0ydp9v9ckj30sj06wmzw.jpg">
@@ -139,7 +142,7 @@
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g13friuhaaj30o90duq6b.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1g13gi5ehrlj30vf0dojtf.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g13glc65gbj30we0pewlm.jpg">
-<meta property="og:updated_time" content="2019-03-21T02:14:16.962Z">
+<meta property="og:updated_time" content="2019-03-21T03:07:01.493Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Algorithms, Part 1">
 <meta name="twitter:description" content="Princeton Algorithm course on coursera. Part 1">
@@ -466,7 +469,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-03-20 21:14:16" itemprop="dateModified" datetime="2019-03-20T21:14:16-05:00">2019-03-20</time>
+                <time title="Modified: 2019-03-20 22:07:01" itemprop="dateModified" datetime="2019-03-20T22:07:01-05:00">2019-03-20</time>
               
             
           </span>
@@ -881,8 +884,59 @@
 <p>Loitering: Holding a reference to an object when it is no longer needed.</p>
 <p>To avoid the problem caused by loitering, we need to remove the pointer and free the memory:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// the version avoids "loitering" garbage collector can reclaim memory only</span></span><br><span class="line"><span class="comment">// if no outstanding references</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  String item = s[--N];</span><br><span class="line">  s[N] = <span class="keyword">null</span>;</span><br><span class="line">  <span class="keyword">return</span> item;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="resizing-arrays"><a href="#resizing-arrays" class="headerlink" title="resizing arrays"></a>resizing arrays</h3><h3 id="queues"><a href="#queues" class="headerlink" title="queues"></a>queues</h3><p>FIFO, examine the item least recently added.</p>
+<h3 id="resizing-arrays"><a href="#resizing-arrays" class="headerlink" title="resizing arrays"></a>resizing arrays</h3><p>Problem. Requiring client to provide capacity does not implement API</p>
+<p>First try:</p>
+<ul>
+<li>push(): increase size of array s[] by 1.</li>
+<li>pop(): decrease size of array s[] by 1.</li>
+</ul>
+<p>Too expensive</p>
+<ul>
+<li>Need to copy all item to a new array.</li>
+<li>Inserting first N items takes time proportional to 1+2+…+N</li>
+</ul>
+<hr>
+<p>Repeated doubling: If the array is full, create a new array of twice the size, and copy items</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ResizingArrayStackOfStrings</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123; s = <span class="keyword">new</span> String[<span class="number">1</span>]; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(String item)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (N == s.length) resize(<span class="number">2</span> * s.length);</span><br><span class="line">  s[N++] = item;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">resize</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">  String[] copy = <span class="keyword">new</span> String[capacity];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">    copy[i] = s[i];</span><br><span class="line">  s = copy;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Efficient solution for shrinking an array: halve size of array s[] when array is <strong>one-quarter</strong> full.</p>
+<p>Invariant: Array is between 25% and 100% full.</p>
+<p>Amortized analysis: Average running time per operation over a worst-case sequence of operations.</p>
+<p>Proposition: Starting from an empty stack, any sequence of M push and pop operations takes time proportional to M.</p>
+<center><br><img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1a85oktmyj30nb0bqwhr.jpg" style="zoom:60%"><br></center>
+
+<p>Tradeoffs:</p>
+<p>Linked-list implementation</p>
+<ul>
+<li>Every operation takes constant time in the worst case.</li>
+<li>Uses extra time and space to deal with the links.</li>
+</ul>
+<p>Resizing-array implementation.</p>
+<ul>
+<li>Every operation takes constant amortized time.</li>
+<li>Less wasted space.</li>
+</ul>
+<h3 id="queues"><a href="#queues" class="headerlink" title="queues"></a>queues</h3><p>FIFO, examine the item least recently added.</p>
 <p>enqueue, dequeue</p>
+<p>API:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QueueOfStrings</span> </span>&#123;</span><br><span class="line">  QueueOfStrings();	<span class="comment">// create an empty queue</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">enqueue</span><span class="params">(String item)</span></span>;	<span class="comment">// insert a new string onto queue</span></span><br><span class="line">  <span class="function">String <span class="title">dequeue</span><span class="params">()</span></span>;	<span class="comment">// remove and return the string least recently added</span></span><br><span class="line">  <span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>;	<span class="comment">// is the queue empty?</span></span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;	<span class="comment">// number of strings on the queue</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Linked-list representation</p>
+<hr>
+<p>Maintain pointer to first and last nodes in a linked list;</p>
+<p>Insert/remove from opposite ends</p>
+<center><br><img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1a8en2iayj30vt0iutex.jpg" style="zoom:60%"><br></center>
+
+<p>Enqueue:</p>
+<center><br><img src="https://ws4.sinaimg.cn/large/006tKfTcly1g1a8gkxa8ij30i90jptdz.jpg" style="zoom:60%"><br></center>
+
+<p>Array implementation of a queue</p>
+<hr>
+<ul>
+<li>Use array q[] to store items in queue.</li>
+<li>enqueue(): add new item at q[tail].</li>
+<li>dequeue(): remove item from q[head].</li>
+<li>Update head and tail modulo the capacity</li>
+<li>Add resizing array.</li>
+</ul>
 <h3 id="generics"><a href="#generics" class="headerlink" title="generics"></a>generics</h3><h3 id="iterators"><a href="#iterators" class="headerlink" title="iterators"></a>iterators</h3><h3 id="applications-1"><a href="#applications-1" class="headerlink" title="applications"></a>applications</h3><h2 id="Elementary-Sorts"><a href="#Elementary-Sorts" class="headerlink" title="Elementary Sorts"></a>Elementary Sorts</h2><h3 id="rules-of-the-game"><a href="#rules-of-the-game" class="headerlink" title="rules of the game"></a>rules of the game</h3><h3 id="selection-sort"><a href="#selection-sort" class="headerlink" title="selection sort"></a>selection sort</h3><h3 id="insertion-sort"><a href="#insertion-sort" class="headerlink" title="insertion sort"></a>insertion sort</h3><h3 id="shellsort"><a href="#shellsort" class="headerlink" title="shellsort"></a>shellsort</h3><h3 id="shuffling"><a href="#shuffling" class="headerlink" title="shuffling"></a>shuffling</h3><h3 id="convex-hull"><a href="#convex-hull" class="headerlink" title="convex hull"></a>convex hull</h3><h1 id="Week-5"><a href="#Week-5" class="headerlink" title="Week 5"></a>Week 5</h1><h2 id="Balanced-Search-Trees"><a href="#Balanced-Search-Trees" class="headerlink" title="Balanced Search Trees"></a>Balanced Search Trees</h2><h3 id="2-3-search-trees"><a href="#2-3-search-trees" class="headerlink" title="2-3 search trees"></a>2-3 search trees</h3><p>Allow 1 or 2 keys per node</p>
 <ul>
 <li>2-node: one key, two children</li>
@@ -1467,7 +1521,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 59.5k words</span>
+  <span class="post-count">Total 59.8k words</span>
 </div>
 
         
