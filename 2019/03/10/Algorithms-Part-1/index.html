@@ -123,6 +123,8 @@
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g0xbfl4c0kj30au06aaav.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1g0xgesix2pj30xn0m511g.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1g0xhbzceq9j310l0ekwl9.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcgy1g1a6m19n84j30fk0h6wh8.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g1a6o6h045j30jr0lhdl9.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g0yd3afksej30ka0bsgov.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g0yde48g5vj30nb0gdgs4.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1g0ydp9v9ckj30sj06wmzw.jpg">
@@ -137,7 +139,7 @@
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g13friuhaaj30o90duq6b.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1g13gi5ehrlj30vf0dojtf.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g13glc65gbj30we0pewlm.jpg">
-<meta property="og:updated_time" content="2019-03-20T19:56:35.925Z">
+<meta property="og:updated_time" content="2019-03-21T02:14:16.962Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Algorithms, Part 1">
 <meta name="twitter:description" content="Princeton Algorithm course on coursera. Part 1">
@@ -464,7 +466,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-03-20 14:56:35" itemprop="dateModified" datetime="2019-03-20T14:56:35-05:00">2019-03-20</time>
+                <time title="Modified: 2019-03-20 21:14:16" itemprop="dateModified" datetime="2019-03-20T21:14:16-05:00">2019-03-20</time>
               
             
           </span>
@@ -827,7 +829,61 @@
 
 
 
-<h1 id="Week-2"><a href="#Week-2" class="headerlink" title="Week 2"></a>Week 2</h1><h2 id="Stacks-and-Queues"><a href="#Stacks-and-Queues" class="headerlink" title="Stacks and Queues"></a>Stacks and Queues</h2><h3 id="stacks"><a href="#stacks" class="headerlink" title="stacks"></a>stacks</h3><h3 id="resizing-arrays"><a href="#resizing-arrays" class="headerlink" title="resizing arrays"></a>resizing arrays</h3><h3 id="queues"><a href="#queues" class="headerlink" title="queues"></a>queues</h3><h3 id="generics"><a href="#generics" class="headerlink" title="generics"></a>generics</h3><h3 id="iterators"><a href="#iterators" class="headerlink" title="iterators"></a>iterators</h3><h3 id="applications-1"><a href="#applications-1" class="headerlink" title="applications"></a>applications</h3><h2 id="Elementary-Sorts"><a href="#Elementary-Sorts" class="headerlink" title="Elementary Sorts"></a>Elementary Sorts</h2><h3 id="rules-of-the-game"><a href="#rules-of-the-game" class="headerlink" title="rules of the game"></a>rules of the game</h3><h3 id="selection-sort"><a href="#selection-sort" class="headerlink" title="selection sort"></a>selection sort</h3><h3 id="insertion-sort"><a href="#insertion-sort" class="headerlink" title="insertion sort"></a>insertion sort</h3><h3 id="shellsort"><a href="#shellsort" class="headerlink" title="shellsort"></a>shellsort</h3><h3 id="shuffling"><a href="#shuffling" class="headerlink" title="shuffling"></a>shuffling</h3><h3 id="convex-hull"><a href="#convex-hull" class="headerlink" title="convex hull"></a>convex hull</h3><h1 id="Week-5"><a href="#Week-5" class="headerlink" title="Week 5"></a>Week 5</h1><h2 id="Balanced-Search-Trees"><a href="#Balanced-Search-Trees" class="headerlink" title="Balanced Search Trees"></a>Balanced Search Trees</h2><h3 id="2-3-search-trees"><a href="#2-3-search-trees" class="headerlink" title="2-3 search trees"></a>2-3 search trees</h3><p>Allow 1 or 2 keys per node</p>
+<h1 id="Week-2"><a href="#Week-2" class="headerlink" title="Week 2"></a>Week 2</h1><h2 id="Stacks-and-Queues"><a href="#Stacks-and-Queues" class="headerlink" title="Stacks and Queues"></a>Stacks and Queues</h2><p>Fundamental data types.</p>
+<ul>
+<li>Value: collection of objects</li>
+<li>Operations: insert, remove, iterate, test if empty</li>
+<li>Intent is clear when we insert</li>
+<li>Which item do we remove</li>
+</ul>
+<hr>
+<p>Modular programming:</p>
+<p>Seperate interface and implementation</p>
+<p>Benefits.</p>
+<ul>
+<li>Client can’t know details of implementation</li>
+<li>Implementation can’t know details of client needs</li>
+<li>Design: creates modular, reusable libraries</li>
+<li>Performance: useoptimized implementation where it matters</li>
+</ul>
+<h3 id="stacks"><a href="#stacks" class="headerlink" title="stacks"></a>stacks</h3><p>LIFO, examine the item most recently added.</p>
+<p>push, pop</p>
+<p>API.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StackOfStrings</span></span>&#123;</span><br><span class="line">  StackOfStrings()	<span class="comment">// create an empty stack</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(String item)</span>	<span class="comment">//insert a new string onto stack</span></span></span><br><span class="line"><span class="function">  String <span class="title">pop</span><span class="params">()</span>	<span class="comment">// remove and return the string most recently added</span></span></span><br><span class="line"><span class="function">  <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span>	<span class="comment">// is the stack empty?</span></span></span><br><span class="line"><span class="function">  <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span>	<span class="comment">// number of strings on the stack</span></span></span><br><span class="line"><span class="function">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>Linked-list representation </p>
+<hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// inner class</span></span><br><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">  String item;</span><br><span class="line">  Node next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Pop:</p>
+<center><br><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1g1a6m19n84j30fk0h6wh8.jpg" style="zoom:60%"><br></center>
+
+<p>Push:</p>
+<center><br><img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1a6o6h045j30jr0lhdl9.jpg" style="zoom:60%"><br></center>
+
+
+
+<p>Array implementation</p>
+<hr>
+<ul>
+<li>Use array s[] to store N items on stack.</li>
+<li>push(): add new item at s[N].</li>
+<li>pop(): remove item from s[N-1].</li>
+</ul>
+<p>Defect: Stack overflows when N exceeds capacity.</p>
+<p>Full implementation:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FixedCapacityStackOfStrings</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> String[] s;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> N = <span class="number">0</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">FixedCapacityStackOfStrings</span><span class="params">(<span class="keyword">int</span> capacity)</span></span></span><br><span class="line"><span class="function">  </span>&#123; s = <span class="keyword">new</span> String[capacity]; &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span></span><br><span class="line"><span class="function">  </span>&#123; <span class="keyword">return</span> N == <span class="number">0</span>; &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(String item)</span></span></span><br><span class="line"><span class="function">  </span>&#123; s[N++] = item; &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">pop</span><span class="params">()</span></span></span><br><span class="line"><span class="function">  </span>&#123; <span class="keyword">return</span> s[--N]; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Stack considerations:</p>
+<p>Overflow and underflow</p>
+<ul>
+<li>Underflow: throw exception if pop from an empty stack.</li>
+<li>Overflow: use resizing array for array implementation.</li>
+</ul>
+<p>Null items: We allow null items to be inserted.</p>
+<p>Loitering: Holding a reference to an object when it is no longer needed.</p>
+<p>To avoid the problem caused by loitering, we need to remove the pointer and free the memory:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// the version avoids "loitering" garbage collector can reclaim memory only</span></span><br><span class="line"><span class="comment">// if no outstanding references</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  String item = s[--N];</span><br><span class="line">  s[N] = <span class="keyword">null</span>;</span><br><span class="line">  <span class="keyword">return</span> item;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="resizing-arrays"><a href="#resizing-arrays" class="headerlink" title="resizing arrays"></a>resizing arrays</h3><h3 id="queues"><a href="#queues" class="headerlink" title="queues"></a>queues</h3><p>FIFO, examine the item least recently added.</p>
+<p>enqueue, dequeue</p>
+<h3 id="generics"><a href="#generics" class="headerlink" title="generics"></a>generics</h3><h3 id="iterators"><a href="#iterators" class="headerlink" title="iterators"></a>iterators</h3><h3 id="applications-1"><a href="#applications-1" class="headerlink" title="applications"></a>applications</h3><h2 id="Elementary-Sorts"><a href="#Elementary-Sorts" class="headerlink" title="Elementary Sorts"></a>Elementary Sorts</h2><h3 id="rules-of-the-game"><a href="#rules-of-the-game" class="headerlink" title="rules of the game"></a>rules of the game</h3><h3 id="selection-sort"><a href="#selection-sort" class="headerlink" title="selection sort"></a>selection sort</h3><h3 id="insertion-sort"><a href="#insertion-sort" class="headerlink" title="insertion sort"></a>insertion sort</h3><h3 id="shellsort"><a href="#shellsort" class="headerlink" title="shellsort"></a>shellsort</h3><h3 id="shuffling"><a href="#shuffling" class="headerlink" title="shuffling"></a>shuffling</h3><h3 id="convex-hull"><a href="#convex-hull" class="headerlink" title="convex hull"></a>convex hull</h3><h1 id="Week-5"><a href="#Week-5" class="headerlink" title="Week 5"></a>Week 5</h1><h2 id="Balanced-Search-Trees"><a href="#Balanced-Search-Trees" class="headerlink" title="Balanced Search Trees"></a>Balanced Search Trees</h2><h3 id="2-3-search-trees"><a href="#2-3-search-trees" class="headerlink" title="2-3 search trees"></a>2-3 search trees</h3><p>Allow 1 or 2 keys per node</p>
 <ul>
 <li>2-node: one key, two children</li>
 <li>3-node: two keys, three children</li>
@@ -1411,7 +1467,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 59.2k words</span>
+  <span class="post-count">Total 59.5k words</span>
 </div>
 
         
