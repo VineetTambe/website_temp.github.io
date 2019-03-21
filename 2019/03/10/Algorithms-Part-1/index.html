@@ -142,7 +142,7 @@
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g13friuhaaj30o90duq6b.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1g13gi5ehrlj30vf0dojtf.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g13glc65gbj30we0pewlm.jpg">
-<meta property="og:updated_time" content="2019-03-21T03:07:01.493Z">
+<meta property="og:updated_time" content="2019-03-21T05:20:54.782Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Algorithms, Part 1">
 <meta name="twitter:description" content="Princeton Algorithm course on coursera. Part 1">
@@ -469,7 +469,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-03-20 22:07:01" itemprop="dateModified" datetime="2019-03-20T22:07:01-05:00">2019-03-20</time>
+                <time title="Modified: 2019-03-21 00:20:54" itemprop="dateModified" datetime="2019-03-21T00:20:54-05:00">2019-03-21</time>
               
             
           </span>
@@ -937,7 +937,62 @@
 <li>Update head and tail modulo the capacity</li>
 <li>Add resizing array.</li>
 </ul>
-<h3 id="generics"><a href="#generics" class="headerlink" title="generics"></a>generics</h3><h3 id="iterators"><a href="#iterators" class="headerlink" title="iterators"></a>iterators</h3><h3 id="applications-1"><a href="#applications-1" class="headerlink" title="applications"></a>applications</h3><h2 id="Elementary-Sorts"><a href="#Elementary-Sorts" class="headerlink" title="Elementary Sorts"></a>Elementary Sorts</h2><h3 id="rules-of-the-game"><a href="#rules-of-the-game" class="headerlink" title="rules of the game"></a>rules of the game</h3><h3 id="selection-sort"><a href="#selection-sort" class="headerlink" title="selection sort"></a>selection sort</h3><h3 id="insertion-sort"><a href="#insertion-sort" class="headerlink" title="insertion sort"></a>insertion sort</h3><h3 id="shellsort"><a href="#shellsort" class="headerlink" title="shellsort"></a>shellsort</h3><h3 id="shuffling"><a href="#shuffling" class="headerlink" title="shuffling"></a>shuffling</h3><h3 id="convex-hull"><a href="#convex-hull" class="headerlink" title="convex hull"></a>convex hull</h3><h1 id="Week-5"><a href="#Week-5" class="headerlink" title="Week 5"></a>Week 5</h1><h2 id="Balanced-Search-Trees"><a href="#Balanced-Search-Trees" class="headerlink" title="Balanced Search Trees"></a>Balanced Search Trees</h2><h3 id="2-3-search-trees"><a href="#2-3-search-trees" class="headerlink" title="2-3 search trees"></a>2-3 search trees</h3><p>Allow 1 or 2 keys per node</p>
+<h3 id="generics"><a href="#generics" class="headerlink" title="generics"></a>generics</h3><p>Java generics</p>
+<ul>
+<li>Avoid casting in client.</li>
+<li>Discover type mismatch errors at compile-time instead of run-time.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Stack&lt;Apple&gt; s = <span class="keyword">new</span> Stack&lt;Apple&gt;();</span><br><span class="line">Apple a = <span class="keyword">new</span> Apple();</span><br><span class="line">Orange b = <span class="keyword">new</span> Orange();</span><br><span class="line">s.push(a);</span><br><span class="line">s.push(b);	<span class="comment">// compile-time error</span></span><br><span class="line">a = s.pop();</span><br></pre></td></tr></table></figure>
+<p>Guilding principles: Welcome compile-time errors; avoid run-time errors.</p>
+<p>Full implementation (Linked-list version):</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stack</span>&lt;<span class="title">Item</span>&gt;</span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Node first = <span class="keyword">null</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">  </span>&#123;</span><br><span class="line">  	Item item;</span><br><span class="line">  	Node next;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span></span><br><span class="line"><span class="function">  </span>&#123; <span class="keyword">return</span> first == <span class="keyword">null</span>; &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(Item item)</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">  	Node oldfirst = first;</span><br><span class="line">  	first = <span class="keyword">new</span> Node();</span><br><span class="line">  	first.item = item;</span><br><span class="line">  	first.next = oldfirst;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> Item <span class="title">pop</span><span class="params">()</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">  	Item item = first.item;</span><br><span class="line">  	first = first.next;</span><br><span class="line">  	<span class="keyword">return</span> item;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Wrapper type.</p>
+<ul>
+<li>Each primitive type has a wrapper object type.</li>
+<li>Ex: Integer is wrapper type for int.</li>
+</ul>
+<p>Autoboxing: Automatic case between a primitive type and its wrapper.</p>
+<p>Syntactic sugar: Behind-the-scenes casting.</p>
+<p>Bottom line: Client code can use generic stack for any type of data.</p>
+<h3 id="iterators"><a href="#iterators" class="headerlink" title="iterators"></a>iterators</h3><p>Design challenge: Support iteration over stack items by client, without revealing the internal representation of the stack.</p>
+<p>Java solution: Make stack implement the <strong>Iterable</strong> interface.</p>
+<p>An <strong>Iterable</strong> has a method that returns an <strong>Iterator</strong>.</p>
+<p>Iterable interface:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Iterable</span>&lt;<span class="title">Item</span>&gt;</span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="function">Iterator&lt;Item&gt; <span class="title">iterator</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>An <strong>Iterator</strong> has methods <strong>hasNext()</strong> and <strong>next()</strong>.</p>
+<p>Iterator interface:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Iterator</span>&lt;<span class="title">Item</span>&gt;</span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function">Item <span class="title">next</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span></span>;	<span class="comment">// optional</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>“foreach” statement:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (String s : stack)</span><br><span class="line">  StdOut.println(s);</span><br></pre></td></tr></table></figure>
+<p>Equivalent code:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Iterator&lt;String&gt; i = stack.iterator();</span><br><span class="line"><span class="keyword">while</span>(i.hasNext())</span><br><span class="line">&#123;</span><br><span class="line">  String s = i.next();</span><br><span class="line">  StdOut.println(s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Example:</p>
+<p>Stack iterator: linked-list implementation</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stack</span>&lt;<span class="title">Item</span>&gt; <span class="keyword">implements</span> <span class="title">Iterable</span>&lt;<span class="title">Item</span>&gt;</span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	...</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Iterator&lt;Item&gt; <span class="title">iterator</span><span class="params">()</span>	</span>&#123; <span class="keyword">return</span> <span class="keyword">new</span> ListIterator(); &#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">ListIterator</span> <span class="keyword">implements</span> <span class="title">Iterator</span>&lt;<span class="title">Item</span>&gt;</span></span><br><span class="line"><span class="class">  </span>&#123;</span><br><span class="line">  	<span class="keyword">private</span> Node current = first;</span><br><span class="line">  	</span><br><span class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> current != <span class="keyword">null</span>; &#125;</span><br><span class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span>	</span>&#123; <span class="comment">/* not supported */</span> &#125;</span><br><span class="line">  	<span class="function"><span class="keyword">public</span> Item <span class="title">next</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">    	Item item = current.item;</span><br><span class="line">    	current = current.next;</span><br><span class="line">    	<span class="keyword">return</span> item;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Bag API</p>
+<hr>
+<p>Main application: Adding items to a collection and iterating (when order doesn’t matter).</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bag</span>&lt;<span class="title">Item</span>&gt; <span class="keyword">implements</span> <span class="title">Iterable</span>&lt;<span class="title">Item</span>&gt;</span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	Bag();	<span class="comment">// create an empty bag</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(Item x)</span></span>;	<span class="comment">// insert a new item onto bag</span></span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;	<span class="comment">// number of items in bag</span></span><br><span class="line">	<span class="function">Iterator&lt;Item&gt; <span class="title">iterator</span><span class="params">()</span></span>;	<span class="comment">// iterator for all items in bag</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="applications-1"><a href="#applications-1" class="headerlink" title="applications"></a>applications</h3><p>Why not simply use Java collections library?</p>
+<p><strong>“Performance”</strong></p>
+<p>Lesson: Don’t use a library until you understand its API or you can tolerate the defect of the efficiency.</p>
+<p>Stack applications:</p>
+<ul>
+<li>Parsing in a compiler.</li>
+<li>Java virtual machine.</li>
+<li>Undo in a word processor.</li>
+<li>Back button in a Web browser.</li>
+<li>PostScript language for printers</li>
+<li>Implementing function calls in a compiler.</li>
+</ul>
+<p>Dijkstra’s two-stack algorithm:</p>
+<ul>
+<li>Value: push onto the value stack.</li>
+<li>Operator: push onto the operator stack.</li>
+<li>Left parenthesis: ignore.</li>
+<li>Right parenthesis: pop operator and two values; push the result of applying that operator to those values onto the operand stack.</li>
+</ul>
+<h2 id="Elementary-Sorts"><a href="#Elementary-Sorts" class="headerlink" title="Elementary Sorts"></a>Elementary Sorts</h2><h3 id="rules-of-the-game"><a href="#rules-of-the-game" class="headerlink" title="rules of the game"></a>rules of the game</h3><h3 id="selection-sort"><a href="#selection-sort" class="headerlink" title="selection sort"></a>selection sort</h3><h3 id="insertion-sort"><a href="#insertion-sort" class="headerlink" title="insertion sort"></a>insertion sort</h3><h3 id="shellsort"><a href="#shellsort" class="headerlink" title="shellsort"></a>shellsort</h3><h3 id="shuffling"><a href="#shuffling" class="headerlink" title="shuffling"></a>shuffling</h3><h3 id="convex-hull"><a href="#convex-hull" class="headerlink" title="convex hull"></a>convex hull</h3><h1 id="Week-5"><a href="#Week-5" class="headerlink" title="Week 5"></a>Week 5</h1><h2 id="Balanced-Search-Trees"><a href="#Balanced-Search-Trees" class="headerlink" title="Balanced Search Trees"></a>Balanced Search Trees</h2><h3 id="2-3-search-trees"><a href="#2-3-search-trees" class="headerlink" title="2-3 search trees"></a>2-3 search trees</h3><p>Allow 1 or 2 keys per node</p>
 <ul>
 <li>2-node: one key, two children</li>
 <li>3-node: two keys, three children</li>
@@ -1521,7 +1576,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 59.8k words</span>
+  <span class="post-count">Total 60.4k words</span>
 </div>
 
         
