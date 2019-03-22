@@ -1860,7 +1860,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #2aa228;
+  background: #1adfb8;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2879,8 +2879,8 @@ pre {
   border: 1px solid #d6d6d6;
 }
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 7px;
+  height: 7px;
 }
 ::-webkit-scrollbar-track {
   background: #eee;
