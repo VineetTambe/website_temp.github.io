@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Operating System Lab Notes">
+<meta name="keywords" content="Programming">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Operating System Lab">
+<meta property="og:url" content="http://yoursite.com/2019/03/08/操作系统实验笔记/index.html">
+<meta property="og:site_name" content="Qingliu">
+<meta property="og:description" content="Operating System Lab Notes">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-03-11T03:17:04.128Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Operating System Lab">
+<meta name="twitter:description" content="Operating System Lab Notes">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/08/操作系统实验笔记/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Operating System Lab | Qingliu</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+<a href="https://github.com/Aden-Q" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Qingliu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/操作系统实验笔记/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qingliu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qingliu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Operating System Lab
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-03-08 14:06:34" itemprop="dateCreated datePublished" datetime="2019-03-08T14:06:34-06:00">2019-03-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-03-10 22:17:04" itemprop="dateModified" datetime="2019-03-10T22:17:04-05:00">2019-03-10</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/08/操作系统实验笔记/" class="leancloud_visitors" data-flag-title="Operating System Lab">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Heat: </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Operating System Lab Notes</p>
+<a id="more"></a>
+<h2 id="同步互斥和Linux内核模块"><a href="#同步互斥和Linux内核模块" class="headerlink" title="同步互斥和Linux内核模块"></a>同步互斥和Linux内核模块</h2><p>涉及知识点：系统调用，pthread线程库，共享变量，原子操作，进程和线程，同步与互斥，多线程，内核模块</p>
+<p>内核模块是在内核空间运行的，而应用程序运行在用户空间，内核空间和用户空间是操作系统重要的两个概念</p>
+<p>内核符号表：存放所有模块可以访问的那些符号以及相应地址的特殊的表，模块的连接就是将模块插入内核的过程，模块声明的任何全局符号都成为内核符号表的一部分。内核符号表根据系统符号表从内核空间中获取符号的地址，可以从/proc/kallsytms中以文本方式读取，数据格式为：</p>
+<p>内存地址 属性 符号名称 所属模块</p>
+<p>模块依赖</p>
+<p>ksyms命令可以显示内核和模块符号表的信息，可以读/proc/kallsyms文件</p>
+<p>Linux为了便于管理管理，用task_struct结构来表示一个进程，每个进程都有自己独立的task_struct。包含这个进程的所有资源。</p>
+<p>task_struct与内核栈：</p>
+<p>task_struct和内核栈放在同一个4K空间中</p>
+<p>状态转换：</p>
+<p>volatile long state</p>
+<p>long exit_state</p>
+<p>前者表示进程的可运行性，后者表示进程退出时的状态</p>
+<p>kernel thread：</p>
+<p>用内核模块编程创建一个kernel thread，这个内核线程定时统计当前系统中进程的状态，然后通过printk打印出来</p>
+<h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><p>系统调用是内核提供的，功能强大的一系列函数。他们在内核中实现，并通过一定的方式呈现给用户，是用户和内核交互的一个接口</p>
+<p>user mode和kernel mode，处于user mode的用户态程序只有通过中断门gate陷入trap到系统内核中去，才能执行一些具有特权的内核函数</p>
+<p>Intel CPU提供了实模式、保护模式，这是硬件层面上的概念，实模式只能进行20位寻址，只能访问1M内存空间，电脑刚启动的时候就是处于这种模式，所以才需要什么grub引导，另一种模式是保护模式，保护模式又分为4个特权态，其中我们所说的软件层面的用户态和内核态就是其中的两个特权态，内核态和用户态分别适用自己的堆栈。模式切换一般应该指的是用户态和内核态的切换。</p>
+<p>虚存机制的存在提供了进程隔离和地址映射，每个进程的虚拟地址空间又可以分为用户空间和内核空间，在用户态下只能访问用户空间，在内核态下既能访问用户空间又能访问内核空间。因为只有一个运行的内核，所有进程的内核空间都映射到单一内核地址空间，在内核态下，进程可以访问到其他进程的地址空间</p>
+<p>上下文就是一个环境，对进程而言，就是各个变量和数据、所有的寄存器变量、进程打开的文件、内存信息等，上下文可以分为： </p>
+<ul>
+<li>用户级上下文：正文、数据、用户栈以及共享存储区</li>
+<li>寄存器上下文：通用寄存器、程序寄存器IP、状态寄存器、栈指针</li>
+<li>系统级上下文：进程控制块task_struct、内存管理信息、内核栈等</li>
+</ul>
+<p>模式切换相比于进程切换要容易和省时得多</p>
+<p>段页机制：两级地址转换，段地址偏移地址，逻辑地址、线性地址和物理地址，普通应用程序面对的只是逻辑地址，其他地址转换全由操作系统和硬件接管</p>
+<p>逻辑地址转换为线性地址：选择子选择描述符，描述符描述了一个特定的段，然后再在此段基址上加上偏移量换算成32位线性地址</p>
+<p>线性地址转换为物理地址：在分页机制中完成，i386机器采用两级分页，它在物理地址上的页帧和线性地址上的页面建立一一映射，线性地址被分为三部分：前两部分每部分10位分别作为页目录和页表的索引，最后一个部分12位寻址4K空间作为一个页帧内的索引。</p>
+<p>系统调用表保存着所有系统调用的函数指针，以便进行索引调用</p>
+<p>系统调用是一类特殊的中断，属于软中断，系统调用对应着中断向量表中的一项，也就是说中断的概念还要牛逼</p>
+<p>一刷原理部分没有看懂，后面的实践模块也就没有进行下去，需要再去学些东西才行，汇编源码那部分有点难理解，关于堆栈切换，寄存器那块</p>
+<h2 id="进程创建"><a href="#进程创建" class="headerlink" title="进程创建"></a>进程创建</h2><p>进程、线程原理+三个实验</p>
+<p>操作系统通过进程调度来调度每个进程，并且通过虚拟内存机制来保护每个进程自己独立的内存地址空间，这样一个进程崩溃就不会对其他进程产生影响</p>
+<p>linux内核用task_struct来描述进程</p>
+<p>task_struct有越来越臃肿的趋势，一方面，进程必须知道/控制它所拥有的所有系统资源；另一方面，内核越来越复杂，进程相关的信息也越来越多</p>
+<p>早期linux内核把内核栈和task_struct放在同一个4K页面里，这样的话，当程序在内核态下，就可以通过栈指针获取当前进程的task_struct，进程管理方便，但是可能4K页面容不下整个内核栈以及task_struct。后面的内核试图增大这部分空间，把这部分空间从4K增加到8K，也就是从原来的一个页面增加到了两个页面，以及把原本task_struct的位置替换为thread_info，而把指向task_struct的指针存放到这个thread_info里面</p>
+<p>进程状态转化：<code>volatile long state</code>以及<code>long exit_state</code>，分别表示进程的可运行性以及进程退出时候的状态，linux为其定义了一系列的宏：</p>
+<ul>
+<li>TASK_RUNNING: 正占用CPU的进程或在RUNNING队列中的进程，只有处于该状态的进程才能参与实际调度</li>
+<li>TASK_INTERRUPTIBLE: 处于等待资源状态的进程，允许被中断</li>
+<li>TASK_UNINTERRUPTIBLE: 处于等待资源状态的进程，不允许被中断</li>
+<li>TASK_STOPPED: 进程被暂停，收到某些信号后会进入该状态</li>
+<li>TASK_TRACED: 进程被跟踪，调试的时候</li>
+<li>TASK_ZOMBIE: 正在终止的进程，是进程结束运行前的一个过渡状态，此时已经释放了内存、文件等资源，但是在内核中仍然保留一些这个进程的数据结构(比如task_struct)等待父进程回收</li>
+<li>EXIT_DEAD: 进程消亡前的最后一个状态</li>
+<li>TASK_NONINTERACTIVE: 表示是非交互式进程</li>
+</ul>
+<p>进程标志位：和状态位不同，标志位是为了对每个进程运行进行更细粒度的控制，即一些flags</p>
+<p>进程调度：task_struct里面定义了几种调度策略的宏，调度器根据每个进程的调度策略给予不同的优先级，进程有着动态的调度优先级</p>
+<p>进程权限，ID这部分讲了一些特殊标志位的问题</p>
+<p>进程与虚拟存储、进程的地址空间、内存分布：分页式内存管理，MMU内存管理单元完成从虚拟地址到物理地址的映射，linux系统和i386体系结构下，每个进程都有固定的4G虚拟地址空间。MMU和进程页表机制能够把虚拟地址转换为物理地址进行访问，如果虚拟地址和物理地址没有建立映射，就会触发缺页中断，然后操作系统会试图去建立一个映射，对进程来说，整个地址转换的过程都是透明的。虚拟地址的优点：</p>
+<ul>
+<li>每次进程被装载入内存的地址可能是不同的，对程序员而言，根本不需要关心这个</li>
+<li>每个进程有独自的地址空间，通过地址转换机制，可以有效地实现地址隔离和共享</li>
+</ul>
+<p>task_struct可以链接到很多属于该进程的资源，比如mm_struct, fs_struct, files_struct等，分别管理进程内存、进程使用的文件系统、进程操作的所有文件</p>
+<p>进程产生：</p>
+<p>讲了fork, clone以及内核线程、exec系统调用、exit系统调用等</p>
+<h1 id="proc文件系统"><a href="#proc文件系统" class="headerlink" title="/proc文件系统"></a>/proc文件系统</h1><p>/proc文件系统是一个虚拟文件系统，只存在于内存中，而不占用外存空间，从内核动态读取系统信息，主要有两个用途：</p>
+<ul>
+<li>只读文件，用于读取系统信息</li>
+<li>可写文件，用于向内核传递参数<br>用strings或cat可以访问/proc里面的相关文件</li>
+</ul>
+<p>/proc下很多以10进制为标题的目录，他们记录的是系统中正在运行的每个用户级进程的信息，数字表示进程号pid，/proc/self是当前进程目录的符号链接，这个目录下存放很多进程相关文件，比如/proc/self/status存放PCB信息</p>
+<p>/proc/sys目录是一个特殊的目录，它支持直接使用文件系统的写操作，向内核传递参数</p>
+<p>在内核编程/调试中，经常需要内核释放出一些状态信息给应用层</p>
+<p>在/proc文件系统中创建文件：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/proc_fs.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function">struct proc_dir_entry* <span class="title">create_proc_entry</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* name, <span class="keyword">mode_t</span> mode, struct proc_dir_entry* parent)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p>参数说明：</p>
+<ul>
+<li>name: 要创建的文件名，可以包含多级目录</li>
+<li>mode: 要创建的文件的属性</li>
+<li>parent: 这个文件的父目录</li>
+</ul>
+<p>如果只需创建一个只读文件，可以用下面这个更方便的函数:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct proc_dir_entry* <span class="title">create_proc_read_entry</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* name,</span></span></span><br><span class="line"><span class="function"><span class="params">	<span class="keyword">mode_t</span> mode,</span></span></span><br><span class="line"><span class="function"><span class="params">    struct proc_dir_entry* parent,</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">read_proc_t</span>* read_proc,</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">void</span>* data</span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p>参数说明：</p>
+<ul>
+<li>name: 要创建的文件名</li>
+<li>mode: 要创建的文件属性</li>
+<li>parent: 这个文件的父目录</li>
+<li>read_proc: 当用户读这个proc文件的时候，内核调用的函数</li>
+</ul>
+<p>这个函数和前面的区别是在调用之后会给文件挂接上read_proc函数，而前面的函数没有挂接，要手动挂接读写函数</p>
+<p>创建符号链接：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct proc_dir_entry* <span class="title">proc_symlink</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* name,</span></span></span><br><span class="line"><span class="function"><span class="params">	struct proc_dir_entry* parent,</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">const</span> <span class="keyword">char</span>* dest</span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p>参数说明：</p>
+<ul>
+<li>name: 要创建的文件名</li>
+<li>parent: 这个文件的父目录</li>
+<li>dest: 符号链接的目标文件</li>
+</ul>
+<p>可以把这个函数理解为<code>ln -s dest parent/name</code></p>
+<p>创建目录：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct proc_dir_entry* <span class="title">proc_mkdir</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* name,</span></span></span><br><span class="line"><span class="function"><span class="params">	struct proc_dir_entry* parent</span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p>参数说明：</p>
+<ul>
+<li>name: 要创建的文件名</li>
+<li>parent: 这个目录的父目录</li>
+</ul>
+<p>删除文件或目录<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">remove_proc_entry</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* name,</span></span></span><br><span class="line"><span class="function"><span class="params">	struct proc_dir_entry* parent</span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p>参数说明：</p>
+<ul>
+<li>name: 要删除的文件或目录名</li>
+<li>parent: 所在的父目录</li>
+</ul>
+<p>需要注意的是该函数不会递归删除目录，然后内存需要手动释放</p>
+<p>读写回调：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">proc_dir_entry</span>* <span class="title">entry</span>;</span></span><br><span class="line"></span><br><span class="line">entry-&gt;read_proc = read_proc_foo;</span><br><span class="line">entry-&gt;write_proc = write_proc_foo;</span><br></pre></td></tr></table></figure>
+<p>实现读写函数的原型并注册回调即可，具体细节见本章第一个实验</p>
+<p>后面的一些比如用seq_file编程接口、/proc文件系统的操作实验等感觉都比较高阶了，以后再来细学，现在是把基础的部分学完了</p>
+<h2 id="内核模块"><a href="#内核模块" class="headerlink" title="内核模块"></a>内核模块</h2><p>内核模块操作工具：<code>lsmod</code>,<code>insmod</code>,<code>rmmod</code></p>
+<p>模块是在内核空间上运行的程序，实际上是一种目标对象文件，没有链接，不能独立运行，但是其代码可以在运行时链接到系统中作为内核的一部分运行或从内核中取下，从而可以动态扩充内核的功能。模块机制的完整叫法是动态可加载内核模块(Loadable Kernel Module)或LKM。</p>
+<p>内核模块的优点：</p>
+<ul>
+<li>使得内核更加紧凑和灵活</li>
+<li>修改内核时，不必全部重新编译整个内核，可节省不少时间，避免人工操作的错误。系统中如果需要使用新模块，只要编译响应模块然后使用特定用户空间的程序将模块装入即可</li>
+<li>模块可以不依赖于某个固定的硬件平台</li>
+<li>模块的目标代码一旦被链接到内核，它的作用和静态链接的内核目标代码完全等价</li>
+</ul>
+<p>内核模块带来的问题：</p>
+<ul>
+<li>由于内核所占用的内存是不会被换出的，所以链接进内核的模块会给整个系统带来一定的性能和内存利用方面的损失</li>
+<li>装入内核的模块就称为了内核的一部分，可以修改内核中的其他部分，因此模块的使用不当会导致系统崩溃</li>
+<li>为了让内核模块能访问所有内核资源，内核必须维护符号表，并在装入和卸载模块时修改符号表</li>
+<li>模块会要求利用其他模块的功能，所以，内核要维护模块之间的依赖性</li>
+</ul>
+<p>模块和内核处于同类的地址空间，所以模块编程和内核编程其实是等同的</p>
+<p>在实现模块程序的时候有几个注意点：</p>
+<ul>
+<li><code>#define MODULE</code> 声明是一个模块</li>
+<li><code>int init_module(void)</code> 向内核模块注册模块所提供的功能，内核符号表</li>
+<li><code>void cleanup_module(void)</code> 注销所有由模块提供的功能</li>
+</ul>
+<p>内核模块和应用程序的比价：</p>
+<p>为了保护内核不受应用程序干扰，多用户操作系统都实现了对硬件资源的授权访问，这种授权访问机制得益于CPU内部实现不同的操作保护级别，linux使用了两级保护级别</p>
+<p>内核符号表：</p>
+<p>是公开的，可以通过<code>/proc/kallsyms</code>以文本方式读取，格式为：</p>
+<p>内存地址 属性 符号名称 所属模块</p>
+<p>内核符号表处于内核代码段的_ksymtab部分，其开始地址和结束地址是c编译器所产生的两个符号来指定：<strong>start</strong>ksymtab和<strong>stop</strong>ksymtab</p>
+<p>内核符号表的存在也引出了模块依赖的问题</p>
+<p>跟模块有关的数据结构存放在<code>include/linux/module.h</code>里面，每个模块信息都由一个模块对象描述，所有module对象由一个链表链接在一起，<code>kernel/module.c</code>里有模块相关系统调用的实现</p>
+<p>insmod所做的事：</p>
+<ol>
+<li>从命令行参数读入要链接的模块名，通常是扩展名为.ko，elf格式的文件</li>
+<li>确定模块对象代码所在位置，通常这个文件在<code>lib/modules</code>的某个子目录里</li>
+<li>计算存放模块代码、模块名和module对象所需内存大小</li>
+<li>在用户空间分配内存区</li>
+<li>调用init_module，注册模块实现功能</li>
+<li>释放用户态内存</li>
+</ol>
+<p>模块实用工具集modutils，在加载linux内核的时候就被装入了，其包含的功能有：</p>
+<ol>
+<li>lsmod: 和cat /proc/modules等价</li>
+<li>ksyms: 显示内核符号和模块符号表的信息，可以读取/proc/kallsyms文件</li>
+<li>modprobe: 自动根据模块之间的依赖性插入模块的程序</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    <div>
+    
+    <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------End of the article <i class="fa fa-paw"></i> Thanks for reading!-------------</div>
+
+</div>
+    
+    </div>
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Programming/" rel="tag"><i class="fa fa-tag"></i> Programming</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/08/卷积神经网络编程作业/" rel="next" title="Covolutional Neural Network, Programming Assignments">
+                <i class="fa fa-chevron-left"></i> Covolutional Neural Network, Programming Assignments
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/08/改善深层神经网络课堂笔记/" rel="prev" title="Improving Neural Networks, Course Notes">
+                Improving Neural Networks, Course Notes <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Qingliu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Aden-Q" title="GitHub &rarr; https://github.com/Aden-Q" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:qian0102@umn.edu" title="E-Mail &rarr; mailto:qian0102@umn.edu" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#同步互斥和Linux内核模块"><span class="nav-number">1.</span> <span class="nav-text">同步互斥和Linux内核模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统调用"><span class="nav-number">2.</span> <span class="nav-text">系统调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程创建"><span class="nav-number">3.</span> <span class="nav-text">进程创建</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#proc文件系统"><span class="nav-number"></span> <span class="nav-text">/proc文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#内核模块"><span class="nav-number">1.</span> <span class="nav-text">内核模块</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qingliu</span>
+
+  
+
+  
+</div>
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+    Number of visitors: <span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+<!--
+<span class="post-meta-divider">|</span>
+
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v6.5.0</div>
+
+
+
+-->
+
+<span class="post-meta-divider">|</span>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">Total 63.6k words</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1}))
+                .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function () {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "TTkRYLVAOPvuxQuV5scOHl9U-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "TTkRYLVAOPvuxQuV5scOHl9U-gzGzoHsz",
+                'X-LC-Key': "fCRGgKjo3tYIfbW3ygKrNCRN",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
