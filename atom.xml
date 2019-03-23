@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-23T22:48:46.921Z</updated>
+  <updated>2019-03-23T22:50:10.627Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Algorithms, Part 1</title>
+    <title>MathJax Formula</title>
     <link href="http://yoursite.com/2019/03/23/MathJax%20Formula/"/>
     <id>http://yoursite.com/2019/03/23/MathJax Formula/</id>
     <published>2019-03-23T22:48:34.000Z</published>
-    <updated>2019-03-23T22:48:46.921Z</updated>
+    <updated>2019-03-23T22:50:10.627Z</updated>
     
     <content type="html"><![CDATA[<p>MathJax Formula.</p><a id="more"></a>]]></content>
     
