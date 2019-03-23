@@ -140,6 +140,9 @@
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1g1b3eepjljj30qi06g42n.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g1c6cuj9zyj30s009f77o.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1g1c6t3ncm3j30pu0ehgsz.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1g1d8shuq7hj30wn0ludp8.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g1d9kvv8aqj30ee06lt9f.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1g1d9nf4f8qj30f505m3z1.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g0yd3afksej30ka0bsgov.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g0yde48g5vj30nb0gdgs4.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1g0ydp9v9ckj30sj06wmzw.jpg">
@@ -154,7 +157,7 @@
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g13friuhaaj30o90duq6b.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1g13gi5ehrlj30vf0dojtf.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g13glc65gbj30we0pewlm.jpg">
-<meta property="og:updated_time" content="2019-03-23T02:23:55.992Z">
+<meta property="og:updated_time" content="2019-03-23T18:08:13.662Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Algorithms, Part 1">
 <meta name="twitter:description" content="Princeton Algorithm course on coursera. Part 1">
@@ -481,7 +484,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-03-22 21:23:55" itemprop="dateModified" datetime="2019-03-22T21:23:55-05:00">2019-03-22</time>
+                <time title="Modified: 2019-03-23 13:08:13" itemprop="dateModified" datetime="2019-03-23T13:08:13-05:00">2019-03-23</time>
               
             
           </span>
@@ -1204,7 +1207,88 @@
 <p>Code is on my Github page:</p>
 <p><a href="https://github.com/Aden-Q/Collinear" target="_blank" rel="noopener">Pattern Recognition</a></p>
 <p>Failed some timing tests because HashMap is not allowed.</p>
-<h2 id="Quicksort"><a href="#Quicksort" class="headerlink" title="Quicksort"></a>Quicksort</h2><h3 id="Quicksort-1"><a href="#Quicksort-1" class="headerlink" title="Quicksort"></a>Quicksort</h3><h3 id="Selection"><a href="#Selection" class="headerlink" title="Selection"></a>Selection</h3><h3 id="Duplicate-keys"><a href="#Duplicate-keys" class="headerlink" title="Duplicate keys"></a>Duplicate keys</h3><h3 id="System-sorts"><a href="#System-sorts" class="headerlink" title="System sorts"></a>System sorts</h3><h1 id="Week-5"><a href="#Week-5" class="headerlink" title="Week 5"></a>Week 5</h1><h2 id="Balanced-Search-Trees"><a href="#Balanced-Search-Trees" class="headerlink" title="Balanced Search Trees"></a>Balanced Search Trees</h2><h3 id="2-3-search-trees"><a href="#2-3-search-trees" class="headerlink" title="2-3 search trees"></a>2-3 search trees</h3><p>Allow 1 or 2 keys per node</p>
+<h2 id="Quicksort"><a href="#Quicksort" class="headerlink" title="Quicksort"></a>Quicksort</h2><h3 id="Quicksort-1"><a href="#Quicksort-1" class="headerlink" title="Quicksort"></a>Quicksort</h3><p>Basic plan:</p>
+<ul>
+<li>Shuffle the array.</li>
+<li>Partition.</li>
+<li>Sort each piece recursively.</li>
+</ul>
+<p>Phase 1: Repeat until i and j pointers cross.</p>
+<ul>
+<li>Scan i from left to right so long as (a[i] &lt; a[lo])</li>
+<li>Scan j from right to left so long as (a[j] &gt; a[lo])</li>
+<li>Exchange a[i] with a[j]</li>
+</ul>
+<p>Phase 2: When pointers cross.</p>
+<ul>
+<li>Exchange a[lo] with a[j]</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">partition</span><span class="params">(Comparable[] a, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = lo, j = hi+<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (<span class="keyword">true</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (less(a[++i], a[lo]))</span><br><span class="line">            <span class="keyword">if</span> (i == hi) <span class="keyword">break</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (less(a[lo], a[--j]))</span><br><span class="line">            <span class="keyword">if</span> (j == lo) <span class="keyword">break</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (i &gt;= j) <span class="keyword">break</span>;</span><br><span class="line">        exch(a, i, j);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    exch(a, lo, j);</span><br><span class="line">    <span class="keyword">return</span> j;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Quick</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">partition</span><span class="params">(Comparable[] a, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function">    </span>&#123; <span class="comment">/* as before */</span> &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        StdRandom.shuffle(a);</span><br><span class="line">        sort(a, <span class="number">0</span>, a.length - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (hi &lt;= lo)	<span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> j = partition(a, lo, hi);</span><br><span class="line">        sort(a, lo, j-<span class="number">1</span>);</span><br><span class="line">        sort(a, j+<span class="number">1</span>, hi);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Details:</p>
+<ul>
+<li>Partitioning in-place: Can be done with extra memoy.</li>
+<li>Terminating the loop: Testing whether the pointers cross is a bit trickier than it might seem.</li>
+<li>Staying in bounds: The (j == lo) test is redundant because of the key, but (i == hi) test is not.</li>
+<li><p>Preserving randomness: Shuffling is needed for performance guarantee.</p>
+</li>
+<li><p>Equal keys: When duplicates are present, it is bettuer to stop on keys equal to the partitioning item’s key.</p>
+</li>
+</ul>
+<p>Best case: N log N</p>
+<p>Worst case: $N^2$</p>
+<center><br><img src="https://ws1.sinaimg.cn/large/006tKfTcly1g1d8shuq7hj30wn0ludp8.jpg" style="zoom:60%"><br></center>
+
+<p>Approximate sum by an integral.</p>
+<p>Proposition: Quicksort is an in-place sorting algorithm, not stable.</p>
+<p>Pf:</p>
+<ul>
+<li>Partitioning: constant extra space.</li>
+<li>Depth of recursion: logarithmic extra space (with high probability).</li>
+</ul>
+<p>Insertion sort small subarrays:</p>
+<ul>
+<li>Even quicksort has too much overhead for tiny subarrays.</li>
+<li>Cutoff to insertion sort for around 10 items.</li>
+<li>Note: could delay insertion sort until one pass at end.</li>
+</ul>
+<p>Practical improvements:</p>
+<p>Insertion sort small subarrays:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (hi &lt;= lo + CUTOFF - <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        Insertion.sort(a, lo, hi);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> j = partition(a, lo, hi);</span><br><span class="line">    sort(a, lo, j-<span class="number">1</span>);</span><br><span class="line">    sort(a, j+<span class="number">1</span>, hi);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Median of sample:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (hi &lt;= lo)	<span class="keyword">return</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> m = medianOf3(a, lo, lo + (hi -lo)/<span class="number">2</span>, hi);</span><br><span class="line">    swap(a, lo, m);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> j = partition(a, lo, hi);</span><br><span class="line">    sort(a, lo, j-<span class="number">1</span>);</span><br><span class="line">    sort(a, j+<span class="number">1</span>, hi);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Selection"><a href="#Selection" class="headerlink" title="Selection"></a>Selection</h3><p>Goal: Given an array of N items, find the kth largest.</p>
+<p>Applications:</p>
+<ul>
+<li>Order statistics.</li>
+<li>Find the “top k.”</li>
+</ul>
+<p>Quick-select:</p>
+<hr>
+<p>Partition array so that:</p>
+<ul>
+<li>Entry a[j] is in place.</li>
+<li>No larger entry to the left of j.</li>
+<li>No smaller entry to the right of j.</li>
+</ul>
+<p>Repeat in one subarray, depending on j; finished when j equals k.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Comparable <span class="title">select</span><span class="params">(Comparable[] a, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    StdRandom.shuffle(a);</span><br><span class="line">    <span class="keyword">int</span> lo = <span class="number">0</span>; hi = a.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (hi &gt; lo)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> j = partition(a, lo, hi);</span><br><span class="line">        <span class="keyword">if</span> (j &lt; k) lo = j + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (j &gt; k)	hi = j - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span>	<span class="keyword">return</span> a[k];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> a[k];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Proposition: Quick-select takes linear time on average.</p>
+<p>Remard: Quadratic time in the worst case while random shuffle provides a probabilistic guarantee.</p>
+<h3 id="Duplicate-keys"><a href="#Duplicate-keys" class="headerlink" title="Duplicate keys"></a>Duplicate keys</h3><p>Quicksort with duplicate keys: Algorithm goes quadratic unless partitioning stops on equal keys!</p>
+<p>3-way partitioning:</p>
+<p>Goal: Partition array into 3 parts so that:</p>
+<ul>
+<li>Entries between lt and gt equal to partition item v.</li>
+<li>No larger entries to left of lt.</li>
+<li>No smaller entries to right of gt.</li>
+</ul>
+<center><br><img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1d9kvv8aqj30ee06lt9f.jpg" style="zoom:60%"><br></center>
+
+<center><br><img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1d9nf4f8qj30f505m3z1.jpg" style="zoom:60%"><br></center>
+
+<p>Bottom line: Randomized quicksort with 3-way partitioning reduces running time from linearithmic to linear in broad class of applications.</p>
+<h3 id="System-sorts"><a href="#System-sorts" class="headerlink" title="System sorts"></a>System sorts</h3><h1 id="Week-5"><a href="#Week-5" class="headerlink" title="Week 5"></a>Week 5</h1><h2 id="Balanced-Search-Trees"><a href="#Balanced-Search-Trees" class="headerlink" title="Balanced Search Trees"></a>Balanced Search Trees</h2><h3 id="2-3-search-trees"><a href="#2-3-search-trees" class="headerlink" title="2-3 search trees"></a>2-3 search trees</h3><p>Allow 1 or 2 keys per node</p>
 <ul>
 <li>2-node: one key, two children</li>
 <li>3-node: two keys, three children</li>
@@ -1784,7 +1868,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 62.7k words</span>
+  <span class="post-count">Total 63.4k words</span>
 </div>
 
         
