@@ -148,6 +148,9 @@
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g1d9kvv8aqj30ee06lt9f.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1g1d9nf4f8qj30f505m3z1.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1g1da8hsgkuj30sc0h7jza.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g1dnzpm3q4j30dw0dagom.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1g1do64ok5pj30cb0h90wm.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1g1dog1bzv3j30dv0hd0xg.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g0yd3afksej30ka0bsgov.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g0yde48g5vj30nb0gdgs4.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1g0ydp9v9ckj30sj06wmzw.jpg">
@@ -162,7 +165,7 @@
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g13friuhaaj30o90duq6b.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1g13gi5ehrlj30vf0dojtf.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g13glc65gbj30we0pewlm.jpg">
-<meta property="og:updated_time" content="2019-03-23T22:57:11.723Z">
+<meta property="og:updated_time" content="2019-03-24T02:59:55.831Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Algorithms, Part 1">
 <meta name="twitter:description" content="Princeton Algorithm course on coursera. Part 1">
@@ -489,7 +492,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-03-23 17:57:11" itemprop="dateModified" datetime="2019-03-23T17:57:11-05:00">2019-03-23</time>
+                <time title="Modified: 2019-03-23 21:59:55" itemprop="dateModified" datetime="2019-03-23T21:59:55-05:00">2019-03-23</time>
               
             
           </span>
@@ -1339,7 +1342,136 @@
 
 
 
-<h1 id="Week-4"><a href="#Week-4" class="headerlink" title="Week 4"></a>Week 4</h1><h2 id="Priority-Queues"><a href="#Priority-Queues" class="headerlink" title="Priority Queues"></a>Priority Queues</h2><h3 id="API-and-elementary-implementations"><a href="#API-and-elementary-implementations" class="headerlink" title="API and elementary implementations"></a>API and elementary implementations</h3><h3 id="binary-heaps"><a href="#binary-heaps" class="headerlink" title="binary heaps"></a>binary heaps</h3><h3 id="heapsort"><a href="#heapsort" class="headerlink" title="heapsort"></a>heapsort</h3><h3 id="event-driven-simulation"><a href="#event-driven-simulation" class="headerlink" title="event-driven simulation"></a>event-driven simulation</h3><h3 id="Programming-Assignment-4"><a href="#Programming-Assignment-4" class="headerlink" title="Programming Assignment 4"></a>Programming Assignment 4</h3><p>Problem:</p>
+<h1 id="Week-4"><a href="#Week-4" class="headerlink" title="Week 4"></a>Week 4</h1><h2 id="Priority-Queues"><a href="#Priority-Queues" class="headerlink" title="Priority Queues"></a>Priority Queues</h2><h3 id="API-and-elementary-implementations"><a href="#API-and-elementary-implementations" class="headerlink" title="API and elementary implementations"></a>API and elementary implementations</h3><p>Collections: Insert and delete items.</p>
+<ul>
+<li>Stack: Remove the item most recently added.</li>
+<li>Queue: Remove the item least recently added.</li>
+<li>Randomized queue: Remove a random item.</li>
+<li>Priority queue: Remove the largest (or smallest) item.</li>
+</ul>
+<p>Priority queue API</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MaxPQ</span>&lt;<span class="title">Key</span> <span class="keyword">extends</span> <span class="title">Comparable</span>&lt;<span class="title">Key</span>&gt;&gt;</span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	MaxPQ();	<span class="comment">// create an empty priority queue</span></span><br><span class="line">	MaxPQ(Key[] a);	<span class="comment">// create a priority with given keys</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(Key v)</span></span>;	<span class="comment">// insert a key into the priority queue</span></span><br><span class="line">	<span class="function">Key <span class="title">delMax</span><span class="params">()</span></span>;	<span class="comment">// return and remove the largest key</span></span><br><span class="line">	<span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>;	<span class="comment">// is the priority queue empty?</span></span><br><span class="line">	<span class="function">Key <span class="title">max</span><span class="params">()</span></span>;	<span class="comment">// return the largest key</span></span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;	<span class="comment">// number of entries in the priority queue</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Applications:</p>
+<ul>
+<li>Event-driven simulation</li>
+<li>Numerical computation</li>
+<li>Data compression</li>
+<li>Graph searching</li>
+<li>Number theory</li>
+<li>Artificial intelligence</li>
+<li>Statistics</li>
+<li>Operating systems</li>
+<li>Discrete optimization</li>
+<li>Spam filtering</li>
+</ul>
+<p>Generalizes: stack, queue, randomized queue.</p>
+<p>Unordered array implementation:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UnorderedMaxPQ</span>&lt;<span class="title">Key</span> <span class="keyword">extends</span> <span class="title">Comparable</span>&lt;<span class="title">Key</span>&gt;&gt;</span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Key[] pq;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> N;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">UnorderedMaxPQ</span><span class="params">(<span class="keyword">int</span> capacity)</span></span></span><br><span class="line"><span class="function">	</span>&#123; pq = (Key[]) <span class="keyword">new</span> Comparable[capacity]; &#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123; <span class="keyword">return</span> N == <span class="number">0</span>; &#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(Key x)</span></span></span><br><span class="line"><span class="function">	</span>&#123; pq[N++] = x; &#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Key <span class="title">delMax</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">    	<span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; N; i++)</span><br><span class="line">    		<span class="keyword">if</span> (less(max, i)) max = i;</span><br><span class="line">    	exch(max, N-<span class="number">1</span>);</span><br><span class="line">    	<span class="keyword">return</span> pq[--N];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>implementation</th>
+<th>insert</th>
+<th>delmax</th>
+<th>max</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>unordered array</td>
+<td>1</td>
+<td>N</td>
+<td>N</td>
+</tr>
+<tr>
+<td>ordered array</td>
+<td>N</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Goal</td>
+<td>log N</td>
+<td>log N</td>
+<td>log N</td>
+</tr>
+</tbody>
+</table>
+<h3 id="binary-heaps"><a href="#binary-heaps" class="headerlink" title="binary heaps"></a>binary heaps</h3><p>Based on complete binary tree (Perfectly balanced, except for bottom level).</p>
+<p>Binary heap: Array representation of a heap-ordered complete binary tree.</p>
+<p>Heap-ordered binary tree:</p>
+<ul>
+<li>Keys in nodes.</li>
+<li><p>Parent’s key no smaller than children’s key.</p>
+<p>Array representation:</p>
+</li>
+<li><p>Indices start at 1. (Start at 0 causes a little trouble)</p>
+</li>
+<li>Take nodes in level order.</li>
+<li>No explicit liniks needed!</li>
+</ul>
+<p>Proposition: Largest key is a[1], which is root of binary tree.</p>
+<p>Proposition: Can use array indices to move through tree.</p>
+<ul>
+<li>Parent of node at k is at k/2.</li>
+<li>Children of node at k are at 2k and 2k+1.</li>
+</ul>
+<center><br><img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1dnzpm3q4j30dw0dagom.jpg" style="zoom:60%"><br></center>
+
+
+
+<p>Swim:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swim</span><span class="params">(<span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (k &gt; <span class="number">1</span> &amp;&amp; less(k/<span class="number">2</span>, k))</span><br><span class="line">    &#123;</span><br><span class="line">        exch(k, k/<span class="number">2</span>);</span><br><span class="line">        k = k/<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Insertion:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(Key x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    pq[++N] = x;</span><br><span class="line">    swim(N);	<span class="comment">// swim means swim up</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<center><br><img src="https://ws1.sinaimg.cn/large/006tKfTcly1g1do64ok5pj30cb0h90wm.jpg" style="zoom:60%"><br></center>
+
+<p>Sink:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">sink</span><span class="params">(<span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">2</span>*k &lt;= N)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">2</span>*k;</span><br><span class="line">        <span class="keyword">if</span> (j &lt; N &amp;&amp; less(j, j+<span class="number">1</span>)) j++;</span><br><span class="line">        <span class="keyword">if</span> (!less(k, j)) <span class="keyword">break</span>;</span><br><span class="line">        exch(k, j);</span><br><span class="line">        k = j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Delete max:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Key <span class="title">delMax</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Key max = pq[<span class="number">1</span>];</span><br><span class="line">    exch(<span class="number">1</span>, N--);</span><br><span class="line">    sink(<span class="number">1</span>);</span><br><span class="line">    pq[N+<span class="number">1</span>] = <span class="keyword">null</span>;	<span class="comment">// prevent loitering</span></span><br><span class="line">    <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<center><br><img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1dog1bzv3j30dv0hd0xg.jpg" style="zoom:60%"><br></center>
+
+
+
+<p>Complete Java implementation:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MaxPQ</span>&lt;<span class="title">Key</span> <span class="keyword">extends</span> <span class="title">Comparable</span>&lt;<span class="title">Key</span>&gt;&gt;</span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Key[] pq;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> N;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">MaxPQ</span><span class="params">(<span class="keyword">int</span> capacity)</span></span></span><br><span class="line"><span class="function">	</span>&#123; pq = (Key[]) <span class="keyword">new</span> Comparable[capacity+<span class="number">1</span>]; &#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123; <span class="keyword">return</span> N == <span class="number">0</span>; &#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(Key key)</span></span></span><br><span class="line"><span class="function">	</span>&#123; <span class="comment">/* as before */</span> &#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delMax</span><span class="params">()</span></span>;</span><br><span class="line">	&#123; <span class="comment">/* as before */</span> &#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swim</span><span class="params">(<span class="keyword">int</span> k)</span></span>;</span><br><span class="line">	&#123; <span class="comment">/* as before */</span> &#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">sink</span><span class="params">(<span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function">	</span>&#123; <span class="comment">/* as before */</span> &#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">less</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span></span><br><span class="line"><span class="function">	</span>&#123; <span class="keyword">return</span> pq[i].compareTo(pq[j]) &lt; <span class="number">0</span>; &#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">exch</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span></span><br><span class="line"><span class="function">	</span>&#123; Key t = pq[i]; pq[i] = pq[j]; pq[j] = t; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Improvements: Fibonacci heap</p>
+<p>Some considerations</p>
+<hr>
+<p>Immutability of keys:</p>
+<ul>
+<li>Assumption: client does not change keys while they’re on the PQ.</li>
+<li>Best practice: use immutable keys.</li>
+</ul>
+<p>Underflow and overflow:</p>
+<ul>
+<li>Underflow: throw exception if deleting from empty PQ.</li>
+<li>Overflow: add no-arg constructor and use resizing array.</li>
+</ul>
+<p>Minimum-oriented priority queue:</p>
+<ul>
+<li>Replace less() with greater().</li>
+<li>Implement greater().</li>
+</ul>
+<p>Other operations:</p>
+<ul>
+<li>Remove an arbitrary item.</li>
+<li>Change the priority of an item.</li>
+</ul>
+<p>Immutability:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Vector</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> N;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">double</span>[] data;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Vector</span><span class="params">(<span class="keyword">double</span>[] data)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.N = data.length;</span><br><span class="line">        <span class="keyword">this</span>.data = <span class="keyword">new</span> <span class="keyword">double</span>[N];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">            <span class="keyword">this</span>.data[i] = data[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Immutable: String, Integer, Double, Color, Vector, Transaction, Point2D.</p>
+<p>Mutable: StringBuilder, Stack, Counter, Java array.</p>
+<p>Advantages of immutability:</p>
+<ul>
+<li>Simplifies debugging.</li>
+<li>Safer in presence of hostile code.</li>
+<li>Simplifiers concurrent programming.</li>
+<li>Safe to use as key in priority queue or symbol table.</li>
+</ul>
+<p>Disadvantage: Must create new object for each data type value.</p>
+<h3 id="heapsort"><a href="#heapsort" class="headerlink" title="heapsort"></a>heapsort</h3><h3 id="event-driven-simulation"><a href="#event-driven-simulation" class="headerlink" title="event-driven simulation"></a>event-driven simulation</h3><h3 id="Programming-Assignment-4"><a href="#Programming-Assignment-4" class="headerlink" title="Programming Assignment 4"></a>Programming Assignment 4</h3><p>Problem:</p>
 <p><a href="http://coursera.cs.princeton.edu/algs4/assignments/collinear.html" target="_blank" rel="noopener">Programming Assignment 4</a></p>
 <p>Code is on my Github page:</p>
 <p><a href="https://github.com/Aden-Q/Collinear" target="_blank" rel="noopener">Pattern Recognition</a></p>
@@ -2008,7 +2140,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 68.4k words</span>
+  <span class="post-count">Total 69.1k words</span>
 </div>
 
         
