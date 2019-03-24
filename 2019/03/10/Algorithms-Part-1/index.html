@@ -151,6 +151,7 @@
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g1dnzpm3q4j30dw0dagom.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1g1do64ok5pj30cb0h90wm.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1g1dog1bzv3j30dv0hd0xg.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g1entk93myj30pa067tbf.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g0yd3afksej30ka0bsgov.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g0yde48g5vj30nb0gdgs4.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1g0ydp9v9ckj30sj06wmzw.jpg">
@@ -165,7 +166,7 @@
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g13friuhaaj30o90duq6b.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1g13gi5ehrlj30vf0dojtf.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g13glc65gbj30we0pewlm.jpg">
-<meta property="og:updated_time" content="2019-03-24T02:59:55.831Z">
+<meta property="og:updated_time" content="2019-03-24T23:02:28.775Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Algorithms, Part 1">
 <meta name="twitter:description" content="Princeton Algorithm course on coursera. Part 1">
@@ -492,7 +493,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-03-23 21:59:55" itemprop="dateModified" datetime="2019-03-23T21:59:55-05:00">2019-03-23</time>
+                <time title="Modified: 2019-03-24 18:02:28" itemprop="dateModified" datetime="2019-03-24T18:02:28-05:00">2019-03-24</time>
               
             
           </span>
@@ -1471,7 +1472,33 @@
 <li>Safe to use as key in priority queue or symbol table.</li>
 </ul>
 <p>Disadvantage: Must create new object for each data type value.</p>
-<h3 id="heapsort"><a href="#heapsort" class="headerlink" title="heapsort"></a>heapsort</h3><h3 id="event-driven-simulation"><a href="#event-driven-simulation" class="headerlink" title="event-driven simulation"></a>event-driven simulation</h3><h3 id="Programming-Assignment-4"><a href="#Programming-Assignment-4" class="headerlink" title="Programming Assignment 4"></a>Programming Assignment 4</h3><p>Problem:</p>
+<h3 id="heapsort"><a href="#heapsort" class="headerlink" title="heapsort"></a>heapsort</h3><p>Basic plan for in-place sort:</p>
+<ul>
+<li>Create max-heap with all N keys.</li>
+<li>Repeatedly remove the maximum key.</li>
+</ul>
+<p>Heap construction: Sink, bottom-up.</p>
+<p>Build:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> k = N/<span class="number">2</span>; k &gt;= <span class="number">1</span>; k--)</span><br><span class="line">    sink(a, k, N);</span><br></pre></td></tr></table></figure>
+<p>Sort:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (N &gt; <span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">    exch(a, <span class="number">1</span>, N--);</span><br><span class="line">    sink(a, <span class="number">1</span>, N);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Bottom line: </p>
+<ul>
+<li>Inner loop longer than quicksort’s</li>
+<li>Makes poor use of cache memory</li>
+<li>Not stable</li>
+</ul>
+<h3 id="event-driven-simulation"><a href="#event-driven-simulation" class="headerlink" title="event-driven simulation"></a>event-driven simulation</h3><p>Molecular dynamics simulation of hard discs</p>
+<hr>
+<p>Goal. Simulate the motion of N moving particles that behave according to the laws of elastic collision.</p>
+<p>Time-driven simulation: Judge collision with dt</p>
+<p>Event-driven simulation: Maintain PQ of collision events, prioritized by time.</p>
+<center><br><img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1entk93myj30pa067tbf.jpg" style="zoom:60%"><br></center>
+
+<p>Collision prediction: Given position, velocity, and radius of a particle, when will it collide next with a wall or another particle?</p>
+<p>Collision resolution: If collision occurs, update colliding particle(s) according to laws of elastic collisions.</p>
+<p>Difficult simulation, involving a lot of physics and math, or at least not easy.</p>
+<h3 id="Programming-Assignment-4"><a href="#Programming-Assignment-4" class="headerlink" title="Programming Assignment 4"></a>Programming Assignment 4</h3><p>Problem:</p>
 <p><a href="http://coursera.cs.princeton.edu/algs4/assignments/collinear.html" target="_blank" rel="noopener">Programming Assignment 4</a></p>
 <p>Code is on my Github page:</p>
 <p><a href="https://github.com/Aden-Q/Collinear" target="_blank" rel="noopener">Pattern Recognition</a></p>
@@ -2140,7 +2167,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 69.1k words</span>
+  <span class="post-count">Total 69.3k words</span>
 </div>
 
         
