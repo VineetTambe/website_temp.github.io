@@ -1184,43 +1184,25 @@
 
 
 
-<!-- LOCAL: You can save these files to your site and update links -->
     
-        
-        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
     
-<!-- END LOCAL -->
-
     
-
     
-      <script type="text/javascript">
-      function renderGitment(){
-        var gitment = new Gitmint({
-            id: window.location.pathname,
-            owner: 'Aden-Q',
-            repo: 'gitment-comments',
-            
-            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
-            
-            oauth: {
-            
-            
-                client_secret: '200633852bdb3579481b3fecee7178c1b98f471e',
-            
-                client_id: '69ff68eec89b6cd91e37'
-            }});
-        gitment.render('gitment-container');
-      }
-
-      
-      renderGitment();
-      
-      </script>
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
     
-
-
+        <script type="text/javascript">
+            var gitment = new Gitment({
+                    id: window.location.pathname, 
+                    owner: '',
+                    repo: '',
+                    oauth: {
+                        client_id: '69ff68eec89b6cd91e37',
+                        client_secret: '200633852bdb3579481b3fecee7178c1b98f471e',
+                    }});
+            gitment.render('gitment-container');
+        </script>
+    
 
 
 
