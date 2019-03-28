@@ -2551,15 +2551,19 @@
     <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
     
         <script type="text/javascript">
-            var gitment = new Gitment({
-                    id: window.location.pathname, 
-                    owner: '',
-                    repo: '',
-                    oauth: {
-                        client_id: '69ff68eec89b6cd91e37',
-                        client_secret: '200633852bdb3579481b3fecee7178c1b98f471e',
-                    }});
-            gitment.render('gitment-container');
+            function showGitment(){
+                document.getElementById("gitment-display-button").style.display = "none";
+                document.getElementById("gitment-container").style.display = "block";
+                var gitment = new Gitment({
+                        id: window.location.pathname, 
+                        owner: '',
+                        repo: '',
+                        oauth: {
+                            client_id: '69ff68eec89b6cd91e37',
+                            client_secret: '200633852bdb3579481b3fecee7178c1b98f471e',
+                        }});
+                gitment.render('gitment-container');
+            }
         </script>
     
 
