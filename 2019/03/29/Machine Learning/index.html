@@ -127,7 +127,7 @@
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-03-31-Week1-6.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-03-31-Week1-7.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-01-Week1-7.png">
-<meta property="og:updated_time" content="2019-04-01T06:29:03.359Z">
+<meta property="og:updated_time" content="2019-04-01T15:33:10.671Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Machine Learning">
 <meta name="twitter:description" content="Stanford University, Robotics: Perception Course notes">
@@ -454,7 +454,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-01 01:29:03" itemprop="dateModified" datetime="2019-04-01T01:29:03-05:00">2019-04-01</time>
+                <time title="Modified: 2019-04-01 10:33:10" itemprop="dateModified" datetime="2019-04-01T10:33:10-05:00">2019-04-01</time>
               
             
           </span>
@@ -649,6 +649,30 @@
 <p>Element-wise addition.</p>
 <p>Legal matrix addtion requires matrixes with same dimension.</p>
 <p><strong>Scalar Multiplication</strong><br>$$<br>3 *<br>\begin {bmatrix}<br>1 &amp; 0 \\<br>2 &amp; 5 \\<br>3 &amp; 1<br>\end {bmatrix}<br>=<br>\begin {bmatrix}<br>3 &amp; 0 \\<br>6 &amp; 15 \\<br>9 &amp; 3<br>\end {bmatrix}<br>$$</p>
+<p><strong>Matrix Multiplication: </strong></p>
+<p>Matrix multiply vector: To get $y_i$, multiply A’s $i^{th} $ row with elements of vector$x$, and add them up.</p>
+<p>Prediction = DataMatrix * parameters</p>
+<p>Matrix-matrix multiplication:<br>$$<br>\begin {bmatrix}<br>1 &amp; 3 &amp; 2 \\<br>4 &amp; 0 &amp; 1<br>\end {bmatrix}</p>
+<p>\begin {bmatrix}<br>1 &amp; 3 \\<br>0 &amp; 1 \\<br>5 &amp; 2<br>\end {bmatrix}<br>=<br>\begin {bmatrix}<br>11 &amp; 10 \\<br>9 &amp; 14<br>\end {bmatrix}<br>$$<br><strong>Details:</strong>  </p>
+<ul>
+<li>A m$\times $n matrix</li>
+<li>B n$\times $o matrix</li>
+<li>m$\times $o matrix</li>
+</ul>
+<p>The $i^{th}$ column of the matrix $C$ is obtained by multiplying $A$ with the $i^{th}$ column of $B$. (for $i$ = 1,2,…,o). Then convert to matrix-vector multiplication.</p>
+<p>Multiple compeing hypotheses: let each hypotheses corespond to a column in the second matrix.</p>
+<p>Let $A$ and $B​$ be matrices. Then in general,<br>$$<br>A \times B \ne B \times A<br>$$</p>
+<p>$$<br>A \times (B \times C) = (A \times B) \times C<br>$$</p>
+<p><strong>Identity Matrix:</strong></p>
+<p>Denoted $I$ (or $I_{n\times n}$)</p>
+<p>Examples of identity matrices:<br>$$<br>\begin {bmatrix}<br>1 &amp; 0 \\<br>0 &amp; 1<br>\end {bmatrix}<br>\<br>\begin {bmatrix}<br>1 &amp; 0 &amp; 0 \\<br>0 &amp; 1 &amp; 0 \\<br>0 &amp; 0 &amp; 1<br>\end {bmatrix}<br>\<br>\begin {bmatrix}<br>1 &amp; 0 &amp; 0 &amp; 0 \\<br>0 &amp; 1 &amp; 0 &amp; 0 \\<br>0 &amp; 0 &amp; 1 &amp; 0 \\<br>0 &amp; 0 &amp; 0 &amp; 1<br>\end {bmatrix}<br>$$<br>For any matrix $A$<br>$$<br>A \cdot I = I \cdot A = A<br>$$</p>
+<p><strong>Matrix inverse:</strong></p>
+<p>Not all numbers have an inverse.</p>
+<p>If $A$ is an m$\times $m matrix (square matrix), and if it has an inverse,<br>$$<br>AA^{-1}=A^{-1}A=I<br>$$<br>Matrices that don’t have an inverse are “singular” or “degenerate”.</p>
+<p><strong>Matrix Transpose:</strong></p>
+<p>Example:<br>$$<br>A =<br>\begin {bmatrix}<br>1 &amp; 2 &amp; 0 \\<br>3 &amp; 5 &amp; 9<br>\end {bmatrix}</p>
+<p>\</p>
+<p>A^T =<br>\begin {bmatrix}<br>1 &amp; 3 \\<br>2 &amp; 5 \\<br>0 &amp; 9<br>\end {bmatrix}<br>$$<br>Let $A$ be an m$\times $n matrix, and let $B=A^T$. Then $B$ is an n$\times $m matrix, and<br>$$<br>B_{ij}=A_{ji}<br>$$</p>
 <h1 id="Week-2"><a href="#Week-2" class="headerlink" title="Week 2"></a>Week 2</h1><h2 id="Linear-Regression-with-Multiple-Variables"><a href="#Linear-Regression-with-Multiple-Variables" class="headerlink" title="Linear Regression with Multiple Variables"></a>Linear Regression with Multiple Variables</h2><h2 id="Octave-Matlab-Tutorial"><a href="#Octave-Matlab-Tutorial" class="headerlink" title="Octave/Matlab Tutorial"></a>Octave/Matlab Tutorial</h2><h1 id="Week-3"><a href="#Week-3" class="headerlink" title="Week 3"></a>Week 3</h1><h2 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression"></a>Logistic Regression</h2><h2 id="Regularization"><a href="#Regularization" class="headerlink" title="Regularization"></a>Regularization</h2><h1 id="Week-4"><a href="#Week-4" class="headerlink" title="Week 4"></a>Week 4</h1><h2 id="Neural-Networks-Representation"><a href="#Neural-Networks-Representation" class="headerlink" title="Neural Networks: Representation"></a>Neural Networks: Representation</h2><h1 id="Week-5"><a href="#Week-5" class="headerlink" title="Week 5"></a>Week 5</h1><h2 id="Neural-Networks-Learning"><a href="#Neural-Networks-Learning" class="headerlink" title="Neural Networks: Learning"></a>Neural Networks: Learning</h2><h1 id="Week-6"><a href="#Week-6" class="headerlink" title="Week 6"></a>Week 6</h1><h2 id="Advice-for-Applying-Machine-Learning"><a href="#Advice-for-Applying-Machine-Learning" class="headerlink" title="Advice for Applying Machine Learning"></a>Advice for Applying Machine Learning</h2><h2 id="Machine-Learning-System-Design"><a href="#Machine-Learning-System-Design" class="headerlink" title="Machine Learning System Design"></a>Machine Learning System Design</h2><h1 id="Week-7"><a href="#Week-7" class="headerlink" title="Week 7"></a>Week 7</h1><h2 id="Support-Vector-Machines"><a href="#Support-Vector-Machines" class="headerlink" title="Support Vector Machines"></a>Support Vector Machines</h2><h1 id="Week-8"><a href="#Week-8" class="headerlink" title="Week 8"></a>Week 8</h1><h2 id="Unsupervised-Learning"><a href="#Unsupervised-Learning" class="headerlink" title="Unsupervised Learning"></a>Unsupervised Learning</h2><h2 id="Dimensionality-Reduction"><a href="#Dimensionality-Reduction" class="headerlink" title="Dimensionality Reduction"></a>Dimensionality Reduction</h2><h1 id="Week-9"><a href="#Week-9" class="headerlink" title="Week 9"></a>Week 9</h1><h2 id="Anomaly-Detection"><a href="#Anomaly-Detection" class="headerlink" title="Anomaly Detection"></a>Anomaly Detection</h2><h2 id="Recommender-Systems"><a href="#Recommender-Systems" class="headerlink" title="Recommender Systems"></a>Recommender Systems</h2><h1 id="Week-10"><a href="#Week-10" class="headerlink" title="Week 10"></a>Week 10</h1><h2 id="Large-Scale-Machine-Learning"><a href="#Large-Scale-Machine-Learning" class="headerlink" title="Large Scale Machine Learning"></a>Large Scale Machine Learning</h2><h1 id="Week-11"><a href="#Week-11" class="headerlink" title="Week 11"></a>Week 11</h1><h2 id="Application-Example-Photo-OCR"><a href="#Application-Example-Photo-OCR" class="headerlink" title="Application Example: Photo OCR"></a>Application Example: Photo OCR</h2><h2 id="Linear-Algebra-Review-1"><a href="#Linear-Algebra-Review-1" class="headerlink" title="Linear Algebra Review"></a>Linear Algebra Review</h2><h1 id="Week-2-1"><a href="#Week-2-1" class="headerlink" title="Week 2"></a>Week 2</h1><h2 id="Linear-Regression-with-Multiple-Variables-1"><a href="#Linear-Regression-with-Multiple-Variables-1" class="headerlink" title="Linear Regression with Multiple Variables"></a>Linear Regression with Multiple Variables</h2><h2 id="Octave-Matlab-Tutorial-1"><a href="#Octave-Matlab-Tutorial-1" class="headerlink" title="Octave/Matlab Tutorial"></a>Octave/Matlab Tutorial</h2><h1 id="Week-3-1"><a href="#Week-3-1" class="headerlink" title="Week 3"></a>Week 3</h1><h2 id="Logistic-Regression-1"><a href="#Logistic-Regression-1" class="headerlink" title="Logistic Regression"></a>Logistic Regression</h2><h2 id="Regularization-1"><a href="#Regularization-1" class="headerlink" title="Regularization"></a>Regularization</h2><h1 id="Week-4-1"><a href="#Week-4-1" class="headerlink" title="Week 4"></a>Week 4</h1><h2 id="Neural-Networks-Representation-1"><a href="#Neural-Networks-Representation-1" class="headerlink" title="Neural Networks: Representation"></a>Neural Networks: Representation</h2><h1 id="Week-5-1"><a href="#Week-5-1" class="headerlink" title="Week 5"></a>Week 5</h1><h2 id="Neural-Networks-Learning-1"><a href="#Neural-Networks-Learning-1" class="headerlink" title="Neural Networks: Learning"></a>Neural Networks: Learning</h2><h1 id="Week-6-1"><a href="#Week-6-1" class="headerlink" title="Week 6"></a>Week 6</h1><h2 id="Advice-for-Applying-Machine-Learning-1"><a href="#Advice-for-Applying-Machine-Learning-1" class="headerlink" title="Advice for Applying Machine Learning"></a>Advice for Applying Machine Learning</h2><h2 id="Machine-Learning-System-Design-1"><a href="#Machine-Learning-System-Design-1" class="headerlink" title="Machine Learning System Design"></a>Machine Learning System Design</h2><h1 id="Week-7-1"><a href="#Week-7-1" class="headerlink" title="Week 7"></a>Week 7</h1><h2 id="Support-Vector-Machines-1"><a href="#Support-Vector-Machines-1" class="headerlink" title="Support Vector Machines"></a>Support Vector Machines</h2><h1 id="Week-8-1"><a href="#Week-8-1" class="headerlink" title="Week 8"></a>Week 8</h1><h2 id="Unsupervised-Learning-1"><a href="#Unsupervised-Learning-1" class="headerlink" title="Unsupervised Learning"></a>Unsupervised Learning</h2><h2 id="Dimensionality-Reduction-1"><a href="#Dimensionality-Reduction-1" class="headerlink" title="Dimensionality Reduction"></a>Dimensionality Reduction</h2><h1 id="Week-9-1"><a href="#Week-9-1" class="headerlink" title="Week 9"></a>Week 9</h1><h2 id="Anomaly-Detection-1"><a href="#Anomaly-Detection-1" class="headerlink" title="Anomaly Detection"></a>Anomaly Detection</h2><h2 id="Recommender-Systems-1"><a href="#Recommender-Systems-1" class="headerlink" title="Recommender Systems"></a>Recommender Systems</h2><h1 id="Week-10-1"><a href="#Week-10-1" class="headerlink" title="Week 10"></a>Week 10</h1><h2 id="Large-Scale-Machine-Learning-1"><a href="#Large-Scale-Machine-Learning-1" class="headerlink" title="Large Scale Machine Learning"></a>Large Scale Machine Learning</h2><h1 id="Week-11-1"><a href="#Week-11-1" class="headerlink" title="Week 11"></a>Week 11</h1><h2 id="Application-Example-Photo-OCR-1"><a href="#Application-Example-Photo-OCR-1" class="headerlink" title="Application Example: Photo OCR"></a>Application Example: Photo OCR</h2>
       
     </div>
@@ -971,7 +995,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 12.7k words</span>
+  <span class="post-count">Total 13.0k words</span>
 </div>
 
         
