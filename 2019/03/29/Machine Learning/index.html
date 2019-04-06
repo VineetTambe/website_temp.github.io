@@ -130,7 +130,13 @@
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-03-Week2-1.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-03-Week2-2.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-03-Week2-3.png">
-<meta property="og:updated_time" content="2019-04-05T20:05:10.370Z">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-05-Week3-1.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-05-Week3-2.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-06-Week3-3.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-06-Week3-4.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-06-Week3-5.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-06-Week3-6.png">
+<meta property="og:updated_time" content="2019-04-06T01:35:29.369Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Machine Learning">
 <meta name="twitter:description" content="Stanford University, Machine Learning Course notes">
@@ -457,7 +463,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-05 15:05:10" itemprop="dateModified" datetime="2019-04-05T15:05:10-05:00">2019-04-05</time>
+                <time title="Modified: 2019-04-05 20:35:29" itemprop="dateModified" datetime="2019-04-05T20:35:29-05:00">2019-04-05</time>
               
             
           </span>
@@ -772,7 +778,103 @@
 <p>Vectorized implementation:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">prediction = theta&apos; * x;</span><br></pre></td></tr></table></figure>
 <h2 id="Programming-Assignment-Linear-Regression"><a href="#Programming-Assignment-Linear-Regression" class="headerlink" title="Programming Assignment: Linear Regression"></a>Programming Assignment: Linear Regression</h2><p><a href="https://github.com/Aden-Q/Machine-Learning/tree/master/Week2" target="_blank" rel="noopener">Linear Regression</a></p>
-<h1 id="Week-3"><a href="#Week-3" class="headerlink" title="Week 3"></a>Week 3</h1><h2 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression"></a>Logistic Regression</h2><h2 id="Regularization"><a href="#Regularization" class="headerlink" title="Regularization"></a>Regularization</h2><h1 id="Week-4"><a href="#Week-4" class="headerlink" title="Week 4"></a>Week 4</h1><h2 id="Neural-Networks-Representation"><a href="#Neural-Networks-Representation" class="headerlink" title="Neural Networks: Representation"></a>Neural Networks: Representation</h2><h1 id="Week-5"><a href="#Week-5" class="headerlink" title="Week 5"></a>Week 5</h1><h2 id="Neural-Networks-Learning"><a href="#Neural-Networks-Learning" class="headerlink" title="Neural Networks: Learning"></a>Neural Networks: Learning</h2><h1 id="Week-6"><a href="#Week-6" class="headerlink" title="Week 6"></a>Week 6</h1><h2 id="Advice-for-Applying-Machine-Learning"><a href="#Advice-for-Applying-Machine-Learning" class="headerlink" title="Advice for Applying Machine Learning"></a>Advice for Applying Machine Learning</h2><h2 id="Machine-Learning-System-Design"><a href="#Machine-Learning-System-Design" class="headerlink" title="Machine Learning System Design"></a>Machine Learning System Design</h2><h1 id="Week-7"><a href="#Week-7" class="headerlink" title="Week 7"></a>Week 7</h1><h2 id="Support-Vector-Machines"><a href="#Support-Vector-Machines" class="headerlink" title="Support Vector Machines"></a>Support Vector Machines</h2><h1 id="Week-8"><a href="#Week-8" class="headerlink" title="Week 8"></a>Week 8</h1><h2 id="Unsupervised-Learning"><a href="#Unsupervised-Learning" class="headerlink" title="Unsupervised Learning"></a>Unsupervised Learning</h2><h2 id="Dimensionality-Reduction"><a href="#Dimensionality-Reduction" class="headerlink" title="Dimensionality Reduction"></a>Dimensionality Reduction</h2><h1 id="Week-9"><a href="#Week-9" class="headerlink" title="Week 9"></a>Week 9</h1><h2 id="Anomaly-Detection"><a href="#Anomaly-Detection" class="headerlink" title="Anomaly Detection"></a>Anomaly Detection</h2><h2 id="Recommender-Systems"><a href="#Recommender-Systems" class="headerlink" title="Recommender Systems"></a>Recommender Systems</h2><h1 id="Week-10"><a href="#Week-10" class="headerlink" title="Week 10"></a>Week 10</h1><h2 id="Large-Scale-Machine-Learning"><a href="#Large-Scale-Machine-Learning" class="headerlink" title="Large Scale Machine Learning"></a>Large Scale Machine Learning</h2><h1 id="Week-11"><a href="#Week-11" class="headerlink" title="Week 11"></a>Week 11</h1><h2 id="Application-Example-Photo-OCR"><a href="#Application-Example-Photo-OCR" class="headerlink" title="Application Example: Photo OCR"></a>Application Example: Photo OCR</h2><h2 id="Linear-Algebra-Review-1"><a href="#Linear-Algebra-Review-1" class="headerlink" title="Linear Algebra Review"></a>Linear Algebra Review</h2>
+<h1 id="Week-3"><a href="#Week-3" class="headerlink" title="Week 3"></a>Week 3</h1><h2 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression"></a>Logistic Regression</h2><p><strong>Classification</strong></p>
+<ul>
+<li>Email: Spam / Not Spam?</li>
+<li>Online Transactions: Fraudulent (Yes/ No)?</li>
+<li>Tumor: Malignant / Benign?</li>
+</ul>
+<p>$$<br>y \in {0,1}<br>$$</p>
+<p>0: “Negative Class”</p>
+<p>1: “Positive Class”</p>
+<p>Binary Classification by Linear Regression is easily affected by extreme value.</p>
+<p><strong>Logistic Regression:</strong><br>$$<br>0 \leq h_\theta(x) \leq 1<br>$$<br>Hypothesis:<br>$$<br>h_\theta(x) = g(\theta^Tx)<br>\\<br>g(z) = \frac{1}{1+e^{-z}}<br>$$<br>g is called <strong>sigmoid function</strong> or <strong>logistic function</strong>.<br>$$<br>h_\theta(x)=\frac{1}{1+e^{-\theta^Tx}}<br>$$<br><strong>Interpretation of Hypothesis Output</strong></p>
+<p>$h_\theta(x)$ = estimated probability that y = 1 on input x<br>$$<br>h_\theta(x)=P(y=1|x;\theta)<br>$$<br>“Probability that y = 1, given x, parameteruzed by $\theta $”<br>$$<br>P(y=0|x;\theta)+P(y=1|x;\theta)=1<br>$$<br><strong>Decision Boundary</strong></p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-05-Week3-1.png" style="zoom:60%"><br></center>
+
+<p><strong>Cost Function</strong></p>
+<p>If we use the same cost function as before, it would be non-convex. Thus it’s not a wise choice. So we tend to choose a convex function.</p>
+<p>Logistic regression cost function:<br>$$<br>Cost(h_\theta(x),y)=<br>\begin{equation}<br>\left{<br>             \begin{array}{lr}<br>             -log(h_\theta(x)), &amp; if \space y =1  \\<br>             -log(1-h_\theta(x)), &amp;  if \space y = 0<br>             \end{array}<br>\right.<br>\end{equation}<br>$$</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-05-Week3-2.png" style="zoom:60%"><br></center>
+
+<p>$$<br>Cost(h_\theta(x),y)=-ylog(h_\theta(x))-(1-y)log(1-h_\theta(x))<br>$$</p>
+<p>$$<br>J(\theta)=-\frac1m[\sum_{i=1}^my^{(i)}logh_\theta(x^{(i)})+(1-y^{(i)})log(1-h_\theta(x^{(i)}))]<br>$$</p>
+<p><strong>Gradient descent</strong><br>$$<br>\theta_j:=\theta_j - \alpha\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}<br>$$<br>It looks identical to linear regression! (only hypothesis changes)</p>
+<p><strong>Advanced optimization</strong></p>
+<ul>
+<li>Conjugate gradient</li>
+<li>BFGS</li>
+<li>L-BFGS</li>
+</ul>
+<p>Advantages:</p>
+<ul>
+<li>No need to manually pick $\alpha $</li>
+<li>Often faster than gradient descent</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>More complex</li>
+</ul>
+<p><strong>Multiclass classification</strong></p>
+<p>Email foldering/tagging: Work, Friends, Family, Hobby</p>
+<p>Medical diagrams: Nol ill, Cold, Flu</p>
+<p>Weather: Sunny, Cloudy, Rain, Snow</p>
+<p><strong>One-vs-all (one-vs-rest):</strong></p>
+<p>Treat one multiple class problem as several binary classification problems.</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-06-Week3-3.png" style="zoom:60%"><br></center>
+
+<p>Train a logistic regression classifier $h_\theta^{(i)}(x)$ for each class $i$ to predict the probability that $y=i$.</p>
+<p>On a new input $x$, to make a prediction, pick the class $i$ that maximizes<br>$$<br>max\space h_\theta^{(i)}(x)<br>$$<br>Which means the prediction takes the maximum probability the sample belongs to.</p>
+<h2 id="Regularization"><a href="#Regularization" class="headerlink" title="Regularization"></a>Regularization</h2><center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-06-Week3-4.png" style="zoom:60%"><br></center>
+
+
+
+<p>Underfit: High bias</p>
+<p>Overfit: High variance</p>
+<p><strong>Overfitting:</strong> If we have too many features, the learned hypothesis may fit the training set very well, but fail to generalize to new examples (predict prices on new examples).</p>
+<p><strong>Addressing overfitting:</strong></p>
+<ul>
+<li>Reduce number of features<ul>
+<li>Manually select which features to keep.</li>
+<li>Model selection algorithm.</li>
+</ul>
+</li>
+<li>Regularization<ul>
+<li>Keep all the features, but reduce magnitude/values of parameters $\theta_j$.</li>
+<li>Works well when we have a lot of features, each of which contributes a bit to predicting $y​$.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Regularization</strong></p>
+<p>Small values for parameters $\theta_0,\theta_1,…,\theta_n$</p>
+<ul>
+<li>Simpler hypothesis</li>
+<li>Less prone to overfitting</li>
+</ul>
+<p>$$<br>J(\theta)=\frac1{2m}[\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2+\lambda \sum_{i=1}^m\theta_j^2]<br>$$</p>
+<p>$\lambda$: regularization parameter, control the trade off between fitting the training set well and keeping parameters small (keeping hypothesis simple)</p>
+<p>If $\lambda $ is extremely large, then $h_\theta(x)=\theta_0$. (end up with the simplest hypothesis and high bias)</p>
+<p><strong>Gradient descent with regularization</strong><br>$$<br>\theta_0:=\theta_0-\alpha \frac1m<br>\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x_0^{(i)}<br>$$</p>
+<p>$$<br>\theta_j:=\theta_j-\alpha [\frac1m<br>\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}+\frac\lambda m\theta_j], \space for \space j = 1, 2, …, n<br>$$</p>
+<p>Equivalent:<br>$$<br>\theta_j:=\theta_j(1-\alpha\frac\lambda m)-\alpha \frac1m<br>\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}<br>$$</p>
+<p><strong>Normal equation with normalization</strong></p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-06-Week3-5.png" style="zoom:60%"><br></center>
+
+
+
+<p><strong>Regularized logistic regression</strong></p>
+<p>Cost function:<br>$$<br>J(\theta) = -[\frac1m \sum_{i=1}^my^{(i)}logh_\theta(x^{(i)})+(1-y^{(i)})log(1-h_\theta(x^{(i)}))]+<br>\frac{\lambda}{2m}\sum_{j=1}^{n}\theta_j^2<br>$$</p>
+<p><strong>Regularized advanced optimization</strong></p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-06-Week3-6.png" style="zoom:60%"><br></center>
+
+
+
+
+
+
+
+<h2 id="Programming-Assignment-Logistic-Regression"><a href="#Programming-Assignment-Logistic-Regression" class="headerlink" title="Programming Assignment: Logistic Regression"></a>Programming Assignment: Logistic Regression</h2><p><a href="">Logistic Regression</a></p>
+<h1 id="Week-4"><a href="#Week-4" class="headerlink" title="Week 4"></a>Week 4</h1><h2 id="Neural-Networks-Representation"><a href="#Neural-Networks-Representation" class="headerlink" title="Neural Networks: Representation"></a>Neural Networks: Representation</h2><h1 id="Week-5"><a href="#Week-5" class="headerlink" title="Week 5"></a>Week 5</h1><h2 id="Neural-Networks-Learning"><a href="#Neural-Networks-Learning" class="headerlink" title="Neural Networks: Learning"></a>Neural Networks: Learning</h2><h1 id="Week-6"><a href="#Week-6" class="headerlink" title="Week 6"></a>Week 6</h1><h2 id="Advice-for-Applying-Machine-Learning"><a href="#Advice-for-Applying-Machine-Learning" class="headerlink" title="Advice for Applying Machine Learning"></a>Advice for Applying Machine Learning</h2><h2 id="Machine-Learning-System-Design"><a href="#Machine-Learning-System-Design" class="headerlink" title="Machine Learning System Design"></a>Machine Learning System Design</h2><h1 id="Week-7"><a href="#Week-7" class="headerlink" title="Week 7"></a>Week 7</h1><h2 id="Support-Vector-Machines"><a href="#Support-Vector-Machines" class="headerlink" title="Support Vector Machines"></a>Support Vector Machines</h2><h1 id="Week-8"><a href="#Week-8" class="headerlink" title="Week 8"></a>Week 8</h1><h2 id="Unsupervised-Learning"><a href="#Unsupervised-Learning" class="headerlink" title="Unsupervised Learning"></a>Unsupervised Learning</h2><h2 id="Dimensionality-Reduction"><a href="#Dimensionality-Reduction" class="headerlink" title="Dimensionality Reduction"></a>Dimensionality Reduction</h2><h1 id="Week-9"><a href="#Week-9" class="headerlink" title="Week 9"></a>Week 9</h1><h2 id="Anomaly-Detection"><a href="#Anomaly-Detection" class="headerlink" title="Anomaly Detection"></a>Anomaly Detection</h2><h2 id="Recommender-Systems"><a href="#Recommender-Systems" class="headerlink" title="Recommender Systems"></a>Recommender Systems</h2><h1 id="Week-10"><a href="#Week-10" class="headerlink" title="Week 10"></a>Week 10</h1><h2 id="Large-Scale-Machine-Learning"><a href="#Large-Scale-Machine-Learning" class="headerlink" title="Large Scale Machine Learning"></a>Large Scale Machine Learning</h2><h1 id="Week-11"><a href="#Week-11" class="headerlink" title="Week 11"></a>Week 11</h1><h2 id="Application-Example-Photo-OCR"><a href="#Application-Example-Photo-OCR" class="headerlink" title="Application Example: Photo OCR"></a>Application Example: Photo OCR</h2><h2 id="Linear-Algebra-Review-1"><a href="#Linear-Algebra-Review-1" class="headerlink" title="Linear Algebra Review"></a>Linear Algebra Review</h2>
       
     </div>
 
@@ -1031,7 +1133,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-1"><span class="nav-number">1.</span> <span class="nav-text">Week 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Regression-with-One-Variable"><span class="nav-number">1.2.</span> <span class="nav-text">Linear Regression with One Variable</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linear-Regression-with-One-Variable-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">Linear Regression with One Variable</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Algebra-Review"><span class="nav-number">1.3.</span> <span class="nav-text">Linear Algebra Review</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-2"><span class="nav-number">2.</span> <span class="nav-text">Week 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Regression-with-Multiple-Variables"><span class="nav-number">2.1.</span> <span class="nav-text">Linear Regression with Multiple Variables</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Octave-Matlab-Tutorial"><span class="nav-number">2.2.</span> <span class="nav-text">Octave/Matlab Tutorial</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Linear-Regression"><span class="nav-number">2.3.</span> <span class="nav-text">Programming Assignment: Linear Regression</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-3"><span class="nav-number">3.</span> <span class="nav-text">Week 3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Logistic-Regression"><span class="nav-number">3.1.</span> <span class="nav-text">Logistic Regression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Regularization"><span class="nav-number">3.2.</span> <span class="nav-text">Regularization</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-4"><span class="nav-number">4.</span> <span class="nav-text">Week 4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Neural-Networks-Representation"><span class="nav-number">4.1.</span> <span class="nav-text">Neural Networks: Representation</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-5"><span class="nav-number">5.</span> <span class="nav-text">Week 5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Neural-Networks-Learning"><span class="nav-number">5.1.</span> <span class="nav-text">Neural Networks: Learning</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-6"><span class="nav-number">6.</span> <span class="nav-text">Week 6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Advice-for-Applying-Machine-Learning"><span class="nav-number">6.1.</span> <span class="nav-text">Advice for Applying Machine Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Machine-Learning-System-Design"><span class="nav-number">6.2.</span> <span class="nav-text">Machine Learning System Design</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-7"><span class="nav-number">7.</span> <span class="nav-text">Week 7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Support-Vector-Machines"><span class="nav-number">7.1.</span> <span class="nav-text">Support Vector Machines</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-8"><span class="nav-number">8.</span> <span class="nav-text">Week 8</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Unsupervised-Learning"><span class="nav-number">8.1.</span> <span class="nav-text">Unsupervised Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dimensionality-Reduction"><span class="nav-number">8.2.</span> <span class="nav-text">Dimensionality Reduction</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-9"><span class="nav-number">9.</span> <span class="nav-text">Week 9</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Anomaly-Detection"><span class="nav-number">9.1.</span> <span class="nav-text">Anomaly Detection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Recommender-Systems"><span class="nav-number">9.2.</span> <span class="nav-text">Recommender Systems</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-10"><span class="nav-number">10.</span> <span class="nav-text">Week 10</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Large-Scale-Machine-Learning"><span class="nav-number">10.1.</span> <span class="nav-text">Large Scale Machine Learning</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-11"><span class="nav-number">11.</span> <span class="nav-text">Week 11</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Application-Example-Photo-OCR"><span class="nav-number">11.1.</span> <span class="nav-text">Application Example: Photo OCR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Algebra-Review-1"><span class="nav-number">11.2.</span> <span class="nav-text">Linear Algebra Review</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-1"><span class="nav-number">1.</span> <span class="nav-text">Week 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Regression-with-One-Variable"><span class="nav-number">1.2.</span> <span class="nav-text">Linear Regression with One Variable</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linear-Regression-with-One-Variable-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">Linear Regression with One Variable</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Algebra-Review"><span class="nav-number">1.3.</span> <span class="nav-text">Linear Algebra Review</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-2"><span class="nav-number">2.</span> <span class="nav-text">Week 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Regression-with-Multiple-Variables"><span class="nav-number">2.1.</span> <span class="nav-text">Linear Regression with Multiple Variables</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Octave-Matlab-Tutorial"><span class="nav-number">2.2.</span> <span class="nav-text">Octave/Matlab Tutorial</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Linear-Regression"><span class="nav-number">2.3.</span> <span class="nav-text">Programming Assignment: Linear Regression</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-3"><span class="nav-number">3.</span> <span class="nav-text">Week 3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Logistic-Regression"><span class="nav-number">3.1.</span> <span class="nav-text">Logistic Regression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Regularization"><span class="nav-number">3.2.</span> <span class="nav-text">Regularization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Logistic-Regression"><span class="nav-number">3.3.</span> <span class="nav-text">Programming Assignment: Logistic Regression</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-4"><span class="nav-number">4.</span> <span class="nav-text">Week 4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Neural-Networks-Representation"><span class="nav-number">4.1.</span> <span class="nav-text">Neural Networks: Representation</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-5"><span class="nav-number">5.</span> <span class="nav-text">Week 5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Neural-Networks-Learning"><span class="nav-number">5.1.</span> <span class="nav-text">Neural Networks: Learning</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-6"><span class="nav-number">6.</span> <span class="nav-text">Week 6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Advice-for-Applying-Machine-Learning"><span class="nav-number">6.1.</span> <span class="nav-text">Advice for Applying Machine Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Machine-Learning-System-Design"><span class="nav-number">6.2.</span> <span class="nav-text">Machine Learning System Design</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-7"><span class="nav-number">7.</span> <span class="nav-text">Week 7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Support-Vector-Machines"><span class="nav-number">7.1.</span> <span class="nav-text">Support Vector Machines</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-8"><span class="nav-number">8.</span> <span class="nav-text">Week 8</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Unsupervised-Learning"><span class="nav-number">8.1.</span> <span class="nav-text">Unsupervised Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dimensionality-Reduction"><span class="nav-number">8.2.</span> <span class="nav-text">Dimensionality Reduction</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-9"><span class="nav-number">9.</span> <span class="nav-text">Week 9</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Anomaly-Detection"><span class="nav-number">9.1.</span> <span class="nav-text">Anomaly Detection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Recommender-Systems"><span class="nav-number">9.2.</span> <span class="nav-text">Recommender Systems</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-10"><span class="nav-number">10.</span> <span class="nav-text">Week 10</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Large-Scale-Machine-Learning"><span class="nav-number">10.1.</span> <span class="nav-text">Large Scale Machine Learning</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-11"><span class="nav-number">11.</span> <span class="nav-text">Week 11</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Application-Example-Photo-OCR"><span class="nav-number">11.1.</span> <span class="nav-text">Application Example: Photo OCR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Algebra-Review-1"><span class="nav-number">11.2.</span> <span class="nav-text">Linear Algebra Review</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1094,7 +1196,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 14.1k words</span>
+  <span class="post-count">Total 14.8k words</span>
 </div>
 
         
