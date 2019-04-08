@@ -141,7 +141,7 @@
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-08-Week4-3.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-08-Week4-4.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-08-Week4-5.png">
-<meta property="og:updated_time" content="2019-04-08T05:29:56.834Z">
+<meta property="og:updated_time" content="2019-04-08T20:26:19.984Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Machine Learning">
 <meta name="twitter:description" content="Stanford University, Machine Learning Course notes">
@@ -468,7 +468,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-08 00:29:56" itemprop="dateModified" datetime="2019-04-08T00:29:56-05:00">2019-04-08</time>
+                <time title="Modified: 2019-04-08 15:26:19" itemprop="dateModified" datetime="2019-04-08T15:26:19-05:00">2019-04-08</time>
               
             
           </span>
@@ -916,7 +916,26 @@
 
 
 <h2 id="Programming-Assignment-Multi-class-Classification-and-Neural-Networks"><a href="#Programming-Assignment-Multi-class-Classification-and-Neural-Networks" class="headerlink" title="Programming Assignment: Multi-class Classification and Neural Networks"></a>Programming Assignment: Multi-class Classification and Neural Networks</h2><p><a href="">Multile-class Classification and Neural Networks</a></p>
-<h1 id="Week-5"><a href="#Week-5" class="headerlink" title="Week 5"></a>Week 5</h1><h2 id="Neural-Networks-Learning"><a href="#Neural-Networks-Learning" class="headerlink" title="Neural Networks: Learning"></a>Neural Networks: Learning</h2><h1 id="Week-6"><a href="#Week-6" class="headerlink" title="Week 6"></a>Week 6</h1><h2 id="Advice-for-Applying-Machine-Learning"><a href="#Advice-for-Applying-Machine-Learning" class="headerlink" title="Advice for Applying Machine Learning"></a>Advice for Applying Machine Learning</h2><h2 id="Machine-Learning-System-Design"><a href="#Machine-Learning-System-Design" class="headerlink" title="Machine Learning System Design"></a>Machine Learning System Design</h2><h1 id="Week-7"><a href="#Week-7" class="headerlink" title="Week 7"></a>Week 7</h1><h2 id="Support-Vector-Machines"><a href="#Support-Vector-Machines" class="headerlink" title="Support Vector Machines"></a>Support Vector Machines</h2><h1 id="Week-8"><a href="#Week-8" class="headerlink" title="Week 8"></a>Week 8</h1><h2 id="Unsupervised-Learning"><a href="#Unsupervised-Learning" class="headerlink" title="Unsupervised Learning"></a>Unsupervised Learning</h2><h2 id="Dimensionality-Reduction"><a href="#Dimensionality-Reduction" class="headerlink" title="Dimensionality Reduction"></a>Dimensionality Reduction</h2><h1 id="Week-9"><a href="#Week-9" class="headerlink" title="Week 9"></a>Week 9</h1><h2 id="Anomaly-Detection"><a href="#Anomaly-Detection" class="headerlink" title="Anomaly Detection"></a>Anomaly Detection</h2><h2 id="Recommender-Systems"><a href="#Recommender-Systems" class="headerlink" title="Recommender Systems"></a>Recommender Systems</h2><h1 id="Week-10"><a href="#Week-10" class="headerlink" title="Week 10"></a>Week 10</h1><h2 id="Large-Scale-Machine-Learning"><a href="#Large-Scale-Machine-Learning" class="headerlink" title="Large Scale Machine Learning"></a>Large Scale Machine Learning</h2><h1 id="Week-11"><a href="#Week-11" class="headerlink" title="Week 11"></a>Week 11</h1><h2 id="Application-Example-Photo-OCR"><a href="#Application-Example-Photo-OCR" class="headerlink" title="Application Example: Photo OCR"></a>Application Example: Photo OCR</h2><h2 id="Linear-Algebra-Review-1"><a href="#Linear-Algebra-Review-1" class="headerlink" title="Linear Algebra Review"></a>Linear Algebra Review</h2>
+<h1 id="Week-5"><a href="#Week-5" class="headerlink" title="Week 5"></a>Week 5</h1><h2 id="Neural-Networks-Learning"><a href="#Neural-Networks-Learning" class="headerlink" title="Neural Networks: Learning"></a>Neural Networks: Learning</h2><p>$L$ = total no. of layers in network</p>
+<p>$s_l$ = no. of units (not counting bias unit) in layer $l$</p>
+<p><strong>Binary classification:</strong> $y$ = 0 or 1, 1 output unit</p>
+<p><strong>Multi-class classification (K classes):</strong> $y \in R^K$</p>
+<p><strong>Cost function</strong></p>
+<p><strong>Gradient computation</strong></p>
+<p>Given one training example $(x,y)$:</p>
+<p>Forward propagation:<br>$$<br>a^{(1)} = x \\<br>z^{(2)}=\theta^{(1)}a^{(1)} \\<br>a^{(2)}=g(z^{(2)}) \space (add \space a_0^{(2)}) \\<br>z^{(3)}=\theta^{(2)}a^{(2)} \\<br>a^{(3)}=g(z^{(3)}) \space (add \space a_0^{(3)}) \\<br>z^{(4)}=\theta^{(3)}a^{(3)} \\<br>a^{(4)}=h_\theta(x)=g(z^{(4)})<br>$$<br><strong>Backpropagation algorithm</strong></p>
+<p>Intuition: $\delta_j^{(l)}$ = “error” of node $j$ in layer $l$.<br>$$<br>\delta^{(4)} = a^{(4)}-y<br>$$</p>
+<p>$$<br>\delta^{(3)}=(\theta^{(3)})^T\delta^{(4)}.*g’(z^{(3)})<br>$$</p>
+<p>$$<br>\delta^{(2)}=(\theta^{(2)})^T\delta^{(3)}.*g’(z^{(2)})<br>$$</p>
+<p>$$<br>\frac{\partial}{\partial\theta_{ij}^{(l)}}J(\theta) = a_j^{(l)}\delta_i^{(l+1)}<br>$$<br>Training set ${   (x^{(1)},y^{(1)}),…, (x^{(m)},y^{(m)})}$</p>
+<p>Set $\Delta_{ij}^{(l)}=0 $ for all $l,i,j$.</p>
+<p>For $i$ = 1 to $m$</p>
+<p>​    Set $a^{(1)}=x^{(i)}$</p>
+<p>​    Perform forward propagation to compute $a^{(l)}$ for $l$ = 2,3,…,L</p>
+<p>​    Using $y^{(i)}$, compute $\delta^{(L)}=a^{(L)}-y^{(i)}$</p>
+<p>​    Compute $\delta^{(L-1)},\delta^{(L-2)},…,\delta^{(2)}$    // backpropagation step</p>
+<p>​    $\Delta_{ij}^{(l)}:=\Delta_{ij}^{(l)}+a_j^{(l)}\delta_i^{(l+1)}$<br>$$<br>D_{ij}^{(l)}:=\frac1m\Delta_{ij}^{(l)}+\lambda\theta_{ij}^{(l)} \space if \space j \neq0 \\<br>D_{ij}^{(l)}:=\frac1m\Delta_{ij}^{(l)} \space if \space j \ =0<br>$$</p>
+<h1 id="Week-6"><a href="#Week-6" class="headerlink" title="Week 6"></a>Week 6</h1><h2 id="Advice-for-Applying-Machine-Learning"><a href="#Advice-for-Applying-Machine-Learning" class="headerlink" title="Advice for Applying Machine Learning"></a>Advice for Applying Machine Learning</h2><h2 id="Machine-Learning-System-Design"><a href="#Machine-Learning-System-Design" class="headerlink" title="Machine Learning System Design"></a>Machine Learning System Design</h2><h1 id="Week-7"><a href="#Week-7" class="headerlink" title="Week 7"></a>Week 7</h1><h2 id="Support-Vector-Machines"><a href="#Support-Vector-Machines" class="headerlink" title="Support Vector Machines"></a>Support Vector Machines</h2><h1 id="Week-8"><a href="#Week-8" class="headerlink" title="Week 8"></a>Week 8</h1><h2 id="Unsupervised-Learning"><a href="#Unsupervised-Learning" class="headerlink" title="Unsupervised Learning"></a>Unsupervised Learning</h2><h2 id="Dimensionality-Reduction"><a href="#Dimensionality-Reduction" class="headerlink" title="Dimensionality Reduction"></a>Dimensionality Reduction</h2><h1 id="Week-9"><a href="#Week-9" class="headerlink" title="Week 9"></a>Week 9</h1><h2 id="Anomaly-Detection"><a href="#Anomaly-Detection" class="headerlink" title="Anomaly Detection"></a>Anomaly Detection</h2><h2 id="Recommender-Systems"><a href="#Recommender-Systems" class="headerlink" title="Recommender Systems"></a>Recommender Systems</h2><h1 id="Week-10"><a href="#Week-10" class="headerlink" title="Week 10"></a>Week 10</h1><h2 id="Large-Scale-Machine-Learning"><a href="#Large-Scale-Machine-Learning" class="headerlink" title="Large Scale Machine Learning"></a>Large Scale Machine Learning</h2><h1 id="Week-11"><a href="#Week-11" class="headerlink" title="Week 11"></a>Week 11</h1><h2 id="Application-Example-Photo-OCR"><a href="#Application-Example-Photo-OCR" class="headerlink" title="Application Example: Photo OCR"></a>Application Example: Photo OCR</h2><h2 id="Linear-Algebra-Review-1"><a href="#Linear-Algebra-Review-1" class="headerlink" title="Linear Algebra Review"></a>Linear Algebra Review</h2>
       
     </div>
 
@@ -1238,7 +1257,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 15.0k words</span>
+  <span class="post-count">Total 15.2k words</span>
 </div>
 
         
