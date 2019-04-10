@@ -151,7 +151,7 @@
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-10-Week7-3.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-10-Week7-4.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-10-Week7-5.png">
-<meta property="og:updated_time" content="2019-04-10T19:17:33.524Z">
+<meta property="og:updated_time" content="2019-04-10T22:11:30.791Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Machine Learning">
 <meta name="twitter:description" content="Stanford University, Machine Learning Course notes">
@@ -478,7 +478,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-10 14:17:33" itemprop="dateModified" datetime="2019-04-10T14:17:33-05:00">2019-04-10</time>
+                <time title="Modified: 2019-04-10 17:11:30" itemprop="dateModified" datetime="2019-04-10T17:11:30-05:00">2019-04-10</time>
               
             
           </span>
@@ -1078,7 +1078,27 @@
 <li>Large $\sigma^2$: Features $f_i$ vary more smoothly. High bias, lower variance.</li>
 <li>Small $\sigma^2$: Features $f_i$ vary less smoothly. Lower bias, higher variance.</li>
 </ul>
-<h2 id="Programming-Assignment-Support-Vector-Machines"><a href="#Programming-Assignment-Support-Vector-Machines" class="headerlink" title="Programming Assignment: Support Vector Machines"></a>Programming Assignment: Support Vector Machines</h2><p><a href="">Support Vector Machines</a></p>
+<p>Use SVM software package (e.g. liblinear, libsvm, …) to solve for parameters $\theta$.</p>
+<p>Need to specify:</p>
+<ul>
+<li>Choice of parameter C.</li>
+<li>Choice of kernel (similarity function): No kernel (“linear kernel”, apply for n large, m small), Gaussian kernel (Non-linear classifier, apply for n small, m large).</li>
+</ul>
+<p>Note: Not all similarity functions $similarity(x,l)$ make valid kernels. (Need to satisfy technical condition called “Mercer’s Theorem” to make sure SVM packages’ optimizations run correctly, and do not diverge).</p>
+<p>Many off-the-shelf kernels available:</p>
+<ul>
+<li>Polynomial kernel: $k(x,l) = (x^Tl)^2, (x^Tl)^3,(x^Tl+1)^3, (x^Tl+constant)^{degree}$</li>
+<li>More esoteric: String kernel, chi-square kernel, histogram intersection kernel, …</li>
+</ul>
+<p><strong>Multi-class classification</strong></p>
+<p>Many SVM packages already have built-in multi-class classification functionality.</p>
+<p>Otherwise, use one-vs.-all method. (Train $K$ SVMs, one to distinguish $y=i$ from the rest, for $i$ = 1,2,…,$K$), get $\theta^{(1)},\theta^{(2)},…,\theta^{(K)}$ Pick class $i$ with largest $(\theta^{(i)})^Tx$</p>
+<p><strong>Logistic regression vs. SVMs</strong></p>
+<p>If $n$ is large (relative to $m$): Use logistic regression, or SVM without a kernel (“linear kernel”)</p>
+<p>If $n$ is small, $m$ is intermediate: Use SVM with Gaussian kernel</p>
+<p>If $n$ is small, $m$ is large: Create/add more features, then use logistic regression or SVM without a kernel</p>
+<p>Neural network likely to work well for most of these settings, but may be slower to train.</p>
+<h2 id="Programming-Assignment-Support-Vector-Machines"><a href="#Programming-Assignment-Support-Vector-Machines" class="headerlink" title="Programming Assignment: Support Vector Machines"></a>Programming Assignment: Support Vector Machines</h2><p><a href="https://github.com/Aden-Q/Machine-Learning/tree/master/Week7" target="_blank" rel="noopener">Support Vector Machines</a></p>
 <h1 id="Week-8"><a href="#Week-8" class="headerlink" title="Week 8"></a>Week 8</h1><h2 id="Unsupervised-Learning"><a href="#Unsupervised-Learning" class="headerlink" title="Unsupervised Learning"></a>Unsupervised Learning</h2><h2 id="Dimensionality-Reduction"><a href="#Dimensionality-Reduction" class="headerlink" title="Dimensionality Reduction"></a>Dimensionality Reduction</h2><h1 id="Week-9"><a href="#Week-9" class="headerlink" title="Week 9"></a>Week 9</h1><h2 id="Anomaly-Detection"><a href="#Anomaly-Detection" class="headerlink" title="Anomaly Detection"></a>Anomaly Detection</h2><h2 id="Recommender-Systems"><a href="#Recommender-Systems" class="headerlink" title="Recommender Systems"></a>Recommender Systems</h2><h1 id="Week-10"><a href="#Week-10" class="headerlink" title="Week 10"></a>Week 10</h1><h2 id="Large-Scale-Machine-Learning"><a href="#Large-Scale-Machine-Learning" class="headerlink" title="Large Scale Machine Learning"></a>Large Scale Machine Learning</h2><h1 id="Week-11"><a href="#Week-11" class="headerlink" title="Week 11"></a>Week 11</h1><h2 id="Application-Example-Photo-OCR"><a href="#Application-Example-Photo-OCR" class="headerlink" title="Application Example: Photo OCR"></a>Application Example: Photo OCR</h2><h2 id="Linear-Algebra-Review-1"><a href="#Linear-Algebra-Review-1" class="headerlink" title="Linear Algebra Review"></a>Linear Algebra Review</h2>
       
     </div>
@@ -1401,7 +1421,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 16.2k words</span>
+  <span class="post-count">Total 16.4k words</span>
 </div>
 
         
