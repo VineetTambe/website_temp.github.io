@@ -156,7 +156,12 @@
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week8-3.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week8-4.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week8-5.png">
-<meta property="og:updated_time" content="2019-04-11T05:41:10.329Z">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-1.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-2.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-4.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-5.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-6.png">
+<meta property="og:updated_time" content="2019-04-11T06:55:05.506Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Machine Learning">
 <meta name="twitter:description" content="Stanford University, Machine Learning Course Notes">
@@ -483,7 +488,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-11 00:41:10" itemprop="dateModified" datetime="2019-04-11T00:41:10-05:00">2019-04-11</time>
+                <time title="Modified: 2019-04-11 01:55:05" itemprop="dateModified" datetime="2019-04-11T01:55:05-05:00">2019-04-11</time>
               
             
           </span>
@@ -1202,7 +1207,78 @@
 </ul>
 <p>Before implementing PCA, first try running whaever you want to do with the original/raw data. Only if that doesn’t do what you want, then implement PCA.</p>
 <h2 id="Programming-Assignment-K-Means-Clustering-and-PCA"><a href="#Programming-Assignment-K-Means-Clustering-and-PCA" class="headerlink" title="Programming Assignment: K-Means Clustering and PCA"></a>Programming Assignment: K-Means Clustering and PCA</h2><p><a href="https://github.com/Aden-Q/Machine-Learning/tree/master/Week8" target="_blank" rel="noopener">K-Means Clustering and PCA</a></p>
-<h1 id="Week-9"><a href="#Week-9" class="headerlink" title="Week 9"></a>Week 9</h1><h2 id="Anomaly-Detection"><a href="#Anomaly-Detection" class="headerlink" title="Anomaly Detection"></a>Anomaly Detection</h2><h2 id="Recommender-Systems"><a href="#Recommender-Systems" class="headerlink" title="Recommender Systems"></a>Recommender Systems</h2><h2 id="Programming-Assignment-Anomaly-Detection-and-Recommender-Systems"><a href="#Programming-Assignment-Anomaly-Detection-and-Recommender-Systems" class="headerlink" title="Programming Assignment: Anomaly Detection and Recommender Systems"></a>Programming Assignment: Anomaly Detection and Recommender Systems</h2><p><a href="">Anomaly Detection and Recommender Systems</a></p>
+<h1 id="Week-9"><a href="#Week-9" class="headerlink" title="Week 9"></a>Week 9</h1><h2 id="Anomaly-Detection"><a href="#Anomaly-Detection" class="headerlink" title="Anomaly Detection"></a>Anomaly Detection</h2><p><strong>Anomaly detection example</strong></p>
+<p>Dataset: ${ x^{(1)},x^{(2)},…,x^{(m)} }$</p>
+<p>Is $x_{test}$ anomalous?</p>
+<p>$p(x_{test}) &lt; \epsilon​$ -&gt; flag anomaly</p>
+<p>$p(x_{test}) \geq \epsilon$ -&gt; OK</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-1.png" style="zoom:60%"><br></center>
+
+
+
+<p>Fraud detection (Online website):</p>
+<p>$x^{(i)}$ = features of user $i$’s activities</p>
+<p>Model $p(x)$ from data.</p>
+<p>Identify unusual users by checking which have $p(x) &lt; \epsilon$</p>
+<p>Manufacturing</p>
+<p>Monitoring computers in a data center.</p>
+<p>$x^{(i)}​$ = features of machine $i​$</p>
+<p>$x_1$ = memory use, $x_2$ = number of disk accesses/sec,</p>
+<p>$x_3$ = CPU load, $x_4$ = CPU load/network traffic.</p>
+<p>…</p>
+<p><strong>Gaussian (Normal) distribution</strong></p>
+<p>N ~ N($\mu$, $\sigma ^2$)</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-2.png" style="zoom:60%"><br></center>
+
+<p>$$<br>p(x;\mu,\sigma ^2) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})<br>$$</p>
+<p><strong>Parameter estimation</strong><br>$$<br>\mu = \frac1m\sum_{i=1}^mx^{(i)} \\<br>\sigma^2 = \frac1m\sum_{i=1}^m(x^{(i)}-\mu)^2<br>$$</p>
+<p><strong>Density estimation</strong></p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-4.png" style="zoom:60%"><br></center>
+
+
+
+<p>Data set split:</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-5.png" style="zoom:60%"><br></center>
+
+
+
+<p>Possible evaluation metrics:</p>
+<ul>
+<li>True positive, false positive, false negative, true negative</li>
+<li>Precision/Recall</li>
+<li>$F_1$-score</li>
+</ul>
+<p>Can also use cross validation set to choose parameter $\epsilon$</p>
+<p><strong>Anomaly detection vs. Supervised learning</strong></p>
+<p>Anomaly detection:</p>
+<ul>
+<li>Very small number of positive examples (y = 1). (0-20 is common).</li>
+<li>Large number of negative (y = 0) examples.</li>
+<li>Many different “tyles” of anomalies. Hard for any algorithm to learn from positive examples what the anomalies may look like; future anomalies may look nothing like any of the anomalous examples we’ve seen so far.</li>
+<li>Fraud detection</li>
+<li>Manufacturing (e.g. aircraft engines)</li>
+<li>Monitoring machines in a data center</li>
+</ul>
+<p>Supervised learning:</p>
+<ul>
+<li>Large number of positive and negative examples.</li>
+<li>Enough positive examples for algorithm to get sense of what positive examples are like, future positive examples likely to be similar to ones in training set.</li>
+<li>Email spam classification</li>
+<li>Weather prediction (sunny/rainy/etc).</li>
+<li>Cancer classification</li>
+</ul>
+<p><strong>Feature selection and transformation</strong></p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-6.png" style="zoom:60%"><br></center>
+
+
+
+<p><strong>Error analysis for anomaly detection</strong></p>
+<p>Want $p(x)$ large for normal examples $x$.</p>
+<p>​      $p(x)$ small for anomalous examples $x$.</p>
+<p>Most common problem:</p>
+<p>​    $p(x)$ is comparable (say, both large) for normal and anomalous examples</p>
+<p>Choosing features that might take on unusually large or small values in the event of an anomaly.</p>
+<h2 id="Recommender-Systems"><a href="#Recommender-Systems" class="headerlink" title="Recommender Systems"></a>Recommender Systems</h2><h2 id="Programming-Assignment-Anomaly-Detection-and-Recommender-Systems"><a href="#Programming-Assignment-Anomaly-Detection-and-Recommender-Systems" class="headerlink" title="Programming Assignment: Anomaly Detection and Recommender Systems"></a>Programming Assignment: Anomaly Detection and Recommender Systems</h2><p><a href="">Anomaly Detection and Recommender Systems</a></p>
 <h1 id="Week-10"><a href="#Week-10" class="headerlink" title="Week 10"></a>Week 10</h1><h2 id="Large-Scale-Machine-Learning"><a href="#Large-Scale-Machine-Learning" class="headerlink" title="Large Scale Machine Learning"></a>Large Scale Machine Learning</h2><h1 id="Week-11"><a href="#Week-11" class="headerlink" title="Week 11"></a>Week 11</h1><h2 id="Application-Example-Photo-OCR"><a href="#Application-Example-Photo-OCR" class="headerlink" title="Application Example: Photo OCR"></a>Application Example: Photo OCR</h2><h2 id="Linear-Algebra-Review-1"><a href="#Linear-Algebra-Review-1" class="headerlink" title="Linear Algebra Review"></a>Linear Algebra Review</h2>
       
     </div>
@@ -1525,7 +1601,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 16.9k words</span>
+  <span class="post-count">Total 17.3k words</span>
 </div>
 
         
