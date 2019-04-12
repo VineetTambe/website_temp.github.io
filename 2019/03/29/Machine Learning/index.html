@@ -169,7 +169,16 @@
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-12.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-13.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-14.png">
-<meta property="og:updated_time" content="2019-04-12T01:11:13.317Z">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-12-Week10-1.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-12-Week10-2.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-12-Week10-3.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-12-Week10-4.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-12-Week10-5.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-12-Week11-1.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-12-Week11-2.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-12-Week11-3.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-12-Week11-4.png">
+<meta property="og:updated_time" content="2019-04-12T08:09:30.373Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Machine Learning">
 <meta name="twitter:description" content="Stanford University, Machine Learning Course Notes">
@@ -496,7 +505,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-11 20:11:13" itemprop="dateModified" datetime="2019-04-11T20:11:13-05:00">2019-04-11</time>
+                <time title="Modified: 2019-04-12 03:09:30" itemprop="dateModified" datetime="2019-04-12T03:09:30-05:00">2019-04-12</time>
               
             
           </span>
@@ -1333,7 +1342,71 @@
 
 
 <h2 id="Programming-Assignment-Anomaly-Detection-and-Recommender-Systems"><a href="#Programming-Assignment-Anomaly-Detection-and-Recommender-Systems" class="headerlink" title="Programming Assignment: Anomaly Detection and Recommender Systems"></a>Programming Assignment: Anomaly Detection and Recommender Systems</h2><p><a href="https://github.com/Aden-Q/Machine-Learning/tree/master/Week9" target="_blank" rel="noopener">Anomaly Detection and Recommender Systems</a></p>
-<h1 id="Week-10"><a href="#Week-10" class="headerlink" title="Week 10"></a>Week 10</h1><h2 id="Large-Scale-Machine-Learning"><a href="#Large-Scale-Machine-Learning" class="headerlink" title="Large Scale Machine Learning"></a>Large Scale Machine Learning</h2><h1 id="Week-11"><a href="#Week-11" class="headerlink" title="Week 11"></a>Week 11</h1><h2 id="Application-Example-Photo-OCR"><a href="#Application-Example-Photo-OCR" class="headerlink" title="Application Example: Photo OCR"></a>Application Example: Photo OCR</h2><h2 id="Linear-Algebra-Review-1"><a href="#Linear-Algebra-Review-1" class="headerlink" title="Linear Algebra Review"></a>Linear Algebra Review</h2>
+<h1 id="Week-10"><a href="#Week-10" class="headerlink" title="Week 10"></a>Week 10</h1><h2 id="Large-Scale-Machine-Learning"><a href="#Large-Scale-Machine-Learning" class="headerlink" title="Large Scale Machine Learning"></a>Large Scale Machine Learning</h2><blockquote>
+<p>  It’s not who has the best algorithm that wins. It’s who has the most data.</p>
+</blockquote>
+<p><strong>Stochatic gradient descent</strong></p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-12-Week10-1.png" style="zoom:60%"><br></center>
+
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-12-Week10-2.png" style="zoom:60%"><br></center>
+
+<p>Out loop typically 1-10 times.</p>
+<p><strong>Mini-batch gradient descent</strong></p>
+<p>Batch gradient descent: Use all $m$ examples in each iteration</p>
+<p>Stochastic gradient descent: Use 1 example in each iteration</p>
+<p>Mini-batch gradient descent: Use $b$ examples in each iteration</p>
+<p>b = mini-batch size</p>
+<p>b = 2~100</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-12-Week10-3.png" style="zoom:60%"><br></center>
+
+<p>With vectorization, Mini-batch outperforms Stochastic as regard to computation efficiency.</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-12-Week10-4.png" style="zoom:60%"><br></center>
+
+
+
+<p>Learning rate decay:<br>$$<br>\alpha = \frac{const1}{iterationNumber+const2}<br>$$</p>
+<p><strong>Online learning</strong></p>
+<p><strong>Map-reduce and data parallelism</strong></p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-12-Week10-5.png" style="zoom:60%"><br></center>
+
+<p>Many learning algorithms can be expressed as computing sums of functions over the training set.</p>
+<h1 id="Week-11"><a href="#Week-11" class="headerlink" title="Week 11"></a>Week 11</h1><h2 id="Application-Example-Photo-OCR"><a href="#Application-Example-Photo-OCR" class="headerlink" title="Application Example: Photo OCR"></a>Application Example: Photo OCR</h2><p>Photo Optical Character Recognition</p>
+<p><strong>Photo OCR pipeline</strong></p>
+<ol>
+<li>Text detection</li>
+<li>Character segmentation</li>
+<li>Character classification</li>
+</ol>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-12-Week11-1.png" style="zoom:60%"><br></center>
+
+
+
+<p><strong>Sliding window detection</strong></p>
+<p>step-size / stride</p>
+<p>These cencepts are related to computer vision which is introduced in the deeplearninng specialization. I should take notes for these in another course/specialization.</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-12-Week11-2.png" style="zoom:60%"><br></center>
+
+
+
+<p><strong>Artificial data systhesizing</strong></p>
+<p>Make sure you have a low bias classifier before expanding the effor. (Plot learning curves). E.g. keep increasing the number  of features/number of hidden units in neural network until you have a low bias classifier.</p>
+<p>“How much work would it be to get 10x as much data as we currently have?”</p>
+<ul>
+<li>Artificial data synthesis</li>
+<li>Collect/label it yourself</li>
+<li>“Crowd source” (E.g. Amazon Mechanical Turk)</li>
+</ul>
+<p><strong>Ceiling analysis</strong></p>
+<p>Estimating the errors due to each component.</p>
+<p>What part of the pipeline should you spend the most time trying to improve?</p>
+<p>E.g.</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-12-Week11-3.png" style="zoom:60%"><br></center>
+
+<p>It is really important to do ceiling analysis.</p>
+<p><strong>Summary</strong></p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-12-Week11-4.png" style="zoom:60%"><br></center>
+
+
       
     </div>
 
@@ -1592,7 +1665,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-1"><span class="nav-number">1.</span> <span class="nav-text">Week 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Regression-with-One-Variable"><span class="nav-number">1.2.</span> <span class="nav-text">Linear Regression with One Variable</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linear-Regression-with-One-Variable-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">Linear Regression with One Variable</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Algebra-Review"><span class="nav-number">1.3.</span> <span class="nav-text">Linear Algebra Review</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-2"><span class="nav-number">2.</span> <span class="nav-text">Week 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Regression-with-Multiple-Variables"><span class="nav-number">2.1.</span> <span class="nav-text">Linear Regression with Multiple Variables</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Octave-Matlab-Tutorial"><span class="nav-number">2.2.</span> <span class="nav-text">Octave/Matlab Tutorial</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Linear-Regression"><span class="nav-number">2.3.</span> <span class="nav-text">Programming Assignment: Linear Regression</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-3"><span class="nav-number">3.</span> <span class="nav-text">Week 3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Logistic-Regression"><span class="nav-number">3.1.</span> <span class="nav-text">Logistic Regression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Regularization"><span class="nav-number">3.2.</span> <span class="nav-text">Regularization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Logistic-Regression"><span class="nav-number">3.3.</span> <span class="nav-text">Programming Assignment: Logistic Regression</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-4"><span class="nav-number">4.</span> <span class="nav-text">Week 4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Neural-Networks-Representation"><span class="nav-number">4.1.</span> <span class="nav-text">Neural Networks: Representation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Multi-class-Classification-and-Neural-Networks"><span class="nav-number">4.2.</span> <span class="nav-text">Programming Assignment: Multi-class Classification and Neural Networks</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-5"><span class="nav-number">5.</span> <span class="nav-text">Week 5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Neural-Networks-Learning"><span class="nav-number">5.1.</span> <span class="nav-text">Neural Networks: Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Neural-Network-Learning"><span class="nav-number">5.2.</span> <span class="nav-text">Programming Assignment: Neural Network Learning</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-6"><span class="nav-number">6.</span> <span class="nav-text">Week 6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Advice-for-Applying-Machine-Learning"><span class="nav-number">6.1.</span> <span class="nav-text">Advice for Applying Machine Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Regularized-Linear-Regression-and-Bias-Variance"><span class="nav-number">6.2.</span> <span class="nav-text">Programming Assignment: Regularized Linear Regression and Bias/Variance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Machine-Learning-System-Design"><span class="nav-number">6.3.</span> <span class="nav-text">Machine Learning System Design</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-7"><span class="nav-number">7.</span> <span class="nav-text">Week 7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Support-Vector-Machines"><span class="nav-number">7.1.</span> <span class="nav-text">Support Vector Machines</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Support-Vector-Machines"><span class="nav-number">7.2.</span> <span class="nav-text">Programming Assignment: Support Vector Machines</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-8"><span class="nav-number">8.</span> <span class="nav-text">Week 8</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Unsupervised-Learning"><span class="nav-number">8.1.</span> <span class="nav-text">Unsupervised Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dimensionality-Reduction"><span class="nav-number">8.2.</span> <span class="nav-text">Dimensionality Reduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-K-Means-Clustering-and-PCA"><span class="nav-number">8.3.</span> <span class="nav-text">Programming Assignment: K-Means Clustering and PCA</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-9"><span class="nav-number">9.</span> <span class="nav-text">Week 9</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Anomaly-Detection"><span class="nav-number">9.1.</span> <span class="nav-text">Anomaly Detection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Recommender-Systems"><span class="nav-number">9.2.</span> <span class="nav-text">Recommender Systems</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Anomaly-Detection-and-Recommender-Systems"><span class="nav-number">9.3.</span> <span class="nav-text">Programming Assignment: Anomaly Detection and Recommender Systems</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-10"><span class="nav-number">10.</span> <span class="nav-text">Week 10</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Large-Scale-Machine-Learning"><span class="nav-number">10.1.</span> <span class="nav-text">Large Scale Machine Learning</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-11"><span class="nav-number">11.</span> <span class="nav-text">Week 11</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Application-Example-Photo-OCR"><span class="nav-number">11.1.</span> <span class="nav-text">Application Example: Photo OCR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Algebra-Review-1"><span class="nav-number">11.2.</span> <span class="nav-text">Linear Algebra Review</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-1"><span class="nav-number">1.</span> <span class="nav-text">Week 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Regression-with-One-Variable"><span class="nav-number">1.2.</span> <span class="nav-text">Linear Regression with One Variable</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linear-Regression-with-One-Variable-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">Linear Regression with One Variable</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Algebra-Review"><span class="nav-number">1.3.</span> <span class="nav-text">Linear Algebra Review</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-2"><span class="nav-number">2.</span> <span class="nav-text">Week 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Regression-with-Multiple-Variables"><span class="nav-number">2.1.</span> <span class="nav-text">Linear Regression with Multiple Variables</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Octave-Matlab-Tutorial"><span class="nav-number">2.2.</span> <span class="nav-text">Octave/Matlab Tutorial</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Linear-Regression"><span class="nav-number">2.3.</span> <span class="nav-text">Programming Assignment: Linear Regression</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-3"><span class="nav-number">3.</span> <span class="nav-text">Week 3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Logistic-Regression"><span class="nav-number">3.1.</span> <span class="nav-text">Logistic Regression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Regularization"><span class="nav-number">3.2.</span> <span class="nav-text">Regularization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Logistic-Regression"><span class="nav-number">3.3.</span> <span class="nav-text">Programming Assignment: Logistic Regression</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-4"><span class="nav-number">4.</span> <span class="nav-text">Week 4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Neural-Networks-Representation"><span class="nav-number">4.1.</span> <span class="nav-text">Neural Networks: Representation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Multi-class-Classification-and-Neural-Networks"><span class="nav-number">4.2.</span> <span class="nav-text">Programming Assignment: Multi-class Classification and Neural Networks</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-5"><span class="nav-number">5.</span> <span class="nav-text">Week 5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Neural-Networks-Learning"><span class="nav-number">5.1.</span> <span class="nav-text">Neural Networks: Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Neural-Network-Learning"><span class="nav-number">5.2.</span> <span class="nav-text">Programming Assignment: Neural Network Learning</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-6"><span class="nav-number">6.</span> <span class="nav-text">Week 6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Advice-for-Applying-Machine-Learning"><span class="nav-number">6.1.</span> <span class="nav-text">Advice for Applying Machine Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Regularized-Linear-Regression-and-Bias-Variance"><span class="nav-number">6.2.</span> <span class="nav-text">Programming Assignment: Regularized Linear Regression and Bias/Variance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Machine-Learning-System-Design"><span class="nav-number">6.3.</span> <span class="nav-text">Machine Learning System Design</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-7"><span class="nav-number">7.</span> <span class="nav-text">Week 7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Support-Vector-Machines"><span class="nav-number">7.1.</span> <span class="nav-text">Support Vector Machines</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Support-Vector-Machines"><span class="nav-number">7.2.</span> <span class="nav-text">Programming Assignment: Support Vector Machines</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-8"><span class="nav-number">8.</span> <span class="nav-text">Week 8</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Unsupervised-Learning"><span class="nav-number">8.1.</span> <span class="nav-text">Unsupervised Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dimensionality-Reduction"><span class="nav-number">8.2.</span> <span class="nav-text">Dimensionality Reduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-K-Means-Clustering-and-PCA"><span class="nav-number">8.3.</span> <span class="nav-text">Programming Assignment: K-Means Clustering and PCA</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-9"><span class="nav-number">9.</span> <span class="nav-text">Week 9</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Anomaly-Detection"><span class="nav-number">9.1.</span> <span class="nav-text">Anomaly Detection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Recommender-Systems"><span class="nav-number">9.2.</span> <span class="nav-text">Recommender Systems</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Anomaly-Detection-and-Recommender-Systems"><span class="nav-number">9.3.</span> <span class="nav-text">Programming Assignment: Anomaly Detection and Recommender Systems</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-10"><span class="nav-number">10.</span> <span class="nav-text">Week 10</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Large-Scale-Machine-Learning"><span class="nav-number">10.1.</span> <span class="nav-text">Large Scale Machine Learning</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-11"><span class="nav-number">11.</span> <span class="nav-text">Week 11</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Application-Example-Photo-OCR"><span class="nav-number">11.1.</span> <span class="nav-text">Application Example: Photo OCR</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1655,7 +1728,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 17.5k words</span>
+  <span class="post-count">Total 17.7k words</span>
 </div>
 
         
