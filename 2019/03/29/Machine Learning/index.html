@@ -161,7 +161,15 @@
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-4.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-5.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-6.png">
-<meta property="og:updated_time" content="2019-04-11T06:55:05.506Z">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-7.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-8.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-9.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-10.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-11.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-12.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-13.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-14.png">
+<meta property="og:updated_time" content="2019-04-12T01:11:13.317Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Machine Learning">
 <meta name="twitter:description" content="Stanford University, Machine Learning Course Notes">
@@ -488,7 +496,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-11 01:55:05" itemprop="dateModified" datetime="2019-04-11T01:55:05-05:00">2019-04-11</time>
+                <time title="Modified: 2019-04-11 20:11:13" itemprop="dateModified" datetime="2019-04-11T20:11:13-05:00">2019-04-11</time>
               
             
           </span>
@@ -1278,7 +1286,53 @@
 <p>Most common problem:</p>
 <p>​    $p(x)$ is comparable (say, both large) for normal and anomalous examples</p>
 <p>Choosing features that might take on unusually large or small values in the event of an anomaly.</p>
-<h2 id="Recommender-Systems"><a href="#Recommender-Systems" class="headerlink" title="Recommender Systems"></a>Recommender Systems</h2><h2 id="Programming-Assignment-Anomaly-Detection-and-Recommender-Systems"><a href="#Programming-Assignment-Anomaly-Detection-and-Recommender-Systems" class="headerlink" title="Programming Assignment: Anomaly Detection and Recommender Systems"></a>Programming Assignment: Anomaly Detection and Recommender Systems</h2><p><a href="">Anomaly Detection and Recommender Systems</a></p>
+<p><strong>Multivariate Gaussian (Normal) distribution</strong></p>
+<p>$x\in R^n$. Don’t model $p(x_1),p(x_2),…,$ etc. separately. Model $p(x)$ all in one go.</p>
+<p>Parameters: $\mu \in R^n$, $\Sigma \in R^{n\times n}$ (convariance matrix)<br>$$<br>p(x;\mu,\Sigma) = \frac{1}{(2\pi)^\frac n2 |\Sigma|^{\frac12}}exp(-\frac12(x-\mu)^T\Sigma^{-1}(x-\mu))<br>$$</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-7.png" style="zoom:60%"><br></center>
+
+
+
+<p><strong>Original model vs. Multivariate Gaussian</strong></p>
+<p>Original: Manually create features to capture anomalies where $x_1,x_2$ take unusual combinations of values.</p>
+<p>Multivariate: Automatically captures correlations between features. Have many constrains.</p>
+<h2 id="Recommender-Systems"><a href="#Recommender-Systems" class="headerlink" title="Recommender Systems"></a>Recommender Systems</h2><p><strong>Content-based recommendations</strong></p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-8.png" style="zoom:60%"><br></center>
+
+<p>For each user $j$, learn a parameter $\theta^{(j)}\in R^3$. Predict user $j$ as rating movie $i$ with $(\theta^{(j)})^Tx^{(i)} $ stars.</p>
+<p>Problem formulation:</p>
+<p>$r(i,j)=1​$ if user $j​$ has rated movie $i​$ (0 otherwise)</p>
+<p>$y^{(i,j)}$ = rating by user $j$ on movie $i$ (if defined)</p>
+<p>$\theta^{(j)}$ = parameter vector for user $j$</p>
+<p>$x^{(i)}$ = feature vector for movie $i$</p>
+<p>For user $j$, movie $i$, predicted rating: $(\theta^{(j)})^Tx^{(i)} $</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-9.png" style="zoom:60%"><br></center>
+
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-10.png" style="zoom:60%"><br></center>
+
+
+
+<p><strong>Collaborative filtering</strong></p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-11.png" style="zoom:60%"><br></center>
+
+
+
+<p><strong>Algorithm</strong></p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-12.png" style="zoom:60%"><br></center>
+
+
+
+<p><strong>Low Rank Vectorization</strong></p>
+<p><img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-13.png" alt=""></p>
+<p><strong>Finding related movies</strong><br>$$<br>small \space ||x^{(i)}-x^{(j)}|| -&gt; movie \space j \space and \space i \space are \space “similar”<br>$$</p>
+<p><strong>Mean Normalization</strong></p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-14.png" style="zoom:60%"><br></center>
+
+
+
+
+
+<h2 id="Programming-Assignment-Anomaly-Detection-and-Recommender-Systems"><a href="#Programming-Assignment-Anomaly-Detection-and-Recommender-Systems" class="headerlink" title="Programming Assignment: Anomaly Detection and Recommender Systems"></a>Programming Assignment: Anomaly Detection and Recommender Systems</h2><p><a href="https://github.com/Aden-Q/Machine-Learning/tree/master/Week9" target="_blank" rel="noopener">Anomaly Detection and Recommender Systems</a></p>
 <h1 id="Week-10"><a href="#Week-10" class="headerlink" title="Week 10"></a>Week 10</h1><h2 id="Large-Scale-Machine-Learning"><a href="#Large-Scale-Machine-Learning" class="headerlink" title="Large Scale Machine Learning"></a>Large Scale Machine Learning</h2><h1 id="Week-11"><a href="#Week-11" class="headerlink" title="Week 11"></a>Week 11</h1><h2 id="Application-Example-Photo-OCR"><a href="#Application-Example-Photo-OCR" class="headerlink" title="Application Example: Photo OCR"></a>Application Example: Photo OCR</h2><h2 id="Linear-Algebra-Review-1"><a href="#Linear-Algebra-Review-1" class="headerlink" title="Linear Algebra Review"></a>Linear Algebra Review</h2>
       
     </div>
@@ -1601,7 +1655,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 17.3k words</span>
+  <span class="post-count">Total 17.5k words</span>
 </div>
 
         
