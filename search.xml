@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Introduction to TensorFlow]]></title>
+    <url>%2F2019%2F04%2F12%2FIntroduction%20to%20TensorFlow%2F</url>
+    <content type="text"><![CDATA[Deeplearning.ai, Introduction to TensorFlow Course Notes Week 1A New Programming Paradigm Week 2Introduction to Computer VisionWeek 3Enhancing Vision with Convolutional Neural NetworksWeek 4Using Real-world Images]]></content>
+      <categories>
+        <category>Note</category>
+      </categories>
+      <tags>
+        <tag>Programming</tag>
+        <tag>Python</tag>
+        <tag>Deep Learning</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Comments]]></title>
     <url>%2F2019%2F03%2F31%2FComments%2F</url>
     <content type="text"><![CDATA[正式远离社交，有事此处留言]]></content>
