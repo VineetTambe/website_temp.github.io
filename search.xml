@@ -3,6 +3,35 @@
   
     
     <entry>
+      <title>Neural Networks and Deep Learning</title>
+      <link href="/2019/04/19/Neural%20Networks%20and%20Deep%20Learning/"/>
+      <url>/2019/04/19/Neural%20Networks%20and%20Deep%20Learning/</url>
+      
+        <content type="html"><![CDATA[<p>Deeplearning.ai Specialization</p><p>Course Notes</p><a id="more"></a><h1 id="Week-1"><a href="#Week-1" class="headerlink" title="Week 1"></a>Week 1</h1><h2 id="Introduction-to-deep-learning"><a href="#Introduction-to-deep-learning" class="headerlink" title="Introduction to deep learning"></a>Introduction to deep learning</h2><h1 id="Week-2"><a href="#Week-2" class="headerlink" title="Week 2"></a>Week 2</h1><h2 id="Neural-Networks-Basics"><a href="#Neural-Networks-Basics" class="headerlink" title="Neural Networks Basics"></a>Neural Networks Basics</h2><h2 id="Programming-Assignment-Logistic-Regression-with-a-Neural-Network-mindset"><a href="#Programming-Assignment-Logistic-Regression-with-a-Neural-Network-mindset" class="headerlink" title="Programming Assignment: Logistic Regression with a Neural Network mindset"></a>Programming Assignment: Logistic Regression with a Neural Network mindset</h2><h1 id="Week-3"><a href="#Week-3" class="headerlink" title="Week 3"></a>Week 3</h1><h2 id="Shallow-neural-networks"><a href="#Shallow-neural-networks" class="headerlink" title="Shallow neural networks"></a>Shallow neural networks</h2><h2 id="Programming-Assignment-Planar-data-classification-with-a-hidden-layer"><a href="#Programming-Assignment-Planar-data-classification-with-a-hidden-layer" class="headerlink" title="Programming Assignment: Planar data classification with a hidden layer"></a>Programming Assignment: Planar data classification with a hidden layer</h2><h1 id="Week-4"><a href="#Week-4" class="headerlink" title="Week 4"></a>Week 4</h1><h2 id="Deep-Neural-Networks"><a href="#Deep-Neural-Networks" class="headerlink" title="Deep Neural Networks"></a>Deep Neural Networks</h2><h2 id="Programming-Assignment-Building-your-deep-neural-network-Step-by-Step"><a href="#Programming-Assignment-Building-your-deep-neural-network-Step-by-Step" class="headerlink" title="Programming Assignment: Building your deep neural network: Step by Step"></a>Programming Assignment: Building your deep neural network: Step by Step</h2><h2 id="Programming-Assignment-Deep-Neural-Network-Application"><a href="#Programming-Assignment-Deep-Neural-Network-Application" class="headerlink" title="Programming Assignment: Deep Neural Network Application"></a>Programming Assignment: Deep Neural Network Application</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> Note </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Programming </tag>
+            
+            <tag> Python </tag>
+            
+            <tag> Deep Learning </tag>
+            
+            <tag> TensorFlow </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>Introduction to TensorFlow</title>
       <link href="/2019/04/12/Introduction%20to%20TensorFlow/"/>
       <url>/2019/04/12/Introduction%20to%20TensorFlow/</url>
