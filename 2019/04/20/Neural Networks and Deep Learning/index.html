@@ -131,7 +131,8 @@
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-21-Week3-2.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-21-Week3-3.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-21-Week3-4.png">
-<meta property="og:updated_time" content="2019-04-21T04:04:49.771Z">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-21-Week3-5.png">
+<meta property="og:updated_time" content="2019-04-21T05:21:56.500Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Neural Networks and Deep Learning">
 <meta name="twitter:description" content="Deeplearning.ai Specialization Course Notes">
@@ -441,12 +442,24 @@
                 
               
 
-              <time title="Created: 2019-04-20 01:55:34 / Modified: 23:04:49" itemprop="dateCreated datePublished" datetime="2019-04-20T01:55:34-05:00">2019-04-20</time>
+              <time title="Created: 2019-04-20 01:55:34" itemprop="dateCreated datePublished" datetime="2019-04-20T01:55:34-05:00">2019-04-20</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-21 00:21:56" itemprop="dateModified" datetime="2019-04-21T00:21:56-05:00">2019-04-21</time>
               
             
           </span>
@@ -595,9 +608,19 @@
 
 
 
-<p><strong>Activation functions</strong><br>$$<br>sigmoid(z)=\frac{1}{1+e^{-z}}    \\<br>tanh(z) = \frac{e^z-e^{-z}}{e^z+e^{-z}} \\<br>relu(z) = max(0,z)<br>$$<br>Tanh function is superior than sigmoid function. (generally)</p>
+<p><strong>Activation functions</strong><br>$$<br>sigmoid(z)=\frac{1}{1+e^{-z}}    \\<br>tanh(z) = \frac{e^z-e^{-z}}{e^z+e^{-z}} \\<br>ReLU(z) = max(0,z)<br>$$<br>Tanh function is superior than sigmoid function. (generally)</p>
 <p>sigmoid: binary classification (used in the output layer)</p>
-<h2 id="Programming-Assignment-Planar-data-classification-with-a-hidden-layer"><a href="#Programming-Assignment-Planar-data-classification-with-a-hidden-layer" class="headerlink" title="Programming Assignment: Planar data classification with a hidden layer"></a>Programming Assignment: Planar data classification with a hidden layer</h2><h1 id="Week-4"><a href="#Week-4" class="headerlink" title="Week 4"></a>Week 4</h1><h2 id="Deep-Neural-Networks"><a href="#Deep-Neural-Networks" class="headerlink" title="Deep Neural Networks"></a>Deep Neural Networks</h2><h2 id="Programming-Assignment-Building-your-deep-neural-network-Step-by-Step"><a href="#Programming-Assignment-Building-your-deep-neural-network-Step-by-Step" class="headerlink" title="Programming Assignment: Building your deep neural network: Step by Step"></a>Programming Assignment: Building your deep neural network: Step by Step</h2><h2 id="Programming-Assignment-Deep-Neural-Network-Application"><a href="#Programming-Assignment-Deep-Neural-Network-Application" class="headerlink" title="Programming Assignment: Deep Neural Network Application"></a>Programming Assignment: Deep Neural Network Application</h2>
+<p>suggestions: use relu in all other units except for the output unit.</p>
+<p>If we are doing a binary classification, we use sigmoid in the output unit in most cases.</p>
+<p><strong>Fornulas for propagation</strong></p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-21-Week3-5.png" style="zoom:60%"><br></center>
+
+
+
+<p><strong>Random initilization: Symmetry breaking</strong></p>
+<p>Small initialization: make update faster</p>
+<h2 id="Programming-Assignment-Planar-data-classification-with-a-hidden-layer"><a href="#Programming-Assignment-Planar-data-classification-with-a-hidden-layer" class="headerlink" title="Programming Assignment: Planar data classification with a hidden layer"></a>Programming Assignment: Planar data classification with a hidden layer</h2><p><a href="">Planar data classification with a hidden layer</a></p>
+<h1 id="Week-4"><a href="#Week-4" class="headerlink" title="Week 4"></a>Week 4</h1><h2 id="Deep-Neural-Networks"><a href="#Deep-Neural-Networks" class="headerlink" title="Deep Neural Networks"></a>Deep Neural Networks</h2><h2 id="Programming-Assignment-Building-your-deep-neural-network-Step-by-Step"><a href="#Programming-Assignment-Building-your-deep-neural-network-Step-by-Step" class="headerlink" title="Programming Assignment: Building your deep neural network: Step by Step"></a>Programming Assignment: Building your deep neural network: Step by Step</h2><h2 id="Programming-Assignment-Deep-Neural-Network-Application"><a href="#Programming-Assignment-Deep-Neural-Network-Application" class="headerlink" title="Programming Assignment: Deep Neural Network Application"></a>Programming Assignment: Deep Neural Network Application</h2>
       
     </div>
 
