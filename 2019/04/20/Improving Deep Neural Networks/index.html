@@ -121,7 +121,7 @@
 <meta property="og:description" content="Deeplearning.ai Specialization Course Notes">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-24-Week1-1.png">
-<meta property="og:updated_time" content="2019-04-24T01:48:46.750Z">
+<meta property="og:updated_time" content="2019-04-24T04:45:37.237Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Improving Deep Neural Networks">
 <meta name="twitter:description" content="Deeplearning.ai Specialization Course Notes">
@@ -448,7 +448,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-23 20:48:46" itemprop="dateModified" datetime="2019-04-23T20:48:46-05:00">2019-04-23</time>
+                <time title="Modified: 2019-04-23 23:45:37" itemprop="dateModified" datetime="2019-04-23T23:45:37-05:00">2019-04-23</time>
               
             
           </span>
@@ -560,6 +560,23 @@
 </li>
 </ul>
 <p>L2 regularization is more useful but the search space for $\lambda$ is large</p>
+<p><strong>Normalization</strong><br>$$<br>\mu=\frac1m\sum_{i=1}^mx^{(i)} \\<br>\sigma=\frac1m\sum_{i=1}^mx^{(i)}<strong>2<br>$$
+</strong>Normalize the training set and test set the same way**</p>
+<p>Zero mean and variance one</p>
+<p><strong>Vanishing / Exploding gradients</strong></p>
+<p><strong>Random initialization</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Wl = np.random.randn(shape) * np.sqrt(<span class="number">2</span>/n)</span><br></pre></td></tr></table></figure>
+<p>In the weight initialization procedure, we can also tuning the hyper parameter for the variance.</p>
+<p><strong>Gradient checking</strong><br>$$<br>\frac{f(\theta+\epsilon)-f(\theta-\epsilon)}{2\epsilon} \approx g(\theta)<br>$$<br>Two-side difference is prefered<br>$$<br>\epsilon = 10^{-7}<br>$$<br><strong>Tips for Grad check</strong></p>
+<ul>
+<li>Don’t use in training - only to debug</li>
+<li><p>If algorithm fails grad check, look at components to try to identify bug</p>
+</li>
+<li><p>Remeber regularization</p>
+</li>
+<li>Doesn’t work with dropout (set keep_prob = 1.0 to do grad check)</li>
+<li>Run at random initialization</li>
+</ul>
 <h2 id="Programming-Assignment-Initialization"><a href="#Programming-Assignment-Initialization" class="headerlink" title="Programming Assignment: Initialization"></a>Programming Assignment: Initialization</h2><p><a href="">Initialization</a></p>
 <h2 id="Programming-Assignment-Regularization"><a href="#Programming-Assignment-Regularization" class="headerlink" title="Programming Assignment: Regularization"></a>Programming Assignment: Regularization</h2><p><a href="">Regularization</a></p>
 <h2 id="Programming-Assignment-Gradient-Checking"><a href="#Programming-Assignment-Gradient-Checking" class="headerlink" title="Programming Assignment: Gradient Checking"></a>Programming Assignment: Gradient Checking</h2><p><a href="">Gradient Checking</a></p>
@@ -897,7 +914,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 19.7k words</span>
+  <span class="post-count">Total 19.8k words</span>
 </div>
 
         
