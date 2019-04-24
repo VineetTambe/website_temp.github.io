@@ -178,7 +178,7 @@
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-12-Week11-2.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-12-Week11-3.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-12-Week11-4.png">
-<meta property="og:updated_time" content="2019-04-12T08:09:30.373Z">
+<meta property="og:updated_time" content="2019-04-24T05:52:25.083Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Machine Learning">
 <meta name="twitter:description" content="Stanford University, Machine Learning Course Notes">
@@ -505,7 +505,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-12 03:09:30" itemprop="dateModified" datetime="2019-04-12T03:09:30-05:00">2019-04-12</time>
+                <time title="Modified: 2019-04-24 00:52:25" itemprop="dateModified" datetime="2019-04-24T00:52:25-05:00">2019-04-24</time>
               
             
           </span>
@@ -667,7 +667,7 @@
 <p>Want $min_{\theta_0,\theta_1}J(\theta_0,\theta_1)$</p>
 <p><strong>Outline:</strong></p>
 <ul>
-<li><p>Start with some $\theta_0, \theta_1 ​$</p>
+<li><p>Start with some $\theta_0, \theta_1 $</p>
 </li>
 <li><p>Keep changing $\theta_0, \theta_1$ to reduce $J(\theta_0,\theta_1) $ until we hopefully end up at a minimum</p>
 </li>
@@ -712,7 +712,7 @@
 </ul>
 <p>The $i^{th}$ column of the matrix $C$ is obtained by multiplying $A$ with the $i^{th}$ column of $B$. (for $i$ = 1,2,…,o). Then convert to matrix-vector multiplication.</p>
 <p>Multiple compeing hypotheses: let each hypotheses corespond to a column in the second matrix.</p>
-<p>Let $A$ and $B​$ be matrices. Then in general,<br>$$<br>A \times B \ne B \times A<br>$$</p>
+<p>Let $A$ and $B$ be matrices. Then in general,<br>$$<br>A \times B \ne B \times A<br>$$</p>
 <p>$$<br>A \times (B \times C) = (A \times B) \times C<br>$$</p>
 <p><strong>Identity Matrix:</strong></p>
 <p>Denoted $I$ (or $I_{n\times n}$)</p>
@@ -883,7 +883,7 @@
 </li>
 <li>Regularization<ul>
 <li>Keep all the features, but reduce magnitude/values of parameters $\theta_j$.</li>
-<li>Works well when we have a lot of features, each of which contributes a bit to predicting $y​$.</li>
+<li>Works well when we have a lot of features, each of which contributes a bit to predicting $y$.</li>
 </ul>
 </li>
 </ul>
@@ -982,7 +982,7 @@
 <li>Randomly initialize weights</li>
 <li>Implement forward propagation to get $h_\theta(x^{(i)})$ for any $x^{(i)}$</li>
 <li>Implement code to compute cost function $J(\theta)$</li>
-<li>Implement backprop to compute partial derivatives $\frac{\partial}{\partial\theta_{jk}^{(l)}}J(\theta)​$</li>
+<li>Implement backprop to compute partial derivatives $\frac{\partial}{\partial\theta_{jk}^{(l)}}J(\theta)$</li>
 <li>Use gradient checking to compare $\frac{\partial}{\partial\theta_{jk}^{(l)}}J(\theta)$ using backpropagation vs. using numerical estimate of gradient of $J(\theta)$, Then disable gradient checking code.</li>
 <li>Use gradient descent or advanced optimization method with backpropagation to try to minimize $J(\theta)$ as a function of parameters $\theta$</li>
 </ol>
@@ -1168,7 +1168,7 @@
 <p><strong>Data Visulization</strong></p>
 <p>Prefer 2-d or 3d data.</p>
 <p><strong>Principal Component Analysis (PCA) problem formulation</strong></p>
-<p>Reduce from 2-dimension to 1-dimension: Find a direction (a vector $u^{(1)}\in R^n​$) onto which to project the data so as to minimize the projection error.</p>
+<p>Reduce from 2-dimension to 1-dimension: Find a direction (a vector $u^{(1)}\in R^n$) onto which to project the data so as to minimize the projection error.</p>
 <p>Reduce from n-dimension to k-dimension: Find $k$ vectors $u^{(1)},u^{(2)},…,u^{(k)}$ onto which to project the data, so as to minimize the projection error.</p>
 <center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week8-2.png" style="zoom:60%"><br></center>
 
@@ -1211,7 +1211,7 @@
 
 <p><strong>Choosing $k$ (number of principal components)</strong></p>
 <p>Average squared projection error: $\frac1m\sum_{i=1}^m||x^{(i)}-x_{approx}^{(i)}||^2$</p>
-<p>Total variation in the data: $\frac1m\sum_{i=1}^m||x^{(i)}||^2​$</p>
+<p>Total variation in the data: $\frac1m\sum_{i=1}^m||x^{(i)}||^2$</p>
 <p>Typically, choose $k$ to be smallest value so that<br>$$<br>\frac{Average \space error}{Variation} \leq0.01<br>$$<br>“99%” of variance is retained</p>
 <p><strong>Application of PCA</strong></p>
 <ul>
@@ -1227,7 +1227,7 @@
 <h1 id="Week-9"><a href="#Week-9" class="headerlink" title="Week 9"></a>Week 9</h1><h2 id="Anomaly-Detection"><a href="#Anomaly-Detection" class="headerlink" title="Anomaly Detection"></a>Anomaly Detection</h2><p><strong>Anomaly detection example</strong></p>
 <p>Dataset: ${ x^{(1)},x^{(2)},…,x^{(m)} }$</p>
 <p>Is $x_{test}$ anomalous?</p>
-<p>$p(x_{test}) &lt; \epsilon​$ -&gt; flag anomaly</p>
+<p>$p(x_{test}) &lt; \epsilon$ -&gt; flag anomaly</p>
 <p>$p(x_{test}) \geq \epsilon$ -&gt; OK</p>
 <center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-11-Week9-1.png" style="zoom:60%"><br></center>
 
@@ -1239,7 +1239,7 @@
 <p>Identify unusual users by checking which have $p(x) &lt; \epsilon$</p>
 <p>Manufacturing</p>
 <p>Monitoring computers in a data center.</p>
-<p>$x^{(i)}​$ = features of machine $i​$</p>
+<p>$x^{(i)}$ = features of machine $i$</p>
 <p>$x_1$ = memory use, $x_2$ = number of disk accesses/sec,</p>
 <p>$x_3$ = CPU load, $x_4$ = CPU load/network traffic.</p>
 <p>…</p>
@@ -1310,7 +1310,7 @@
 
 <p>For each user $j$, learn a parameter $\theta^{(j)}\in R^3$. Predict user $j$ as rating movie $i$ with $(\theta^{(j)})^Tx^{(i)} $ stars.</p>
 <p>Problem formulation:</p>
-<p>$r(i,j)=1​$ if user $j​$ has rated movie $i​$ (0 otherwise)</p>
+<p>$r(i,j)=1$ if user $j$ has rated movie $i$ (0 otherwise)</p>
 <p>$y^{(i,j)}$ = rating by user $j$ on movie $i$ (if defined)</p>
 <p>$\theta^{(j)}$ = parameter vector for user $j$</p>
 <p>$x^{(i)}$ = feature vector for movie $i$</p>
