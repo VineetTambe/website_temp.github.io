@@ -120,10 +120,12 @@
 <meta property="og:site_name" content="Qingliu">
 <meta property="og:description" content="Deeplearning.ai Specialization Course Notes">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-24T00:32:30.072Z">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-24-Week1-1.png">
+<meta property="og:updated_time" content="2019-04-24T01:48:46.750Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Improving Deep Neural Networks">
 <meta name="twitter:description" content="Deeplearning.ai Specialization Course Notes">
+<meta name="twitter:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-24-Week1-1.png">
 
 
 
@@ -446,7 +448,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-23 19:32:30" itemprop="dateModified" datetime="2019-04-23T19:32:30-05:00">2019-04-23</time>
+                <time title="Modified: 2019-04-23 20:48:46" itemprop="dateModified" datetime="2019-04-23T20:48:46-05:00">2019-04-23</time>
               
             
           </span>
@@ -519,7 +521,51 @@
         <p>Deeplearning.ai Specialization</p>
 <p>Course Notes</p>
 <a id="more"></a>
-<h1 id="Week-1"><a href="#Week-1" class="headerlink" title="Week 1"></a>Week 1</h1><h2 id="Practical-aspects-of-Deep-Learning"><a href="#Practical-aspects-of-Deep-Learning" class="headerlink" title="Practical aspects of Deep Learning"></a>Practical aspects of Deep Learning</h2><h2 id="Programming-Assignment-Re"><a href="#Programming-Assignment-Re" class="headerlink" title="Programming Assignment: Re"></a>Programming Assignment: Re</h2><h1 id="Week-2"><a href="#Week-2" class="headerlink" title="Week 2"></a>Week 2</h1><h2 id="Optimization-algorithms"><a href="#Optimization-algorithms" class="headerlink" title="Optimization algorithms"></a>Optimization algorithms</h2><h1 id="Week-3"><a href="#Week-3" class="headerlink" title="Week 3"></a>Week 3</h1><h2 id="Hyperparameter-tuning-Batch-Normalization-and-Programming-Frameworks"><a href="#Hyperparameter-tuning-Batch-Normalization-and-Programming-Frameworks" class="headerlink" title="Hyperparameter tuning, Batch Normalization and Programming Frameworks"></a>Hyperparameter tuning, Batch Normalization and Programming Frameworks</h2>
+<h1 id="Week-1"><a href="#Week-1" class="headerlink" title="Week 1"></a>Week 1</h1><h2 id="Practical-aspects-of-Deep-Learning"><a href="#Practical-aspects-of-Deep-Learning" class="headerlink" title="Practical aspects of Deep Learning"></a>Practical aspects of Deep Learning</h2><p><strong>Train/dev/test sets</strong></p>
+<p>Applied ML is a highly iterative process</p>
+<ul>
+<li>layers</li>
+<li>Hidden units</li>
+<li>Learning rates</li>
+<li>Activation functions</li>
+</ul>
+<p>Idea - Code - Experiment</p>
+<p>Make sure the dev and test come from the same distribution. Because we want to evaluate effects from the dev set.</p>
+<p>Not having a test set might be okay. (Only dev set.)</p>
+<p><strong>Bias and Variance</strong></p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-24-Week1-1.png" style="zoom:60%"><br></center>
+
+
+
+<p><strong>Basic recipe for machine learning</strong></p>
+<p>Hign bias -&gt; Bigger network</p>
+<p>High variance -&gt; More data / Regularization / NN architecture</p>
+<p>Training a bigger network almost never hurts if regularized well</p>
+<p><strong>Regularization</strong></p>
+<p>L2 regularization is used much more often</p>
+<p>Frobenius norm is used in Neural network -&gt; weight decay</p>
+<p>Another technical regularization method is dropout</p>
+<p><strong>Inverted dropout</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">keep_prob = <span class="number">0.8</span> <span class="comment"># chosen by user</span></span><br><span class="line">d = np.random.rand(a.shape[<span class="number">0</span>],a.shape[<span class="number">1</span>]) &lt; keep_prob</span><br><span class="line">a = np.multiply(a,d)</span><br><span class="line">a /= keep_prob	<span class="comment"># because the output will be reduced by ...</span></span><br></pre></td></tr></table></figure>
+<p>At test time, we <strong>should not</strong> include drop out because we don’t want our prediction to be random. Otherwise, there will be noise.</p>
+<p>Intuition: Cant’t rely on any one feature, so have to spread out weights.</p>
+<p>Drop out is very frequently used by computer vision. But doesn’t generalize in other application areas.</p>
+<p>We will lose gradient checking tool when including drop out.</p>
+<p><strong>So in conclusion, we should plot the loss figure when including drop out. Because the cost function J is no longer well-defined (thinking about the dead neurons)</strong></p>
+<p>Other regularization methods:</p>
+<ul>
+<li><p>Data augmentation</p>
+</li>
+<li><p>Early stopping</p>
+</li>
+</ul>
+<p>L2 regularization is more useful but the search space for $\lambda$ is large</p>
+<h2 id="Programming-Assignment-Initialization"><a href="#Programming-Assignment-Initialization" class="headerlink" title="Programming Assignment: Initialization"></a>Programming Assignment: Initialization</h2><p><a href="">Initialization</a></p>
+<h2 id="Programming-Assignment-Regularization"><a href="#Programming-Assignment-Regularization" class="headerlink" title="Programming Assignment: Regularization"></a>Programming Assignment: Regularization</h2><p><a href="">Regularization</a></p>
+<h2 id="Programming-Assignment-Gradient-Checking"><a href="#Programming-Assignment-Gradient-Checking" class="headerlink" title="Programming Assignment: Gradient Checking"></a>Programming Assignment: Gradient Checking</h2><p><a href="">Gradient Checking</a></p>
+<h1 id="Week-2"><a href="#Week-2" class="headerlink" title="Week 2"></a>Week 2</h1><h2 id="Optimization-algorithms"><a href="#Optimization-algorithms" class="headerlink" title="Optimization algorithms"></a>Optimization algorithms</h2><h2 id="Programming-Assignment-Optimization"><a href="#Programming-Assignment-Optimization" class="headerlink" title="Programming Assignment: Optimization"></a>Programming Assignment: Optimization</h2><p><a href="">Optimization</a></p>
+<h1 id="Week-3"><a href="#Week-3" class="headerlink" title="Week 3"></a>Week 3</h1><h2 id="Hyperparameter-tuning-Batch-Normalization-and-Programming-Frameworks"><a href="#Hyperparameter-tuning-Batch-Normalization-and-Programming-Frameworks" class="headerlink" title="Hyperparameter tuning, Batch Normalization and Programming Frameworks"></a>Hyperparameter tuning, Batch Normalization and Programming Frameworks</h2><h2 id="Programming-Assignment-TensorFlow"><a href="#Programming-Assignment-TensorFlow" class="headerlink" title="Programming Assignment: TensorFlow"></a>Programming Assignment: TensorFlow</h2><p><a href="">TensorFlow</a></p>
+
       
     </div>
 
@@ -788,7 +834,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-1"><span class="nav-number">1.</span> <span class="nav-text">Week 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Practical-aspects-of-Deep-Learning"><span class="nav-number">1.1.</span> <span class="nav-text">Practical aspects of Deep Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Re"><span class="nav-number">1.2.</span> <span class="nav-text">Programming Assignment: Re</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-2"><span class="nav-number">2.</span> <span class="nav-text">Week 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Optimization-algorithms"><span class="nav-number">2.1.</span> <span class="nav-text">Optimization algorithms</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-3"><span class="nav-number">3.</span> <span class="nav-text">Week 3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hyperparameter-tuning-Batch-Normalization-and-Programming-Frameworks"><span class="nav-number">3.1.</span> <span class="nav-text">Hyperparameter tuning, Batch Normalization and Programming Frameworks</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-1"><span class="nav-number">1.</span> <span class="nav-text">Week 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Practical-aspects-of-Deep-Learning"><span class="nav-number">1.1.</span> <span class="nav-text">Practical aspects of Deep Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Initialization"><span class="nav-number">1.2.</span> <span class="nav-text">Programming Assignment: Initialization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Regularization"><span class="nav-number">1.3.</span> <span class="nav-text">Programming Assignment: Regularization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Gradient-Checking"><span class="nav-number">1.4.</span> <span class="nav-text">Programming Assignment: Gradient Checking</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-2"><span class="nav-number">2.</span> <span class="nav-text">Week 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Optimization-algorithms"><span class="nav-number">2.1.</span> <span class="nav-text">Optimization algorithms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Optimization"><span class="nav-number">2.2.</span> <span class="nav-text">Programming Assignment: Optimization</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-3"><span class="nav-number">3.</span> <span class="nav-text">Week 3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hyperparameter-tuning-Batch-Normalization-and-Programming-Frameworks"><span class="nav-number">3.1.</span> <span class="nav-text">Hyperparameter tuning, Batch Normalization and Programming Frameworks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-TensorFlow"><span class="nav-number">3.2.</span> <span class="nav-text">Programming Assignment: TensorFlow</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -851,7 +897,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 19.4k words</span>
+  <span class="post-count">Total 19.7k words</span>
 </div>
 
         
