@@ -121,7 +121,7 @@
 <meta property="og:description" content="Deeplearning.ai Specialization Course Notes">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-24-Week1-1.png">
-<meta property="og:updated_time" content="2019-04-24T04:45:37.237Z">
+<meta property="og:updated_time" content="2019-04-24T05:03:35.309Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Improving Deep Neural Networks">
 <meta name="twitter:description" content="Deeplearning.ai Specialization Course Notes">
@@ -448,7 +448,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-23 23:45:37" itemprop="dateModified" datetime="2019-04-23T23:45:37-05:00">2019-04-23</time>
+                <time title="Modified: 2019-04-24 00:03:35" itemprop="dateModified" datetime="2019-04-24T00:03:35-05:00">2019-04-24</time>
               
             
           </span>
@@ -566,7 +566,13 @@
 <p><strong>Vanishing / Exploding gradients</strong></p>
 <p><strong>Random initialization</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Wl = np.random.randn(shape) * np.sqrt(<span class="number">2</span>/n)</span><br></pre></td></tr></table></figure>
+<p>Different initialization lead to different results</p>
+<p>Random initialization is used to break symmetry and make sure different hidden units can learn different things</p>
+<p>We should not initialize to values that are too large</p>
 <p>In the weight initialization procedure, we can also tuning the hyper parameter for the variance.</p>
+<p>Poor initialization can lead to vanishing/exploding gradients, which also slow down the optimization algorithm.</p>
+<p><strong>He initialization （designed for ReLU activation), of significant importance</strong></p>
+<p>Multiply random initialization by<br>$$<br>\sqrt{\frac{2}{dimension\space of\space the\space previous \space layer}}<br>$$</p>
 <p><strong>Gradient checking</strong><br>$$<br>\frac{f(\theta+\epsilon)-f(\theta-\epsilon)}{2\epsilon} \approx g(\theta)<br>$$<br>Two-side difference is prefered<br>$$<br>\epsilon = 10^{-7}<br>$$<br><strong>Tips for Grad check</strong></p>
 <ul>
 <li>Don’t use in training - only to debug</li>
@@ -914,7 +920,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 19.8k words</span>
+  <span class="post-count">Total 19.9k words</span>
 </div>
 
         
