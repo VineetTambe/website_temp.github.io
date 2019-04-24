@@ -125,7 +125,7 @@
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-24-Week2-2.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-24-Week2-3.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-24-Week2-4.png">
-<meta property="og:updated_time" content="2019-04-24T19:22:43.071Z">
+<meta property="og:updated_time" content="2019-04-24T19:27:12.112Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Improving Deep Neural Networks">
 <meta name="twitter:description" content="Deeplearning.ai Specialization Course Notes">
@@ -452,7 +452,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-24 14:22:43" itemprop="dateModified" datetime="2019-04-24T14:22:43-05:00">2019-04-24</time>
+                <time title="Modified: 2019-04-24 14:27:12" itemprop="dateModified" datetime="2019-04-24T14:27:12-05:00">2019-04-24</time>
               
             
           </span>
@@ -565,8 +565,8 @@
 </li>
 </ul>
 <p>L2 regularization is more useful but the search space for $\lambda$ is large</p>
-<p><strong>Normalization</strong><br>$$<br>\mu=\frac1m\sum_{i=1}^mx^{(i)} \<br>\sigma=\frac1m\sum_{i=1}^mx^{(i)}<strong>2<br>$$
-</strong>Normalize the training set and test set the same way**</p>
+<p><strong>Normalization</strong><br>$$<br>\mu=\frac1m\sum_{i=1}^mx^{(i)} \<br>\sigma=\frac1m\sum_{i=1}^mx^{(i)}**2<br>$$</p>
+<p><strong>Normalize the training set and test set the same way</strong></p>
 <p>Zero mean and variance one</p>
 <p><strong>Vanishing / Exploding gradients</strong></p>
 <p><strong>Random initialization</strong></p>
@@ -578,7 +578,8 @@
 <p>Poor initialization can lead to vanishing/exploding gradients, which also slow down the optimization algorithm.</p>
 <p><strong>He initialization （designed for ReLU activation), of significant importance</strong></p>
 <p>Multiply random initialization by<br>$$<br>\sqrt{\frac{2}{dimension\space of\space the\space previous \space layer}}<br>$$</p>
-<p><strong>Gradient checking</strong><br>$$<br>\frac{f(\theta+\epsilon)-f(\theta-\epsilon)}{2\epsilon} \approx g(\theta)<br>$$<br>Two-side difference is prefered<br>$$<br>\epsilon = 10^{-7}<br>$$<br><strong>Tips for Grad check</strong></p>
+<p><strong>Gradient checking</strong><br>$$<br>\frac{f(\theta+\epsilon)-f(\theta-\epsilon)}{2\epsilon} \approx g(\theta)<br>$$<br>Two-side difference is prefered<br>$$<br>\epsilon = 10^{-7}<br>$$</p>
+<p><strong>Tips for Grad check</strong></p>
 <ul>
 <li>Don’t use in training - only to debug</li>
 <li><p>If algorithm fails grad check, look at components to try to identify bug</p>
@@ -588,9 +589,9 @@
 <li>Doesn’t work with dropout (set keep_prob = 1.0 to do grad check)</li>
 <li>Run at random initialization</li>
 </ul>
-<h2 id="Programming-Assignment-Initialization"><a href="#Programming-Assignment-Initialization" class="headerlink" title="Programming Assignment: Initialization"></a>Programming Assignment: Initialization</h2><p><a href="[https://github.com/Aden-Q/Deep-Learning/blob/master/Improving%20Deep%20Neural%20Networks/Week%201/Initialization.ipynb](https://github.com/Aden-Q/Deep-Learning/blob/master/Improving Deep Neural Networks/Week 1/Initialization.ipynb">Initialization</a>)</p>
-<h2 id="Programming-Assignment-Regularization"><a href="#Programming-Assignment-Regularization" class="headerlink" title="Programming Assignment: Regularization"></a>Programming Assignment: Regularization</h2><p><a href="[https://github.com/Aden-Q/Deep-Learning/blob/master/Improving%20Deep%20Neural%20Networks/Week%201/Regularization%2B-%2Bv2.ipynb](https://github.com/Aden-Q/Deep-Learning/blob/master/Improving Deep Neural Networks/Week 1/Regularization%2B-%2Bv2.ipynb">Regularization</a>)</p>
-<h2 id="Programming-Assignment-Gradient-Checking"><a href="#Programming-Assignment-Gradient-Checking" class="headerlink" title="Programming Assignment: Gradient Checking"></a>Programming Assignment: Gradient Checking</h2><p><a href="[https://github.com/Aden-Q/Deep-Learning/blob/master/Improving%20Deep%20Neural%20Networks/Week%201/Gradient%2BChecking%2Bv1.ipynb](https://github.com/Aden-Q/Deep-Learning/blob/master/Improving Deep Neural Networks/Week 1/Gradient%2BChecking%2Bv1.ipynb">Gradient Checking</a>)</p>
+<h2 id="Programming-Assignment-Initialization"><a href="#Programming-Assignment-Initialization" class="headerlink" title="Programming Assignment: Initialization"></a>Programming Assignment: Initialization</h2><p><a href="https://github.com/Aden-Q/Deep-Learning/blob/master/Improving Deep Neural Networks/Week 1/Initialization.ipynb" target="_blank" rel="noopener">Initialization</a></p>
+<h2 id="Programming-Assignment-Regularization"><a href="#Programming-Assignment-Regularization" class="headerlink" title="Programming Assignment: Regularization"></a>Programming Assignment: Regularization</h2><p><a href="https://github.com/Aden-Q/Deep-Learning/blob/master/Improving Deep Neural Networks/Week 1/Regularization%2B-%2Bv2.ipynb" target="_blank" rel="noopener">Regularization</a></p>
+<h2 id="Programming-Assignment-Gradient-Checking"><a href="#Programming-Assignment-Gradient-Checking" class="headerlink" title="Programming Assignment: Gradient Checking"></a>Programming Assignment: Gradient Checking</h2><p><a href="https://github.com/Aden-Q/Deep-Learning/blob/master/Improving Deep Neural Networks/Week 1/Gradient%2BChecking%2Bv1.ipynb" target="_blank" rel="noopener">Gradient Checking</a></p>
 <h1 id="Week-2"><a href="#Week-2" class="headerlink" title="Week 2"></a>Week 2</h1><h2 id="Optimization-algorithms"><a href="#Optimization-algorithms" class="headerlink" title="Optimization algorithms"></a>Optimization algorithms</h2><p><strong>Mini-batch gradient descent</strong></p>
 <center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-24-Week2-1.png" style="zoom:60%"><br></center>
 
@@ -629,7 +630,7 @@
 <li>Unlikely to get stuck in a bad local optima</li>
 <li>Plateaus can make learning slow</li>
 </ul>
-<h2 id="Programming-Assignment-Optimization"><a href="#Programming-Assignment-Optimization" class="headerlink" title="Programming Assignment: Optimization"></a>Programming Assignment: Optimization</h2><p><a href="[https://github.com/Aden-Q/Deep-Learning/blob/master/Improving%20Deep%20Neural%20Networks/Week%202/Optimization%2Bmethods.ipynb](https://github.com/Aden-Q/Deep-Learning/blob/master/Improving Deep Neural Networks/Week 2/Optimization%2Bmethods.ipynb">Optimization</a>)</p>
+<h2 id="Programming-Assignment-Optimization"><a href="#Programming-Assignment-Optimization" class="headerlink" title="Programming Assignment: Optimization"></a>Programming Assignment: Optimization</h2><p><a href="https://github.com/Aden-Q/Deep-Learning/blob/master/Improving Deep Neural Networks/Week 2/Optimization%2Bmethods.ipynb" target="_blank" rel="noopener">Optimization</a></p>
 <h1 id="Week-3"><a href="#Week-3" class="headerlink" title="Week 3"></a>Week 3</h1><h2 id="Hyperparameter-tuning-Batch-Normalization-and-Programming-Frameworks"><a href="#Hyperparameter-tuning-Batch-Normalization-and-Programming-Frameworks" class="headerlink" title="Hyperparameter tuning, Batch Normalization and Programming Frameworks"></a>Hyperparameter tuning, Batch Normalization and Programming Frameworks</h2><h2 id="Programming-Assignment-TensorFlow"><a href="#Programming-Assignment-TensorFlow" class="headerlink" title="Programming Assignment: TensorFlow"></a>Programming Assignment: TensorFlow</h2><p><a href="">TensorFlow</a></p>
 
       
