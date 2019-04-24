@@ -125,7 +125,7 @@
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-24-Week2-2.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-24-Week2-3.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-24-Week2-4.png">
-<meta property="og:updated_time" content="2019-04-24T18:07:48.832Z">
+<meta property="og:updated_time" content="2019-04-24T19:11:54.732Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Improving Deep Neural Networks">
 <meta name="twitter:description" content="Deeplearning.ai Specialization Course Notes">
@@ -452,7 +452,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-24 13:07:48" itemprop="dateModified" datetime="2019-04-24T13:07:48-05:00">2019-04-24</time>
+                <time title="Modified: 2019-04-24 14:11:54" itemprop="dateModified" datetime="2019-04-24T14:11:54-05:00">2019-04-24</time>
               
             
           </span>
@@ -604,6 +604,7 @@
 <li>If small training set: Use batch gradient descent —— 2000</li>
 <li>Otherwise typical mini-batch size: 64, 128, 256, 512</li>
 <li>Make sure mini batch fit in CPU/GPU memory</li>
+<li>Shuffling and Partitioning are the two steps required to build mini-batches</li>
 </ul>
 <p><strong>Exponentially weighted averages</strong><br>$$<br>v_t=\beta v_{t-1}+(1-\beta)\theta_t<br>$$<br><strong>Bias correction</strong><br>$$<br>\frac{v_t}{1-\beta^t}<br>$$</p>
 <p><strong>Graduebt descent with momentum</strong></p>
@@ -621,9 +622,14 @@
 
 <p>Hyperparameters choice:<br>$$<br>\beta_1=0.9 \\<br>\theta_2=0.999 \\<br>\epsilon=10^{-8}<br>$$<br>And try different range of $\alpha $</p>
 <p>Adam: Adaptive moment estimation</p>
+<p>For complex problems there will be bigger gains</p>
 <p><strong>Learning rate decay</strong><br>$$<br>\alpha=\frac{1}{1+decay-rate*epoch-num}\alpha_0 \\<br>\alpha = 0.95^{epoch-num}\alpha_0 \\<br>\alpha =\frac{k}{\sqrt{epoch-num}}\alpha_0<br>$$</p>
 <p>Saddle point is different from local optimum. In high dimensional space, we are more likely to encounter saddle point.</p>
-<h2 id="Programming-Assignment-Optimization"><a href="#Programming-Assignment-Optimization" class="headerlink" title="Programming Assignment: Optimization"></a>Programming Assignment: Optimization</h2><p><a href="">Optimization</a></p>
+<ul>
+<li>Unlikely to get stuck in a bad local optima</li>
+<li>Plateaus can make learning slow</li>
+</ul>
+<h2 id="Programming-Assignment-Optimization"><a href="#Programming-Assignment-Optimization" class="headerlink" title="Programming Assignment: Optimization"></a>Programming Assignment: Optimization</h2><p><a href="[https://github.com/Aden-Q/Deep-Learning/blob/master/Improving%20Deep%20Neural%20Networks/Week%202/Optimization%2Bmethods.ipynb](https://github.com/Aden-Q/Deep-Learning/blob/master/Improving Deep Neural Networks/Week 2/Optimization%2Bmethods.ipynb">Optimization</a>)</p>
 <h1 id="Week-3"><a href="#Week-3" class="headerlink" title="Week 3"></a>Week 3</h1><h2 id="Hyperparameter-tuning-Batch-Normalization-and-Programming-Frameworks"><a href="#Hyperparameter-tuning-Batch-Normalization-and-Programming-Frameworks" class="headerlink" title="Hyperparameter tuning, Batch Normalization and Programming Frameworks"></a>Hyperparameter tuning, Batch Normalization and Programming Frameworks</h2><h2 id="Programming-Assignment-TensorFlow"><a href="#Programming-Assignment-TensorFlow" class="headerlink" title="Programming Assignment: TensorFlow"></a>Programming Assignment: TensorFlow</h2><p><a href="">TensorFlow</a></p>
 
       
@@ -957,7 +963,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 20.1k words</span>
+  <span class="post-count">Total 20.2k words</span>
 </div>
 
         
