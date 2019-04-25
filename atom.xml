@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-24T05:13:36.015Z</updated>
+  <updated>2019-04-25T06:06:20.546Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Improving Deep Neural Networks</title>
+    <link href="http://yoursite.com/2019/04/24/Structuring%20Machine%20Learning%20Projects/"/>
+    <id>http://yoursite.com/2019/04/24/Structuring Machine Learning Projects/</id>
+    <published>2019-04-25T04:17:34.000Z</published>
+    <updated>2019-04-25T06:06:20.546Z</updated>
+    
+    <content type="html"><![CDATA[<p>Deeplearning.ai Specialization</p><p>Course Notes</p><a id="more"></a><h1 id="Week-1"><a href="#Week-1" class="headerlink" title="Week 1"></a>Week 1</h1><h2 id="ML-Strategy"><a href="#ML-Strategy" class="headerlink" title="ML Strategy"></a>ML Strategy</h2><p>Ideas:</p><ul><li>Collect more data</li><li>Collect more diverse training set</li><li>Train algorithm longer with gradient descent</li><li>Try Adam instead of gradient descent</li><li>Try bigger network</li><li>Try smaller network</li><li>Try dropout</li><li>Add $L_2$ regularization</li><li>Network architecture<ul><li>Activation functions</li><li>Hidden units</li></ul></li></ul><p><strong>Orthogonalization</strong></p><p>Chain of assumptions in ML</p><ul><li>Fit training set well on cost function</li><li>Fit dev set well on cost function</li><li>Fit test set well on cost function</li><li>Performs well in real world</li></ul><p>Early stopping is not a good strategy</p><p><strong>Single number evaluation metric</strong></p><center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-25-Week1-1.png" style="zoom:60%"><br></center><p>$F_1$ Score can evaluate the model performance<br>$$<br>F_1 = \frac{2}{\frac1P+\frac1R}<br>$$</p><p><strong>Optimizing and satisficing</strong></p><p>E.g.</p><center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-25-Week1-2.png" style="zoom:60%"><br></center><p><strong>Splitting data</strong></p><center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-25-Week1-3.png" style="zoom:60%"><br></center><p>Set the test set to be big enough to give high confidence in the overall performance of your system</p><p>Model performance</p><center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-25-Week1-4.png" style="zoom:60%"><br></center><p>So long as ML is worse than humans, you can:</p><ul><li>Get labeled data from humans</li><li>Gain insight from manual error analysis: Why did a person get this right?</li><li>Better analysis of bias/variance</li></ul><p>Human-level error as a proxy for Bayes error</p><p><strong>Surpassing human-level performance</strong></p><ul><li>Online advertising</li><li>Product recommendations</li><li>Logistics (predicting transit time)</li><li>Loan approvals</li><li>Speech recognition</li><li>Computer vision</li></ul><p><strong>Two fundamental assumptions of supervised learning</strong></p><ol><li>You can fit the training set pretty well.</li><li>The training set performance generalizes pretty well to the dev/test set.</li></ol><p>Avoidable bias: Train bigger model. Train longer/better optimization algorithms. NN architecture/hyperparameters search.</p><p>Variance: More data. Regularization. NN architecture/hyperparameters search.</p><h1 id="Week-2"><a href="#Week-2" class="headerlink" title="Week 2"></a>Week 2</h1><h2 id="ML-Strategy-1"><a href="#ML-Strategy-1" class="headerlink" title="ML Strategy"></a>ML Strategy</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Deeplearning.ai Specialization&lt;/p&gt;
+&lt;p&gt;Course Notes&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+    
+    
+      <category term="Programming" scheme="http://yoursite.com/tags/Programming/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="Deep Learning" scheme="http://yoursite.com/tags/Deep-Learning/"/>
+    
+      <category term="TensorFlow" scheme="http://yoursite.com/tags/TensorFlow/"/>
+    
+  </entry>
   
   <entry>
     <title>Convolutional Neural Networks in TensorFlow</title>
