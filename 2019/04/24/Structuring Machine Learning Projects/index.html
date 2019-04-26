@@ -124,7 +124,12 @@
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-25-Week1-2.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-25-Week1-3.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-25-Week1-4.png">
-<meta property="og:updated_time" content="2019-04-25T06:06:20.546Z">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-26-Week2-1.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-26-Week2-2.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-26-Week2-3.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-26-Week2-4.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-26-Week2-5.png">
+<meta property="og:updated_time" content="2019-04-26T03:44:12.372Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Improving Deep Neural Networks">
 <meta name="twitter:description" content="Deeplearning.ai Specialization Course Notes">
@@ -451,7 +456,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-25 01:06:20" itemprop="dateModified" datetime="2019-04-25T01:06:20-05:00">2019-04-25</time>
+                <time title="Modified: 2019-04-25 22:44:12" itemprop="dateModified" datetime="2019-04-25T22:44:12-05:00">2019-04-25</time>
               
             
           </span>
@@ -591,7 +596,85 @@
 </ol>
 <p>Avoidable bias: Train bigger model. Train longer/better optimization algorithms. NN architecture/hyperparameters search.</p>
 <p>Variance: More data. Regularization. NN architecture/hyperparameters search.</p>
-<h1 id="Week-2"><a href="#Week-2" class="headerlink" title="Week 2"></a>Week 2</h1><h2 id="ML-Strategy-1"><a href="#ML-Strategy-1" class="headerlink" title="ML Strategy"></a>ML Strategy</h2>
+<h1 id="Week-2"><a href="#Week-2" class="headerlink" title="Week 2"></a>Week 2</h1><h2 id="ML-Strategy-1"><a href="#ML-Strategy-1" class="headerlink" title="ML Strategy"></a>ML Strategy</h2><p><strong>Incorrectly labeld examples</strong></p>
+<p>DL algorithms are quite robust to random errors in the training set. (so long as the total dataset is large enough and the error percentage is not too high)</p>
+<p>DL are less robust to systematic errors</p>
+<p>Error analysis:</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-26-Week2-1.png" style="zoom:60%"><br></center>
+
+<p>Effor evaluation</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-26-Week2-2.png" style="zoom:60%"><br></center>
+
+<p><strong>Correcting incorrect dev/test set examples</strong></p>
+<ul>
+<li>Apply same process to your dev and test sets to make sure they continue come from the same distribution</li>
+<li>Consider examining examples your algorithm got right as well as ones it got wrong</li>
+<li>Train and dev/test data may now come slightly different distributions</li>
+</ul>
+<p>Tips for building a machine learning system</p>
+<ul>
+<li>Set up dev/test set and metric</li>
+<li>Build initial system quickly</li>
+<li>Use Bias/Variance analysis &amp; Error analysis to prioritize next steps</li>
+</ul>
+<p><strong>Build your first system quickly, then iterate!</strong></p>
+<p><strong>Training and testing on different distributions</strong></p>
+<p>To determine which aspect brings the effect of bias/variance, whether it’s the general reason or the reason caused by changing data distribution. It’s better to introduce a new set:</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-26-Week2-3.png" style="zoom:60%"><br></center>
+
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-26-Week2-4.png" style="zoom:60%"><br></center>
+
+<p>Introducing this set helps us determine whether the problem is data mismatch or variance.</p>
+<p><strong>Bias/variance on mismatched training and dev/test sets</strong></p>
+<ul>
+<li>Human level</li>
+<li>Training set error</li>
+<li>Training_dev set error</li>
+<li>Dev error</li>
+<li>Test error</li>
+</ul>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-26-Week2-5.png" style="zoom:60%"><br></center>
+
+
+
+<p><strong>Addressing data mismatch</strong></p>
+<ul>
+<li>Carry out manual error analysis to try to understand difference between training and dev/test sets</li>
+<li>Making training data more similar; or collect more data similar to dev/test sets</li>
+<li>Artificial data synthesis</li>
+</ul>
+<p><strong>Transfer learning</strong></p>
+<p>Pre-training and fune-tuning</p>
+<p>When transfer learning makes sense</p>
+<ul>
+<li>Task A and B have the same input x.</li>
+<li>You have a lot more data for Task A than Task B.</li>
+<li>Low level features from A could be helpful for learning B.</li>
+</ul>
+<p><strong>Multi-task learning</strong></p>
+<p>Multiple labels</p>
+<p>When multi-task learning makes sense</p>
+<ul>
+<li>Training on a set of tasks could benefit from having shared lower-level features.</li>
+<li>Usually: Amount of data you have for each task is quite similar.</li>
+<li>Can train a big enough neural network to do well on all the tasks.</li>
+</ul>
+<p>Transfer learning is used much more often than multi-task learning</p>
+<p><strong>End-to-end learning</strong></p>
+<p>Multiple stages —&gt; A single neural network</p>
+<p>End-to-end network requires a lot of data to gain high performance</p>
+<p><strong>Pros and cons of end-to-end deep learning</strong></p>
+<p>Pros:</p>
+<ul>
+<li>Let the data speak</li>
+<li>Less hand-designing of components needed</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>May need large amount of data</li>
+<li>Excludes potentially useful hand-designed components</li>
+</ul>
+
       
     </div>
 
@@ -919,7 +1002,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 20.6k words</span>
+  <span class="post-count">Total 21.0k words</span>
 </div>
 
         
