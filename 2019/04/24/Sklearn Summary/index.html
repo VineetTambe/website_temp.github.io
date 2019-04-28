@@ -120,7 +120,7 @@
 <meta property="og:site_name" content="Qingliu">
 <meta property="og:description" content="Sklearn Summary">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-28T07:17:13.034Z">
+<meta property="og:updated_time" content="2019-04-28T19:12:40.222Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sklearn Summary">
 <meta name="twitter:description" content="Sklearn Summary">
@@ -446,7 +446,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-28 02:17:13" itemprop="dateModified" datetime="2019-04-28T02:17:13-05:00">2019-04-28</time>
+                <time title="Modified: 2019-04-28 14:12:40" itemprop="dateModified" datetime="2019-04-28T14:12:40-05:00">2019-04-28</time>
               
             
           </span>
@@ -577,6 +577,16 @@
 </li>
 <li><p>Cross validation</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> cross_val_score</span><br><span class="line">score = <span class="number">-1</span> * cross_val_score(my_pipeline, X, y</span><br><span class="line">                             cv=<span class="number">5</span>,	<span class="comment"># 5 folds cross validation</span></span><br><span class="line">                             scoring=<span class="string">'neg_mean_absolute_error'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>XGBoost</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> xgboost <span class="keyword">import</span> XGBRegressor</span><br><span class="line"></span><br><span class="line">my_model = XGBRegressor()</span><br><span class="line"><span class="comment"># my_model = XGBRegressor(n_estimators=500)</span></span><br><span class="line"><span class="comment"># my_model.fit(X_train, y_train,</span></span><br><span class="line"><span class="comment">#			   early_stopping_rounds=5,</span></span><br><span class="line"><span class="comment">#    		   eval_set=[(X_valid, y_valid)],</span></span><br><span class="line"><span class="comment">#              verbose=False)</span></span><br><span class="line"><span class="comment"># my_model = XGBRegressor(n_estimators=1000, learning_rate=0.05)</span></span><br><span class="line"><span class="comment"># my_model = XGBRegressor(n_estimators=1000, learning_rate=0.05, n_jobs=4)</span></span><br><span class="line">my_model.fit(X_train, y_train)</span><br></pre></td></tr></table></figure>
+<p>parameters:</p>
+<ul>
+<li><code>n_estimators</code>: specifies how many times to go through the modeling cycle. low: underfuttubg, high: overfitting. Typically value is 100-1000.</li>
+<li><code>early_stopping_rounds</code>: this parameter causes the model to stop iterating when the validation scores stops improving. It’s smart to set a high value for <code>n_estimators</code> and then use <code>early_stopping_rounds</code> to find the optimal time to stop iterating. Since random chance sometimes causes a single round where validation scores don’t improve, you nedd to specify a number for how many rounds of straight deterioration to allow before stopping. Setting <code>early_stopping_rounds=5</code> is a reasonable choice. In this case, we stop after 5 straight rounds of deteriorating validation scores.</li>
+<li><code>learning_rate</code>: Instead of getting predictions by simply adding up the predictions from each component model, we can multiply the predictions from each model by a small number (known as the <strong>learning rate</strong>) before adding them in. In general, a small learning rate and large number of estimators will yield more accurate XGBoost models, through it will also take the model longer to train since it does more iterations through the cycle. As default, XGBoost sets <code>learning_rate=0.1</code>.</li>
+<li><code>n_jobs</code>: On large datasets where runtime is a consideration, you can use parallelism to build your model faster. It’s common to set the parameter <code>n_jobs</code> equal to the number of cores on your machine. On smaller datasets, this won’t help.</li>
+</ul>
 </li>
 </ul>
 <p><strong>Machine Learning Pipeline</strong></p>
@@ -919,7 +929,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 21.7k words</span>
+  <span class="post-count">Total 22.0k words</span>
 </div>
 
         
