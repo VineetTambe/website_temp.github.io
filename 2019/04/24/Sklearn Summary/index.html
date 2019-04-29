@@ -120,7 +120,7 @@
 <meta property="og:site_name" content="Qingliu">
 <meta property="og:description" content="Scikit-learn Summary">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-29T20:52:34.222Z">
+<meta property="og:updated_time" content="2019-04-29T21:23:09.695Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Scikit-learn Summary">
 <meta name="twitter:description" content="Scikit-learn Summary">
@@ -446,7 +446,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-29 15:52:34" itemprop="dateModified" datetime="2019-04-29T15:52:34-05:00">2019-04-29</time>
+                <time title="Modified: 2019-04-29 16:23:09" itemprop="dateModified" datetime="2019-04-29T16:23:09-05:00">2019-04-29</time>
               
             
           </span>
@@ -648,6 +648,12 @@
 </li>
 <li><p>Scatter plot</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line">sns.scatterplot(x=insurance_data[<span class="string">'bmi'</span>], y=[insurance_data[<span class="string">'charges'</span>]])</span><br><span class="line"><span class="comment"># Add a regression line</span></span><br><span class="line">sns.regplot(x=insurance_data[<span class="string">'bmi'</span>], y=insurance_data[<span class="string">'charges'</span>])</span><br><span class="line"><span class="comment"># Color code with a boolean/categorical column</span></span><br><span class="line">sns.scatterplot(x=insurance_data[<span class="string">'bmi'</span>], y=insurance_data[<span class="string">'charges'</span>], hue=insurance_data[<span class="string">'smoker'</span>])</span><br><span class="line"><span class="comment"># Two regression line</span></span><br><span class="line">sns.lmplot(x=<span class="string">"bmi"</span>, y=<span class="string">"charges"</span>, hue=<span class="string">"smoker"</span>, data=insurance_data)</span><br><span class="line"><span class="comment"># Categorical scatter plot</span></span><br><span class="line">sns.swarmplot(x=insurance_data[<span class="string">'smoker'</span>],</span><br><span class="line">              y=insurance_data[<span class="string">'charges'</span>])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Histograms</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line">sns.distplot(a=iris_data[<span class="string">'Petal Length (cm)'</span>], kde=<span class="keyword">False</span>)</span><br><span class="line"><span class="comment"># a: choose the column we'd like to plot</span></span><br><span class="line"><span class="comment"># kde=False (always included in a histogram)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Histograms for multiple columns</span></span><br><span class="line">sns.distplot(a=iris_set_data[<span class="string">'Petal Length (cm)'</span>], label=<span class="string">'Iris-setosa'</span>, kde=<span class="keyword">False</span>)</span><br><span class="line">sns.distplot(a=iris_ver_data[<span class="string">'Petal Length (cm)'</span>], label=<span class="string">'Iris-versicolor'</span>, kde=<span class="keyword">False</span>)</span><br><span class="line">sns.distplot(a=iris_vir_data[<span class="string">'Petal Length (cm)'</span>], label=<span class="string">'Iris-virginica'</span>, kde=<span class="keyword">False</span>)</span><br><span class="line">plt.legend()	<span class="comment"># Force legend to appear</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Density plots</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line">sns.kdeplot(data=iris_data[<span class="string">'Petal Length (cm)'</span>], shade=<span class="keyword">True</span>)</span><br><span class="line"><span class="comment"># 2D kde plots</span></span><br><span class="line">sns.jointplot(x=iris_data[<span class="string">'Petal Length (cm)'</span>], y=iris_data[<span class="string">'Sepal Width (cm)'</span>], kind=<span class="string">"kde"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># KDE plot for multiple columns</span></span><br><span class="line">sns.kdeplot(data=iris_set_data[<span class="string">'Petal Length (cm)'</span>], label=<span class="string">'Iris-setosa'</span>, shade=<span class="keyword">True</span>)	<span class="comment"># shade is used to fill in the color below the KDE plot</span></span><br><span class="line"><span class="comment"># and so on</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 
@@ -986,7 +992,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 22.7k words</span>
+  <span class="post-count">Total 22.8k words</span>
 </div>
 
         
