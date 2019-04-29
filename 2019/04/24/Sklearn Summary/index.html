@@ -120,7 +120,7 @@
 <meta property="og:site_name" content="Qingliu">
 <meta property="og:description" content="Scikit-learn Summary">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-29T03:45:21.096Z">
+<meta property="og:updated_time" content="2019-04-29T07:23:41.506Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Scikit-learn Summary">
 <meta name="twitter:description" content="Scikit-learn Summary">
@@ -446,7 +446,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-28 22:45:21" itemprop="dateModified" datetime="2019-04-28T22:45:21-05:00">2019-04-28</time>
+                <time title="Modified: 2019-04-29 02:23:41" itemprop="dateModified" datetime="2019-04-29T02:23:41-05:00">2019-04-29</time>
               
             
           </span>
@@ -634,6 +634,17 @@
 </li>
 <li><p>Combining (<code>concat</code>, <code>join</code>, <code>merge</code>)</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.concat([canadian_youtube, british_youtube])</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Seaborn"><a href="#Seaborn" class="headerlink" title="Seaborn"></a>Seaborn</h2><ul>
+<li><p>Line charts</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">plt.figure(figsize=(<span class="number">14</span>,<span class="number">6</span>))</span><br><span class="line">plt.title(<span class="string">"Daily Global Streams of Popular Songs in 2017-2018"</span>)</span><br><span class="line">sns.lineplot(daat=fifa_data)	<span class="comment"># plot a line for every column in the dataset</span></span><br><span class="line"><span class="comment"># sns.lineplot(data=spotyfy_data['Shape of You'], label="Shape of You")	# plot one column, label represents adding legend</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Bar charts</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">plt.figure(figsize=(<span class="number">10</span>,<span class="number">6</span>))</span><br><span class="line">plt.title(<span class="string">"..."</span>)</span><br><span class="line">sns.barplot(x=flight_data.index, y=flight_data=[<span class="string">'NK'</span>])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Heatmap</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plt.figure(figsize=(<span class="number">14</span>,<span class="number">7</span>))</span><br><span class="line">plt.title(<span class="string">"..."</span>)</span><br><span class="line">sns.heatmap(data=flight_data, annot=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 
@@ -909,7 +920,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ML-Methods"><span class="nav-number">1.</span> <span class="nav-text">ML Methods</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pandas"><span class="nav-number">2.</span> <span class="nav-text">Pandas</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ML-Methods"><span class="nav-number">1.</span> <span class="nav-text">ML Methods</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pandas"><span class="nav-number">2.</span> <span class="nav-text">Pandas</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Seaborn"><span class="nav-number">2.1.</span> <span class="nav-text">Seaborn</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -972,7 +983,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 22.5k words</span>
+  <span class="post-count">Total 22.6k words</span>
 </div>
 
         
