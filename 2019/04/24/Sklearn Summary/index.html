@@ -113,17 +113,26 @@
 
 
   <meta name="description" content="Scikit-learn Summary">
-<meta name="keywords" content="Programming,Machine Learning,Python,Scikit-learn">
+<meta name="keywords" content="Programming,Machine Learning,Python,Deep Learning,TensorFlow,Keras,Scikit-learn">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Scikit-learn Summary">
 <meta property="og:url" content="http://yoursite.com/2019/04/24/Sklearn Summary/index.html">
 <meta property="og:site_name" content="Qingliu">
 <meta property="og:description" content="Scikit-learn Summary">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-29T21:23:09.695Z">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-29-7.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-29-8.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-29-9.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-29-1.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-29-4.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-29-2.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-29-3.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-29-5.png">
+<meta property="og:updated_time" content="2019-04-30T02:26:17.197Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Scikit-learn Summary">
 <meta name="twitter:description" content="Scikit-learn Summary">
+<meta name="twitter:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-29-7.png">
 
 
 
@@ -446,7 +455,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-29 16:23:09" itemprop="dateModified" datetime="2019-04-29T16:23:09-05:00">2019-04-29</time>
+                <time title="Modified: 2019-04-29 21:26:17" itemprop="dateModified" datetime="2019-04-29T21:26:17-05:00">2019-04-29</time>
               
             
           </span>
@@ -648,12 +657,67 @@
 </li>
 <li><p>Scatter plot</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line">sns.scatterplot(x=insurance_data[<span class="string">'bmi'</span>], y=[insurance_data[<span class="string">'charges'</span>]])</span><br><span class="line"><span class="comment"># Add a regression line</span></span><br><span class="line">sns.regplot(x=insurance_data[<span class="string">'bmi'</span>], y=insurance_data[<span class="string">'charges'</span>])</span><br><span class="line"><span class="comment"># Color code with a boolean/categorical column</span></span><br><span class="line">sns.scatterplot(x=insurance_data[<span class="string">'bmi'</span>], y=insurance_data[<span class="string">'charges'</span>], hue=insurance_data[<span class="string">'smoker'</span>])</span><br><span class="line"><span class="comment"># Two regression line</span></span><br><span class="line">sns.lmplot(x=<span class="string">"bmi"</span>, y=<span class="string">"charges"</span>, hue=<span class="string">"smoker"</span>, data=insurance_data)</span><br><span class="line"><span class="comment"># Categorical scatter plot</span></span><br><span class="line">sns.swarmplot(x=insurance_data[<span class="string">'smoker'</span>],</span><br><span class="line">              y=insurance_data[<span class="string">'charges'</span>])</span><br></pre></td></tr></table></figure>
+<p><strong>One regression line</strong></p>
 </li>
+</ul>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-29-7.png" style="zoom:50%"><br></center>
+
+<p>​        <strong>Two regression lines (hue specified, color coded)</strong></p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-29-8.png" style="zoom:50%"><br></center>
+
+<p>​        <strong>Categorical scatter plot</strong></p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-29-9.png" style="zoom:50%"><br></center>
+
+<ul>
 <li><p>Histograms</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line">sns.distplot(a=iris_data[<span class="string">'Petal Length (cm)'</span>], kde=<span class="keyword">False</span>)</span><br><span class="line"><span class="comment"># a: choose the column we'd like to plot</span></span><br><span class="line"><span class="comment"># kde=False (always included in a histogram)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Histograms for multiple columns</span></span><br><span class="line">sns.distplot(a=iris_set_data[<span class="string">'Petal Length (cm)'</span>], label=<span class="string">'Iris-setosa'</span>, kde=<span class="keyword">False</span>)</span><br><span class="line">sns.distplot(a=iris_ver_data[<span class="string">'Petal Length (cm)'</span>], label=<span class="string">'Iris-versicolor'</span>, kde=<span class="keyword">False</span>)</span><br><span class="line">sns.distplot(a=iris_vir_data[<span class="string">'Petal Length (cm)'</span>], label=<span class="string">'Iris-virginica'</span>, kde=<span class="keyword">False</span>)</span><br><span class="line">plt.legend()	<span class="comment"># Force legend to appear</span></span><br></pre></td></tr></table></figure>
+<p>​        <strong>General higtogram</strong></p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-29-1.png" style="zoom:50%"><br></center>
+
+<p><strong>Histogram of multiple columns</strong></p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-29-4.png" style="zoom:50%"><br></center>
 </li>
 <li><p>Density plots</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line">sns.kdeplot(data=iris_data[<span class="string">'Petal Length (cm)'</span>], shade=<span class="keyword">True</span>)</span><br><span class="line"><span class="comment"># 2D kde plots</span></span><br><span class="line">sns.jointplot(x=iris_data[<span class="string">'Petal Length (cm)'</span>], y=iris_data[<span class="string">'Sepal Width (cm)'</span>], kind=<span class="string">"kde"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># KDE plot for multiple columns</span></span><br><span class="line">sns.kdeplot(data=iris_set_data[<span class="string">'Petal Length (cm)'</span>], label=<span class="string">'Iris-setosa'</span>, shade=<span class="keyword">True</span>)	<span class="comment"># shade is used to fill in the color below the KDE plot</span></span><br><span class="line"><span class="comment"># and so on</span></span><br></pre></td></tr></table></figure>
+<p>​        <strong>General KDE plot</strong></p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-29-2.png" style="zoom:50%"><br></center>
+
+<p>​        <strong>2D KDE plot</strong></p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-29-3.png" style="zoom:50%"><br></center>
+
+<pre><code>**KDE plot for multiple columns**
+</code></pre><center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-29-5.png" style="zoom:50%"><br></center>
+</li>
+<li><p>Choosing the best type of chart</p>
+<ul>
+<li><strong>Trends</strong>: A trend is defined as a pattern of change.<ul>
+<li><code>sns.lineplot</code> - <strong>Line charts</strong> are the best to show trends over a period of time, and multiple lines can be used to show trends in more than one  group.</li>
+</ul>
+</li>
+<li><strong>Relationship</strong>: There are many different chart for show this.<ul>
+<li><code>sns.barplot</code>- <strong>Bar charts</strong> are useful for comparing quantities corresponding to different groups.</li>
+<li><code>sns.heatmap</code>- <strong>Heatmaps</strong> can be used to find color-coded patterns in table  of numbers.</li>
+<li><code>sns.scatterplot</code>- <strong>Scatter plots</strong> show the relation between two continuous variables; if color-coded, we can also show the relationship with categorical variables.</li>
+<li><code>sns.regplot</code>- Including a <strong>regression line</strong> in the  scatter plot makes it easier to see linear relationship between two variables.</li>
+<li><code>sns.lmplot</code>- This command is useful for drawing multiple regression lines, if the scatter plot contains multiple, color-coded groups.</li>
+<li><code>sns.swarmplot</code>- <strong>Categorical scatter plots</strong> show the relationship between a continuous variable and a categorical variable.</li>
+</ul>
+</li>
+<li><strong>Distribution</strong>: We visualize distribution to show the possible values that we can expect to see in a variable.<ul>
+<li><code>sns.distplot</code>- <strong>Histograms</strong> show the distribution of a single numerical variable.</li>
+<li><code>sns.kdeplot</code>- <strong>KDE plots</strong> (or <strong>2D KDE plots</strong>) to show anestimated, smooth distribution of a single numerical variable (or two numerical variables).</li>
+<li><code>sns.jointplot</code>- This command is useful for simultaneously displaying a 2D KDE plot with the correspoinding KDE plots for each individual variable.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Set styles for the figure</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sns.set_style(<span class="string">"dark"</span>)	<span class="comment"># set dark style for the figure, five themes: "darkgrid", "whitegrid", "dark", "white", "ticks". The default theme is "darkgrid"</span></span><br><span class="line">plt.figure(figure=(<span class="number">12</span>,<span class="number">6</span>))	<span class="comment"># change the figure size</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="Deep-Learning"><a href="#Deep-Learning" class="headerlink" title="Deep Learning"></a>Deep Learning</h1><ul>
+<li><p>Transfer Learning</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tensorflow.python.keras.applications <span class="keyword">import</span> ResNet50</span><br><span class="line"><span class="keyword">from</span> tensorflow.python.keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> tensorflow.python.keras.layers <span class="keyword">import</span> Dense, Flatten, GlobalAveragePooling2D</span><br><span class="line"></span><br><span class="line">num_classes = <span class="number">2</span></span><br><span class="line">resnet_weights_path = <span class="string">'../input/resnet50/resnet50_weights_tf_dim_ordering_tf_kernels_notop.h5'</span></span><br><span class="line"></span><br><span class="line">my_new_model = Sequential()</span><br><span class="line">my_new_model.add(ResNet50(include_top=<span class="keyword">False</span>, pooling=<span class="string">'avg'</span>, weights=resnet_weights_path))</span><br><span class="line">my_new_model.add(Dense(num_classes, activation=<span class="string">'softmax'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Say not to train first layer (ResNet) model. It is already trained</span></span><br><span class="line">my_new_model.layers[<span class="number">0</span>].trainable = <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Compipe model</span></span><br><span class="line">my_new_model.compile(optimizer=<span class="string">'sgd'</span>, loss=<span class="string">'categorical_crossentropy'</span>, metrics=[<span class="string">'accuracy'</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> tensorflow.python.keras.applications.resnet50 <span class="keyword">import</span> preprocess_input</span><br><span class="line"><span class="keyword">from</span> tensorflow.python.keras.preprocessing.image <span class="keyword">import</span> ImageDataGenerator</span><br><span class="line"></span><br><span class="line">image_size = <span class="number">224</span></span><br><span class="line">data_generator = ImageDataGenerator(preprocessing_function=preprocess_input)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Fit model</span></span><br><span class="line">train_generator = data_generator.flow_from_directory(</span><br><span class="line">        <span class="string">'../input/urban-and-rural-photos/rural_and_urban_photos/train'</span>,</span><br><span class="line">        target_size=(image_size, image_size),</span><br><span class="line">        batch_size=<span class="number">24</span>,</span><br><span class="line">        class_mode=<span class="string">'categorical'</span>)</span><br><span class="line"></span><br><span class="line">validation_generator = data_generator.flow_from_directory(</span><br><span class="line">        <span class="string">'../input/urban-and-rural-photos/rural_and_urban_photos/val'</span>,</span><br><span class="line">        target_size=(image_size, image_size),</span><br><span class="line">        class_mode=<span class="string">'categorical'</span>)</span><br><span class="line"></span><br><span class="line">my_new_model.fit_generator(</span><br><span class="line">        train_generator,</span><br><span class="line">        steps_per_epoch=<span class="number">3</span>,</span><br><span class="line">        validation_data=validation_generator,</span><br><span class="line">        validation_steps=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 
@@ -694,6 +758,12 @@
             <a href="/tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
           
             <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          
+            <a href="/tags/Deep-Learning/" rel="tag"><i class="fa fa-tag"></i> Deep Learning</a>
+          
+            <a href="/tags/TensorFlow/" rel="tag"><i class="fa fa-tag"></i> TensorFlow</a>
+          
+            <a href="/tags/Keras/" rel="tag"><i class="fa fa-tag"></i> Keras</a>
           
             <a href="/tags/Scikit-learn/" rel="tag"><i class="fa fa-tag"></i> Scikit-learn</a>
           
@@ -929,7 +999,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ML-Methods"><span class="nav-number">1.</span> <span class="nav-text">ML Methods</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pandas"><span class="nav-number">2.</span> <span class="nav-text">Pandas</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Seaborn"><span class="nav-number">2.1.</span> <span class="nav-text">Seaborn</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ML-Methods"><span class="nav-number">1.</span> <span class="nav-text">ML Methods</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pandas"><span class="nav-number">2.</span> <span class="nav-text">Pandas</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Seaborn"><span class="nav-number">2.1.</span> <span class="nav-text">Seaborn</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Deep-Learning"><span class="nav-number">3.</span> <span class="nav-text">Deep Learning</span></a></li></ol></div>
             
 
           </div>
@@ -992,7 +1062,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 22.8k words</span>
+  <span class="post-count">Total 23.3k words</span>
 </div>
 
         
