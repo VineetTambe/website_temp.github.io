@@ -120,6 +120,16 @@
 <meta property="og:site_name" content="Qingliu">
 <meta property="og:description" content="Scikit-learn Summary">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-1.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-2.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-3.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-4.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-5.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-6.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-7.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-8.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-9.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-10.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-29-7.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-29-8.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-29-9.png">
@@ -128,11 +138,16 @@
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-29-2.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-29-3.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-29-5.png">
-<meta property="og:updated_time" content="2019-04-30T04:37:49.796Z">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-11.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-12.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-13.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-14.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-15.png">
+<meta property="og:updated_time" content="2019-04-30T16:16:58.917Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Scikit-learn Summary">
 <meta name="twitter:description" content="Scikit-learn Summary">
-<meta name="twitter:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-29-7.png">
+<meta name="twitter:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-1.png">
 
 
 
@@ -455,7 +470,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-29 23:37:49" itemprop="dateModified" datetime="2019-04-29T23:37:49-05:00">2019-04-29</time>
+                <time title="Modified: 2019-04-30 11:16:58" itemprop="dateModified" datetime="2019-04-30T11:16:58-05:00">2019-04-30</time>
               
             
           </span>
@@ -647,6 +662,52 @@
 <li><p>Combining (<code>concat</code>, <code>join</code>, <code>merge</code>)</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.concat([canadian_youtube, british_youtube])</span><br></pre></td></tr></table></figure>
 </li>
+<li><p>Indexing</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Single row</span></span><br><span class="line">df.iloc[<span class="number">2</span>]	<span class="comment"># Make sure to specify a number, zero index</span></span><br><span class="line">df.loc[<span class="string">'BADL'</span>]	<span class="comment"># Make sure to pass a value from dataframes's index</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Multiple rows</span></span><br><span class="line">df.loc[[<span class="string">'BADL'</span>, <span class="string">'ARCH'</span>, <span class="string">'ACAD'</span>]]</span><br><span class="line">df.iloc[[<span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>]]</span><br><span class="line">df[:<span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Indexing columns</span></span><br><span class="line">df[<span class="string">'State'</span>].head(<span class="number">3</span>)</span><br><span class="line">df.State.head(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Clean the column names</span></span><br><span class="line">df.columns = [col.replace(<span class="string">' '</span>, <span class="string">'_'</span>).lower() <span class="keyword">for</span> col <span class="keyword">in</span> df.columns]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Indexing columns and rows</span></span><br><span class="line">df[[<span class="string">'state'</span>, <span class="string">'acres'</span>]][:<span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Indexing scalar value</span></span><br><span class="line">df.state.iloc[<span class="number">2</span>]	<span class="comment"># return a scalar rather than a Series or DataFrame</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Boolean indexing</span></span><br><span class="line">df[df.state == <span class="string">'UT'</span>]</span><br><span class="line"><span class="comment"># Some helpful logical operations: ~: not; |: or; &amp;: and</span></span><br><span class="line"><span class="comment"># E.g.</span></span><br><span class="line">df[(df.latitude &gt; <span class="number">60</span>) | (df.acres &gt; <span class="number">10</span>**<span class="number">6</span>)].head(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># isin and isnull</span></span><br><span class="line">df[df.state.isin([<span class="string">'WA'</span>, <span class="string">'OR'</span>, <span class="string">'CA'</span>])].head()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Bar charts and categorical data (nominal categories and ordinal categories)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews[<span class="string">'province'</span>].value_counts().head(<span class="number">10</span>).plot.bar()</span><br></pre></td></tr></table></figure>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-1.png" style="zoom:70%"><br></center>
+</li>
+<li><p>Line charts</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews[<span class="string">'points'</span>].value_counts().sort_index().plot.line()</span><br></pre></td></tr></table></figure>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-2.png" style="zoom:70%"><br></center>
+</li>
+<li><p>Area charts (line charts with the bottom shaded in)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews[<span class="string">'point'</span>].value_count().sort_index().plot.area()</span><br></pre></td></tr></table></figure>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-3.png" style="zoom:70%"><br></center>
+</li>
+<li><p>Histograms (work best for interval variables without skew or for ordinal categorical variables)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews[reviews[<span class="string">'price'</span>] &lt; <span class="number">200</span>][<span class="string">'price'</span>].plot.hist()</span><br></pre></td></tr></table></figure>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-4.png" style="zoom:70%"><br></center>
+</li>
+<li><p>Scatter plot (remember to downsample to avoid duplicate), works best with relatively small datasets and large number of unique values</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">review[reviews[<span class="string">'price'</span>] &lt; <span class="number">100</span>].sample(<span class="number">100</span>).plot.scatter(x=<span class="string">'price'</span>, y=<span class="string">'points'</span>)</span><br></pre></td></tr></table></figure>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-5.png" style="zoom:70%"><br></center>
+</li>
+<li><p>Hexplot</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews[reviews[<span class="string">'price'</span>] &lt; <span class="number">100</span>].plot.hexbin(x=<span class="string">'price'</span>, y=<span class="string">'points'</span>, gridsize=<span class="number">15</span>)</span><br></pre></td></tr></table></figure>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-6.png" style="zoom:70%"><br></center>
+</li>
+<li><p>Stacked plots (work best for nominal categorical or small ordinal categorical variables)</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-7.png" style="zoom:70%"><br></center>
+
+<p>One categorical variable in the columns, one categorical variable in the rows, and counts of their intersection in the entries.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wine_counts.plot.bar(stacked=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-8.png" style="zoom:70%"><br></center>
+
+<p>Area plot</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-9.png" style="zoom:70%"><br></center>
+</li>
+<li><p>Bivariate line chart</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wine_counts.plot.line()</span><br></pre></td></tr></table></figure>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-10.png" style="zoom:70%"><br></center>
+
+
+
+
+
+</li>
 </ul>
 <h1 id="Seaborn"><a href="#Seaborn" class="headerlink" title="Seaborn"></a>Seaborn</h1><ul>
 <li><p>Line charts</p>
@@ -673,7 +734,7 @@
 
 <ul>
 <li><p>Histograms</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line">sns.distplot(a=iris_data[<span class="string">'Petal Length (cm)'</span>], kde=<span class="keyword">False</span>)</span><br><span class="line"><span class="comment"># a: choose the column we'd like to plot</span></span><br><span class="line"><span class="comment"># kde=False (always included in a histogram)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Histograms for multiple columns</span></span><br><span class="line">sns.distplot(a=iris_set_data[<span class="string">'Petal Length (cm)'</span>], label=<span class="string">'Iris-setosa'</span>, kde=<span class="keyword">False</span>)</span><br><span class="line">sns.distplot(a=iris_ver_data[<span class="string">'Petal Length (cm)'</span>], label=<span class="string">'Iris-versicolor'</span>, kde=<span class="keyword">False</span>)</span><br><span class="line">sns.distplot(a=iris_vir_data[<span class="string">'Petal Length (cm)'</span>], label=<span class="string">'Iris-virginica'</span>, kde=<span class="keyword">False</span>)</span><br><span class="line">plt.legend()	<span class="comment"># Force legend to appear</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line">sns.distplot(a=iris_data[<span class="string">'Petal Length (cm)'</span>], kde=<span class="keyword">False</span>, bins=<span class="number">5</span>)</span><br><span class="line"><span class="comment"># a: choose the column we'd like to plot</span></span><br><span class="line"><span class="comment"># kde=False (always included in a histogram)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Histograms for multiple columns</span></span><br><span class="line">sns.distplot(a=iris_set_data[<span class="string">'Petal Length (cm)'</span>], label=<span class="string">'Iris-setosa'</span>, kde=<span class="keyword">False</span>)</span><br><span class="line">sns.distplot(a=iris_ver_data[<span class="string">'Petal Length (cm)'</span>], label=<span class="string">'Iris-versicolor'</span>, kde=<span class="keyword">False</span>)</span><br><span class="line">sns.distplot(a=iris_vir_data[<span class="string">'Petal Length (cm)'</span>], label=<span class="string">'Iris-virginica'</span>, kde=<span class="keyword">False</span>)</span><br><span class="line">plt.legend()	<span class="comment"># Force legend to appear</span></span><br></pre></td></tr></table></figure>
 <p>​        <strong>General higtogram</strong></p>
 <center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-29-1.png" style="zoom:50%"><br></center>
 
@@ -716,6 +777,33 @@
 </li>
 <li><p>Set styles for the figure</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sns.set_style(<span class="string">"dark"</span>)	<span class="comment"># set dark style for the figure, five themes: "darkgrid", "whitegrid", "dark", "white", "ticks". The default theme is "darkgrid"</span></span><br><span class="line">plt.figure(figure=(<span class="number">12</span>,<span class="number">6</span>))	<span class="comment"># change the figure size</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Countplot (doesn’t require us to shape the data)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sns.countplot(reviews[<span class="string">'points'</span>])</span><br></pre></td></tr></table></figure>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-11.png" style="zoom:70%"><br></center>
+</li>
+<li><p>KDE plot (kernel density estimate), worse choice for ordinal categorical data, KDE plot will fit to something that doesn’t exist.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sns.kdeplot(reviews.query(<span class="string">'price &lt; 200'</span>).price)</span><br></pre></td></tr></table></figure>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-12.png" style="zoom:70%"><br></center>
+</li>
+<li><p>Bivariate hex plot</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sns.jointplot(x=<span class="string">'price'</span>, y=<span class="string">'points'</span>, data=reviews[reviews[<span class="string">'price'</span>] &lt; <span class="number">100</span>], kind=<span class="string">'hex'</span>, gridsize=<span class="number">20</span>)</span><br></pre></td></tr></table></figure>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-13.png" style="zoom:70%"><br></center>
+</li>
+<li><p>Boxplot</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df = reviews[reviews.variety.isin(reviews.variety.value_counts().head(<span class="number">5</span>).index)]</span><br><span class="line"></span><br><span class="line">sns.boxplot(</span><br><span class="line">    x=<span class="string">'variety'</span>,</span><br><span class="line">    y=<span class="string">'points'</span>,</span><br><span class="line">    data=df</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-14.png" style="zoom:70%"><br></center>
+
+<p>The center of the distributions shown above is the “box” in boxplot. The top of the box is the 75th percentile, while the bottom is the 25th percentile. In other words, half of the data is distributed within the box. The green line in the middle is the median. (50% of the data in the distribution is located within the box)</p>
+<p>The other part of the plot, the “whiskers”, shows the extent of the points beyond the center of the distribution. Individual circles beyond that are outliers.</p>
+<p>Boxplots are great for summarizing the shape of many datasets. They also don’t have a limit in terms of numeracy: you can place as many boxes in the plot as you feel comfortable squeezing onto the page.</p>
+<p>However, they only work for interval variables and nomial variables and nominal variables with a large number of possible values and they don’t carry any information about individual values, only treating the distribution as a whole. </p>
+</li>
+<li><p>Violinplot</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sns.violinplot(</span><br><span class="line">    x=<span class="string">'variety'</span>,</span><br><span class="line">    y=<span class="string">'points'</span>,</span><br><span class="line">    data=reviews[reviews.variety.isin(reviews.variety.value_counts()[:<span class="number">5</span>].index)]</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-30-15.png" style="zoom:70%"><br></center>
+
+<p>Harder to misinterpret and much prettier than the utilitarian boxplot</p>
 </li>
 </ul>
 <h1 id="Deep-Learning"><a href="#Deep-Learning" class="headerlink" title="Deep Learning"></a>Deep Learning</h1><ul>
@@ -1065,7 +1153,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 23.4k words</span>
+  <span class="post-count">Total 24.0k words</span>
 </div>
 
         
