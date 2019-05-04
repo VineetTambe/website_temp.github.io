@@ -153,7 +153,16 @@
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week2-18.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week2-19.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week2-20.png">
-<meta property="og:updated_time" content="2019-05-04T04:06:38.170Z">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-3.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-4.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-5.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-6.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-7.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-8.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-9.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-10.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-11.png">
+<meta property="og:updated_time" content="2019-05-04T16:21:53.040Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Convolutional Neural Networks">
 <meta name="twitter:description" content="Deeplearning.ai Specialization Course Notes">
@@ -480,7 +489,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-03 23:06:38" itemprop="dateModified" datetime="2019-05-03T23:06:38-05:00">2019-05-03</time>
+                <time title="Modified: 2019-05-04 11:21:53" itemprop="dateModified" datetime="2019-05-04T11:21:53-05:00">2019-05-04</time>
               
             
           </span>
@@ -824,7 +833,75 @@
 <li>There are two main types of blocks: The identity block and the convolutional block.</li>
 <li>Very deep Residual Networks are built by stacking these blocks together.</li>
 </ul>
-<h1 id="Week-3"><a href="#Week-3" class="headerlink" title="Week 3"></a>Week 3</h1><h2 id="Object-detection"><a href="#Object-detection" class="headerlink" title="Object detection"></a>Object detection</h2><h2 id="Programming-Assignment-Car-detection-with-YOLOv2"><a href="#Programming-Assignment-Car-detection-with-YOLOv2" class="headerlink" title="Programming Assignment: Car detection with YOLOv2"></a>Programming Assignment: Car detection with YOLOv2</h2><p><a href="">Car detection with YOLOv2</a></p>
+<h1 id="Week-3"><a href="#Week-3" class="headerlink" title="Week 3"></a>Week 3</h1><h2 id="Object-detection"><a href="#Object-detection" class="headerlink" title="Object detection"></a>Object detection</h2><p>Object localization</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-3.png" style="zoom:60%"><br></center>
+
+<p>Defining the target label y</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-4.png" style="zoom:60%"><br></center>
+
+
+
+<p><strong>Landmark detection</strong></p>
+<p>Key position detection</p>
+<p>Basis of emotion detection, computer graphics and pose detection</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-5.png" style="zoom:60%"><br></center>
+
+<p>If you can hire labelers or label yourself a big enough data set to do the detection task, then a neural network can perform very well</p>
+<p><strong>Sliding windows object detection algorithm</strong></p>
+<ol>
+<li><p>Choosing a window size</p>
+</li>
+<li><p>Slide the window accross the image with a fixed stride</p>
+</li>
+<li><p>Make detection on each position (feed into the ConvNet and make prediction)</p>
+</li>
+<li><p>Repeat with larger window</p>
+</li>
+</ol>
+<p>Huge disadvantage: Computation cost</p>
+<p><strong>Convolutional implementation of sliding window</strong></p>
+<p>Turning FC layer into convolutional layers</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-6.png" style="zoom:60%"><br></center>
+
+<p>Share computation:</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-7.png" style="zoom:60%"><br></center>
+
+
+
+<p><strong>Bounding box predictions</strong></p>
+<p>YOLO algorithm: You only look once</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-8.png" style="zoom:60%"><br></center>
+
+<p>One single convolutional implementation</p>
+<p>Efficient, works well for real-time object detection</p>
+<p>Specify the bounding boxes: relative to the grid cell</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-9.png" style="zoom:60%"><br></center>
+
+<p>YOLO: One of the hardest papers to read</p>
+<p><strong>Intersection over Union (IoU)</strong></p>
+<p>Evaluating object localization</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-10.png" style="zoom:60%"><br></center>
+
+
+
+<p><strong>Non-max Suppression</strong></p>
+<p>The problem is that some objects might be detected multiple times</p>
+<p>Non-max Suppression make sure each object is detected only once</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-11.png" style="zoom:60%"><br></center>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="Programming-Assignment-Car-detection-with-YOLOv2"><a href="#Programming-Assignment-Car-detection-with-YOLOv2" class="headerlink" title="Programming Assignment: Car detection with YOLOv2"></a>Programming Assignment: Car detection with YOLOv2</h2><p><a href="">Car detection with YOLOv2</a></p>
 <h1 id="Week-4"><a href="#Week-4" class="headerlink" title="Week 4"></a>Week 4</h1><h2 id="Special-applications-Face-recognition-amp-Neural-style-transfer"><a href="#Special-applications-Face-recognition-amp-Neural-style-transfer" class="headerlink" title="Special applications: Face recognition &amp; Neural style transfer"></a>Special applications: Face recognition &amp; Neural style transfer</h2><h2 id="Programming-Assignment-Art-generation-with-Neural-Style-Transfer"><a href="#Programming-Assignment-Art-generation-with-Neural-Style-Transfer" class="headerlink" title="Programming Assignment: Art generation with Neural Style Transfer"></a>Programming Assignment: Art generation with Neural Style Transfer</h2><p><a href="">Art generation with Neural Style Transfer</a></p>
 <h2 id="Programming-Assignment-Face-Recognition-for-the-Happy-House"><a href="#Programming-Assignment-Face-Recognition-for-the-Happy-House" class="headerlink" title="Programming Assignment: Face Recognition for the Happy House"></a>Programming Assignment: Face Recognition for the Happy House</h2><p><a href="">Face Recognition for the Happy House</a></p>
 
@@ -1157,7 +1234,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 25.4k words</span>
+  <span class="post-count">Total 25.5k words</span>
 </div>
 
         
