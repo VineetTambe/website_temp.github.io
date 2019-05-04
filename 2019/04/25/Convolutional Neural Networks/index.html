@@ -165,7 +165,17 @@
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-12.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-13.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-14.png">
-<meta property="og:updated_time" content="2019-05-04T19:14:59.142Z">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-15.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-16.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-17.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-18.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-19.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-20.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-21.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-22.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-23.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-24.png">
+<meta property="og:updated_time" content="2019-05-04T21:43:24.994Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Convolutional Neural Networks">
 <meta name="twitter:description" content="Deeplearning.ai Specialization Course Notes">
@@ -492,7 +502,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-04 14:14:59" itemprop="dateModified" datetime="2019-05-04T14:14:59-05:00">2019-05-04</time>
+                <time title="Modified: 2019-05-04 16:43:24" itemprop="dateModified" datetime="2019-05-04T16:43:24-05:00">2019-05-04</time>
               
             
           </span>
@@ -936,7 +946,79 @@
 </li>
 <li>Because training a YOLO model from randomly initialized weights is non-trivial and requires a large dataset as well as lot of computation, we used previously trained model parameters in this exercise. If you wish, you can also try fine-tuning the YOLO model with your own dataset, though this would be a fairly non-trivial exercise. </li>
 </ul>
-<h1 id="Week-4"><a href="#Week-4" class="headerlink" title="Week 4"></a>Week 4</h1><h2 id="Special-applications-Face-recognition-amp-Neural-style-transfer"><a href="#Special-applications-Face-recognition-amp-Neural-style-transfer" class="headerlink" title="Special applications: Face recognition &amp; Neural style transfer"></a>Special applications: Face recognition &amp; Neural style transfer</h2><h2 id="Programming-Assignment-Art-generation-with-Neural-Style-Transfer"><a href="#Programming-Assignment-Art-generation-with-Neural-Style-Transfer" class="headerlink" title="Programming Assignment: Art generation with Neural Style Transfer"></a>Programming Assignment: Art generation with Neural Style Transfer</h2><p><a href="">Art generation with Neural Style Transfer</a></p>
+<h1 id="Week-4"><a href="#Week-4" class="headerlink" title="Week 4"></a>Week 4</h1><h2 id="Special-applications-Face-recognition-amp-Neural-style-transfer"><a href="#Special-applications-Face-recognition-amp-Neural-style-transfer" class="headerlink" title="Special applications: Face recognition &amp; Neural style transfer"></a>Special applications: Face recognition &amp; Neural style transfer</h2><p><strong>Face verification vs. face recognition</strong></p>
+<p>Verification:</p>
+<ul>
+<li>Input image, name/ID</li>
+<li>Output whether the input image is that of the claimed person</li>
+<li>1:1</li>
+</ul>
+<p>Recognition</p>
+<ul>
+<li>Has a database of K persons</li>
+<li>Get an input image</li>
+<li>Output ID if the image is any of the K persons (or “not recognized”)</li>
+</ul>
+<p><strong>One-shot learning</strong></p>
+<p>Learning from one example to recognize the person again</p>
+<p>Strategy: Learning a “similarity” function</p>
+<p>d(img1, img2) = degree of difference between images, and predict by difference</p>
+<p><strong>Siamese network</strong></p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-15.png" style="zoom:60%"><br></center>
+
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-16.png" style="zoom:60%"><br></center>
+
+
+
+<p><strong>Triplet loss</strong></p>
+<p>Always look at three images at a time: Anchor, Positive and Negative</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-17.png" style="zoom:60%"><br></center>
+
+<p>Choosing the triplets A,P,N</p>
+<p>During training, if A,P,N are chosen randomly, $d(A,P)+\alpha \le d(A,N)$ is easily satisfied.</p>
+<p>Idea: Choose triplets that’re “hard” to train on. (refer to the paper FaceNet)</p>
+<p>Popular way to name system:</p>
+<ul>
+<li>____ Net</li>
+<li>Deep ____</li>
+</ul>
+<p><strong>Neural style transfer</strong></p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-18.png" style="zoom:60%"><br></center>
+
+
+
+<p>Visualizing what a deep network is learning</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-19.png" style="zoom:60%"><br></center>
+
+
+
+<p><strong>Cost function</strong><br>$$<br>J(G) = \alpha J_{content}(C,G)+\beta J_{style}(S,G)<br>$$</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-20.png" style="zoom:60%"><br></center>
+
+
+
+<p><strong>Content cost function</strong></p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-21.png" style="zoom:60%"><br></center>
+
+
+
+<p><strong>Style cost function</strong></p>
+<p>Define style as correlation between activations across channels</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-22.png" style="zoom:60%"><br></center>
+
+
+
+<p><strong>Convolutions in 2D and 1D</strong></p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-23.png" style="zoom:60%"><br></center>
+
+
+
+<p><strong>3D convolution</strong></p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-24.png" style="zoom:60%"><br></center>
+
+
+
+<h2 id="Programming-Assignment-Art-generation-with-Neural-Style-Transfer"><a href="#Programming-Assignment-Art-generation-with-Neural-Style-Transfer" class="headerlink" title="Programming Assignment: Art generation with Neural Style Transfer"></a>Programming Assignment: Art generation with Neural Style Transfer</h2><p><a href="">Art generation with Neural Style Transfer</a></p>
 <h2 id="Programming-Assignment-Face-Recognition-for-the-Happy-House"><a href="#Programming-Assignment-Face-Recognition-for-the-Happy-House" class="headerlink" title="Programming Assignment: Face Recognition for the Happy House"></a>Programming Assignment: Face Recognition for the Happy House</h2><p><a href="">Face Recognition for the Happy House</a></p>
 
       
@@ -1268,7 +1350,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 25.8k words</span>
+  <span class="post-count">Total 26.0k words</span>
 </div>
 
         
