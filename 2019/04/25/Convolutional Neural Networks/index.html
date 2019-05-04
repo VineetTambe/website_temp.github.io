@@ -162,7 +162,10 @@
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-9.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-10.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-11.png">
-<meta property="og:updated_time" content="2019-05-04T16:21:53.040Z">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-12.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-13.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-14.png">
+<meta property="og:updated_time" content="2019-05-04T19:14:59.142Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Convolutional Neural Networks">
 <meta name="twitter:description" content="Deeplearning.ai Specialization Course Notes">
@@ -489,7 +492,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-04 11:21:53" itemprop="dateModified" datetime="2019-05-04T11:21:53-05:00">2019-05-04</time>
+                <time title="Modified: 2019-05-04 14:14:59" itemprop="dateModified" datetime="2019-05-04T14:14:59-05:00">2019-05-04</time>
               
             
           </span>
@@ -891,17 +894,48 @@
 
 
 
+<p><strong>Anchor boxes</strong></p>
+<p>One grid detect multiple objects, overlapping objects</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-12.png" style="zoom:60%"><br></center>
+
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-13.png" style="zoom:60%"><br></center>
 
 
 
+<p><strong>YOLO algorithm</strong></p>
+<p>None-max suppression in YOLO:</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-04-Week3-14.png" style="zoom:60%"><br></center>
 
 
 
-
-
-
-
-<h2 id="Programming-Assignment-Car-detection-with-YOLOv2"><a href="#Programming-Assignment-Car-detection-with-YOLOv2" class="headerlink" title="Programming Assignment: Car detection with YOLOv2"></a>Programming Assignment: Car detection with YOLOv2</h2><p><a href="">Car detection with YOLOv2</a></p>
+<h2 id="Region-proposals"><a href="#Region-proposals" class="headerlink" title="Region proposals"></a>Region proposals</h2><p>R-CNN, Region with CNN, picking some regions to run CNN</p>
+<p>The ways to choose regions: <strong>semantic segmentation</strong></p>
+<p>Still quite slow</p>
+<h2 id="Programming-Assignment-Car-detection-with-YOLOv2"><a href="#Programming-Assignment-Car-detection-with-YOLOv2" class="headerlink" title="Programming Assignment: Car detection with YOLOv2"></a>Programming Assignment: Car detection with YOLOv2</h2><p><a href="https://github.com/Aden-Q/Deep-Learning/blob/master/Convolutional Neural Networks/Week 3/Autonomous%2Bdriving%2Bapplication%2B-%2BCar%2Bdetection%2B-%2Bv3.ipynb" target="_blank" rel="noopener">Car detection with YOLOv2</a></p>
+<p>YOLO model is very computationally expensive to train</p>
+<p>Find intersection:</p>
+<ul>
+<li>You’ll also need to find the coordinates <code>(xi1, yi1, xi2, yi2)</code> of the intersection of two boxes. Remember that:<ul>
+<li>xi1 = maximum of the x1 coordinates of the two boxes</li>
+<li>yi1 = maximum of the y1 coordinates of the two boxes</li>
+<li>xi2 = minimum of the x2 coordinates of the two boxes</li>
+<li>yi2 = minimum of the y2 coordinates of the two boxes</li>
+</ul>
+</li>
+<li>In order to compute the intersection area, you need to make sure the height and width of the intersection are positive, otherwise the intersection area should be zero. Use <code>max(height, 0)</code> and <code>max(width, 0)</code>.</li>
+</ul>
+<p><strong>What you should remember</strong>:</p>
+<ul>
+<li>YOLO is a state-of-the-art object detection model that is fast and accurate</li>
+<li>It runs an input image through a CNN which outputs a 19x19x5x85 dimensional volume. </li>
+<li>The encoding can be seen as a grid where each of the 19x19 cells contains information about 5 boxes.</li>
+<li>You filter through all the boxes using non-max suppression. Specifically: <ul>
+<li>Score thresholding on the probability of detecting a class to keep only accurate (high probability) boxes</li>
+<li>Intersection over Union (IoU) thresholding to eliminate overlapping boxes</li>
+</ul>
+</li>
+<li>Because training a YOLO model from randomly initialized weights is non-trivial and requires a large dataset as well as lot of computation, we used previously trained model parameters in this exercise. If you wish, you can also try fine-tuning the YOLO model with your own dataset, though this would be a fairly non-trivial exercise. </li>
+</ul>
 <h1 id="Week-4"><a href="#Week-4" class="headerlink" title="Week 4"></a>Week 4</h1><h2 id="Special-applications-Face-recognition-amp-Neural-style-transfer"><a href="#Special-applications-Face-recognition-amp-Neural-style-transfer" class="headerlink" title="Special applications: Face recognition &amp; Neural style transfer"></a>Special applications: Face recognition &amp; Neural style transfer</h2><h2 id="Programming-Assignment-Art-generation-with-Neural-Style-Transfer"><a href="#Programming-Assignment-Art-generation-with-Neural-Style-Transfer" class="headerlink" title="Programming Assignment: Art generation with Neural Style Transfer"></a>Programming Assignment: Art generation with Neural Style Transfer</h2><p><a href="">Art generation with Neural Style Transfer</a></p>
 <h2 id="Programming-Assignment-Face-Recognition-for-the-Happy-House"><a href="#Programming-Assignment-Face-Recognition-for-the-Happy-House" class="headerlink" title="Programming Assignment: Face Recognition for the Happy House"></a>Programming Assignment: Face Recognition for the Happy House</h2><p><a href="">Face Recognition for the Happy House</a></p>
 
@@ -1171,7 +1205,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-1"><span class="nav-number">1.</span> <span class="nav-text">Week 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Foundations-of-Convolutional-Neural-Networks"><span class="nav-number">1.1.</span> <span class="nav-text">Foundations of Convolutional Neural Networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Convolutional-Model-step-by-step"><span class="nav-number">1.2.</span> <span class="nav-text">Programming Assignment: Convolutional Model: step by step</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Convolutional-model-application"><span class="nav-number">1.3.</span> <span class="nav-text">Programming Assignment: Convolutional model: application</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-2"><span class="nav-number">2.</span> <span class="nav-text">Week 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-convolutional-models-case-studies"><span class="nav-number">2.1.</span> <span class="nav-text">Deep convolutional models: case studies</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Keras-Tutorial"><span class="nav-number">2.2.</span> <span class="nav-text">Programming Assignment: Keras Tutorial</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Residual-Networks"><span class="nav-number">2.3.</span> <span class="nav-text">Programming Assignment: Residual Networks</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-3"><span class="nav-number">3.</span> <span class="nav-text">Week 3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-detection"><span class="nav-number">3.1.</span> <span class="nav-text">Object detection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Car-detection-with-YOLOv2"><span class="nav-number">3.2.</span> <span class="nav-text">Programming Assignment: Car detection with YOLOv2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-4"><span class="nav-number">4.</span> <span class="nav-text">Week 4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Special-applications-Face-recognition-amp-Neural-style-transfer"><span class="nav-number">4.1.</span> <span class="nav-text">Special applications: Face recognition &amp; Neural style transfer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Art-generation-with-Neural-Style-Transfer"><span class="nav-number">4.2.</span> <span class="nav-text">Programming Assignment: Art generation with Neural Style Transfer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Face-Recognition-for-the-Happy-House"><span class="nav-number">4.3.</span> <span class="nav-text">Programming Assignment: Face Recognition for the Happy House</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-1"><span class="nav-number">1.</span> <span class="nav-text">Week 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Foundations-of-Convolutional-Neural-Networks"><span class="nav-number">1.1.</span> <span class="nav-text">Foundations of Convolutional Neural Networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Convolutional-Model-step-by-step"><span class="nav-number">1.2.</span> <span class="nav-text">Programming Assignment: Convolutional Model: step by step</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Convolutional-model-application"><span class="nav-number">1.3.</span> <span class="nav-text">Programming Assignment: Convolutional model: application</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-2"><span class="nav-number">2.</span> <span class="nav-text">Week 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-convolutional-models-case-studies"><span class="nav-number">2.1.</span> <span class="nav-text">Deep convolutional models: case studies</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Keras-Tutorial"><span class="nav-number">2.2.</span> <span class="nav-text">Programming Assignment: Keras Tutorial</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Residual-Networks"><span class="nav-number">2.3.</span> <span class="nav-text">Programming Assignment: Residual Networks</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-3"><span class="nav-number">3.</span> <span class="nav-text">Week 3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-detection"><span class="nav-number">3.1.</span> <span class="nav-text">Object detection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Region-proposals"><span class="nav-number">3.2.</span> <span class="nav-text">Region proposals</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Car-detection-with-YOLOv2"><span class="nav-number">3.3.</span> <span class="nav-text">Programming Assignment: Car detection with YOLOv2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-4"><span class="nav-number">4.</span> <span class="nav-text">Week 4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Special-applications-Face-recognition-amp-Neural-style-transfer"><span class="nav-number">4.1.</span> <span class="nav-text">Special applications: Face recognition &amp; Neural style transfer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Art-generation-with-Neural-Style-Transfer"><span class="nav-number">4.2.</span> <span class="nav-text">Programming Assignment: Art generation with Neural Style Transfer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Face-Recognition-for-the-Happy-House"><span class="nav-number">4.3.</span> <span class="nav-text">Programming Assignment: Face Recognition for the Happy House</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1234,7 +1268,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 25.5k words</span>
+  <span class="post-count">Total 25.8k words</span>
 </div>
 
         
