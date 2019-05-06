@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-05-06T05:15:03.771Z</updated>
+  <updated>2019-05-06T05:18:58.593Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Practical Deep Learning for Coders</title>
+    <link href="http://yoursite.com/2019/05/06/Practical%20Deep%20Learning%20for%20Coders/"/>
+    <id>http://yoursite.com/2019/05/06/Practical Deep Learning for Coders/</id>
+    <published>2019-05-06T05:17:34.000Z</published>
+    <updated>2019-05-06T05:18:58.593Z</updated>
+    
+    <content type="html"><![CDATA[<p>Fast.ai</p><p>Course Notes</p><a id="more"></a><h1 id="Lesson-1"><a href="#Lesson-1" class="headerlink" title="Lesson 1"></a>Lesson 1</h1><h1 id="Lesson-2"><a href="#Lesson-2" class="headerlink" title="Lesson 2"></a>Lesson 2</h1><h1 id="Lesson-3"><a href="#Lesson-3" class="headerlink" title="Lesson 3"></a>Lesson 3</h1><h1 id="Lesson-4"><a href="#Lesson-4" class="headerlink" title="Lesson 4"></a>Lesson 4</h1><h1 id="Lesson-5"><a href="#Lesson-5" class="headerlink" title="Lesson 5"></a>Lesson 5</h1><h1 id="Lesson-6"><a href="#Lesson-6" class="headerlink" title="Lesson 6"></a>Lesson 6</h1><h1 id="Lesson-7"><a href="#Lesson-7" class="headerlink" title="Lesson 7"></a>Lesson 7</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Fast.ai&lt;/p&gt;
+&lt;p&gt;Course Notes&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+    
+    
+      <category term="Programming" scheme="http://yoursite.com/tags/Programming/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="Deep Learning" scheme="http://yoursite.com/tags/Deep-Learning/"/>
+    
+      <category term="PyTorch" scheme="http://yoursite.com/tags/PyTorch/"/>
+    
+      <category term="Fast.ai" scheme="http://yoursite.com/tags/Fast-ai/"/>
+    
+  </entry>
   
   <entry>
     <title>Algorithms, Part 2</title>

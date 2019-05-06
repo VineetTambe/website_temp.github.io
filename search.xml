@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Practical Deep Learning for Coders]]></title>
+    <url>%2F2019%2F05%2F06%2FPractical%20Deep%20Learning%20for%20Coders%2F</url>
+    <content type="text"><![CDATA[Fast.ai Course Notes Lesson 1Lesson 2Lesson 3Lesson 4Lesson 5Lesson 6Lesson 7]]></content>
+      <categories>
+        <category>Note</category>
+      </categories>
+      <tags>
+        <tag>Programming</tag>
+        <tag>Python</tag>
+        <tag>Deep Learning</tag>
+        <tag>PyTorch</tag>
+        <tag>Fast.ai</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Algorithms, Part 2]]></title>
     <url>%2F2019%2F05%2F05%2FAlgorithms-Part-2%2F</url>
     <content type="text"><![CDATA[Princeton Algorithm course on coursera. Part 2 Intermediate-level survey course Programming and problem solving, with applications Learning Purpose: Being specialized in Java. Having fun with algorithms. Reference Books: Algorithms, 4th Edition Computer Science: An Interdisciplinary Approach Week 1Undirected GraphsDirected GraphsProgramming Assignment: WordNetWordNet Week 2Minimum Spanning TreesShortest PathsProgramming Assignment: Seam CarvingSeam Carving Week 3Maximum Flow and Minimum CutProgramming Assignment: Baseball EliminationBaseball Elimination Radix SortsWeek 4TriesSubstring SearchProgramming Assignment: BoggleBoggle Week 5Regular ExpressionsData CompressionProgramming Assignment: Burrows-WheelerBurrows-Wheeler Week 6ReductionsLinear ProgrammingIntractability]]></content>
