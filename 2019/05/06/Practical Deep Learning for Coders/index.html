@@ -125,7 +125,12 @@
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-08-Lesson2-2.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-08-Lesson2-3.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-08-Lesson2-4.png">
-<meta property="og:updated_time" content="2019-05-08T19:34:51.100Z">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-10-Week3-1.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-10-Week3-2.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-10-Week3-3.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-10-Week3-4.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-10-Week3-5.png">
+<meta property="og:updated_time" content="2019-05-10T19:30:11.213Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Practical Deep Learning for Coders">
 <meta name="twitter:description" content="Fast.ai Course Notes">
@@ -452,7 +457,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-08 14:34:51" itemprop="dateModified" datetime="2019-05-08T14:34:51-05:00">2019-05-08</time>
+                <time title="Modified: 2019-05-10 14:30:11" itemprop="dateModified" datetime="2019-05-10T14:30:11-05:00">2019-05-10</time>
               
             
           </span>
@@ -583,7 +588,7 @@
 <ul>
 <li><p>Starting point: Find some example pictures</p>
 </li>
-<li><p>Save the urls</p>
+<li><p>Save the urls <code>folder = &#39;black&#39;</code> , <code>file = urls_black.txt</code>, <code>path = Path(&#39;data/bears&#39;)</code></p>
 </li>
 <li><p>Download images <code>download_iamges(path/file, dest, max_pics=200)</code></p>
 </li>
@@ -628,7 +633,41 @@
 <p>If this kind of things happen, we have to redo again from the scratch</p>
 <p>Another problem is that the training loss is higher than the validation loss, that always means that you haven’t fit enough (learning rate is too low or number of epochs is too low)</p>
 <p>Any model that is trained correctly will have a lower training loss than the validation loss</p>
-<h1 id="Lesson-3"><a href="#Lesson-3" class="headerlink" title="Lesson 3"></a>Lesson 3</h1><h1 id="Lesson-4"><a href="#Lesson-4" class="headerlink" title="Lesson 4"></a>Lesson 4</h1><h1 id="Lesson-5"><a href="#Lesson-5" class="headerlink" title="Lesson 5"></a>Lesson 5</h1><h1 id="Lesson-6"><a href="#Lesson-6" class="headerlink" title="Lesson 6"></a>Lesson 6</h1><h1 id="Lesson-7"><a href="#Lesson-7" class="headerlink" title="Lesson 7"></a>Lesson 7</h1>
+<p><strong>x@a</strong>: Matrix product</p>
+<p>Tensor: Array with regular shape</p>
+<p>Rank: How many dimensions are in the tensor</p>
+<p>In PyTorch, any function with an underscore: don’t return to me but replace in place</p>
+<p>type check: <code>a.type()</code></p>
+<p>Gradient descent:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a = nn.Parameters(a)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">update</span><span class="params">()</span>:</span></span><br><span class="line">    y_hat = x@a</span><br><span class="line">    loss = mse(y, y_hat)</span><br><span class="line">    <span class="keyword">if</span> t % <span class="number">10</span> == <span class="number">0</span>: print(loss)</span><br><span class="line">    loss.backward()</span><br><span class="line">    <span class="keyword">with</span> torch.no_grad():</span><br><span class="line">        a.sub_(lr * a.grad)</span><br><span class="line">        a.grad.zero_()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lr = <span class="number">1e-1</span></span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">100</span>): update()</span><br></pre></td></tr></table></figure>
+<h1 id="Lesson-3"><a href="#Lesson-3" class="headerlink" title="Lesson 3"></a>Lesson 3</h1><p><a href="https://www.kaggle.com/c/planet-understanding-the-amazon-from-space" target="_blank" rel="noopener">Planet Dataset</a></p>
+<p>Multiple labels classification</p>
+<p><strong>Download Data from Kaggle</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install kaggle --upgrade</span><br><span class="line">mkdir -p ~/.kaggle/</span><br><span class="line">mv kaggle.json ~/.kaggle</span><br></pre></td></tr></table></figure>
+<p><a href="https://colab.research.google.com/drive/10vM1Sr6nn-1hv0kMrJsTLpmnl-DsWK81" target="_blank" rel="noopener">Instructions in detail</a></p>
+<p><strong>Multiclassification</strong></p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-10-Week3-1.png" style="zoom:60%"><br></center>
+
+<p><a href="https://docs.fast.ai/data_block.html" target="_blank" rel="noopener">data block API</a></p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-10-Week3-2.png" style="zoom:60%"><br></center>
+
+
+
+<p><code>Dataset</code> class for PyTorch (methods to manipulate data from the source):</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-10-Week3-3.png" style="zoom:60%"><br></center>
+
+<p><code>DataLoader</code> class for PyTorch (load data from dataset):</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-10-Week3-4.png" style="zoom:60%"><br></center>
+
+<p><code>DataBunch</code> class for fastai (split train and validation data):</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-10-Week3-5.png" style="zoom:60%"><br></center>
+
+
+
+<p><strong>Transforms</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tfms = get_transforms()</span><br></pre></td></tr></table></figure>
+<h1 id="Lesson-4"><a href="#Lesson-4" class="headerlink" title="Lesson 4"></a>Lesson 4</h1><h1 id="Lesson-5"><a href="#Lesson-5" class="headerlink" title="Lesson 5"></a>Lesson 5</h1><h1 id="Lesson-6"><a href="#Lesson-6" class="headerlink" title="Lesson 6"></a>Lesson 6</h1><h1 id="Lesson-7"><a href="#Lesson-7" class="headerlink" title="Lesson 7"></a>Lesson 7</h1>
       
     </div>
 
@@ -964,7 +1003,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 27.1k words</span>
+  <span class="post-count">Total 27.2k words</span>
 </div>
 
         
