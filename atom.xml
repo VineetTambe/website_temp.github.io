@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-05-10T20:04:20.662Z</updated>
+  <updated>2019-05-10T20:53:28.734Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CS231n</title>
+    <link href="http://yoursite.com/2019/05/10/CS231n/"/>
+    <id>http://yoursite.com/2019/05/10/CS231n/</id>
+    <published>2019-05-10T20:53:34.000Z</published>
+    <updated>2019-05-10T20:53:28.734Z</updated>
+    
+    <content type="html"><![CDATA[<p>Stanford University</p><p>CS231n: Convolutional Neural Networks for Visual Recognition</p><p>Course Notes</p><a id="more"></a><h1 id="Lecture-1-Introduction-to-Convolutional-Neural-Networks-for-Visual-Recognition"><a href="#Lecture-1-Introduction-to-Convolutional-Neural-Networks-for-Visual-Recognition" class="headerlink" title="Lecture 1 | Introduction to Convolutional Neural Networks for Visual Recognition"></a>Lecture 1 | Introduction to Convolutional Neural Networks for Visual Recognition</h1><h1 id="Lecture-2-Image-Classification"><a href="#Lecture-2-Image-Classification" class="headerlink" title="Lecture 2 | Image Classification"></a>Lecture 2 | Image Classification</h1><h1 id="Lecture-3-Loss-Functions-and-Optimization"><a href="#Lecture-3-Loss-Functions-and-Optimization" class="headerlink" title="Lecture 3 | Loss Functions and Optimization"></a>Lecture 3 | Loss Functions and Optimization</h1><h1 id="Lecture-4-Introduction-to-Neural-Networks"><a href="#Lecture-4-Introduction-to-Neural-Networks" class="headerlink" title="Lecture 4 | Introduction to Neural Networks"></a>Lecture 4 | Introduction to Neural Networks</h1><h1 id="Lecture-5-Convolutional-Neural-Networks"><a href="#Lecture-5-Convolutional-Neural-Networks" class="headerlink" title="Lecture 5 | Convolutional Neural Networks"></a>Lecture 5 | Convolutional Neural Networks</h1><h1 id="Lecture-6-Training-Neural-Networks-I"><a href="#Lecture-6-Training-Neural-Networks-I" class="headerlink" title="Lecture 6 | Training Neural Networks I"></a>Lecture 6 | Training Neural Networks I</h1><h1 id="Lecture-7-Training-Neural-Networks-II"><a href="#Lecture-7-Training-Neural-Networks-II" class="headerlink" title="Lecture 7 | Training Neural Networks II"></a>Lecture 7 | Training Neural Networks II</h1><h1 id="Lecture-8-Deep-Learning-Software"><a href="#Lecture-8-Deep-Learning-Software" class="headerlink" title="Lecture 8 | Deep Learning Software"></a>Lecture 8 | Deep Learning Software</h1><h1 id="Lecture-9-CNN-Architectures"><a href="#Lecture-9-CNN-Architectures" class="headerlink" title="Lecture 9 | CNN Architectures"></a>Lecture 9 | CNN Architectures</h1><h1 id="Lecture-10-Recurrent-Neural-Networks"><a href="#Lecture-10-Recurrent-Neural-Networks" class="headerlink" title="Lecture 10 | Recurrent Neural Networks"></a>Lecture 10 | Recurrent Neural Networks</h1><h1 id="Lecture-11-Detection-and-Segmentation"><a href="#Lecture-11-Detection-and-Segmentation" class="headerlink" title="Lecture 11 | Detection and Segmentation"></a>Lecture 11 | Detection and Segmentation</h1><h1 id="Lecture-12-Visualizing-and-Understanding"><a href="#Lecture-12-Visualizing-and-Understanding" class="headerlink" title="Lecture 12 | Visualizing and Understanding"></a>Lecture 12 | Visualizing and Understanding</h1><h1 id="Lecture-13-Generative-Models"><a href="#Lecture-13-Generative-Models" class="headerlink" title="Lecture 13 | Generative Models"></a>Lecture 13 | Generative Models</h1><h1 id="Lecture-14-Deep-Reinforcement-Learning"><a href="#Lecture-14-Deep-Reinforcement-Learning" class="headerlink" title="Lecture 14 | Deep Reinforcement Learning"></a>Lecture 14 | Deep Reinforcement Learning</h1><h1 id="Lecture-15-Efficient-Methods-and-Hardware-for-Deep-Learning"><a href="#Lecture-15-Efficient-Methods-and-Hardware-for-Deep-Learning" class="headerlink" title="Lecture 15 | Efficient Methods and Hardware for Deep Learning"></a>Lecture 15 | Efficient Methods and Hardware for Deep Learning</h1><h1 id="Lecture-16-Adversarial-Examples-and-Adversarial-Training"><a href="#Lecture-16-Adversarial-Examples-and-Adversarial-Training" class="headerlink" title="Lecture 16 | Adversarial Examples and Adversarial Training"></a>Lecture 16 | Adversarial Examples and Adversarial Training</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Stanford University&lt;/p&gt;
+&lt;p&gt;CS231n: Convolutional Neural Networks for Visual Recognition&lt;/p&gt;
+&lt;p&gt;Course Notes&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+    
+    
+      <category term="Programming" scheme="http://yoursite.com/tags/Programming/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="Deep Learning" scheme="http://yoursite.com/tags/Deep-Learning/"/>
+    
+      <category term="TensorFlow" scheme="http://yoursite.com/tags/TensorFlow/"/>
+    
+      <category term="Computer Vision" scheme="http://yoursite.com/tags/Computer-Vision/"/>
+    
+  </entry>
   
   <entry>
     <title>Practical Deep Learning for Coders</title>
