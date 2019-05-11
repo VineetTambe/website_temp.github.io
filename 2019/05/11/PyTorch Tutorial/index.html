@@ -112,32 +112,25 @@
 
 
 
-  <meta name="description" content="Deeplearning.ai Specialization Course Notes">
-<meta name="keywords" content="Programming,Python,Deep Learning,TensorFlow">
+  <meta name="description" content="PyTorch Tutorial">
+<meta name="keywords" content="Programming,Python,Deep Learning,Machine Learning,PyTorch">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Improving Deep Neural Networks">
-<meta property="og:url" content="http://yoursite.com/2019/04/20/Improving Deep Neural Networks/index.html">
+<meta property="og:title" content="PyTorch Tutorial">
+<meta property="og:url" content="http://yoursite.com/2019/05/11/PyTorch Tutorial/index.html">
 <meta property="og:site_name" content="Qingliu">
-<meta property="og:description" content="Deeplearning.ai Specialization Course Notes">
+<meta property="og:description" content="PyTorch Tutorial">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-24-Week1-1.png">
-<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-24-Week2-1.png">
-<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-24-Week2-2.png">
-<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-24-Week2-3.png">
-<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-24-Week2-4.png">
-<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-24-Week3-1.png">
-<meta property="og:updated_time" content="2019-04-25T02:47:39.632Z">
+<meta property="og:updated_time" content="2019-05-11T16:53:04.085Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Improving Deep Neural Networks">
-<meta name="twitter:description" content="Deeplearning.ai Specialization Course Notes">
-<meta name="twitter:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-04-24-Week1-1.png">
+<meta name="twitter:title" content="PyTorch Tutorial">
+<meta name="twitter:description" content="PyTorch Tutorial">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/20/Improving Deep Neural Networks/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/11/PyTorch Tutorial/">
 
 
 
@@ -147,7 +140,7 @@
   };
 </script>
 
-  <title>Improving Deep Neural Networks | Qingliu</title>
+  <title>PyTorch Tutorial | Qingliu</title>
   
 
 
@@ -394,7 +387,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/20/Improving Deep Neural Networks/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/11/PyTorch Tutorial/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Qingliu">
@@ -411,7 +404,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Improving Deep Neural Networks
+          <h1 class="post-title" itemprop="name headline">PyTorch Tutorial
               
             
           </h1>
@@ -436,24 +429,12 @@
                 
               
 
-              <time title="Created: 2019-04-20 17:55:34" itemprop="dateCreated datePublished" datetime="2019-04-20T17:55:34-05:00">2019-04-20</time>
+              <time title="Created: 2019-05-11 11:28:34 / Modified: 11:53:04" itemprop="dateCreated datePublished" datetime="2019-05-11T11:28:34-05:00">2019-05-11</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-04-24 21:47:39" itemprop="dateModified" datetime="2019-04-24T21:47:39-05:00">2019-04-24</time>
               
             
           </span>
@@ -484,7 +465,7 @@
 
           
           
-             <span id="/2019/04/20/Improving Deep Neural Networks/" class="leancloud_visitors" data-flag-title="Improving Deep Neural Networks">
+             <span id="/2019/05/11/PyTorch Tutorial/" class="leancloud_visitors" data-flag-title="PyTorch Tutorial">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -523,147 +504,34 @@
       
 
       
-        <p>Deeplearning.ai Specialization</p>
-<p>Course Notes</p>
+        <p>PyTorch</p>
+<p>Tutorial</p>
 <a id="more"></a>
-<h1 id="Week-1"><a href="#Week-1" class="headerlink" title="Week 1"></a>Week 1</h1><h2 id="Practical-aspects-of-Deep-Learning"><a href="#Practical-aspects-of-Deep-Learning" class="headerlink" title="Practical aspects of Deep Learning"></a>Practical aspects of Deep Learning</h2><p><strong>Train/dev/test sets</strong></p>
-<p>Applied ML is a highly iterative process</p>
+<h1 id="Defining-network"><a href="#Defining-network" class="headerlink" title="Defining network"></a>Defining network</h1><p>PyTorch has a standard way to create your own models. The entire definition should stay inside an object that is a child of the class <strong>nn.Module</strong>. Inside this class, there are only two methods that must be implemented. These methods are <strong><strong><strong>init</strong></strong></strong> and <strong>forward</strong>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Net</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        super(Net, self).__init__()</span><br><span class="line">        <span class="comment"># Defining 3 linear layers but not the way they should be connected</span></span><br><span class="line">        self.fc1 = nn.Linear(<span class="number">240</span>,<span class="number">120</span>)</span><br><span class="line">        self.fc2 = nn.Linear(<span class="number">120</span>,<span class="number">60</span>)</span><br><span class="line">        self.fc3 = nn.Linear(<span class="number">60</span>,<span class="number">10</span>)</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self,x)</span>:</span></span><br><span class="line">        <span class="comment"># Defining the way that the layers of the model should be connected</span></span><br><span class="line">        x = F.relu(self.fc1(x))</span><br><span class="line">        x = F.relu(self.fc2(x))</span><br><span class="line">        x = self.fc3(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure>
+<p>You can put inside the <strong>forward</strong> method all the layers that do not have any weights to be updated. On the other hand, you should put all the layers that have weights to be updated inside the <strong><strong><strong>init</strong></strong></strong>.</p>
+<h1 id="Loading-data-Dataset-and-Data-Loaders"><a href="#Loading-data-Dataset-and-Data-Loaders" class="headerlink" title="Loading data: Dataset and Data Loaders"></a>Loading data: Dataset and Data Loaders</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> Dataset, DataLoader</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExampleDataset</span><span class="params">(Dataset)</span>:</span></span><br><span class="line">    <span class="string">"""Example Dataset"""</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, csv_file)</span>:</span></span><br><span class="line">        <span class="string">""" </span></span><br><span class="line"><span class="string">        csv_file (string): Path to the csv file containing data.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.data_frame = pd.read_csv(csv_file)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.data_frame)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getitem__</span><span class="params">(self, idx)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.data_frame[idx]</span><br><span class="line"></span><br><span class="line"><span class="comment"># instantiates the dataset  </span></span><br><span class="line">example_dataset = ExampleDataset(<span class="string">'my_data_file.csv'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># batch size: number of samples returned per iteration</span></span><br><span class="line"><span class="comment"># shuffle: Flag to shuffle the data before reading so you don't read always in the same order</span></span><br><span class="line"><span class="comment"># num_workers: used to load the data in parallel</span></span><br><span class="line">example_data_loader = DataLoader(example_dataset, batch_size=<span class="number">4</span>, shuffle=<span class="keyword">True</span>, num_workers=<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Loops over the data 4 samples at a time</span></span><br><span class="line"><span class="keyword">for</span> batch_index, batch <span class="keyword">in</span> enumerate(example_data_loader):</span><br><span class="line">    print(batch_index, batch)</span><br></pre></td></tr></table></figure>
 <ul>
-<li>layers</li>
-<li>Hidden units</li>
-<li>Learning rates</li>
-<li>Activation functions</li>
+<li><strong><strong>init</strong></strong>:</li>
 </ul>
-<p>Idea - Code - Experiment</p>
-<p>Make sure the dev and test come from the same distribution. Because we want to evaluate effects from the dev set.</p>
-<p>Not having a test set might be okay. (Only dev set.)</p>
-<p><strong>Bias and Variance</strong></p>
-<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-24-Week1-1.png" style="zoom:60%"><br></center>
-
-
-
-<p><strong>Basic recipe for machine learning</strong></p>
-<p>Hign bias -&gt; Bigger network</p>
-<p>High variance -&gt; More data / Regularization / NN architecture</p>
-<p>Training a bigger network almost never hurts if regularized well</p>
-<p><strong>Regularization</strong></p>
-<p>L2 regularization is used much more often</p>
-<p>Frobenius norm is used in Neural network -&gt; weight decay</p>
-<p>Another technical regularization method is dropout</p>
-<p><strong>Inverted dropout</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">keep_prob = <span class="number">0.8</span> <span class="comment"># chosen by user</span></span><br><span class="line">d = np.random.rand(a.shape[<span class="number">0</span>],a.shape[<span class="number">1</span>]) &lt; keep_prob</span><br><span class="line">a = np.multiply(a,d)</span><br><span class="line">a /= keep_prob	<span class="comment"># because the output will be reduced by ...</span></span><br></pre></td></tr></table></figure>
-<p>At test time, we <strong>should not</strong> include drop out because we don’t want our prediction to be random. Otherwise, there will be noise.</p>
-<p>We should apply dropout both during forward and backward propagation and shutdown the same neurons in each iteration and we should scale the output by divide keep_prob</p>
-<p>Intuition: Cant’t rely on any one feature, so have to spread out weights.</p>
-<p>Drop out is very frequently used by computer vision. But doesn’t generalize in other application areas.</p>
-<p>We will lose gradient checking tool when including drop out.</p>
-<p><strong>So in conclusion, we should plot the loss figure when including drop out. Because the cost function J is no longer well-defined (thinking about the dead neurons)</strong></p>
-<p>Other regularization methods:</p>
+<p>In the initialization, you should put your directories information and other things that would allow to access it.</p>
 <ul>
-<li><p>Data augmentation</p>
-</li>
-<li><p>Early stopping</p>
-</li>
+<li><strong><strong>len</strong></strong>:</li>
 </ul>
-<p>L2 regularization is more useful but the search space for $\lambda$ is large</p>
-<p><strong>Normalization</strong><br>$$<br>\mu=\frac1m\sum_{i=1}^mx^{(i)} \<br>\sigma=\frac1m\sum_{i=1}^mx^{(i)}**2<br>$$</p>
-<p><strong>Normalize the training set and test set the same way</strong></p>
-<p>Zero mean and variance one</p>
-<p><strong>Vanishing / Exploding gradients</strong></p>
-<p><strong>Random initialization</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Wl = np.random.randn(shape) * np.sqrt(<span class="number">2</span>/n)</span><br></pre></td></tr></table></figure>
-<p>Different initialization lead to different results</p>
-<p>Random initialization is used to break symmetry and make sure different hidden units can learn different things</p>
-<p>We should not initialize to values that are too large</p>
-<p>In the weight initialization procedure, we can also tuning the hyper parameter for the variance.</p>
-<p>Poor initialization can lead to vanishing/exploding gradients, which also slow down the optimization algorithm.</p>
-<p><strong>He initialization （designed for ReLU activation), of significant importance</strong></p>
-<p>Multiply random initialization by<br>$$<br>\sqrt{\frac{2}{dimension\space of\space the\space previous \space layer}}<br>$$</p>
-<p><strong>Gradient checking</strong><br>$$<br>\frac{f(\theta+\epsilon)-f(\theta-\epsilon)}{2\epsilon} \approx g(\theta)<br>$$<br>Two-side difference is prefered<br>$$<br>\epsilon = 10^{-7}<br>$$</p>
-<p><strong>Tips for Grad check</strong></p>
+<p>You should implement a way to get the entire size of your dataset.</p>
 <ul>
-<li>Don’t use in training - only to debug</li>
-<li><p>If algorithm fails grad check, look at components to try to identify bug</p>
-</li>
-<li><p>Remeber regularization</p>
-</li>
-<li>Doesn’t work with dropout (set keep_prob = 1.0 to do grad check)</li>
-<li>Run at random initialization</li>
+<li><strong><strong>getitem</strong></strong>:</li>
 </ul>
-<h2 id="Programming-Assignment-Initialization"><a href="#Programming-Assignment-Initialization" class="headerlink" title="Programming Assignment: Initialization"></a>Programming Assignment: Initialization</h2><p><a href="https://github.com/Aden-Q/Deep-Learning/blob/master/Improving Deep Neural Networks/Week 1/Initialization.ipynb" target="_blank" rel="noopener">Initialization</a></p>
-<h2 id="Programming-Assignment-Regularization"><a href="#Programming-Assignment-Regularization" class="headerlink" title="Programming Assignment: Regularization"></a>Programming Assignment: Regularization</h2><p><a href="https://github.com/Aden-Q/Deep-Learning/blob/master/Improving Deep Neural Networks/Week 1/Regularization%2B-%2Bv2.ipynb" target="_blank" rel="noopener">Regularization</a></p>
-<h2 id="Programming-Assignment-Gradient-Checking"><a href="#Programming-Assignment-Gradient-Checking" class="headerlink" title="Programming Assignment: Gradient Checking"></a>Programming Assignment: Gradient Checking</h2><p><a href="https://github.com/Aden-Q/Deep-Learning/blob/master/Improving Deep Neural Networks/Week 1/Gradient%2BChecking%2Bv1.ipynb" target="_blank" rel="noopener">Gradient Checking</a></p>
-<h1 id="Week-2"><a href="#Week-2" class="headerlink" title="Week 2"></a>Week 2</h1><h2 id="Optimization-algorithms"><a href="#Optimization-algorithms" class="headerlink" title="Optimization algorithms"></a>Optimization algorithms</h2><p><strong>Mini-batch gradient descent</strong></p>
-<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-24-Week2-1.png" style="zoom:60%"><br></center>
-
-<p>Choosing mini-batch size:</p>
-<ul>
-<li>If mini-batch size = m : Batch gradient descend</li>
-<li>If mini-batch size size = 1: Stochastic gradient descent: Every example is a mini-batch</li>
-</ul>
-<p>Tipds:</p>
-<ul>
-<li>If small training set: Use batch gradient descent —— 2000</li>
-<li>Otherwise typical mini-batch size: 64, 128, 256, 512</li>
-<li>Make sure mini batch fit in CPU/GPU memory</li>
-<li>Shuffling and Partitioning are the two steps required to build mini-batches</li>
-</ul>
-<p><strong>Exponentially weighted averages</strong><br>$$<br>v_t=\beta v_{t-1}+(1-\beta)\theta_t<br>$$<br><strong>Bias correction</strong><br>$$<br>\frac{v_t}{1-\beta^t}<br>$$</p>
-<p><strong>Graduebt descent with momentum</strong></p>
-<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-24-Week2-2.png" style="zoom:60%"><br></center>
-
-<p>Hyperparameters: $\alpha,\beta$<br>$$<br>\beta = 0.9<br>$$<br>In practice, people don’t usually do bias correction in deep learning because after just ten iterations, moving average will warm up.</p>
-<p><strong>RMSprop</strong></p>
-<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-24-Week2-3.png" style="zoom:60%"><br></center>
-
-
-
-<p><strong>Adam</strong></p>
-<p>Take momentum and RMSprop and put them together</p>
-<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-24-Week2-4.png" style="zoom:60%"><br></center>
-
-<p>Hyperparameters choice:<br>$$<br>\beta_1=0.9 \\<br>\theta_2=0.999 \\<br>\epsilon=10^{-8}<br>$$<br>And try different range of $\alpha $</p>
-<p>Adam: Adaptive moment estimation</p>
-<p>For complex problems there will be bigger gains</p>
-<p><strong>Learning rate decay</strong><br>$$<br>\alpha=\frac{1}{1+decay-rate*epoch-num}\alpha_0 \\<br>\alpha = 0.95^{epoch-num}\alpha_0 \\<br>\alpha =\frac{k}{\sqrt{epoch-num}}\alpha_0<br>$$</p>
-<p>Saddle point is different from local optimum. In high dimensional space, we are more likely to encounter saddle point.</p>
-<ul>
-<li>Unlikely to get stuck in a bad local optima</li>
-<li>Plateaus can make learning slow</li>
-</ul>
-<h2 id="Programming-Assignment-Optimization"><a href="#Programming-Assignment-Optimization" class="headerlink" title="Programming Assignment: Optimization"></a>Programming Assignment: Optimization</h2><p><a href="https://github.com/Aden-Q/Deep-Learning/blob/master/Improving Deep Neural Networks/Week 2/Optimization%2Bmethods.ipynb" target="_blank" rel="noopener">Optimization</a></p>
-<h1 id="Week-3"><a href="#Week-3" class="headerlink" title="Week 3"></a>Week 3</h1><h2 id="Hyperparameter-tuning-Batch-Normalization-and-Programming-Frameworks"><a href="#Hyperparameter-tuning-Batch-Normalization-and-Programming-Frameworks" class="headerlink" title="Hyperparameter tuning, Batch Normalization and Programming Frameworks"></a>Hyperparameter tuning, Batch Normalization and Programming Frameworks</h2><p>In deep learning, choose the hyperparameter combination at random</p>
-<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-24-Week3-1.png" style="zoom:60%"><br></center>
-
-
-
-<p><strong>Batch Normalization</strong></p>
-<p>Given some intermediate value in NN. $z^{(1)},…,z^{(m)}$<br>$$<br>\mu=\frac1m\sum z^{(i)} \\<br>\sigma^2=\frac1m\sum(z_i-\mu)^2 \\<br>z_{norm}^{(i)} = \frac{z^{(i)}-\mu}{\sqrt{\sigma^2+\epsilon}} \\<br>\hat{z^{(i)}} = \gamma z_{norm}^{(i)} + \beta<br>$$<br>$\gamma $ and $\beta$  are learnable parameters</p>
-<p>BN deals with the situation of Covariate shift</p>
-<p>BN weakens the coupling between earlier layer’s paramers abd later layer’s parameters</p>
-<p>BN has a slight regularization effect, similar to dropout</p>
-<p>BN speeds up training process</p>
-<p><strong>Softmax regression</strong></p>
-<p>Softmax regressuib generalizes logistic regression to C classes</p>
-<p>Loss function<br>$$<br>L(\hat{y},y) = -\sum_{j=1}^cy_jlog\hat{y_j}<br>$$</p>
-<p><strong>Choosing deep learning frameworks</strong></p>
-<ul>
-<li><p>Ease of programming (development and deployment)</p>
-</li>
-<li><p>Running speed</p>
-</li>
-<li>Truly open (open source with good governance)</li>
-</ul>
-<p><strong>TensorFlow</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tf.Variable(<span class="number">0</span>, dtype.float32)</span><br><span class="line">tf.placeholder(tf.float32, [<span class="number">3</span>,<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
-<p>Typical steps:</p>
-<ul>
-<li>Create a graph containing Tensors (Variables, Placeholders …) and Operations (tf.matmul, tf.add)</li>
-<li>Create a session</li>
-<li>Initialize the session</li>
-<li>Run the session to execute the graph</li>
-</ul>
-<h2 id="Programming-Assignment-TensorFlow"><a href="#Programming-Assignment-TensorFlow" class="headerlink" title="Programming Assignment: TensorFlow"></a>Programming Assignment: TensorFlow</h2><p><a href="https://github.com/Aden-Q/Deep-Learning/blob/master/Improving Deep Neural Networks/Week 3/Tensorflow%2BTutorial.ipynb" target="_blank" rel="noopener">TensorFlow</a></p>
+<p>This is where you implement how to get a single item from your dataset.</p>
+<p>In order to more efficiently access your dataset, we use the <strong>DataLoader</strong> class. This class simply reads a batch of data at a time in parallel while optionally shuffling your data.</p>
+<h1 id="Training-Updating-the-Network-Weights"><a href="#Training-Updating-the-Network-Weights" class="headerlink" title="Training: Updating the Network Weights"></a>Training: Updating the Network Weights</h1><p>An optimizer goes over all the weights and update them for you. The optimizer must have a criterion to use for optimization. This is where you need to define your loss function.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="comment"># instantiate your network that should be defined by you</span></span><br><span class="line">net = Net()</span><br><span class="line"><span class="comment"># create your optimizer</span></span><br><span class="line">optimizer = optim.SGD(net.parameters(), lr=<span class="number">0.01</span>)</span><br><span class="line"><span class="comment"># define your criterion for optimization</span></span><br><span class="line">criterion = nn.MSELoss()</span><br><span class="line"><span class="comment"># dat_set comes from somewhere</span></span><br><span class="line"><span class="keyword">for</span> data <span class="keyword">in</span> data_set:</span><br><span class="line">  <span class="comment"># zero the gradient buffers</span></span><br><span class="line">  optimizer.zero_grad()  </span><br><span class="line">  <span class="comment"># Passes the data through your network</span></span><br><span class="line">  output = net.forward(data)</span><br><span class="line">  <span class="comment"># calculates the loss</span></span><br><span class="line">  loss = criterion(output, target)</span><br><span class="line">  <span class="comment"># Propagates the loss back</span></span><br><span class="line">  loss.backward()</span><br><span class="line">  <span class="comment"># Updates all the weights of the network</span></span><br><span class="line">  optimizer.step()</span><br></pre></td></tr></table></figure>
+<h1 id="Summarizing-Steps"><a href="#Summarizing-Steps" class="headerlink" title="Summarizing Steps"></a>Summarizing Steps</h1><ol>
+<li>Define your Network class by placing the layers with weights that can be updated inside the <strong><strong><strong>init</strong></strong></strong> method. Then define how the data flows through the layers inside the <strong>forward</strong> method.</li>
+<li>Define how your data should be loaded using the <strong>Dataset</strong> class. Then use <strong>DataLoader</strong> class to loop over your data.</li>
+<li>Choose an optimizer and a loss function. Loop over your training data and let the optimizer update the weights of your network.</li>
+</ol>
+<h1 id="Credits"><a href="#Credits" class="headerlink" title="Credits"></a>Credits</h1><p><a href="https://medium.com/deeplearningbrasilia/deep-learning-introduction-to-pytorch-5bd39421c84" target="_blank" rel="noopener">https://medium.com/deeplearningbrasilia/deep-learning-introduction-to-pytorch-5bd39421c84</a></p>
 
       
     </div>
@@ -703,7 +571,9 @@
           
             <a href="/tags/Deep-Learning/" rel="tag"><i class="fa fa-tag"></i> Deep Learning</a>
           
-            <a href="/tags/TensorFlow/" rel="tag"><i class="fa fa-tag"></i> TensorFlow</a>
+            <a href="/tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
+          
+            <a href="/tags/PyTorch/" rel="tag"><i class="fa fa-tag"></i> PyTorch</a>
           
         </div>
       
@@ -716,8 +586,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/20/Neural Networks and Deep Learning/" rel="next" title="Neural Networks and Deep Learning">
-                <i class="fa fa-chevron-left"></i> Neural Networks and Deep Learning
+              <a href="/2019/05/10/CS231n/" rel="next" title="CS231n">
+                <i class="fa fa-chevron-left"></i> CS231n
               </a>
             
           </div>
@@ -725,10 +595,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/21/Convolutional Neural Networks in TensorFlow/" rel="prev" title="Convolutional Neural Networks in TensorFlow">
-                Convolutional Neural Networks in TensorFlow <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -941,7 +807,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-1"><span class="nav-number">1.</span> <span class="nav-text">Week 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Practical-aspects-of-Deep-Learning"><span class="nav-number">1.1.</span> <span class="nav-text">Practical aspects of Deep Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Initialization"><span class="nav-number">1.2.</span> <span class="nav-text">Programming Assignment: Initialization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Regularization"><span class="nav-number">1.3.</span> <span class="nav-text">Programming Assignment: Regularization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Gradient-Checking"><span class="nav-number">1.4.</span> <span class="nav-text">Programming Assignment: Gradient Checking</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-2"><span class="nav-number">2.</span> <span class="nav-text">Week 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Optimization-algorithms"><span class="nav-number">2.1.</span> <span class="nav-text">Optimization algorithms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Optimization"><span class="nav-number">2.2.</span> <span class="nav-text">Programming Assignment: Optimization</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-3"><span class="nav-number">3.</span> <span class="nav-text">Week 3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hyperparameter-tuning-Batch-Normalization-and-Programming-Frameworks"><span class="nav-number">3.1.</span> <span class="nav-text">Hyperparameter tuning, Batch Normalization and Programming Frameworks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-TensorFlow"><span class="nav-number">3.2.</span> <span class="nav-text">Programming Assignment: TensorFlow</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Defining-network"><span class="nav-number">1.</span> <span class="nav-text">Defining network</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Loading-data-Dataset-and-Data-Loaders"><span class="nav-number">2.</span> <span class="nav-text">Loading data: Dataset and Data Loaders</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Training-Updating-the-Network-Weights"><span class="nav-number">3.</span> <span class="nav-text">Training: Updating the Network Weights</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Summarizing-Steps"><span class="nav-number">4.</span> <span class="nav-text">Summarizing Steps</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Credits"><span class="nav-number">5.</span> <span class="nav-text">Credits</span></a></li></ol></div>
             
 
           </div>
