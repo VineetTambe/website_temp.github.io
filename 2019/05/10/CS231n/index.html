@@ -166,6 +166,21 @@
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture5-9.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture5-10.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture5-11.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-1.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-2.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-3.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-4.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-5.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-6.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-7.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-8.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-9.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-10.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-11.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-12.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-13.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-14.png">
+<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-15.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture8-1.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture8-2.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture8-3.png">
@@ -188,7 +203,7 @@
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture8-20.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture8-21.png">
 <meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture8-22.png">
-<meta property="og:updated_time" content="2019-05-14T04:00:18.427Z">
+<meta property="og:updated_time" content="2019-05-14T19:42:34.063Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CS231n">
 <meta name="twitter:description" content="Stanford University CS231n: Convolutional Neural Networks for Visual Recognition Course Notes">
@@ -515,7 +530,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-13 23:00:18" itemprop="dateModified" datetime="2019-05-13T23:00:18-05:00">2019-05-13</time>
+                <time title="Modified: 2019-05-14 14:42:34" itemprop="dateModified" datetime="2019-05-14T14:42:34-05:00">2019-05-14</time>
               
             
           </span>
@@ -864,7 +879,66 @@
 
 
 
-<h1 id="Lecture-6-Training-Neural-Networks-I"><a href="#Lecture-6-Training-Neural-Networks-I" class="headerlink" title="Lecture 6 | Training Neural Networks I"></a>Lecture 6 | Training Neural Networks I</h1><h1 id="Lecture-7-Training-Neural-Networks-II"><a href="#Lecture-7-Training-Neural-Networks-II" class="headerlink" title="Lecture 7 | Training Neural Networks II"></a>Lecture 7 | Training Neural Networks II</h1><h1 id="Lecture-8-Deep-Learning-Software"><a href="#Lecture-8-Deep-Learning-Software" class="headerlink" title="Lecture 8 | Deep Learning Software"></a>Lecture 8 | Deep Learning Software</h1><p><strong>CPU vs GPU</strong></p>
+<h1 id="Lecture-6-Training-Neural-Networks-I"><a href="#Lecture-6-Training-Neural-Networks-I" class="headerlink" title="Lecture 6 | Training Neural Networks I"></a>Lecture 6 | Training Neural Networks I</h1><p><strong>Mini-batch SGD</strong></p>
+<ol>
+<li><strong>Sample</strong> a batch of data</li>
+<li><strong>Forward</strong> prop it through the graph (network), get loss</li>
+<li><strong>Backprop</strong> to calculate the gradients</li>
+<li><strong>Update</strong> the parameters using the gradient</li>
+</ol>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-1.png" style="zoom:60%"><br></center>
+
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-2.png" style="zoom:60%"><br></center>
+
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-3.png" style="zoom:60%"><br></center>
+
+<p>People like to initialzie ReLU neurons with slightly positive biases (e.g. 0.01)</p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-4.png" style="zoom:60%"><br></center>
+
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-5.png" style="zoom:60%"><br></center>
+
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-6.png" style="zoom:60%"><br></center>
+
+
+
+<p><strong>In practice:</strong></p>
+<ul>
+<li>Use ReLU. Be careful with your learning rates</li>
+<li>Try out Leaky ReLU / Maxout / ELU</li>
+<li>Try out tanh but don’t expect much</li>
+<li>Don’t use sigmoid</li>
+</ul>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-7.png" style="zoom:60%"><br></center>
+
+
+
+<p><strong>Reasonable initialization</strong></p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-8.png" style="zoom:60%"><br></center>
+
+
+
+<p><strong>Batch Normalization</strong></p>
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-9.png" style="zoom:60%"><br></center>
+
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-10.png" style="zoom:60%"><br></center>
+
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-11.png" style="zoom:60%"><br></center>
+
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-12.png" style="zoom:60%"><br></center>
+
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-13.png" style="zoom:60%"><br></center>
+
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-14.png" style="zoom:60%"><br></center>
+
+<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture6-15.png" style="zoom:60%"><br></center>
+
+
+
+
+
+
+
+<h1 id="Lecture-7-Training-Neural-Networks-II"><a href="#Lecture-7-Training-Neural-Networks-II" class="headerlink" title="Lecture 7 | Training Neural Networks II"></a>Lecture 7 | Training Neural Networks II</h1><h1 id="Lecture-8-Deep-Learning-Software"><a href="#Lecture-8-Deep-Learning-Software" class="headerlink" title="Lecture 8 | Deep Learning Software"></a>Lecture 8 | Deep Learning Software</h1><p><strong>CPU vs GPU</strong></p>
 <center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture8-1.png" style="zoom:60%"><br></center>
 
 <center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-14-Lecture8-2.png" style="zoom:60%"><br></center>
@@ -1266,7 +1340,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 28.8k words</span>
+  <span class="post-count">Total 28.9k words</span>
 </div>
 
         
