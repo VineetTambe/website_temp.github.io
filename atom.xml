@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-12T17:56:52.539Z</updated>
+  <updated>2019-09-12T18:05:05.901Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2019/09/12/OCaml%20Notes/"/>
     <id>http://yoursite.com/2019/09/12/OCaml Notes/</id>
     <published>2019-09-12T17:54:34.000Z</published>
-    <updated>2019-09-12T17:56:52.539Z</updated>
+    <updated>2019-09-12T18:05:05.901Z</updated>
     
-    <content type="html"><![CDATA[<p>OCaml Notes</p><a id="more"></a><h1 id="Core-Language"><a href="#Core-Language" class="headerlink" title="Core Language"></a>Core Language</h1>]]></content>
+    <content type="html"><![CDATA[<p>OCaml Notes</p><a id="more"></a><h1 id="Core-Language"><a href="#Core-Language" class="headerlink" title="Core Language"></a>Core Language</h1><p>First of all, the best REPL choice is <code>utop</code> program running under the terminal. Under this interactive environment, the OCaml phrases terminated with <code>;;</code> will be evaluated. User inputs (system command) are specified with <code>#</code>  at the beginning.</p>]]></content>
     
     <summary type="html">
     

@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[OCaml Notes]]></title>
     <url>%2F2019%2F09%2F12%2FOCaml%20Notes%2F</url>
-    <content type="text"><![CDATA[OCaml Notes Core Language]]></content>
+    <content type="text"><![CDATA[OCaml Notes Core LanguageFirst of all, the best REPL choice is utop program running under the terminal. Under this interactive environment, the OCaml phrases terminated with ;; will be evaluated. User inputs (system command) are specified with # at the beginning.]]></content>
       <categories>
         <category>Note</category>
       </categories>
