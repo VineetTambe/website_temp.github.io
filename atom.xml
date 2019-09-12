@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-12T19:52:29.820Z</updated>
+  <updated>2019-09-12T20:31:52.799Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2019/09/12/OCaml%20Notes/"/>
     <id>http://yoursite.com/2019/09/12/OCaml Notes/</id>
     <published>2019-09-12T17:54:34.000Z</published>
-    <updated>2019-09-12T19:52:29.820Z</updated>
+    <updated>2019-09-12T20:31:52.799Z</updated>
     
-    <content type="html"><![CDATA[<p>OCaml Notes</p><a id="more"></a><h1 id="Core-Language"><a href="#Core-Language" class="headerlink" title="Core Language"></a>Core Language</h1><p>First of all, the best REPL choice is <code>utop</code> program running under the terminal. Under this interactive environment, the OCaml phrases terminated with <code>;;</code> will be evaluated. User inputs (system command) are specified with <code>#</code>  at the beginning.</p><p>Type assertion: <code>exp : typ</code>. The type assertion is said to be valid iff the expression <code>exp</code> has type <code>typ</code>.</p>]]></content>
+    <content type="html"><![CDATA[<p>OCaml Notes</p><a id="more"></a><h1 id="Core-Language"><a href="#Core-Language" class="headerlink" title="Core Language"></a>Core Language</h1><p>First of all, the best REPL choice is <code>utop</code> program running under the terminal. Under this interactive environment, the OCaml phrases terminated with <code>;;</code> will be evaluated. User inputs (system command) are specified with <code>#</code>  at the beginning.</p><p>Type assertion: <code>exp : typ</code>. The type assertion is said to be valid iff the expression <code>exp</code> has type <code>typ</code>.</p><h2 id="Binding"><a href="#Binding" class="headerlink" title="Binding"></a>Binding</h2><p>Binding is permanent and can not be changed within specific scope of the program (normally the global scope).</p><p>Syntax of <strong>type binding</strong>:</p><figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> tycon = typ</span><br></pre></td></tr></table></figure><p>Semantics: <code>tycon</code> is a type constructor, bound to type <code>typ</code></p><p>Syntax of <strong>value binding</strong>:</p><figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> var : typ = exp</span><br></pre></td></tr></table></figure><p>Semantics: <code>var</code> is a variable, introduced the type <code>typ</code> and value <code>exp</code>. Notice that we must specify both the type and value of this type. There will be type-checking when binding, if succeed, expression <code>exp</code> will be evaluated first, and then its value is bound to variable <code>var</code>. If <code>exp</code> does not have a value, then binding never happens. (Notice that <code>None</code> is a value.)</p><p><strong>Purpose of binding</strong>: Make a variable or type constructor available for use within its scope.</p><p><strong>Substitution principle</strong>: A bound variable or type constructor is implicitly <em>replaced</em> by its binding prior to type checking and evaluation.</p><p><strong>Compound Declarations (Bindings)</strong>: This is defined by sequential bindings of the form <em>dec1, dec2, …decn</em>, with nested scope.</p><p><strong>Binding is not assignment</strong>: The binding of a variable never changes, once bound to a value, it is always bound to that value (within the scope of the binding). But we can <em>shadow</em> a binding by introducing a second binding for a variable within the scope of the first binding. One might say that old bindings never die, they just fade away.</p><p><strong>Type environment records the types of variables. Value environment records their values.</strong></p>]]></content>
     
     <summary type="html">
     
