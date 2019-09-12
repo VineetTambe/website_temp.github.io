@@ -112,25 +112,25 @@
 
 
 
-  <meta name="description" content="For testing">
+  <meta name="description" content="OCaml Notes">
 <meta name="keywords" content="Programming,Ocaml,Functional Programming">
 <meta property="og:type" content="article">
-<meta property="og:title" content="tttt">
-<meta property="og:url" content="http://yoursite.com/2019/09/12/Test/index.html">
+<meta property="og:title" content="OCaml Learning Notes">
+<meta property="og:url" content="http://yoursite.com/2019/09/12/OCaml Learning Notes/index.html">
 <meta property="og:site_name" content="Qingliu">
-<meta property="og:description" content="For testing">
+<meta property="og:description" content="OCaml Notes">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-12T23:18:29.189Z">
+<meta property="og:updated_time" content="2019-09-12T23:21:33.071Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tttt">
-<meta name="twitter:description" content="For testing">
+<meta name="twitter:title" content="OCaml Learning Notes">
+<meta name="twitter:description" content="OCaml Notes">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/09/12/Test/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/12/OCaml Learning Notes/">
 
 
 
@@ -140,7 +140,7 @@
   };
 </script>
 
-  <title>tttt | Qingliu</title>
+  <title>OCaml Learning Notes | Qingliu</title>
   
 
 
@@ -387,7 +387,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/12/Test/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/12/OCaml Learning Notes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Qingliu">
@@ -404,7 +404,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">tttt
+          <h1 class="post-title" itemprop="name headline">OCaml Learning Notes
               
             
           </h1>
@@ -429,7 +429,7 @@
                 
               
 
-              <time title="Created: 2019-09-12 12:54:34 / Modified: 18:18:29" itemprop="dateCreated datePublished" datetime="2019-09-12T12:54:34-05:00">2019-09-12</time>
+              <time title="Created: 2019-09-12 18:54:34 / Modified: 18:21:33" itemprop="dateCreated datePublished" datetime="2019-09-12T18:54:34-05:00">2019-09-12</time>
             
 
             
@@ -465,7 +465,7 @@
 
           
           
-             <span id="/2019/09/12/Test/" class="leancloud_visitors" data-flag-title="tttt">
+             <span id="/2019/09/12/OCaml Learning Notes/" class="leancloud_visitors" data-flag-title="OCaml Learning Notes">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -504,8 +504,22 @@
       
 
       
-        <a id="more"></a>
-<p>For testing</p>
+        <p>OCaml Notes</p>
+<a id="more"></a>
+<h1 id="Core-Language"><a href="#Core-Language" class="headerlink" title="Core Language"></a>Core Language</h1><p>First of all, the best REPL choice is <code>utop</code> program running under the terminal. Under this interactive environment, the OCaml phrases terminated with <code>;;</code> will be evaluated. User inputs (system command) are specified with <code>#</code>  at the beginning.</p>
+<p>Type assertion: <code>exp : typ</code>. The type assertion is said to be valid iff the expression <code>exp</code> has type <code>typ</code>.</p>
+<h2 id="Binding"><a href="#Binding" class="headerlink" title="Binding"></a>Binding</h2><p>Binding is permanent and can not be changed within specific scope of the program (normally the global scope).</p>
+<p>Syntax of <strong>type binding</strong>:</p>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> tycon = typ</span><br></pre></td></tr></table></figure>
+<p>Semantics: <code>tycon</code> is a type constructor, bound to type <code>typ</code></p>
+<p>Syntax of <strong>value binding</strong>:</p>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> var : typ = exp</span><br></pre></td></tr></table></figure>
+<p>Semantics: <code>var</code> is a variable, introduced the type <code>typ</code> and value <code>exp</code>. Notice that we must specify both the type and value of this type. There will be type-checking when binding, if succeed, expression <code>exp</code> will be evaluated first, and then its value is bound to variable <code>var</code>. If <code>exp</code> does not have a value, then binding never happens. (Notice that <code>None</code> is a value.)</p>
+<p><strong>Purpose of binding</strong>: Make a variable or type constructor available for use within its scope.</p>
+<p><strong>Substitution principle</strong>: A bound variable or type constructor is implicitly <em>replaced</em> by its binding prior to type checking and evaluation.</p>
+<p><strong>Compound Declarations (Bindings)</strong>: This is defined by sequential bindings of the form <em>dec1, dec2, …decn</em>, with nested scope.</p>
+<p><strong>Binding is not assignment</strong>: The binding of a variable never changes, once bound to a value, it is always bound to that value (within the scope of the binding). But we can <em>shadow</em> a binding by introducing a second binding for a variable within the scope of the first binding. One might say that old bindings never die, they just fade away.</p>
+<p><strong>Type environment records the types of variables. Value environment records their values.</strong></p>
 
       
     </div>
@@ -556,8 +570,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/12/OCaml Notes/" rel="next" title="OCaml Notes">
-                <i class="fa fa-chevron-left"></i> OCaml Notes
+              <a href="/2019/05/11/PyTorch Tutorial/" rel="next" title="PyTorch Tutorial">
+                <i class="fa fa-chevron-left"></i> PyTorch Tutorial
               </a>
             
           </div>
@@ -611,8 +625,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -627,7 +650,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -762,6 +785,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Core-Language"><span class="nav-number">1.</span> <span class="nav-text">Core Language</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Binding"><span class="nav-number">1.1.</span> <span class="nav-text">Binding</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
