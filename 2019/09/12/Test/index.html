@@ -112,34 +112,25 @@
 
 
 
-  <meta name="description" content="Deeplearning.ai Specialization Course Notes">
-<meta name="keywords" content="Programming,Python,Deep Learning,TensorFlow">
+  <meta name="description" content="For testing">
+<meta name="keywords" content="Programming,Ocaml,Functional Programming">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Sequence Models">
-<meta property="og:url" content="http://yoursite.com/2019/05/04/Sequence Models/index.html">
+<meta property="og:title" content="tttt">
+<meta property="og:url" content="http://yoursite.com/2019/09/12/Test/index.html">
 <meta property="og:site_name" content="Qingliu">
-<meta property="og:description" content="Deeplearning.ai Specialization Course Notes">
+<meta property="og:description" content="For testing">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-07-Week1-1.png">
-<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-07-Week1-2.png">
-<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-07-Week1-3.png">
-<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-07-Week1-4.png">
-<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-07-Week1-5.png">
-<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-07-Week1-6.png">
-<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-07-Week1-7.png">
-<meta property="og:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-07-Week1-8.png">
-<meta property="og:updated_time" content="2019-05-08T03:34:05.246Z">
+<meta property="og:updated_time" content="2019-09-12T23:18:29.189Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sequence Models">
-<meta name="twitter:description" content="Deeplearning.ai Specialization Course Notes">
-<meta name="twitter:image" content="https://azure-pictures.s3.amazonaws.com/blog/2019-05-07-Week1-1.png">
+<meta name="twitter:title" content="tttt">
+<meta name="twitter:description" content="For testing">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/05/04/Sequence Models/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/12/Test/">
 
 
 
@@ -149,7 +140,7 @@
   };
 </script>
 
-  <title>Sequence Models | Qingliu</title>
+  <title>tttt | Qingliu</title>
   
 
 
@@ -396,7 +387,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/04/Sequence Models/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/12/Test/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Qingliu">
@@ -413,7 +404,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Sequence Models
+          <h1 class="post-title" itemprop="name headline">tttt
               
             
           </h1>
@@ -438,24 +429,12 @@
                 
               
 
-              <time title="Created: 2019-05-04 20:51:34" itemprop="dateCreated datePublished" datetime="2019-05-04T20:51:34-05:00">2019-05-04</time>
+              <time title="Created: 2019-09-12 12:54:34 / Modified: 18:18:29" itemprop="dateCreated datePublished" datetime="2019-09-12T12:54:34-05:00">2019-09-12</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-05-07 22:34:05" itemprop="dateModified" datetime="2019-05-07T22:34:05-05:00">2019-05-07</time>
               
             
           </span>
@@ -486,7 +465,7 @@
 
           
           
-             <span id="/2019/05/04/Sequence Models/" class="leancloud_visitors" data-flag-title="Sequence Models">
+             <span id="/2019/09/12/Test/" class="leancloud_visitors" data-flag-title="tttt">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -525,60 +504,8 @@
       
 
       
-        <p>Deeplearning.ai Specialization</p>
-<p>Course Notes</p>
-<a id="more"></a>
-<h1 id="Week-1"><a href="#Week-1" class="headerlink" title="Week 1"></a>Week 1</h1><h2 id="Recurrent-Neural-Networks"><a href="#Recurrent-Neural-Networks" class="headerlink" title="Recurrent Neural Networks"></a>Recurrent Neural Networks</h2><p>Speech recognition</p>
-<p>Music generation</p>
-<p>Sentiment classification</p>
-<p>DNA sequence analysis</p>
-<p>Machine translation</p>
-<p>Video activity recognition</p>
-<p>Name entity recognition</p>
-<p><strong>Representing words</strong></p>
-<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-07-Week1-1.png" style="zoom:60%"><br></center>
-
-
-<p>Problem of a standard network:</p>
-<ul>
-<li>Inputs, outputs can be different lengths in different examples.</li>
-<li>Doesn’t share features learned across different positions of text.</li>
-</ul>
-<p><strong>Recurrent Neural Networks</strong></p>
-<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-07-Week1-2.png" style="zoom:60%"><br></center>
-
-<p>Bidirectional RNN (BRNN)</p>
-<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-07-Week1-3.png" style="zoom:60%"><br></center>
-
-<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-07-Week1-4.png" style="zoom:60%"><br></center>
-
-
-
-<p><strong>RNN architectures</strong></p>
-<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-07-Week1-5.png" style="zoom:60%"><br></center>
-
-<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-07-Week1-6.png" style="zoom:60%"><br></center>
-
-<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-07-Week1-7.png" style="zoom:60%"><br></center>
-
-
-
-<p><strong>Language model</strong></p>
-<p>Given a sentence, tell you the probability of that setence.</p>
-<p>Training set: large corpus of English text</p>
-<p>Tolenize: form a vocabulary and map each individual word into this vocabulary. The unknown is replaced with a unique token \&lt;UNK></p>
-<center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-05-07-Week1-8.png" style="zoom:60%"><br></center>
-
-
-
-<p><strong>Sampling sequence from a trained RNN</strong></p>
-<h2 id="Programming-Assignment-Building-a-recurrent-neural-network-step-by-step"><a href="#Programming-Assignment-Building-a-recurrent-neural-network-step-by-step" class="headerlink" title="Programming Assignment: Building a recurrent neural network - step by step"></a>Programming Assignment: Building a recurrent neural network - step by step</h2><p><a href>Building a recurrent neural network - step by step</a></p>
-<h2 id="Programming-Assignment-Dinosaur-Island-Character-Level-Language-Modeling"><a href="#Programming-Assignment-Dinosaur-Island-Character-Level-Language-Modeling" class="headerlink" title="Programming Assignment: Dinosaur Island - Character-Level Language Modeling"></a>Programming Assignment: Dinosaur Island - Character-Level Language Modeling</h2><p><a href>Dinosaur Island - Character-Level Language Modeling</a></p>
-<h2 id="Programming-Assignment-Jazz-improvisation-with-LSTM"><a href="#Programming-Assignment-Jazz-improvisation-with-LSTM" class="headerlink" title="Programming Assignment: Jazz improvisation with LSTM"></a>Programming Assignment: Jazz improvisation with LSTM</h2><p><a href>Jazz improvisation with LSTM</a></p>
-<h1 id="Week-2"><a href="#Week-2" class="headerlink" title="Week 2"></a>Week 2</h1><h2 id="Natural-Language-Processing-amp-Word-Embeddings"><a href="#Natural-Language-Processing-amp-Word-Embeddings" class="headerlink" title="Natural Language Processing &amp; Word Embeddings"></a>Natural Language Processing &amp; Word Embeddings</h2><h2 id="Programming-Assignment-Oprations-on-word-vectors-Debiasing"><a href="#Programming-Assignment-Oprations-on-word-vectors-Debiasing" class="headerlink" title="Programming Assignment: Oprations on word vectors - Debiasing"></a>Programming Assignment: Oprations on word vectors - Debiasing</h2><p><a href>Operations on word vectors - Debiasing</a></p>
-<h2 id="Programming-Assignment-Emojify"><a href="#Programming-Assignment-Emojify" class="headerlink" title="Programming Assignment: Emojify"></a>Programming Assignment: Emojify</h2><p><a href>Emojify</a></p>
-<h1 id="Week-3"><a href="#Week-3" class="headerlink" title="Week 3"></a>Week 3</h1><h2 id="Sequence-models-amp-Attention-mechanism"><a href="#Sequence-models-amp-Attention-mechanism" class="headerlink" title="Sequence models &amp; Attention mechanism"></a>Sequence models &amp; Attention mechanism</h2><h2 id="Programming-Assignment-Neural-Machine-Translation-with-Attention"><a href="#Programming-Assignment-Neural-Machine-Translation-with-Attention" class="headerlink" title="Programming Assignment: Neural Machine Translation with Attention"></a>Programming Assignment: Neural Machine Translation with Attention</h2><p><a href>Neural Machine Translation with Attention</a></p>
-<h2 id="Programming-Assignment-Trigger-word-detection"><a href="#Programming-Assignment-Trigger-word-detection" class="headerlink" title="Programming Assignment: Trigger word detection"></a>Programming Assignment: Trigger word detection</h2><p><a href>Trigger word detection</a></p>
+        <a id="more"></a>
+<p>For testing</p>
 
       
     </div>
@@ -614,11 +541,9 @@
           
             <a href="/tags/Programming/" rel="tag"><i class="fa fa-tag"></i> Programming</a>
           
-            <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+            <a href="/tags/Ocaml/" rel="tag"><i class="fa fa-tag"></i> Ocaml</a>
           
-            <a href="/tags/Deep-Learning/" rel="tag"><i class="fa fa-tag"></i> Deep Learning</a>
-          
-            <a href="/tags/TensorFlow/" rel="tag"><i class="fa fa-tag"></i> TensorFlow</a>
+            <a href="/tags/Functional-Programming/" rel="tag"><i class="fa fa-tag"></i> Functional Programming</a>
           
         </div>
       
@@ -631,8 +556,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/25/Convolutional Neural Networks/" rel="next" title="Convolutional Neural Networks">
-                <i class="fa fa-chevron-left"></i> Convolutional Neural Networks
+              <a href="/2019/09/12/OCaml Notes/" rel="next" title="OCaml Notes">
+                <i class="fa fa-chevron-left"></i> OCaml Notes
               </a>
             
           </div>
@@ -640,10 +565,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/05/Algorithms-Part-2/" rel="prev" title="Algorithms, Part 2">
-                Algorithms, Part 2 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -690,17 +611,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -850,22 +762,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-1"><span class="nav-number">1.</span> <span class="nav-text">Week 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Recurrent-Neural-Networks"><span class="nav-number">1.1.</span> <span class="nav-text">Recurrent Neural Networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Building-a-recurrent-neural-network-step-by-step"><span class="nav-number">1.2.</span> <span class="nav-text">Programming Assignment: Building a recurrent neural network - step by step</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Dinosaur-Island-Character-Level-Language-Modeling"><span class="nav-number">1.3.</span> <span class="nav-text">Programming Assignment: Dinosaur Island - Character-Level Language Modeling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Jazz-improvisation-with-LSTM"><span class="nav-number">1.4.</span> <span class="nav-text">Programming Assignment: Jazz improvisation with LSTM</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-2"><span class="nav-number">2.</span> <span class="nav-text">Week 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Natural-Language-Processing-amp-Word-Embeddings"><span class="nav-number">2.1.</span> <span class="nav-text">Natural Language Processing &amp; Word Embeddings</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Oprations-on-word-vectors-Debiasing"><span class="nav-number">2.2.</span> <span class="nav-text">Programming Assignment: Oprations on word vectors - Debiasing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Emojify"><span class="nav-number">2.3.</span> <span class="nav-text">Programming Assignment: Emojify</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-3"><span class="nav-number">3.</span> <span class="nav-text">Week 3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sequence-models-amp-Attention-mechanism"><span class="nav-number">3.1.</span> <span class="nav-text">Sequence models &amp; Attention mechanism</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Neural-Machine-Translation-with-Attention"><span class="nav-number">3.2.</span> <span class="nav-text">Programming Assignment: Neural Machine Translation with Attention</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-Assignment-Trigger-word-detection"><span class="nav-number">3.3.</span> <span class="nav-text">Programming Assignment: Trigger word detection</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
