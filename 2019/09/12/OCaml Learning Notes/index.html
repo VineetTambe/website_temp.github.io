@@ -120,7 +120,7 @@
 <meta property="og:site_name" content="Qingliu">
 <meta property="og:description" content="OCaml Notes">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-13T21:32:06.448Z">
+<meta property="og:updated_time" content="2019-09-21T19:37:51.310Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OCaml Learning Notes">
 <meta name="twitter:description" content="OCaml Notes">
@@ -446,7 +446,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-13 16:32:06" itemprop="dateModified" datetime="2019-09-13T16:32:06-05:00">2019-09-13</time>
+                <time title="Modified: 2019-09-21 14:37:51" itemprop="dateModified" datetime="2019-09-21T14:37:51-05:00">2019-09-21</time>
               
             
           </span>
@@ -527,6 +527,7 @@
 <p>Syntax of <strong>value binding</strong>:</p>
 <figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> var : typ = exp</span><br></pre></td></tr></table></figure>
 <p>Semantics: <code>var</code> is a variable, introduced the type <code>typ</code> and value <code>exp</code>. Notice that we must specify both the type and value of this type. There will be type-checking when binding, if succeed, expression <code>exp</code> will be evaluated first, and then its value is bound to variable <code>var</code>. If <code>exp</code> does not have a value, then binding never happens. (Notice that <code>None</code> is a value.)</p>
+<p>Variable name must start with a lowercase letter or an underscore and excludes other punctuations.</p>
 <p><strong>Purpose of binding</strong>: Make a variable or type constructor available for use within its scope.</p>
 <p><strong>Substitution principle</strong>: A bound variable or type constructor is implicitly <em>replaced</em> by its binding prior to type checking and evaluation.</p>
 <p><strong>Compound Declarations (Bindings)</strong>: This is defined by sequential bindings of the form <em>dec1, dec2, …decn</em>, with nested scope.</p>
@@ -549,6 +550,10 @@
 <figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># <span class="string">'a'</span>;;</span><br><span class="line">- : <span class="built_in">char</span> = <span class="string">'a'</span></span><br><span class="line"></span><br><span class="line"># int_of_char <span class="string">'\n'</span></span><br><span class="line">- : <span class="built_in">int</span> = <span class="number">10</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>unit ()</li>
+</ul>
+<p>Unit type is useful in signaling the completion of some program. Ex:</p>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">match</span> print_endline <span class="string">"first string"</span> <span class="keyword">with</span></span><br><span class="line">| <span class="literal">()</span> -&gt; print_endline <span class="string">"second string"</span></span><br></pre></td></tr></table></figure>
+<ul>
 <li>immutable character strings</li>
 </ul>
 <figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># <span class="string">"Hello"</span> ^ <span class="string">" "</span> ^ <span class="string">"world"</span>;;</span><br><span class="line">- : <span class="built_in">string</span> = <span class="string">"Hello world"</span></span><br></pre></td></tr></table></figure>
@@ -556,6 +561,32 @@
 <li>list (constructed data type)</li>
 </ul>
 <figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># <span class="keyword">let</span> l = [<span class="string">"is"</span>; <span class="string">"a"</span>; <span class="string">"tale"</span>; <span class="string">"told"</span>; <span class="string">"etc."</span>];;</span><br><span class="line"><span class="keyword">val</span> l : <span class="built_in">string</span> <span class="built_in">list</span> = [<span class="string">"is"</span>; <span class="string">"a"</span>; <span class="string">"tale"</span>; <span class="string">"told"</span>; <span class="string">"etc."</span>]</span><br><span class="line"></span><br><span class="line"># <span class="string">"Life"</span> :: l;;</span><br><span class="line">- : <span class="built_in">string</span> <span class="built_in">list</span> = [<span class="string">"Life"</span>; <span class="string">"is"</span>; <span class="string">"a"</span>; <span class="string">"tale"</span>; <span class="string">"told"</span>; <span class="string">"etc."</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="Compound-Data-Types"><a href="#Compound-Data-Types" class="headerlink" title="Compound Data Types:"></a>Compound Data Types:</h2><ul>
+<li>Tuples</li>
+</ul>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># <span class="keyword">let</span> a_tuple : <span class="built_in">int</span> * <span class="built_in">string</span> = (<span class="number">3</span>, <span class="string">"three"</span>);;</span><br></pre></td></tr></table></figure>
+<p>A tuple is an ordered collection of values that can each be of a different type.</p>
+<ul>
+<li>Lists</li>
+</ul>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># [<span class="number">1</span>; <span class="number">2</span>; <span class="number">3</span>];;</span><br><span class="line"># <span class="number">1</span> :: (<span class="number">2</span> :: (<span class="number">3</span> :: <span class="literal">[]</span>));;</span><br><span class="line"># <span class="number">1</span> :: <span class="number">2</span> :: <span class="number">3</span> :: <span class="literal">[]</span>;;</span><br></pre></td></tr></table></figure>
+<p>The bracket notation is a syntax sugar for <code>::</code>. <code>::</code> is right-associative.</p>
+<p><code>@</code> can be used to concatenate two lists. (not a constant-time operation)</p>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># [<span class="number">1</span>; <span class="number">2</span>; <span class="number">3</span>] @ [<span class="number">4</span>; <span class="number">5</span>; <span class="number">6</span>];;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Options</li>
+</ul>
+<p>An option is used to express that a value might or might not be present.</p>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># <span class="keyword">let</span> divide x y =</span><br><span class="line">	<span class="keyword">if</span> y = <span class="number">0</span> <span class="keyword">then</span> <span class="type">None</span> <span class="keyword">else</span> <span class="type">Some</span> (x/y) ;;</span><br></pre></td></tr></table></figure>
+<p>Keywords <code>Some</code> and <code>None</code> are construtors that let us build optional values. To examine the contents of an option, we use pattern matching.</p>
+<p>The <code>None</code> type is useful in many situations, for example, when allocating memory, if the allocation fails, return <code>None</code> value is usually a good choice.</p>
+<ul>
+<li>Records</li>
+</ul>
+<p>We can also define our own data type.</p>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># <span class="keyword">type</span> point2d = &#123; x : <span class="built_in">float</span>; y : <span class="built_in">float</span>&#125;;;</span><br></pre></td></tr></table></figure>
+<p>Dot notation for accessing record fields:</p>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> magnitude &#123; x; y&#125; = sqrt (x ** <span class="number">2.</span> +. y ** <span class="number">2.</span>);;</span><br><span class="line"># <span class="keyword">let</span> distance v1 v2 =</span><br><span class="line">	magnitude &#123; x = v1.x -. v2.x; y = v1.y -. v2.y&#125;;;</span><br></pre></td></tr></table></figure>
 <h2 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h2><p>OCaml use <em>typer inference</em> to work out the types.</p>
 <p>OCaml doesn’t do any implicit casting nor do any automatic conversion.</p>
 <p>A function which takes input of type <code>a</code> and can often give an output of type <code>b</code> may declare itself as type <code>a -&gt; b option</code>, indicating that it may give a <code>None</code> value for some reason.</p>
@@ -843,7 +874,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Core-Language"><span class="nav-number">1.</span> <span class="nav-text">Core Language</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Binding"><span class="nav-number">1.1.</span> <span class="nav-text">Binding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Primitive-Data-Types"><span class="nav-number">1.2.</span> <span class="nav-text">Primitive Data Types</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function"><span class="nav-number">1.3.</span> <span class="nav-text">Function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-Expression"><span class="nav-number">1.3.1.</span> <span class="nav-text">Function Expression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-with-Multiple-Parameters"><span class="nav-number">1.3.2.</span> <span class="nav-text">Function with Multiple Parameters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bind-Function-to-Variable"><span class="nav-number">1.3.3.</span> <span class="nav-text">Bind Function to Variable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Define-Named-Function-another-syntax"><span class="nav-number">1.3.4.</span> <span class="nav-text">Define Named Function (another syntax)</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Core-Language"><span class="nav-number">1.</span> <span class="nav-text">Core Language</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Binding"><span class="nav-number">1.1.</span> <span class="nav-text">Binding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Primitive-Data-Types"><span class="nav-number">1.2.</span> <span class="nav-text">Primitive Data Types</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Compound-Data-Types"><span class="nav-number">1.3.</span> <span class="nav-text">Compound Data Types:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function"><span class="nav-number">1.4.</span> <span class="nav-text">Function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-Expression"><span class="nav-number">1.4.1.</span> <span class="nav-text">Function Expression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-with-Multiple-Parameters"><span class="nav-number">1.4.2.</span> <span class="nav-text">Function with Multiple Parameters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bind-Function-to-Variable"><span class="nav-number">1.4.3.</span> <span class="nav-text">Bind Function to Variable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Define-Named-Function-another-syntax"><span class="nav-number">1.4.4.</span> <span class="nav-text">Define Named Function (another syntax)</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -906,7 +937,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 29.5k words</span>
+  <span class="post-count">Total 29.8k words</span>
 </div>
 
         
