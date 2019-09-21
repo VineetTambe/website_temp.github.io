@@ -120,7 +120,7 @@
 <meta property="og:site_name" content="Qingliu">
 <meta property="og:description" content="OCaml Notes">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-21T19:37:51.310Z">
+<meta property="og:updated_time" content="2019-09-21T19:58:44.487Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OCaml Learning Notes">
 <meta name="twitter:description" content="OCaml Notes">
@@ -446,7 +446,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-21 14:37:51" itemprop="dateModified" datetime="2019-09-21T14:37:51-05:00">2019-09-21</time>
+                <time title="Modified: 2019-09-21 14:58:44" itemprop="dateModified" datetime="2019-09-21T14:58:44-05:00">2019-09-21</time>
               
             
           </span>
@@ -535,7 +535,9 @@
 <p><strong>Type environment records the types of variables. Value environment records their values.</strong></p>
 <p><strong>local binding</strong>: </p>
 <figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x = u <span class="keyword">in</span> v</span><br></pre></td></tr></table></figure>
-<p>The binding of <code>x</code> to the result of <code>u</code> is only visible within the expression <code>v</code>.</p>
+<p>The binding of <code>x</code> to the result of <code>u</code> is only visible within the expression <code>v</code>. The semantics is to evaluate <code>u</code> first and bind to variable <code>x</code>, finally evaluate <code>v</code> with this bounded variable <code>x</code>.</p>
+<p>Notes: local binding shadowing only happens during that binding period, for example:</p>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x = <span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> y = <span class="keyword">let</span> x = <span class="number">2</span> <span class="keyword">in</span> x</span><br><span class="line"><span class="keyword">let</span> z = x + <span class="number">2</span></span><br><span class="line"><span class="comment">(* z will be binded to 3, not 4 because the global binding of x becomes visible again *)</span></span><br></pre></td></tr></table></figure>
 <h2 id="Primitive-Data-Types"><a href="#Primitive-Data-Types" class="headerlink" title="Primitive Data Types"></a>Primitive Data Types</h2><ul>
 <li>int (31-bit sign int on 32-bit processors or 63-bit sign int on 64-bit processors)</li>
 <li>float (IEEE double-precision floating point)</li>
@@ -592,6 +594,17 @@
 <p>A function which takes input of type <code>a</code> and can often give an output of type <code>b</code> may declare itself as type <code>a -&gt; b option</code>, indicating that it may give a <code>None</code> value for some reason.</p>
 <h3 id="Function-Expression"><a href="#Function-Expression" class="headerlink" title="Function Expression"></a>Function Expression</h3><p>Function is an expression which can be evaluated.</p>
 <figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">(* syntax for a function expression*)</span></span><br><span class="line"><span class="keyword">fun</span> n -&gt; n + <span class="number">1</span>;;</span><br><span class="line"></span><br><span class="line"><span class="comment">(* applying a function to a value *)</span></span><br><span class="line">(<span class="keyword">fun</span> n -&gt; n + <span class="number">1</span>) <span class="number">2</span>;;</span><br></pre></td></tr></table></figure>
+<h3 id="Function-type"><a href="#Function-type" class="headerlink" title="Function type"></a>Function type</h3><p>Each function has a type, which can be writen as:</p>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a -&gt; b</span><br></pre></td></tr></table></figure>
+<p>Where <code>a</code> is its domain, and <code>b</code> is its codoman.</p>
+<p>The arrow operation is right-associative, so the following two type specifications are the same:</p>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> -&gt; (<span class="built_in">int</span> -&gt; (<span class="built_in">bool</span> -&gt; <span class="built_in">int</span>))</span><br><span class="line"><span class="built_in">int</span> -&gt; <span class="built_in">int</span> -&gt; <span class="built_in">bool</span> -&gt; <span class="built_in">int</span></span><br></pre></td></tr></table></figure>
+<h3 id="Annotations"><a href="#Annotations" class="headerlink" title="Annotations"></a>Annotations</h3><p>There may be some ambiguity for function annotation, for example:</p>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fun</span> x : <span class="built_in">int</span> -&gt; exp</span><br></pre></td></tr></table></figure>
+<p>actually means</p>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fun</span> x -&gt; (exp : <span class="built_in">int</span>)</span><br></pre></td></tr></table></figure>
+<p>To annotate the parameter, we have to include a parathesis:</p>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fun</span> (x : <span class="built_in">int</span>) -&gt; exp</span><br></pre></td></tr></table></figure>
 <h3 id="Function-with-Multiple-Parameters"><a href="#Function-with-Multiple-Parameters" class="headerlink" title="Function with Multiple Parameters"></a>Function with Multiple Parameters</h3><figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">(* syntax, the parameter type and expression type is auto-checked by type checking mechanism*)</span></span><br><span class="line"><span class="keyword">fun</span> x y -&gt; x +. y;;</span><br><span class="line"></span><br><span class="line"><span class="comment">(* apply to 2 arguments *)</span></span><br><span class="line">(<span class="keyword">fun</span> x y -&gt; x +. y) <span class="number">3.</span> <span class="number">4.</span> ;;</span><br></pre></td></tr></table></figure>
 <h3 id="Bind-Function-to-Variable"><a href="#Bind-Function-to-Variable" class="headerlink" title="Bind Function to Variable"></a>Bind Function to Variable</h3><figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> f = <span class="keyword">fun</span> n -&gt; n + <span class="number">1</span>;;</span><br><span class="line">f <span class="number">2</span>;;</span><br></pre></td></tr></table></figure>
 <h3 id="Define-Named-Function-another-syntax"><a href="#Define-Named-Function-another-syntax" class="headerlink" title="Define Named Function (another syntax)"></a>Define Named Function (another syntax)</h3><ul>
@@ -874,7 +887,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Core-Language"><span class="nav-number">1.</span> <span class="nav-text">Core Language</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Binding"><span class="nav-number">1.1.</span> <span class="nav-text">Binding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Primitive-Data-Types"><span class="nav-number">1.2.</span> <span class="nav-text">Primitive Data Types</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Compound-Data-Types"><span class="nav-number">1.3.</span> <span class="nav-text">Compound Data Types:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function"><span class="nav-number">1.4.</span> <span class="nav-text">Function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-Expression"><span class="nav-number">1.4.1.</span> <span class="nav-text">Function Expression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-with-Multiple-Parameters"><span class="nav-number">1.4.2.</span> <span class="nav-text">Function with Multiple Parameters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bind-Function-to-Variable"><span class="nav-number">1.4.3.</span> <span class="nav-text">Bind Function to Variable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Define-Named-Function-another-syntax"><span class="nav-number">1.4.4.</span> <span class="nav-text">Define Named Function (another syntax)</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Core-Language"><span class="nav-number">1.</span> <span class="nav-text">Core Language</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Binding"><span class="nav-number">1.1.</span> <span class="nav-text">Binding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Primitive-Data-Types"><span class="nav-number">1.2.</span> <span class="nav-text">Primitive Data Types</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Compound-Data-Types"><span class="nav-number">1.3.</span> <span class="nav-text">Compound Data Types:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function"><span class="nav-number">1.4.</span> <span class="nav-text">Function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-Expression"><span class="nav-number">1.4.1.</span> <span class="nav-text">Function Expression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-type"><span class="nav-number">1.4.2.</span> <span class="nav-text">Function type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Annotations"><span class="nav-number">1.4.3.</span> <span class="nav-text">Annotations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-with-Multiple-Parameters"><span class="nav-number">1.4.4.</span> <span class="nav-text">Function with Multiple Parameters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bind-Function-to-Variable"><span class="nav-number">1.4.5.</span> <span class="nav-text">Bind Function to Variable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Define-Named-Function-another-syntax"><span class="nav-number">1.4.6.</span> <span class="nav-text">Define Named Function (another syntax)</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -937,7 +950,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 29.8k words</span>
+  <span class="post-count">Total 29.9k words</span>
 </div>
 
         
