@@ -120,7 +120,7 @@
 <meta property="og:site_name" content="Qingliu">
 <meta property="og:description" content="ACM算法笔记">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-28T03:20:33.850Z">
+<meta property="og:updated_time" content="2019-09-28T03:53:04.755Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ACM算法笔记">
 <meta name="twitter:description" content="ACM算法笔记">
@@ -446,7 +446,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-27 22:20:33" itemprop="dateModified" datetime="2019-09-27T22:20:33-05:00">2019-09-27</time>
+                <time title="Modified: 2019-09-27 22:53:04" itemprop="dateModified" datetime="2019-09-27T22:53:04-05:00">2019-09-27</time>
               
             
           </span>
@@ -542,6 +542,11 @@
 <p>迭代加深每次只考虑深度不超过maxd的结点。</p>
 <p>对于回溯求解但解答树室深度没有上限的题目，可以考虑使用迭代加深搜索。</p>
 <p>没看懂。。。</p>
+<h1 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h1><p>多练题</p>
+<h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><p>关键字：状态、状态转移、最优子结构（全局最优解包含局部最优解）</p>
+<p>状态和状态转移方程一起描述算法，也是动态规划的核心</p>
+<p>记忆化搜索，逆序枚举可以优化时间复杂度</p>
+<p>多练题</p>
 
       
     </div>
@@ -821,7 +826,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#欧拉回路"><span class="nav-number">1.</span> <span class="nav-text">欧拉回路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#枚举排列"><span class="nav-number">2.</span> <span class="nav-text">枚举排列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#子集生成"><span class="nav-number">3.</span> <span class="nav-text">子集生成</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#位向量法"><span class="nav-number">3.1.</span> <span class="nav-text">位向量法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二进制法"><span class="nav-number">3.2.</span> <span class="nav-text">二进制法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回溯"><span class="nav-number">4.</span> <span class="nav-text">回溯</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#八皇后"><span class="nav-number">4.1.</span> <span class="nav-text">八皇后</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#素数环"><span class="nav-number">4.2.</span> <span class="nav-text">素数环</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#状态空间搜索"><span class="nav-number">5.</span> <span class="nav-text">状态空间搜索</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#迭代加深搜索"><span class="nav-number">6.</span> <span class="nav-text">迭代加深搜索</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#欧拉回路"><span class="nav-number">1.</span> <span class="nav-text">欧拉回路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#枚举排列"><span class="nav-number">2.</span> <span class="nav-text">枚举排列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#子集生成"><span class="nav-number">3.</span> <span class="nav-text">子集生成</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#位向量法"><span class="nav-number">3.1.</span> <span class="nav-text">位向量法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二进制法"><span class="nav-number">3.2.</span> <span class="nav-text">二进制法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回溯"><span class="nav-number">4.</span> <span class="nav-text">回溯</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#八皇后"><span class="nav-number">4.1.</span> <span class="nav-text">八皇后</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#素数环"><span class="nav-number">4.2.</span> <span class="nav-text">素数环</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#状态空间搜索"><span class="nav-number">5.</span> <span class="nav-text">状态空间搜索</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#迭代加深搜索"><span class="nav-number">6.</span> <span class="nav-text">迭代加深搜索</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分治"><span class="nav-number">7.</span> <span class="nav-text">分治</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态规划"><span class="nav-number">8.</span> <span class="nav-text">动态规划</span></a></li></ol></div>
             
 
           </div>
