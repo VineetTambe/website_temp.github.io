@@ -120,7 +120,7 @@
 <meta property="og:site_name" content="Qingliu">
 <meta property="og:description" content="ACM算法笔记">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-01T06:39:07.625Z">
+<meta property="og:updated_time" content="2019-10-01T06:54:41.674Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ACM算法笔记">
 <meta name="twitter:description" content="ACM算法笔记">
@@ -446,7 +446,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-01 01:39:07" itemprop="dateModified" datetime="2019-10-01T01:39:07-05:00">2019-10-01</time>
+                <time title="Modified: 2019-10-01 01:54:41" itemprop="dateModified" datetime="2019-10-01T01:54:41-05:00">2019-10-01</time>
               
             
           </span>
@@ -556,7 +556,7 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">memset</span>(vis, <span class="number">0</span>, <span class="keyword">sizeof</span>(vis));</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>; i&lt;=n; i++)</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=i*<span class="number">2</span>; j&lt;=n; j+=i)</span><br><span class="line">        vis[j] = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
 <p>内层循环次数是<br>$$<br>\sum_{i=2}^{n} \frac{n}{i} = O(nlogn)<br>$$<br>来源于欧拉常数的公式</p>
 <p>注意到两个细节：外层循环筛其实只要基于素数基就行，可以加一个判断条件以实现；内层循环可以从$i*i$开始，直观理解是，$i$乘以任何一个小于$i$的数都在之前的外循环被筛掉了。</p>
-<p>综上两条，修改后的筛法如下：</p>
+<p>综上两条，修改后的筛法如下(欧拉线性筛？核心是那条判断以及内循环的下界)：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> m = <span class="built_in">sqrt</span>(n+<span class="number">0.5</span>);</span><br><span class="line"><span class="built_in">memset</span>(vis, <span class="number">0</span>, <span class="keyword">sizeof</span>(vis));</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>; i&lt;=m; i++)	<span class="keyword">if</span>(!vis[i])</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j=i*i; j&lt;=n; j++)	vis[j] = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
 <p>不超过$x$的素数约有(素数定理)：<br>$$<br>\frac{x}{lnx}<br>$$</p>
 <h1 id="扩展欧几里德算法"><a href="#扩展欧几里德算法" class="headerlink" title="扩展欧几里德算法"></a>扩展欧几里德算法</h1><p>问题：求直线$ax+by+c=0$上有多少个整点$(x,y)$满足$x\in[x_1,x_2], y\in[y_1,y_2]$。</p>
