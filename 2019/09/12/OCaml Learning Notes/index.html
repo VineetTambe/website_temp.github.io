@@ -120,7 +120,7 @@
 <meta property="og:site_name" content="Qingliu">
 <meta property="og:description" content="OCaml Notes">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-21T19:58:44.487Z">
+<meta property="og:updated_time" content="2019-10-12T03:50:46.571Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OCaml Learning Notes">
 <meta name="twitter:description" content="OCaml Notes">
@@ -446,7 +446,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-21 14:58:44" itemprop="dateModified" datetime="2019-09-21T14:58:44-05:00">2019-09-21</time>
+                <time title="Modified: 2019-10-11 22:50:46" itemprop="dateModified" datetime="2019-10-11T22:50:46-05:00">2019-10-11</time>
               
             
           </span>
@@ -518,7 +518,8 @@
       
         <p>OCaml Notes</p>
 <a id="more"></a>
-<h1 id="Core-Language"><a href="#Core-Language" class="headerlink" title="Core Language"></a>Core Language</h1><p>First of all, the best REPL choice is <code>utop</code> program running under the terminal. Under this interactive environment, the OCaml phrases terminated with <code>;;</code> will be evaluated. User inputs (system command) are specified with <code>#</code>  at the beginning.</p>
+<h1 id="Part-1"><a href="#Part-1" class="headerlink" title="Part 1"></a>Part 1</h1><p>Part 1 is a basic introduction of OCaml syntax and characteristics as a functional language. Also we introduce some mechanism such as <strong>pattern matching</strong> and <strong>polymorphism</strong> to make it distinguished.</p>
+<p>First of all, the best REPL choice is <code>utop</code> program running under the terminal. Under this interactive environment, the OCaml phrases terminated with <code>;;</code> will be evaluated. User inputs (system command) are specified with <code>#</code>  at the beginning.</p>
 <p>Type assertion: <code>exp : typ</code>. The type assertion is said to be valid iff the expression <code>exp</code> has type <code>typ</code>.</p>
 <h2 id="Binding"><a href="#Binding" class="headerlink" title="Binding"></a>Binding</h2><p>Binding is permanent and can not be changed within specific scope of the program (normally the global scope).</p>
 <p>Syntax of <strong>type binding</strong>:</p>
@@ -612,6 +613,31 @@
 <li><code>let f p1 p2 ... = expr</code></li>
 </ul>
 <figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> f x = x + <span class="number">1</span>;;</span><br><span class="line">f <span class="number">3</span>;;</span><br><span class="line"><span class="keyword">let</span> f x y = x + y;;</span><br><span class="line">f <span class="number">3</span> <span class="number">4</span>;;</span><br></pre></td></tr></table></figure>
+<h2 id="Polymorphism"><a href="#Polymorphism" class="headerlink" title="Polymorphism"></a>Polymorphism</h2><figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> id : <span class="symbol">'a</span> . <span class="symbol">'a</span> -&gt; <span class="symbol">'a</span></span><br><span class="line">  = <span class="keyword">fun</span> x -&gt; x</span><br></pre></td></tr></table></figure>
+<p>By type annotating the function in this way, we are saying that <code>id</code> function is of type <code>a -&gt; a</code> for any type <code>a</code>. For example, <code>id</code> can be of the types <code>int -&gt; int</code>, <code>bool -&gt; bool</code> or <code>string -&gt; string</code>. The type checking will all pass by annotating in this way.</p>
+<h3 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h3><figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">'a1</span> <span class="symbol">'a2</span> <span class="symbol">'a3</span> ... <span class="symbol">'an</span> . <span class="keyword">type</span></span><br></pre></td></tr></table></figure>
+<p>The type variables before the dot <code>.</code> Are like universal quantifiers, forcing OCaml to check the generality of the value.</p>
+<h1 id="Part-2"><a href="#Part-2" class="headerlink" title="Part 2"></a>Part 2</h1><h2 id="Induction"><a href="#Induction" class="headerlink" title="Induction"></a>Induction</h2><p>Mathematical induction has two important components:</p>
+<ol>
+<li>Case analysis.</li>
+<li>The ability to assume that the theorem we want to prove holds for “smaller” objects.</li>
+</ol>
+<p>General form of induction works on any mathematical objects with <strong>well-founded</strong> relation (no infinite descending chains). The order chosen for induction is called induction order.</p>
+<p>The proof following the general form of induction involves:</p>
+<ul>
+<li>We want to prove some property <code>P(x)</code> about some collection of mathematical objects <code>x</code>.</li>
+<li>We choose a good order <code>R</code> as the induction order. (For the mathematical induction, <code>R(x,y)</code> if and only if <code>x + 1 = y</code>.)</li>
+<li>We prove that, for any <code>x</code>, if <code>P(x&#39;)</code> holds for any <code>x&#39;</code> such that <code>R(x&#39;, x)</code>, then <code>P(x)</code> holds.</li>
+<li>We conclude that the property <code>P(x)</code> holds for every such mathematical object <code>x</code>.</li>
+</ul>
+<p>Examples of <strong>well-founded</strong> relation: “subtree” relation for binary trees, “sublist” relation for finite lists.</p>
+<p>For example, for <code>a list</code>, we define the relation as <code>R(l1, l2)</code> if and only if <code>l1</code> is a proper suffix of <code>l2</code>. The partition for lists can be either empty list <code>[]</code> with no suffix, or <code>hd :: tl</code>. Then, we perform the following steps:</p>
+<ul>
+<li>We want to prove some property <code>P(l)</code> about values <code>l</code> of type <code>a list</code>.</li>
+<li>We show that <code>P([])</code> holds. (There is no proper suffix).</li>
+<li>We show that for non-empty list <code>l</code> of form <code>hd :: tl</code>, if <code>P(l&#39;)</code> holds for all proper suffixes, then <code>P(l)</code> is true.</li>
+<li>We conclude that the property <code>P(l)</code> holds for any list <code>l</code>.</li>
+</ul>
 
       
     </div>
@@ -895,7 +921,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Core-Language"><span class="nav-number">1.</span> <span class="nav-text">Core Language</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Binding"><span class="nav-number">1.1.</span> <span class="nav-text">Binding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Primitive-Data-Types"><span class="nav-number">1.2.</span> <span class="nav-text">Primitive Data Types</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Compound-Data-Types"><span class="nav-number">1.3.</span> <span class="nav-text">Compound Data Types:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function"><span class="nav-number">1.4.</span> <span class="nav-text">Function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-Expression"><span class="nav-number">1.4.1.</span> <span class="nav-text">Function Expression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-type"><span class="nav-number">1.4.2.</span> <span class="nav-text">Function type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Annotations"><span class="nav-number">1.4.3.</span> <span class="nav-text">Annotations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-with-Multiple-Parameters"><span class="nav-number">1.4.4.</span> <span class="nav-text">Function with Multiple Parameters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bind-Function-to-Variable"><span class="nav-number">1.4.5.</span> <span class="nav-text">Bind Function to Variable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Define-Named-Function-another-syntax"><span class="nav-number">1.4.6.</span> <span class="nav-text">Define Named Function (another syntax)</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-1"><span class="nav-number">1.</span> <span class="nav-text">Part 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Binding"><span class="nav-number">1.1.</span> <span class="nav-text">Binding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Primitive-Data-Types"><span class="nav-number">1.2.</span> <span class="nav-text">Primitive Data Types</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Compound-Data-Types"><span class="nav-number">1.3.</span> <span class="nav-text">Compound Data Types:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function"><span class="nav-number">1.4.</span> <span class="nav-text">Function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-Expression"><span class="nav-number">1.4.1.</span> <span class="nav-text">Function Expression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-type"><span class="nav-number">1.4.2.</span> <span class="nav-text">Function type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Annotations"><span class="nav-number">1.4.3.</span> <span class="nav-text">Annotations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-with-Multiple-Parameters"><span class="nav-number">1.4.4.</span> <span class="nav-text">Function with Multiple Parameters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bind-Function-to-Variable"><span class="nav-number">1.4.5.</span> <span class="nav-text">Bind Function to Variable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Define-Named-Function-another-syntax"><span class="nav-number">1.4.6.</span> <span class="nav-text">Define Named Function (another syntax)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Polymorphism"><span class="nav-number">1.5.</span> <span class="nav-text">Polymorphism</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Syntax"><span class="nav-number">1.5.1.</span> <span class="nav-text">Syntax</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-2"><span class="nav-number">2.</span> <span class="nav-text">Part 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Induction"><span class="nav-number">2.1.</span> <span class="nav-text">Induction</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -958,7 +984,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 31.5k words</span>
+  <span class="post-count">Total 31.9k words</span>
 </div>
 
         
