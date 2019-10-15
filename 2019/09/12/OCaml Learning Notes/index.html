@@ -120,7 +120,7 @@
 <meta property="og:site_name" content="Qingliu">
 <meta property="og:description" content="OCaml Notes">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-14T23:28:25.759Z">
+<meta property="og:updated_time" content="2019-10-15T00:16:58.656Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OCaml Learning Notes">
 <meta name="twitter:description" content="OCaml Notes">
@@ -446,7 +446,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-14 18:28:25" itemprop="dateModified" datetime="2019-10-14T18:28:25-05:00">2019-10-14</time>
+                <time title="Modified: 2019-10-14 19:16:58" itemprop="dateModified" datetime="2019-10-14T19:16:58-05:00">2019-10-14</time>
               
             
           </span>
@@ -560,10 +560,6 @@
 <li>immutable character strings</li>
 </ul>
 <figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># <span class="string">"Hello"</span> ^ <span class="string">" "</span> ^ <span class="string">"world"</span>;;</span><br><span class="line">- : <span class="built_in">string</span> = <span class="string">"Hello world"</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>list (constructed data type)</li>
-</ul>
-<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># <span class="keyword">let</span> l = [<span class="string">"is"</span>; <span class="string">"a"</span>; <span class="string">"tale"</span>; <span class="string">"told"</span>; <span class="string">"etc."</span>];;</span><br><span class="line"><span class="keyword">val</span> l : <span class="built_in">string</span> <span class="built_in">list</span> = [<span class="string">"is"</span>; <span class="string">"a"</span>; <span class="string">"tale"</span>; <span class="string">"told"</span>; <span class="string">"etc."</span>]</span><br><span class="line"></span><br><span class="line"># <span class="string">"Life"</span> :: l;;</span><br><span class="line">- : <span class="built_in">string</span> <span class="built_in">list</span> = [<span class="string">"Life"</span>; <span class="string">"is"</span>; <span class="string">"a"</span>; <span class="string">"tale"</span>; <span class="string">"told"</span>; <span class="string">"etc."</span>]</span><br></pre></td></tr></table></figure>
 <h2 id="Compound-Data-Types"><a href="#Compound-Data-Types" class="headerlink" title="Compound Data Types:"></a>Compound Data Types:</h2><ul>
 <li>Tuples</li>
 </ul>
@@ -572,6 +568,10 @@
 <ul>
 <li>Lists</li>
 </ul>
+<p>Actually </p>
+<p>List is a build-in variants:</p>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> <span class="symbol">'a</span> <span class="built_in">list</span> = <span class="literal">[]</span> | (::) <span class="keyword">of</span> <span class="symbol">'a</span> * <span class="symbol">'a</span> <span class="built_in">list</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># <span class="keyword">let</span> l = [<span class="string">"is"</span>; <span class="string">"a"</span>; <span class="string">"tale"</span>; <span class="string">"told"</span>; <span class="string">"etc."</span>];;</span><br><span class="line"><span class="keyword">val</span> l : <span class="built_in">string</span> <span class="built_in">list</span> = [<span class="string">"is"</span>; <span class="string">"a"</span>; <span class="string">"tale"</span>; <span class="string">"told"</span>; <span class="string">"etc."</span>]</span><br><span class="line"></span><br><span class="line"># <span class="string">"Life"</span> :: l;;</span><br><span class="line">- : <span class="built_in">string</span> <span class="built_in">list</span> = [<span class="string">"Life"</span>; <span class="string">"is"</span>; <span class="string">"a"</span>; <span class="string">"tale"</span>; <span class="string">"told"</span>; <span class="string">"etc."</span>]</span><br></pre></td></tr></table></figure>
 <figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># [<span class="number">1</span>; <span class="number">2</span>; <span class="number">3</span>];;</span><br><span class="line"># <span class="number">1</span> :: (<span class="number">2</span> :: (<span class="number">3</span> :: <span class="literal">[]</span>));;</span><br><span class="line"># <span class="number">1</span> :: <span class="number">2</span> :: <span class="number">3</span> :: <span class="literal">[]</span>;;</span><br></pre></td></tr></table></figure>
 <p>The bracket notation is a syntax sugar for <code>::</code>. <code>::</code> is right-associative.</p>
 <p><code>@</code> can be used to concatenate two lists. (not a constant-time operation)</p>
@@ -579,6 +579,8 @@
 <ul>
 <li>Options</li>
 </ul>
+<p>This is also a built-in variants:</p>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> <span class="symbol">'a</span> option = <span class="type">None</span> | <span class="type">Some</span> <span class="keyword">of</span> <span class="symbol">'a</span></span><br></pre></td></tr></table></figure>
 <p>An option is used to express that a value might or might not be present.</p>
 <figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># <span class="keyword">let</span> divide x y =</span><br><span class="line">	<span class="keyword">if</span> y = <span class="number">0</span> <span class="keyword">then</span> <span class="type">None</span> <span class="keyword">else</span> <span class="type">Some</span> (x/y) ;;</span><br></pre></td></tr></table></figure>
 <p>Keywords <code>Some</code> and <code>None</code> are construtors that let us build optional values. To examine the contents of an option, we use pattern matching.</p>
@@ -617,7 +619,8 @@
 <p>By type annotating the function in this way, we are saying that <code>id</code> function is of type <code>a -&gt; a</code> for any type <code>a</code>. For example, <code>id</code> can be of the types <code>int -&gt; int</code>, <code>bool -&gt; bool</code> or <code>string -&gt; string</code>. The type checking will all pass by annotating in this way.</p>
 <h3 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h3><figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">'a1</span> <span class="symbol">'a2</span> <span class="symbol">'a3</span> ... <span class="symbol">'an</span> . <span class="keyword">type</span></span><br></pre></td></tr></table></figure>
 <p>The type variables before the dot <code>.</code> Are like universal quantifiers, forcing OCaml to check the generality of the value.</p>
-<h1 id="Part-2-Induction"><a href="#Part-2-Induction" class="headerlink" title="Part 2: Induction"></a>Part 2: Induction</h1><p>Mathematical induction has two important components:</p>
+<h1 id="Part-2-Induction"><a href="#Part-2-Induction" class="headerlink" title="Part 2: Induction"></a>Part 2: Induction</h1><p><strong>Non-effect assumption: we can change the evaluation order and assume every expression will terminate.</strong></p>
+<p>Mathematical induction has two important components:</p>
 <ol>
 <li>Case analysis.</li>
 <li>The ability to assume that the theorem we want to prove holds for “smaller” objects.</li>
@@ -987,7 +990,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 31.9k words</span>
+  <span class="post-count">Total 32.0k words</span>
 </div>
 
         
