@@ -120,7 +120,7 @@
 <meta property="og:site_name" content="Qingliu">
 <meta property="og:description" content="OCaml Notes">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-15T00:16:58.656Z">
+<meta property="og:updated_time" content="2019-11-03T22:40:46.448Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OCaml Learning Notes">
 <meta name="twitter:description" content="OCaml Notes">
@@ -446,7 +446,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-14 19:16:58" itemprop="dateModified" datetime="2019-10-14T19:16:58-05:00">2019-10-14</time>
+                <time title="Modified: 2019-11-03 16:40:46" itemprop="dateModified" datetime="2019-11-03T16:40:46-06:00">2019-11-03</time>
               
             
           </span>
@@ -642,8 +642,43 @@
 <li>We conclude that the property <code>P(l)</code> holds for any list <code>l</code>.</li>
 </ul>
 <p>Suggestions for deciding ordering and the partition: follow the pattern matching and recursive calls.</p>
-<p><a href="https://github.umn.edu/umn-csci-2041-f19/notes" target="_blank" rel="noopener">Some induction proof</a> (Credit by Favonia)</p>
-<h1 id="Part-3-Effects"><a href="#Part-3-Effects" class="headerlink" title="Part 3: Effects"></a>Part 3: Effects</h1><h1 id="Part-4-Modules"><a href="#Part-4-Modules" class="headerlink" title="Part 4: Modules"></a>Part 4: Modules</h1><p>(Working in progress…)</p>
+<p><a href="https://github.umn.edu/umn-csci-2041-f19/notes" target="_blank" rel="noopener">Some induction proof</a> (Reference from Favonia)</p>
+<h1 id="Part-3-Effects"><a href="#Part-3-Effects" class="headerlink" title="Part 3: Effects"></a>Part 3: Effects</h1><p>Every OCaml expression either</p>
+<ul>
+<li>evaluates to a value</li>
+<li>raises an exception</li>
+<li>or fails to terminate (“infinite loop”)</li>
+</ul>
+<h2 id="Exceptions"><a href="#Exceptions" class="headerlink" title="Exceptions"></a>Exceptions</h2><p>OCaml’s exception mechanism is similar to many other programming languages.</p>
+<p>Syntax of defining a new type of OCaml exception:</p>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">exception</span> <span class="type">E</span> <span class="keyword">of</span> t</span><br></pre></td></tr></table></figure>
+<p><code>E</code> is a constructor name and <code>t</code> is a type. The <code>of t</code> part is optional, similar to <code>type variants</code>.</p>
+<p>Create an <code>exception</code> value:</p>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Failure</span> <span class="string">"something went wrong"</span></span><br></pre></td></tr></table></figure>
+<p>Raise and exception value <code>e</code>:</p>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">raise e</span><br></pre></td></tr></table></figure>
+<p>Catch an exception, use:</p>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> e <span class="keyword">with</span></span><br><span class="line">| p1 -&gt; e1</span><br><span class="line">| ...</span><br><span class="line">| pn -&gt; en</span><br></pre></td></tr></table></figure>
+<p>The expression <code>e</code> may raise an exception. If it does not, the entire expression evaluate to what <code>e</code> does. If <code>e</code> does raise an exception value <code>v</code>, <code>v</code> is matched against the provided patterns, like pattern matching.</p>
+<p>All exception values have type <code>exn</code>.</p>
+<h3 id="Common-Usage-of-Exceptions"><a href="#Common-Usage-of-Exceptions" class="headerlink" title="Common Usage of Exceptions"></a>Common Usage of Exceptions</h3><ol>
+<li>Indicators of an error.</li>
+<li>Placeholders for unfinished code.</li>
+<li>Out-of-band communication.</li>
+</ol>
+<h2 id="Sequencing-of-Effects"><a href="#Sequencing-of-Effects" class="headerlink" title="Sequencing of Effects"></a>Sequencing of Effects</h2><p>We can use semicolon operator to sequence effects.</p>
+<ul>
+<li>Syntax: <code>e1; e2</code></li>
+<li>Dynamic semantics:(动态语义涉及程序运行顺序以及结果) To evaluate <code>e1; e2</code>,<ul>
+<li>First evaluate <code>e1</code> to a value <code>v1</code>.</li>
+<li>Then evaluate <code>e2</code> to a value <code>v2</code>.</li>
+<li>Return <code>v2</code>. (Discard <code>v1</code>)</li>
+</ul>
+</li>
+<li>Static semantics: (静态语义涉及表达式类型) <code>e1; e2 : t</code> if <code>e1 : unit</code> and <code>e2 : t</code>.</li>
+</ul>
+<p>Note that all expressions except for the last one should have type <code>unit</code>, otherwise OCaml will raise a warning.</p>
+<h1 id="Part-4-Modules"><a href="#Part-4-Modules" class="headerlink" title="Part 4: Modules"></a>Part 4: Modules</h1><p>(Working in progress…)</p>
 
       
     </div>
@@ -927,7 +962,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-1-Basics"><span class="nav-number">1.</span> <span class="nav-text">Part 1: Basics</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Binding"><span class="nav-number">1.1.</span> <span class="nav-text">Binding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Primitive-Data-Types"><span class="nav-number">1.2.</span> <span class="nav-text">Primitive Data Types</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Compound-Data-Types"><span class="nav-number">1.3.</span> <span class="nav-text">Compound Data Types:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function"><span class="nav-number">1.4.</span> <span class="nav-text">Function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-Expression"><span class="nav-number">1.4.1.</span> <span class="nav-text">Function Expression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-type"><span class="nav-number">1.4.2.</span> <span class="nav-text">Function type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Annotations"><span class="nav-number">1.4.3.</span> <span class="nav-text">Annotations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-with-Multiple-Parameters"><span class="nav-number">1.4.4.</span> <span class="nav-text">Function with Multiple Parameters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bind-Function-to-Variable"><span class="nav-number">1.4.5.</span> <span class="nav-text">Bind Function to Variable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Define-Named-Function-another-syntax"><span class="nav-number">1.4.6.</span> <span class="nav-text">Define Named Function (another syntax)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Polymorphism"><span class="nav-number">1.5.</span> <span class="nav-text">Polymorphism</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Syntax"><span class="nav-number">1.5.1.</span> <span class="nav-text">Syntax</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-2-Induction"><span class="nav-number">2.</span> <span class="nav-text">Part 2: Induction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-3-Effects"><span class="nav-number">3.</span> <span class="nav-text">Part 3: Effects</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-4-Modules"><span class="nav-number">4.</span> <span class="nav-text">Part 4: Modules</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-1-Basics"><span class="nav-number">1.</span> <span class="nav-text">Part 1: Basics</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Binding"><span class="nav-number">1.1.</span> <span class="nav-text">Binding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Primitive-Data-Types"><span class="nav-number">1.2.</span> <span class="nav-text">Primitive Data Types</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Compound-Data-Types"><span class="nav-number">1.3.</span> <span class="nav-text">Compound Data Types:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function"><span class="nav-number">1.4.</span> <span class="nav-text">Function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-Expression"><span class="nav-number">1.4.1.</span> <span class="nav-text">Function Expression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-type"><span class="nav-number">1.4.2.</span> <span class="nav-text">Function type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Annotations"><span class="nav-number">1.4.3.</span> <span class="nav-text">Annotations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-with-Multiple-Parameters"><span class="nav-number">1.4.4.</span> <span class="nav-text">Function with Multiple Parameters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bind-Function-to-Variable"><span class="nav-number">1.4.5.</span> <span class="nav-text">Bind Function to Variable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Define-Named-Function-another-syntax"><span class="nav-number">1.4.6.</span> <span class="nav-text">Define Named Function (another syntax)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Polymorphism"><span class="nav-number">1.5.</span> <span class="nav-text">Polymorphism</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Syntax"><span class="nav-number">1.5.1.</span> <span class="nav-text">Syntax</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-2-Induction"><span class="nav-number">2.</span> <span class="nav-text">Part 2: Induction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-3-Effects"><span class="nav-number">3.</span> <span class="nav-text">Part 3: Effects</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Exceptions"><span class="nav-number">3.1.</span> <span class="nav-text">Exceptions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Common-Usage-of-Exceptions"><span class="nav-number">3.1.1.</span> <span class="nav-text">Common Usage of Exceptions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sequencing-of-Effects"><span class="nav-number">3.2.</span> <span class="nav-text">Sequencing of Effects</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-4-Modules"><span class="nav-number">4.</span> <span class="nav-text">Part 4: Modules</span></a></li></ol></div>
             
 
           </div>
@@ -990,7 +1025,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 32.0k words</span>
+  <span class="post-count">Total 32.2k words</span>
 </div>
 
         
