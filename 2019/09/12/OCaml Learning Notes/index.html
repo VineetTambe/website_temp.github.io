@@ -120,7 +120,7 @@
 <meta property="og:site_name" content="Qingliu">
 <meta property="og:description" content="OCaml Notes, CSCI 2041">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-14T05:10:31.455Z">
+<meta property="og:updated_time" content="2019-11-14T05:34:36.521Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OCaml Learning Notes">
 <meta name="twitter:description" content="OCaml Notes, CSCI 2041">
@@ -446,7 +446,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-11-13 23:10:31" itemprop="dateModified" datetime="2019-11-13T23:10:31-06:00">2019-11-13</time>
+                <time title="Modified: 2019-11-13 23:34:36" itemprop="dateModified" datetime="2019-11-13T23:34:36-06:00">2019-11-13</time>
               
             
           </span>
@@ -766,6 +766,10 @@
 <figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> <span class="type">A</span> = <span class="keyword">struct</span> <span class="keyword">let</span> x = <span class="number">0</span> <span class="keyword">end</span></span><br><span class="line"><span class="keyword">module</span> <span class="type">B</span> = <span class="type">IncX</span>(<span class="type">A</span>)</span><br><span class="line"><span class="keyword">module</span> <span class="type">C</span> = <span class="type">IncX</span>(<span class="type">B</span>)</span><br></pre></td></tr></table></figure>
 <p>Syntax:</p>
 <figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> <span class="type">F</span> (<span class="type">M</span> : <span class="type">S</span>) = <span class="keyword">struct</span></span><br><span class="line">	...</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">(* anonymous functor *)</span></span><br><span class="line"><span class="keyword">module</span> <span class="type">F</span> = <span class="keyword">functor</span> (<span class="type">M</span> : <span class="type">S</span>) -&gt; <span class="keyword">struct</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">module</span> <span class="type">F</span> (<span class="type">M1</span> : <span class="type">S1</span>) ... (<span class="type">Mn</span> : <span class="type">Sn</span>) = <span class="keyword">struct</span></span><br><span class="line">	...</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">(* anonymous functor *)</span></span><br><span class="line"><span class="keyword">module</span> <span class="type">F</span> = <span class="keyword">functor</span> (<span class="type">M1</span> : <span class="type">S1</span>) -&gt; ... -&gt; <span class="keyword">functor</span> (<span class="type">Mn</span> : <span class="type">Sn</span>) -&gt; <span class="keyword">struct</span></span><br><span class="line">	...</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">(* output type as a functor *)</span></span><br><span class="line"><span class="keyword">module</span> <span class="type">F</span> (<span class="type">M</span> : <span class="type">Si</span>) : <span class="type">So</span> = <span class="keyword">struct</span></span><br><span class="line">	...</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">(* alternate form *)</span></span><br><span class="line"><span class="keyword">module</span> <span class="type">F</span> (<span class="type">M</span> : <span class="type">Si</span>) = (<span class="keyword">struct</span></span><br><span class="line">	...</span><br><span class="line"><span class="keyword">end</span> : <span class="type">So</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">(* functor type annotation *)</span></span><br><span class="line"><span class="keyword">functor</span> (<span class="type">M</span> : <span class="type">Si</span>) -&gt; <span class="type">So</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">module</span> <span class="type">F</span> : <span class="keyword">functor</span> (<span class="type">M</span> : <span class="type">Si</span>) -&gt; <span class="type">So</span> =</span><br><span class="line">	<span class="keyword">functor</span> (<span class="type">M</span> : <span class="type">Si</span>) -&gt; <span class="keyword">struct</span> ... <span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p><strong>One thing to note:</strong> The output of the functor can depend on the input module. This can not happend on the expression level!</p>
+<p>Eg:</p>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">functor</span> (<span class="type">M</span> : <span class="type">ORDERED_TYPE</span>) -&gt; <span class="type">EXTENDED_ORDERED_TYPE</span> <span class="keyword">with</span> <span class="keyword">type</span> t = <span class="type">M</span>.t <span class="comment">(* signature annotation explicitly *)</span></span><br></pre></td></tr></table></figure>
+<p>The OCaml compiler won’t complain about the signature annotation without constraints, but this is fatal since we have to make sure <code>type t</code> is the same type as module <code>M</code> (we have to make the invoking function call work in this case, otherwise there might be runtime error).</p>
 
       
     </div>
@@ -1116,7 +1120,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 34.0k words</span>
+  <span class="post-count">Total 34.1k words</span>
 </div>
 
         
