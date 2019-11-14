@@ -112,18 +112,18 @@
 
 
 
-  <meta name="description" content="OCaml Notes, CSCI 2041">
+  <meta name="description" content="OCaml Notes, CSCI 2041, DNA of programming languages.">
 <meta name="keywords" content="Programming,Ocaml,Functional Programming">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OCaml Learning Notes">
 <meta property="og:url" content="http://yoursite.com/2019/09/12/OCaml Learning Notes/index.html">
 <meta property="og:site_name" content="Qingliu">
-<meta property="og:description" content="OCaml Notes, CSCI 2041">
+<meta property="og:description" content="OCaml Notes, CSCI 2041, DNA of programming languages.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-14T05:34:36.521Z">
+<meta property="og:updated_time" content="2019-11-14T05:54:41.583Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OCaml Learning Notes">
-<meta name="twitter:description" content="OCaml Notes, CSCI 2041">
+<meta name="twitter:description" content="OCaml Notes, CSCI 2041, DNA of programming languages.">
 
 
 
@@ -446,7 +446,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-11-13 23:34:36" itemprop="dateModified" datetime="2019-11-13T23:34:36-06:00">2019-11-13</time>
+                <time title="Modified: 2019-11-13 23:54:41" itemprop="dateModified" datetime="2019-11-13T23:54:41-06:00">2019-11-13</time>
               
             
           </span>
@@ -516,7 +516,7 @@
       
 
       
-        <p>OCaml Notes, CSCI 2041</p>
+        <p>OCaml Notes, CSCI 2041, DNA of programming languages.</p>
 <a id="more"></a>
 <h1 id="Part-1-Basics"><a href="#Part-1-Basics" class="headerlink" title="Part 1: Basics"></a>Part 1: Basics</h1><p>Part 1 is a basic introduction of OCaml syntax and characteristics as a functional language. Also we introduce some mechanism such as <strong>pattern matching</strong> and <strong>polymorphism</strong> to make it distinguished.</p>
 <p>First of all, the best REPL choice is <code>utop</code> program running under the terminal. Under this interactive environment, the OCaml phrases terminated with <code>;;</code> will be evaluated. User inputs (system command) are specified with <code>#</code>  at the beginning.</p>
@@ -770,6 +770,49 @@
 <p>Eg:</p>
 <figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">functor</span> (<span class="type">M</span> : <span class="type">ORDERED_TYPE</span>) -&gt; <span class="type">EXTENDED_ORDERED_TYPE</span> <span class="keyword">with</span> <span class="keyword">type</span> t = <span class="type">M</span>.t <span class="comment">(* signature annotation explicitly *)</span></span><br></pre></td></tr></table></figure>
 <p>The OCaml compiler won’t complain about the signature annotation without constraints, but this is fatal since we have to make sure <code>type t</code> is the same type as module <code>M</code> (we have to make the invoking function call work in this case, otherwise there might be runtime error).</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>Last time we talked about that OCaml binding is permanent which means “immutability”. But OCaml also supports “mutability” with the “reference” language feature.</p>
+<h3 id="Refs"><a href="#Refs" class="headerlink" title="Refs"></a>Refs</h3><p> A <em>ref</em> is like a pointer or reference in an imperative language. It is a location in memory whose contents may change. Refs are also called ref cells.</p>
+<ul>
+<li>Creates a reference:</li>
+</ul>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x = <span class="built_in">ref</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>By using the keyword <code>ref</code>. OCaml allocates and initializes a memory location for us and gives us the handle. <code>x</code> has type <code>int ref</code>. This is a new type constructor.</p>
+<ul>
+<li>Access the content:</li>
+</ul>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!x</span><br></pre></td></tr></table></figure>
+<p><code>!x</code> dereferences <code>x</code> and returns the contents of the memory location. <code>!</code> is the dereference operator.</p>
+<ul>
+<li>Assignment</li>
+</ul>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x := <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p><code>:=</code> is the assign operator in OCaml, by using this operator, we are not changing the value <code>x</code> but are changing the content which it refers to. (Variable are immutable, memory is mutable but variable bindings are not)</p>
+<h4 id="Dynamic-Semantics"><a href="#Dynamic-Semantics" class="headerlink" title="Dynamic Semantics:"></a>Dynamic Semantics:</h4><ul>
+<li><code>ref e</code><ul>
+<li>Evaluate <code>e</code> to a value <code>v</code></li>
+<li>Allocate a new location <code>loc</code> in memory to hold <code>v</code></li>
+<li>Store <code>v</code> in <code>loc</code></li>
+<li>Return <code>loc</code></li>
+</ul>
+</li>
+<li><code>e1 := e2</code><ul>
+<li>Evaluate <code>e2</code> to a value <code>v</code>, and <code>e1</code> to a location <code>loc</code></li>
+<li>Store <code>v</code> in <code>loc</code></li>
+<li>Return <code>()</code>, i.e., unit</li>
+</ul>
+</li>
+<li><code>!e</code><ul>
+<li>Evaluate <code>e</code> to a location <code>loc</code></li>
+<li>Return the contents of <code>loc</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="Static-Semantics"><a href="#Static-Semantics" class="headerlink" title="Static Semantics"></a>Static Semantics</h4><ul>
+<li><code>ref e : t ref</code> iff <code>e : t</code></li>
+<li><code>e1 := e2 : unit</code> iff <code>e1 : t ref</code> and <code>e2 : t</code></li>
+<li><code>!e : t</code> iff <code>e : t ref</code></li>
+</ul>
+<p>Done!</p>
 
       
     </div>
@@ -1057,7 +1100,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-1-Basics"><span class="nav-number">1.</span> <span class="nav-text">Part 1: Basics</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Binding"><span class="nav-number">1.1.</span> <span class="nav-text">Binding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Primitive-Data-Types"><span class="nav-number">1.2.</span> <span class="nav-text">Primitive Data Types</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Compound-Data-Types"><span class="nav-number">1.3.</span> <span class="nav-text">Compound Data Types:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function"><span class="nav-number">1.4.</span> <span class="nav-text">Function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-Expression"><span class="nav-number">1.4.1.</span> <span class="nav-text">Function Expression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-type"><span class="nav-number">1.4.2.</span> <span class="nav-text">Function type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Annotations"><span class="nav-number">1.4.3.</span> <span class="nav-text">Annotations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-with-Multiple-Parameters"><span class="nav-number">1.4.4.</span> <span class="nav-text">Function with Multiple Parameters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bind-Function-to-Variable"><span class="nav-number">1.4.5.</span> <span class="nav-text">Bind Function to Variable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Define-Named-Function-another-syntax"><span class="nav-number">1.4.6.</span> <span class="nav-text">Define Named Function (another syntax)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Polymorphism"><span class="nav-number">1.5.</span> <span class="nav-text">Polymorphism</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Syntax"><span class="nav-number">1.5.1.</span> <span class="nav-text">Syntax</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-2-Induction"><span class="nav-number">2.</span> <span class="nav-text">Part 2: Induction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-3-Effects"><span class="nav-number">3.</span> <span class="nav-text">Part 3: Effects</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Exceptions"><span class="nav-number">3.1.</span> <span class="nav-text">Exceptions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Common-Usage-of-Exceptions"><span class="nav-number">3.1.1.</span> <span class="nav-text">Common Usage of Exceptions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sequencing-of-Effects"><span class="nav-number">3.2.</span> <span class="nav-text">Sequencing of Effects</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-4-Modules"><span class="nav-number">4.</span> <span class="nav-text">Part 4: Modules</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Modular-Programming"><span class="nav-number">4.1.</span> <span class="nav-text">Modular Programming</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Module-Systems"><span class="nav-number">4.1.1.</span> <span class="nav-text">Module Systems</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OCaml-Modules"><span class="nav-number">4.1.2.</span> <span class="nav-text">OCaml Modules</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Structures"><span class="nav-number">4.1.2.1.</span> <span class="nav-text">Structures</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Scope"><span class="nav-number">4.1.2.2.</span> <span class="nav-text">Scope</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Signatures"><span class="nav-number">4.1.2.3.</span> <span class="nav-text">Signatures</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Abstract-Types"><span class="nav-number">4.1.2.4.</span> <span class="nav-text">Abstract Types</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Semantics"><span class="nav-number">4.1.2.5.</span> <span class="nav-text">Semantics</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Functional-Data-Structures"><span class="nav-number">4.1.2.6.</span> <span class="nav-text">Functional Data Structures</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Examples-Stack"><span class="nav-number">4.1.2.7.</span> <span class="nav-text">Examples: Stack</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Examples-Queues"><span class="nav-number">4.1.2.8.</span> <span class="nav-text">Examples: Queues</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Examples-Dictionaries"><span class="nav-number">4.1.2.9.</span> <span class="nav-text">Examples: Dictionaries</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Examples-Sets"><span class="nav-number">4.1.2.10.</span> <span class="nav-text">Examples: Sets</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Examples-Arithmetic"><span class="nav-number">4.1.2.11.</span> <span class="nav-text">Examples: Arithmetic</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sharing-Constraints"><span class="nav-number">4.1.3.</span> <span class="nav-text">Sharing Constraints</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Compilation-Units"><span class="nav-number">4.1.4.</span> <span class="nav-text">Compilation Units</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Comments"><span class="nav-number">4.1.5.</span> <span class="nav-text">Comments</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Code-Reuse"><span class="nav-number">4.1.6.</span> <span class="nav-text">Code Reuse</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Includes"><span class="nav-number">4.1.6.1.</span> <span class="nav-text">Includes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Functors"><span class="nav-number">4.1.6.2.</span> <span class="nav-text">Functors</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-1-Basics"><span class="nav-number">1.</span> <span class="nav-text">Part 1: Basics</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Binding"><span class="nav-number">1.1.</span> <span class="nav-text">Binding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Primitive-Data-Types"><span class="nav-number">1.2.</span> <span class="nav-text">Primitive Data Types</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Compound-Data-Types"><span class="nav-number">1.3.</span> <span class="nav-text">Compound Data Types:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function"><span class="nav-number">1.4.</span> <span class="nav-text">Function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-Expression"><span class="nav-number">1.4.1.</span> <span class="nav-text">Function Expression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-type"><span class="nav-number">1.4.2.</span> <span class="nav-text">Function type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Annotations"><span class="nav-number">1.4.3.</span> <span class="nav-text">Annotations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-with-Multiple-Parameters"><span class="nav-number">1.4.4.</span> <span class="nav-text">Function with Multiple Parameters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bind-Function-to-Variable"><span class="nav-number">1.4.5.</span> <span class="nav-text">Bind Function to Variable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Define-Named-Function-another-syntax"><span class="nav-number">1.4.6.</span> <span class="nav-text">Define Named Function (another syntax)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Polymorphism"><span class="nav-number">1.5.</span> <span class="nav-text">Polymorphism</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Syntax"><span class="nav-number">1.5.1.</span> <span class="nav-text">Syntax</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-2-Induction"><span class="nav-number">2.</span> <span class="nav-text">Part 2: Induction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-3-Effects"><span class="nav-number">3.</span> <span class="nav-text">Part 3: Effects</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Exceptions"><span class="nav-number">3.1.</span> <span class="nav-text">Exceptions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Common-Usage-of-Exceptions"><span class="nav-number">3.1.1.</span> <span class="nav-text">Common Usage of Exceptions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sequencing-of-Effects"><span class="nav-number">3.2.</span> <span class="nav-text">Sequencing of Effects</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-4-Modules"><span class="nav-number">4.</span> <span class="nav-text">Part 4: Modules</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Modular-Programming"><span class="nav-number">4.1.</span> <span class="nav-text">Modular Programming</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Module-Systems"><span class="nav-number">4.1.1.</span> <span class="nav-text">Module Systems</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OCaml-Modules"><span class="nav-number">4.1.2.</span> <span class="nav-text">OCaml Modules</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Structures"><span class="nav-number">4.1.2.1.</span> <span class="nav-text">Structures</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Scope"><span class="nav-number">4.1.2.2.</span> <span class="nav-text">Scope</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Signatures"><span class="nav-number">4.1.2.3.</span> <span class="nav-text">Signatures</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Abstract-Types"><span class="nav-number">4.1.2.4.</span> <span class="nav-text">Abstract Types</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Semantics"><span class="nav-number">4.1.2.5.</span> <span class="nav-text">Semantics</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Functional-Data-Structures"><span class="nav-number">4.1.2.6.</span> <span class="nav-text">Functional Data Structures</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Examples-Stack"><span class="nav-number">4.1.2.7.</span> <span class="nav-text">Examples: Stack</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Examples-Queues"><span class="nav-number">4.1.2.8.</span> <span class="nav-text">Examples: Queues</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Examples-Dictionaries"><span class="nav-number">4.1.2.9.</span> <span class="nav-text">Examples: Dictionaries</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Examples-Sets"><span class="nav-number">4.1.2.10.</span> <span class="nav-text">Examples: Sets</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Examples-Arithmetic"><span class="nav-number">4.1.2.11.</span> <span class="nav-text">Examples: Arithmetic</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sharing-Constraints"><span class="nav-number">4.1.3.</span> <span class="nav-text">Sharing Constraints</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Compilation-Units"><span class="nav-number">4.1.4.</span> <span class="nav-text">Compilation Units</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Comments"><span class="nav-number">4.1.5.</span> <span class="nav-text">Comments</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Code-Reuse"><span class="nav-number">4.1.6.</span> <span class="nav-text">Code Reuse</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Includes"><span class="nav-number">4.1.6.1.</span> <span class="nav-text">Includes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Functors"><span class="nav-number">4.1.6.2.</span> <span class="nav-text">Functors</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">4.2.</span> <span class="nav-text">Reference</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Refs"><span class="nav-number">4.2.1.</span> <span class="nav-text">Refs</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Dynamic-Semantics"><span class="nav-number">4.2.1.1.</span> <span class="nav-text">Dynamic Semantics:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Static-Semantics"><span class="nav-number">4.2.1.2.</span> <span class="nav-text">Static Semantics</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1120,7 +1163,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 34.1k words</span>
+  <span class="post-count">Total 34.3k words</span>
 </div>
 
         
