@@ -120,7 +120,7 @@
 <meta property="og:site_name" content="Qingliu">
 <meta property="og:description" content="ACM算法笔记">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-14T23:29:16.414Z">
+<meta property="og:updated_time" content="2020-02-05T06:36:08.908Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ACM算法笔记">
 <meta name="twitter:description" content="ACM算法笔记">
@@ -446,7 +446,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-14 18:29:16" itemprop="dateModified" datetime="2019-10-14T18:29:16-05:00">2019-10-14</time>
+                <time title="Modified: 2020-02-05 00:36:08" itemprop="dateModified" datetime="2020-02-05T00:36:08-06:00">2020-02-05</time>
               
             
           </span>
@@ -547,7 +547,9 @@
 <p>状态和状态转移方程一起描述算法，也是动态规划的核心</p>
 <p>记忆化搜索，逆序枚举可以优化时间复杂度</p>
 <p>DP没啥好说的，多练题，练出来感觉就行了</p>
-<h1 id="辗转相除法"><a href="#辗转相除法" class="headerlink" title="辗转相除法"></a>辗转相除法</h1><p>辗转相除法（欧几里德算法，Euclid algorithm）的关键在于恒等式<br>$$<br>gcd(a,b) = gcd(b,a mod b)<br>$$<br>边界条件<br>$$<br>gcd(a,0) = a<br>$$</p>
+<h1 id="辗转相除法"><a href="#辗转相除法" class="headerlink" title="辗转相除法"></a>辗转相除法</h1><p>辗转相除法（欧几里德算法，Euclid algorithm）的关键在于恒等式</p>
+<p>$$<br>gcd(a,b) = gcd(b,a mod b)<br>$$</p>
+<p>边界条件<br>$$<br>gcd(a,0) = a<br>$$</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> b == <span class="number">0</span> ? a : gcd(b, a%b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>利用辗转相除法求最小公倍数：<br>$$<br>gcd(a,b) <em> lcm(a,b) = a</em>b<br>$$</p>
 <p>$$<br>lcm(a,b) = a / gcd(a,b) * b<br>$$</p>
