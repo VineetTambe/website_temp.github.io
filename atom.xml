@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-10T02:53:55.514Z</updated>
+  <updated>2020-02-05T06:34:16.173Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2019/11/09/Readling%20List/"/>
     <id>http://yoursite.com/2019/11/09/Readling List/</id>
     <published>2019-11-09T18:51:34.000Z</published>
-    <updated>2019-11-10T02:53:55.514Z</updated>
+    <updated>2020-02-05T06:34:16.173Z</updated>
     
-    <content type="html"><![CDATA[<p>Readling List</p><a id="more"></a><h1 id="Books"><a href="#Books" class="headerlink" title="Books"></a>Books</h1><h2 id="Mathematics"><a href="#Mathematics" class="headerlink" title="Mathematics"></a>Mathematics</h2><p>先学分析</p><ul><li><em>Fourier Analysis: An Introduction</em></li><li><em>Complex Analysis</em></li><li><em>Real Analysis: Measure Theory, Integration, and Hilbert Spaces</em></li><li><em>Functional Analysis: Introduction to Further Topics in Analysis</em></li></ul><p>补两本优化</p><ul><li><em>Convex Optimization: Algorithms and Complexity</em></li><li><em>Convex Optimization</em></li></ul><h2 id="Statistics"><a href="#Statistics" class="headerlink" title="Statistics"></a>Statistics</h2><ul><li><em>An Introduction to Statistical Learning</em></li><li><em>The Elements of Statistical Learning</em></li></ul><h2 id="Computer-Science"><a href="#Computer-Science" class="headerlink" title="Computer Science"></a>Computer Science</h2><ul><li><em>机器学习，周志华</em></li><li><em>Deep Learning</em></li><li><em>算法导论，刘汝佳</em></li><li><em>Elements of the Theory of Computation</em></li></ul><p>想到再更</p>]]></content>
+    <content type="html"><![CDATA[<p>Readling List</p><a id="more"></a><h1 id="Books"><a href="#Books" class="headerlink" title="Books"></a>Books</h1><h2 id="Mathematics"><a href="#Mathematics" class="headerlink" title="Mathematics"></a>Mathematics</h2><p>先学分析</p><ul><li><em>Fourier Analysis: An Introduction</em></li><li><em>Complex Analysis</em></li><li><em>Real Analysis: Measure Theory, Integration, and Hilbert Spaces</em></li><li><em>Functional Analysis: Introduction to Further Topics in Analysis</em></li></ul><p>补两本优化</p><ul><li><em>Convex Optimization: Algorithms and Complexity</em></li><li><em>Convex Optimization</em></li></ul><p>抽象代数</p><ul><li><em>Abstract Algebra An Inquiry-based Approach</em></li></ul><h2 id="Statistics"><a href="#Statistics" class="headerlink" title="Statistics"></a>Statistics</h2><ul><li><em>An Introduction to Statistical Learning</em></li><li><em>The Elements of Statistical Learning</em></li></ul><h2 id="Computer-Science"><a href="#Computer-Science" class="headerlink" title="Computer Science"></a>Computer Science</h2><ul><li><em>机器学习，周志华</em></li><li><em>Deep Learning</em></li><li><em>算法导论，刘汝佳</em></li><li><em>Elements of the Theory of Computation</em></li></ul><p>想到再更</p>]]></content>
     
     <summary type="html">
     
