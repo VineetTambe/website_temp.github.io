@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-05T06:34:16.173Z</updated>
+  <updated>2020-02-12T06:43:48.462Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>近期计划</title>
+    <link href="http://yoursite.com/2020/02/12/%E8%BF%91%E6%9C%9F%E8%AE%A1%E5%88%92/"/>
+    <id>http://yoursite.com/2020/02/12/近期计划/</id>
+    <published>2020-02-13T03:15:34.000Z</published>
+    <updated>2020-02-12T06:43:48.462Z</updated>
+    
+    <content type="html"><![CDATA[<p>列一下近期要做的事情。。。</p><a id="more"></a><p>算是第一次在博客上自我反省（吐槽）</p><p>最近有些忙的爆炸的感觉，很多事情想做却都还没有做。</p><h1 id="2月"><a href="#2月" class="headerlink" title="2月"></a>2月</h1><ul><li>强行被拉去再参加一次数学建模美赛，说是国际比赛但其实水分很大，不管怎么说还是好好准备认真对待吧。</li><li>Github上以前很多的project文档写的是真的烂，找个时间集中整理一遍，顺便把前几个学期的课程project也整理一下写个文档po上去。工作量巨大。</li><li>知乎专栏不知道多久没更了，总结来说是自己太懒了，啥事都拖着没去做</li><li>月底due的ECCV的project找点事情做，总感觉有点太混了</li><li>自学数学，要看一些数学书，计划先看抽代和实分析</li><li>练练英语口语和听力，准备托福GRE再考</li><li>N久没写算法题了，GitHub OJ repo已经拖更N久。。</li></ul><h1 id="3月"><a href="#3月" class="headerlink" title="3月"></a>3月</h1><ul><li>把二月没做完的事情继续做。。</li><li>今年暑研在本校继续做或者去外校想想清楚，尽早申请</li><li>被强行拉去参加数据分析比赛（全美？）</li><li>去申请一下SSN</li></ul><p>想到了再更</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;列一下近期要做的事情。。。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Random" scheme="http://yoursite.com/categories/Random/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Reading List</title>
@@ -269,35 +289,6 @@
   </entry>
   
   <entry>
-    <title>Structuring Machine Learning Projects</title>
-    <link href="http://yoursite.com/2019/04/24/Structuring%20Machine%20Learning%20Projects/"/>
-    <id>http://yoursite.com/2019/04/24/Structuring Machine Learning Projects/</id>
-    <published>2019-04-25T04:17:34.000Z</published>
-    <updated>2019-04-26T14:46:56.955Z</updated>
-    
-    <content type="html"><![CDATA[<p>Deeplearning.ai Specialization</p><p>Course Notes</p><a id="more"></a><h1 id="Week-1"><a href="#Week-1" class="headerlink" title="Week 1"></a>Week 1</h1><h2 id="ML-Strategy"><a href="#ML-Strategy" class="headerlink" title="ML Strategy"></a>ML Strategy</h2><p>Ideas:</p><ul><li>Collect more data</li><li>Collect more diverse training set</li><li>Train algorithm longer with gradient descent</li><li>Try Adam instead of gradient descent</li><li>Try bigger network</li><li>Try smaller network</li><li>Try dropout</li><li>Add $L_2$ regularization</li><li>Network architecture<ul><li>Activation functions</li><li>Hidden units</li></ul></li></ul><p><strong>Orthogonalization</strong></p><p>Chain of assumptions in ML</p><ul><li>Fit training set well on cost function</li><li>Fit dev set well on cost function</li><li>Fit test set well on cost function</li><li>Performs well in real world</li></ul><p>Early stopping is not a good strategy</p><p><strong>Single number evaluation metric</strong></p><center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-25-Week1-1.png" style="zoom:60%"><br></center><p>$F_1$ Score can evaluate the model performance<br>$$<br>F_1 = \frac{2}{\frac1P+\frac1R}<br>$$</p><p><strong>Optimizing and satisficing</strong></p><p>E.g.</p><center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-25-Week1-2.png" style="zoom:60%"><br></center><p><strong>Splitting data</strong></p><center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-25-Week1-3.png" style="zoom:60%"><br></center><p>Set the test set to be big enough to give high confidence in the overall performance of your system</p><p>Model performance</p><center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-25-Week1-4.png" style="zoom:60%"><br></center><p>So long as ML is worse than humans, you can:</p><ul><li>Get labeled data from humans</li><li>Gain insight from manual error analysis: Why did a person get this right?</li><li>Better analysis of bias/variance</li></ul><p>Human-level error as a proxy for Bayes error</p><p><strong>Surpassing human-level performance</strong></p><ul><li>Online advertising</li><li>Product recommendations</li><li>Logistics (predicting transit time)</li><li>Loan approvals</li><li>Speech recognition</li><li>Computer vision</li></ul><p><strong>Two fundamental assumptions of supervised learning</strong></p><ol><li>You can fit the training set pretty well.</li><li>The training set performance generalizes pretty well to the dev/test set.</li></ol><p>Avoidable bias: Train bigger model. Train longer/better optimization algorithms. NN architecture/hyperparameters search.</p><p>Variance: More data. Regularization. NN architecture/hyperparameters search.</p><h1 id="Week-2"><a href="#Week-2" class="headerlink" title="Week 2"></a>Week 2</h1><h2 id="ML-Strategy-1"><a href="#ML-Strategy-1" class="headerlink" title="ML Strategy"></a>ML Strategy</h2><p><strong>Incorrectly labeld examples</strong></p><p>DL algorithms are quite robust to random errors in the training set. (so long as the total dataset is large enough and the error percentage is not too high)</p><p>DL are less robust to systematic errors</p><p>Error analysis:</p><center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-26-Week2-1.png" style="zoom:60%"><br></center><p>Effor evaluation</p><center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-26-Week2-2.png" style="zoom:60%"><br></center><p><strong>Correcting incorrect dev/test set examples</strong></p><ul><li>Apply same process to your dev and test sets to make sure they continue come from the same distribution</li><li>Consider examining examples your algorithm got right as well as ones it got wrong</li><li>Train and dev/test data may now come slightly different distributions</li></ul><p>Tips for building a machine learning system</p><ul><li>Set up dev/test set and metric</li><li>Build initial system quickly</li><li>Use Bias/Variance analysis &amp; Error analysis to prioritize next steps</li></ul><p><strong>Build your first system quickly, then iterate!</strong></p><p><strong>Training and testing on different distributions</strong></p><p>To determine which aspect brings the effect of bias/variance, whether it’s the general reason or the reason caused by changing data distribution. It’s better to introduce a new set:</p><center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-26-Week2-3.png" style="zoom:60%"><br></center><center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-26-Week2-4.png" style="zoom:60%"><br></center><p>Introducing this set helps us determine whether the problem is data mismatch or variance.</p><p><strong>Bias/variance on mismatched training and dev/test sets</strong></p><ul><li>Human level</li><li>Training set error</li><li>Training_dev set error</li><li>Dev error</li><li>Test error</li></ul><center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-26-Week2-5.png" style="zoom:60%"><br></center><p><strong>Addressing data mismatch</strong></p><ul><li>Carry out manual error analysis to try to understand difference between training and dev/test sets</li><li>Making training data more similar; or collect more data similar to dev/test sets</li><li>Artificial data synthesis</li></ul><p><strong>Transfer learning</strong></p><p>Pre-training and fune-tuning</p><p>When transfer learning makes sense</p><ul><li>Task A and B have the same input x.</li><li>You have a lot more data for Task A than Task B.</li><li>Low level features from A could be helpful for learning B.</li></ul><p><strong>Multi-task learning</strong></p><p>Multiple labels</p><p>When multi-task learning makes sense</p><ul><li>Training on a set of tasks could benefit from having shared lower-level features.</li><li>Usually: Amount of data you have for each task is quite similar.</li><li>Can train a big enough neural network to do well on all the tasks.</li></ul><p>Transfer learning is used much more often than multi-task learning</p><p><strong>End-to-end learning</strong></p><p>Multiple stages —&gt; A single neural network</p><p>End-to-end network requires a lot of data to gain high performance</p><p><strong>Pros and cons of end-to-end deep learning</strong></p><p>Pros:</p><ul><li>Let the data speak</li><li>Less hand-designing of components needed</li></ul><p>Cons:</p><ul><li>May need large amount of data</li><li>Excludes potentially useful hand-designed components</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Deeplearning.ai Specialization&lt;/p&gt;
-&lt;p&gt;Course Notes&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
-    
-    
-      <category term="Programming" scheme="http://yoursite.com/tags/Programming/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="Deep Learning" scheme="http://yoursite.com/tags/Deep-Learning/"/>
-    
-      <category term="TensorFlow" scheme="http://yoursite.com/tags/TensorFlow/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Scikit-learn Summary</title>
     <link href="http://yoursite.com/2019/04/24/Sklearn%20Summary/"/>
     <id>http://yoursite.com/2019/04/24/Sklearn Summary/</id>
@@ -329,6 +320,35 @@
       <category term="Machine Learning" scheme="http://yoursite.com/tags/Machine-Learning/"/>
     
       <category term="Scikit-learn" scheme="http://yoursite.com/tags/Scikit-learn/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Structuring Machine Learning Projects</title>
+    <link href="http://yoursite.com/2019/04/24/Structuring%20Machine%20Learning%20Projects/"/>
+    <id>http://yoursite.com/2019/04/24/Structuring Machine Learning Projects/</id>
+    <published>2019-04-25T04:17:34.000Z</published>
+    <updated>2019-04-26T14:46:56.955Z</updated>
+    
+    <content type="html"><![CDATA[<p>Deeplearning.ai Specialization</p><p>Course Notes</p><a id="more"></a><h1 id="Week-1"><a href="#Week-1" class="headerlink" title="Week 1"></a>Week 1</h1><h2 id="ML-Strategy"><a href="#ML-Strategy" class="headerlink" title="ML Strategy"></a>ML Strategy</h2><p>Ideas:</p><ul><li>Collect more data</li><li>Collect more diverse training set</li><li>Train algorithm longer with gradient descent</li><li>Try Adam instead of gradient descent</li><li>Try bigger network</li><li>Try smaller network</li><li>Try dropout</li><li>Add $L_2$ regularization</li><li>Network architecture<ul><li>Activation functions</li><li>Hidden units</li></ul></li></ul><p><strong>Orthogonalization</strong></p><p>Chain of assumptions in ML</p><ul><li>Fit training set well on cost function</li><li>Fit dev set well on cost function</li><li>Fit test set well on cost function</li><li>Performs well in real world</li></ul><p>Early stopping is not a good strategy</p><p><strong>Single number evaluation metric</strong></p><center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-25-Week1-1.png" style="zoom:60%"><br></center><p>$F_1$ Score can evaluate the model performance<br>$$<br>F_1 = \frac{2}{\frac1P+\frac1R}<br>$$</p><p><strong>Optimizing and satisficing</strong></p><p>E.g.</p><center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-25-Week1-2.png" style="zoom:60%"><br></center><p><strong>Splitting data</strong></p><center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-25-Week1-3.png" style="zoom:60%"><br></center><p>Set the test set to be big enough to give high confidence in the overall performance of your system</p><p>Model performance</p><center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-25-Week1-4.png" style="zoom:60%"><br></center><p>So long as ML is worse than humans, you can:</p><ul><li>Get labeled data from humans</li><li>Gain insight from manual error analysis: Why did a person get this right?</li><li>Better analysis of bias/variance</li></ul><p>Human-level error as a proxy for Bayes error</p><p><strong>Surpassing human-level performance</strong></p><ul><li>Online advertising</li><li>Product recommendations</li><li>Logistics (predicting transit time)</li><li>Loan approvals</li><li>Speech recognition</li><li>Computer vision</li></ul><p><strong>Two fundamental assumptions of supervised learning</strong></p><ol><li>You can fit the training set pretty well.</li><li>The training set performance generalizes pretty well to the dev/test set.</li></ol><p>Avoidable bias: Train bigger model. Train longer/better optimization algorithms. NN architecture/hyperparameters search.</p><p>Variance: More data. Regularization. NN architecture/hyperparameters search.</p><h1 id="Week-2"><a href="#Week-2" class="headerlink" title="Week 2"></a>Week 2</h1><h2 id="ML-Strategy-1"><a href="#ML-Strategy-1" class="headerlink" title="ML Strategy"></a>ML Strategy</h2><p><strong>Incorrectly labeld examples</strong></p><p>DL algorithms are quite robust to random errors in the training set. (so long as the total dataset is large enough and the error percentage is not too high)</p><p>DL are less robust to systematic errors</p><p>Error analysis:</p><center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-26-Week2-1.png" style="zoom:60%"><br></center><p>Effor evaluation</p><center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-26-Week2-2.png" style="zoom:60%"><br></center><p><strong>Correcting incorrect dev/test set examples</strong></p><ul><li>Apply same process to your dev and test sets to make sure they continue come from the same distribution</li><li>Consider examining examples your algorithm got right as well as ones it got wrong</li><li>Train and dev/test data may now come slightly different distributions</li></ul><p>Tips for building a machine learning system</p><ul><li>Set up dev/test set and metric</li><li>Build initial system quickly</li><li>Use Bias/Variance analysis &amp; Error analysis to prioritize next steps</li></ul><p><strong>Build your first system quickly, then iterate!</strong></p><p><strong>Training and testing on different distributions</strong></p><p>To determine which aspect brings the effect of bias/variance, whether it’s the general reason or the reason caused by changing data distribution. It’s better to introduce a new set:</p><center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-26-Week2-3.png" style="zoom:60%"><br></center><center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-26-Week2-4.png" style="zoom:60%"><br></center><p>Introducing this set helps us determine whether the problem is data mismatch or variance.</p><p><strong>Bias/variance on mismatched training and dev/test sets</strong></p><ul><li>Human level</li><li>Training set error</li><li>Training_dev set error</li><li>Dev error</li><li>Test error</li></ul><center><br>    <img src="https://azure-pictures.s3.amazonaws.com/blog/2019-04-26-Week2-5.png" style="zoom:60%"><br></center><p><strong>Addressing data mismatch</strong></p><ul><li>Carry out manual error analysis to try to understand difference between training and dev/test sets</li><li>Making training data more similar; or collect more data similar to dev/test sets</li><li>Artificial data synthesis</li></ul><p><strong>Transfer learning</strong></p><p>Pre-training and fune-tuning</p><p>When transfer learning makes sense</p><ul><li>Task A and B have the same input x.</li><li>You have a lot more data for Task A than Task B.</li><li>Low level features from A could be helpful for learning B.</li></ul><p><strong>Multi-task learning</strong></p><p>Multiple labels</p><p>When multi-task learning makes sense</p><ul><li>Training on a set of tasks could benefit from having shared lower-level features.</li><li>Usually: Amount of data you have for each task is quite similar.</li><li>Can train a big enough neural network to do well on all the tasks.</li></ul><p>Transfer learning is used much more often than multi-task learning</p><p><strong>End-to-end learning</strong></p><p>Multiple stages —&gt; A single neural network</p><p>End-to-end network requires a lot of data to gain high performance</p><p><strong>Pros and cons of end-to-end deep learning</strong></p><p>Pros:</p><ul><li>Let the data speak</li><li>Less hand-designing of components needed</li></ul><p>Cons:</p><ul><li>May need large amount of data</li><li>Excludes potentially useful hand-designed components</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Deeplearning.ai Specialization&lt;/p&gt;
+&lt;p&gt;Course Notes&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+    
+    
+      <category term="Programming" scheme="http://yoursite.com/tags/Programming/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="Deep Learning" scheme="http://yoursite.com/tags/Deep-Learning/"/>
+    
+      <category term="TensorFlow" scheme="http://yoursite.com/tags/TensorFlow/"/>
     
   </entry>
   
