@@ -120,7 +120,7 @@
 <meta property="og:site_name" content="Qingliu">
 <meta property="og:description" content="Interesting things in Cryptology">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-02-21T07:27:15.775Z">
+<meta property="og:updated_time" content="2020-03-16T05:20:53.718Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cryptology">
 <meta name="twitter:description" content="Interesting things in Cryptology">
@@ -429,12 +429,24 @@
                 
               
 
-              <time title="Created: 2020-02-21 01:24:34 / Modified: 01:27:15" itemprop="dateCreated datePublished" datetime="2020-02-21T01:24:34-06:00">2020-02-21</time>
+              <time title="Created: 2020-02-21 01:24:34" itemprop="dateCreated datePublished" datetime="2020-02-21T01:24:34-06:00">2020-02-21</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2020-03-16 00:20:53" itemprop="dateModified" datetime="2020-03-16T00:20:53-05:00">2020-03-16</time>
               
             
           </span>
@@ -506,7 +518,20 @@
       
         <p>Interesting things in Cryptology</p>
 <a id="more"></a>
-<h1 id="Cryptology"><a href="#Cryptology" class="headerlink" title="Cryptology"></a>Cryptology</h1><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><em>Cryptology and Number Theory</em>  by Paul Garrett</p>
+<h1 id="Cryptology"><a href="#Cryptology" class="headerlink" title="Cryptology"></a>Cryptology</h1><h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><h3 id="Divisibility"><a href="#Divisibility" class="headerlink" title="Divisibility"></a>Divisibility</h3><p>For integers $d$, $n$, the integer $d$ divides $n$ (is a divisor of $n$) iff $n/d$ is an integer. Then we say $n$ is a multiple of $d$. This property is written as:<br>$$<br>d|n<br>$$<br>Two integers $m$, $n$ are relatively prime or coprime iff the only integers that divide both $m$ and $n$ are $\pm 1$.</p>
+<h3 id="Multiplicative-Inverse"><a href="#Multiplicative-Inverse" class="headerlink" title="Multiplicative Inverse"></a>Multiplicative Inverse</h3><p>For integers $x$, $y$, $m$, $y$ is a multiplicative inverse of $x$ modulo $m$ if<br>$$<br>x \cdot y \; \% \; m = 1<br>$$</p>
+<h3 id="Congruence"><a href="#Congruence" class="headerlink" title="Congruence"></a>Congruence</h3><p>For integers $x$ and $y$, we say $x$ is congruent to $y$ modulo $m$, written as<br>$$<br>x \equiv y \mod m<br>$$<br>iff<br>$$<br>m|(x-y)<br>$$</p>
+<h3 id="LCM-and-GCD"><a href="#LCM-and-GCD" class="headerlink" title="LCM and GCD"></a>LCM and GCD</h3><p>For two integers $m$ and $n$, we define their least common multiple (LCM) and greatest common divisor (GCD) . $lcm(m,n)$ is the smallest positive integer $N$ so that $N$ is a multiple of $m$, and $N$ is a multiple of $n$. $gcd(m,n)$ is the largest positive integer $d$ so that $d$ divides $m$ and $d$ divides $n$.</p>
+<h2 id="Theorems-and-Proofs"><a href="#Theorems-and-Proofs" class="headerlink" title="Theorems and Proofs"></a>Theorems and Proofs</h2><h3 id="Theorem-1"><a href="#Theorem-1" class="headerlink" title="Theorem 1"></a>Theorem 1</h3><p>If $x$ and $m$ are relatively prime, then $x$ has an unique multiplicative inverse modulo $m$. In particular, if $ax + bm = 1$, the integer $a$ is a multiplicative inverse of $x$ modulo $m$.</p>
+<h3 id="Proof-1"><a href="#Proof-1" class="headerlink" title="Proof 1"></a>Proof 1</h3><p>Given that $x$ and $m$ are relatively prime we have $gcd(x,m) = 1$.</p>
+<p>And $gcd(x,m)$ is the least positive combination of the form $ax+bm$ for any integers $a$ and $b$.</p>
+<p>So we have $ax+bm = 1$ for some integers $a$ and $b$.</p>
+<p>Then<br>$$<br>ax = 1-bm \equiv 1 \mod m<br>$$<br>By definition, $a$ is a multiplicative inverse of $x$ modulo $m$.</p>
+<p>Uniqueness:</p>
+<p>Suppose $a’$ is also a multiplicative inverse of $x$ modulo $m$, then<br>$$<br>a’x \equiv ax \equiv 1 \mod m \<br>(a’-a)x \equiv0 \mod m<br>$$<br>Since $x$ and $m$ are relatively prime,<br>$$<br>m | (a’-a) \<br>a’ \equiv a \mod m<br>$$<br>This means that $a’$ and $a$ belong to the same residue class modulo $m$, complete the proof.</p>
+<h3 id="Theorem-2"><a href="#Theorem-2" class="headerlink" title="Theorem 2"></a>Theorem 2</h3><p>$$<br>lcm(m,n) \cdot gcd(m,n) = mn<br>$$</p>
+<h3 id="Proof-2"><a href="#Proof-2" class="headerlink" title="Proof 2"></a>Proof 2</h3><p>Think about $lcm(m,n)$ and $gcd(m,n)$ derived from the prime factorization of $m$ and $n$. Then this theorem is obvious.</p>
+<h2 id="From-Classical-Cipher-to-Modern-Cipher"><a href="#From-Classical-Cipher-to-Modern-Cipher" class="headerlink" title="From Classical Cipher to Modern Cipher"></a>From Classical Cipher to Modern Cipher</h2><h3 id="Shift-Cipher"><a href="#Shift-Cipher" class="headerlink" title="Shift Cipher"></a>Shift Cipher</h3><h3 id="Affine-Cipher"><a href="#Affine-Cipher" class="headerlink" title="Affine Cipher"></a>Affine Cipher</h3><h3 id="Vigenere-Cipher"><a href="#Vigenere-Cipher" class="headerlink" title="Vigenere Cipher"></a>Vigenere Cipher</h3><h3 id="Hill-Cipher"><a href="#Hill-Cipher" class="headerlink" title="Hill Cipher"></a>Hill Cipher</h3><h3 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h3><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><em>Cryptology and Number Theory</em>  by Paul Garrett</p>
 <p>Course materials by Andrew Odlyzko</p>
 
       
@@ -789,7 +814,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Cryptology"><span class="nav-number">1.</span> <span class="nav-text">Cryptology</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">1.1.</span> <span class="nav-text">Reference</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Cryptology"><span class="nav-number">1.</span> <span class="nav-text">Cryptology</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Background"><span class="nav-number">1.1.</span> <span class="nav-text">Background</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Divisibility"><span class="nav-number">1.1.1.</span> <span class="nav-text">Divisibility</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multiplicative-Inverse"><span class="nav-number">1.1.2.</span> <span class="nav-text">Multiplicative Inverse</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Congruence"><span class="nav-number">1.1.3.</span> <span class="nav-text">Congruence</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LCM-and-GCD"><span class="nav-number">1.1.4.</span> <span class="nav-text">LCM and GCD</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Theorems-and-Proofs"><span class="nav-number">1.2.</span> <span class="nav-text">Theorems and Proofs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Theorem-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">Theorem 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proof-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">Proof 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Theorem-2"><span class="nav-number">1.2.3.</span> <span class="nav-text">Theorem 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proof-2"><span class="nav-number">1.2.4.</span> <span class="nav-text">Proof 2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#From-Classical-Cipher-to-Modern-Cipher"><span class="nav-number">1.3.</span> <span class="nav-text">From Classical Cipher to Modern Cipher</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Shift-Cipher"><span class="nav-number">1.3.1.</span> <span class="nav-text">Shift Cipher</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Affine-Cipher"><span class="nav-number">1.3.2.</span> <span class="nav-text">Affine Cipher</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vigenere-Cipher"><span class="nav-number">1.3.3.</span> <span class="nav-text">Vigenere Cipher</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hill-Cipher"><span class="nav-number">1.3.4.</span> <span class="nav-text">Hill Cipher</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RSA"><span class="nav-number">1.3.5.</span> <span class="nav-text">RSA</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">1.4.</span> <span class="nav-text">Reference</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -852,7 +877,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total 35.6k words</span>
+  <span class="post-count">Total 36.0k words</span>
 </div>
 
         
