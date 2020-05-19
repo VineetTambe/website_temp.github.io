@@ -112,25 +112,24 @@
 
 
 
-  <meta name="description" content="ACM算法笔记">
-<meta name="keywords" content="Programming,C++,Algorithm">
+  <meta name="description" content="iTerm2 is a terminal emulator for macOS. Here I list some common tips for using iTerm2.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ACM Algorithm Note">
-<meta property="og:url" content="http://yoursite.com/2019/09/25/ACM Algorithm Note/index.html">
+<meta property="og:title" content="iTerm2 Tips">
+<meta property="og:url" content="http://yoursite.com/2020/05/18/iTerm2 Tips/index.html">
 <meta property="og:site_name" content="Qingliu">
-<meta property="og:description" content="ACM算法笔记">
+<meta property="og:description" content="iTerm2 is a terminal emulator for macOS. Here I list some common tips for using iTerm2.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-02-19T05:40:58.015Z">
+<meta property="og:updated_time" content="2020-05-19T03:06:52.973Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ACM Algorithm Note">
-<meta name="twitter:description" content="ACM算法笔记">
+<meta name="twitter:title" content="iTerm2 Tips">
+<meta name="twitter:description" content="iTerm2 is a terminal emulator for macOS. Here I list some common tips for using iTerm2.">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/09/25/ACM Algorithm Note/">
+  <link rel="canonical" href="http://yoursite.com/2020/05/18/iTerm2 Tips/">
 
 
 
@@ -140,7 +139,7 @@
   };
 </script>
 
-  <title>ACM Algorithm Note | Qingliu</title>
+  <title>iTerm2 Tips | Qingliu</title>
   
 
 
@@ -387,7 +386,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/25/ACM Algorithm Note/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/18/iTerm2 Tips/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Qingliu">
@@ -404,7 +403,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ACM Algorithm Note
+          <h1 class="post-title" itemprop="name headline">iTerm2 Tips
               
             
           </h1>
@@ -429,24 +428,12 @@
                 
               
 
-              <time title="Created: 2019-09-25 21:15:34" itemprop="dateCreated datePublished" datetime="2019-09-25T21:15:34-05:00">2019-09-25</time>
+              <time title="Created: 2020-05-18 21:26:34 / Modified: 22:06:52" itemprop="dateCreated datePublished" datetime="2020-05-18T21:26:34-05:00">2020-05-18</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2020-02-18 23:40:58" itemprop="dateModified" datetime="2020-02-18T23:40:58-06:00">2020-02-18</time>
               
             
           </span>
@@ -477,7 +464,7 @@
 
           
           
-             <span id="/2019/09/25/ACM Algorithm Note/" class="leancloud_visitors" data-flag-title="ACM Algorithm Note">
+             <span id="/2020/05/18/iTerm2 Tips/" class="leancloud_visitors" data-flag-title="iTerm2 Tips">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -516,60 +503,31 @@
       
 
       
-        <p>ACM算法笔记</p>
+        <p>iTerm2 is a terminal emulator for macOS. Here I list some common tips for using iTerm2.</p>
 <a id="more"></a>
-<h1 id="欧拉回路"><a href="#欧拉回路" class="headerlink" title="欧拉回路"></a>欧拉回路</h1><p>欧拉回路存在的充要条件：</p>
-<ul>
-<li>无向图：连通并且最多存在两个奇点（奇点：度数为奇数的点）</li>
-<li>有向图：底图连通并且一个点入度比出度大1，一个点出度比入度大1，其他点入度等于出度</li>
+<h1 id="Tab"><a href="#Tab" class="headerlink" title="Tab"></a>Tab</h1><ul>
+<li><code>cmd+t</code>: new tab</li>
+<li><code>cmd+number</code>: switch between tabs</li>
+<li><code>cmd+opt+e</code>: display all tabs globally</li>
 </ul>
-<p>编程的时候DFS，最后判断一遍是否访问到所有节点就行了，用邻接矩阵表示图（因为要随时看边是否被访问过，邻接矩阵效率更高）</p>
-<h1 id="枚举排列"><a href="#枚举排列" class="headerlink" title="枚举排列"></a>枚举排列</h1><p>升序枚举：</p>
-<p>递归调用，一个参数为当前序列，一个参数为可选元素集合，在不可重集时没问题，在可重集的时候要保证下标不重复</p>
-<p>关于升序排列，也可以利用C++ STL里面的<code>next_permutation</code>函数来执行：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line">...;</span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++)	<span class="built_in">printf</span>(<span class="string">"%d "</span>, p[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">&#125; <span class="keyword">while</span>(next_permutation(p,p+n));</span><br><span class="line">...;</span><br></pre></td></tr></table></figure>
-<p>而且<code>next_permutaiton</code>适用于可重集（那还自己写干啥-.-）</p>
-<h1 id="子集生成"><a href="#子集生成" class="headerlink" title="子集生成"></a>子集生成</h1><h2 id="位向量法"><a href="#位向量法" class="headerlink" title="位向量法"></a>位向量法</h2><p>用一个位向量表示是否选取某个元素</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_subset</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span>* B, <span class="keyword">int</span> cur)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(cur == n) &#123;</span><br><span class="line">        <span class="comment">// print</span></span><br><span class="line">    &#125;</span><br><span class="line">    B[cur] = <span class="number">1</span>;</span><br><span class="line">    print_subset(n, B, cur+<span class="number">1</span>);	<span class="comment">// 选第cur个元素</span></span><br><span class="line">    B[cur] = <span class="number">0</span>;</span><br><span class="line">    print_subset(n, B, cur+<span class="number">1</span>);	<span class="comment">// 不选cur个元素</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>有点回溯剪枝的感觉</p>
-<h2 id="二进制法"><a href="#二进制法" class="headerlink" title="二进制法"></a>二进制法</h2><p>部分没看懂。。。</p>
-<h1 id="回溯"><a href="#回溯" class="headerlink" title="回溯"></a>回溯</h1><p>深度优先</p>
-<h2 id="八皇后"><a href="#八皇后" class="headerlink" title="八皇后"></a>八皇后</h2><p>但是时间复杂度比较难算</p>
-<h2 id="素数环"><a href="#素数环" class="headerlink" title="素数环"></a>素数环</h2><p>问题描述：把整数1，2，3，…，n组成一个环，使相邻整数和为素数</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> cur)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(cur==n &amp;&amp; isp(A[<span class="number">0</span>]+A[n<span class="number">-1</span>])) &#123;</span><br><span class="line">        <span class="comment">//print</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>; i&lt;=n; i++) &#123;	<span class="comment">// 1固定为环起点，位置无所谓，所以从2开始试</span></span><br><span class="line">        <span class="keyword">if</span>(!vis[i] &amp;&amp; isp[i+A[cur<span class="number">-1</span>]]) &#123;</span><br><span class="line">            A[cur] = i;</span><br><span class="line">            vis[i] = <span class="number">1</span>;	<span class="comment">// 记录访问，递归到下一层</span></span><br><span class="line">            dfs(cur+<span class="number">1</span>);</span><br><span class="line">            vis[i] = <span class="number">0</span>;	<span class="comment">//清除访问，试下一个(回溯剪枝)</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="状态空间搜索"><a href="#状态空间搜索" class="headerlink" title="状态空间搜索"></a>状态空间搜索</h1><p>没看懂。。。</p>
-<h1 id="迭代加深搜索"><a href="#迭代加深搜索" class="headerlink" title="迭代加深搜索"></a>迭代加深搜索</h1><p>按深度由小到大进行搜索，基本假设是，如果解的深度有限，总能找到解。相比于普通DFS或者回溯的优点是，不会再一条路上走到stack over flow还找不到。</p>
-<p>迭代加深每次只考虑深度不超过maxd的结点。</p>
-<p>对于回溯求解但解答树室深度没有上限的题目，可以考虑使用迭代加深搜索。</p>
-<p>没看懂。。。</p>
-<h1 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h1><p>多练题</p>
-<h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><p>关键字：状态、状态转移、最优子结构（全局最优解包含局部最优解）</p>
-<p>状态和状态转移方程一起描述算法，也是动态规划的核心</p>
-<p>记忆化搜索，逆序枚举可以优化时间复杂度</p>
-<p>DP没啥好说的，多练题，练出来感觉就行了</p>
-<h1 id="辗转相除法"><a href="#辗转相除法" class="headerlink" title="辗转相除法"></a>辗转相除法</h1><p>辗转相除法（欧几里德算法，Euclid algorithm）的关键在于恒等式</p>
-<p>$$<br>gcd(a,b) = gcd(b,a mod b)<br>$$</p>
-<p>边界条件<br>$$<br>gcd(a,0) = a<br>$$</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> b == <span class="number">0</span> ? a : gcd(b, a%b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>利用辗转相除法求最小公倍数：<br>$$<br>gcd(a,b) <em> lcm(a,b) = a</em>b<br>$$</p>
-<p>$$<br>lcm(a,b) = a / gcd(a,b) * b<br>$$</p>
-<p>注意一个细节：求最小公倍数的时候先除再乘，目的是为了避免大整数溢出</p>
-<h1 id="Eratosthenes筛法"><a href="#Eratosthenes筛法" class="headerlink" title="Eratosthenes筛法"></a>Eratosthenes筛法</h1><p>筛法基本思想：对于不超过$n$的每个非负整数$p$，删除$2p$，$3p$，$4p$，…，处理完所有数后，剩下没被删除的数就是素数。程序很简单：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">memset</span>(vis, <span class="number">0</span>, <span class="keyword">sizeof</span>(vis));</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>; i&lt;=n; i++)</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=i*<span class="number">2</span>; j&lt;=n; j+=i)</span><br><span class="line">        vis[j] = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-<p>内层循环次数是<br>$$<br>\sum_{i=2}^{n} \frac{n}{i} = O(nlogn)<br>$$<br>来源于欧拉常数的公式</p>
-<p>注意到两个细节：外层循环筛其实只要基于素数基就行，可以加一个判断条件以实现；内层循环可以从$i*i$开始，直观理解是，$i$乘以任何一个小于$i$的数都在之前的外循环被筛掉了。</p>
-<p>综上两条，修改后的筛法如下(欧拉线性筛？核心是那条判断以及内循环的下界)：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> m = <span class="built_in">sqrt</span>(n+<span class="number">0.5</span>);</span><br><span class="line"><span class="built_in">memset</span>(vis, <span class="number">0</span>, <span class="keyword">sizeof</span>(vis));</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>; i&lt;=m; i++)	<span class="keyword">if</span>(!vis[i])</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j=i*i; j&lt;=n; j++)	vis[j] = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-<p>不超过$x$的素数约有(素数定理)：<br>$$<br>\frac{x}{lnx}<br>$$</p>
-<h1 id="扩展欧几里德算法"><a href="#扩展欧几里德算法" class="headerlink" title="扩展欧几里德算法"></a>扩展欧几里德算法</h1><p>问题：求直线$ax+by+c=0$上有多少个整点$(x,y)$满足$x\in[x_1,x_2], y\in[y_1,y_2]$。</p>
-<p>原理比较复杂，涉及素数的线性分解</p>
-<h1 id="同余与模算术"><a href="#同余与模算术" class="headerlink" title="同余与模算术"></a>同余与模算术</h1><p>基本公式：<br>$$<br>(a+b) \ mod \ n = ((a \ mod\  n)+(b\  mod\ n))\ mod n \<br>(a-b) \ mod \ n = ((a \ mod\  n)-(b\  mod\ n)+n)\ mod n \<br>ab \ mod \ n = (a\ mod \ n)(b \ mod \ n) \ mod n<br>$$<br>幂取模的分治实现：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pow_mod</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> n, <span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">0</span>)	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> x = pow_mod(a, n/<span class="number">2</span>, m);</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ans = (<span class="keyword">long</span> <span class="keyword">long</span>)x * x % m;</span><br><span class="line">    <span class="keyword">if</span>(n%<span class="number">2</span> == <span class="number">1</span>)	ans = ans * a % m;</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">int</span>) ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="数论中的计数问题"><a href="#数论中的计数问题" class="headerlink" title="数论中的计数问题"></a>数论中的计数问题</h1><p>由数的唯一分解定理<br>$$<br>n = p_1^{a_1}p_2^{a_2}p_1^{a_2} \cdot \cdot \cdot p_k^{a_k}<br>$$<br>$n$的正约数个数为<br>$$<br>(a_1+1)(a_2+1)\cdot \cdot \cdot(a_k+1)<br>$$<br>欧拉函数(计数小于$n$且与$n$互素的数的个数)：<br>$$<br>\phi(n) = n(1-\frac{1}{p_1})(1-\frac{1}{p_2})\cdot \cdot \cdot (1-\frac{1}{p_k})<br>$$<br>计算欧拉函数(其中有个找素因子的trick，自己体会)</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">euler_phi</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m = (<span class="keyword">int</span>)<span class="built_in">sqrt</span>(n+<span class="number">0.5</span>);</span><br><span class="line">    <span class="keyword">int</span> ans = n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>; i&lt;=m; i++)	<span class="keyword">if</span>(n % i == <span class="number">0</span>) &#123;</span><br><span class="line">        ans = ans /i * (i<span class="number">-1</span>);</span><br><span class="line">        <span class="keyword">while</span>(n % i == <span class="number">0</span>)	n /= i;	<span class="comment">// 这就是那个trick，自己体会</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n &gt; <span class="number">1</span>) ans = ans / n * (n<span class="number">-1</span>);	<span class="comment">// 这种情况，处理的应该是n本身未素数的情况</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>求1-n中所有数的欧拉函数值，复杂度为$O(nlognlogn)$，算法如下(是一种自底向上枚举素数的做法，有点难解释)</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">phi_table</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span>* phi)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>; i&lt;=n; i++)	phi[i] = <span class="number">0</span>;	<span class="comment">// 初始化</span></span><br><span class="line">    phi[<span class="number">1</span>] = <span class="number">1</span>;	<span class="comment">// 初始化</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>; i&lt;=n; i++)	<span class="keyword">if</span>(!phi[i])	<span class="comment">// 外层循环枚举素数</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i; j&lt;=n; j+=i) &#123;</span><br><span class="line">            <span class="keyword">if</span>(!phi[j])	phi[j] = j;	<span class="comment">// 赋初值n</span></span><br><span class="line">            phi[j] = phi[j] / i * (i<span class="number">-1</span>);	<span class="comment">// 参见欧拉函数</span></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>(Working in progress)</p>
+<h1 id="Split-Pane"><a href="#Split-Pane" class="headerlink" title="Split Pane"></a>Split Pane</h1><ul>
+<li><code>cmd+D</code>: split the active pane horizontally</li>
+<li><code>cmd+shift+D</code>: split the active pane vertically</li>
+</ul>
+<h1 id="Search"><a href="#Search" class="headerlink" title="Search"></a>Search</h1><ul>
+<li><code>cmd+f</code>: search using regex</li>
+</ul>
+<h1 id="Tmux-Integration"><a href="#Tmux-Integration" class="headerlink" title="Tmux Integration"></a>Tmux Integration</h1><ul>
+<li><code>tmux -CC</code>: new tmux session</li>
+<li><code>tmux -CC attach</code>: attach to an tmux session</li>
+</ul>
+<h1 id="Display-Image-Inline"><a href="#Display-Image-Inline" class="headerlink" title="Display Image Inline"></a>Display Image Inline</h1><ul>
+<li><code>imgcat</code>: display image in the current session</li>
+</ul>
+<h1 id="Broadcast-Input"><a href="#Broadcast-Input" class="headerlink" title="Broadcast Input"></a>Broadcast Input</h1><ul>
+<li><code>shell</code>  $\rightarrow$ <code>Broadcast Input</code>: can be used when multiple logging requests needed</li>
+</ul>
+<p>Continue to expand…</p>
 
       
     </div>
@@ -601,16 +559,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Programming/" rel="tag"><i class="fa fa-tag"></i> Programming</a>
-          
-            <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
-          
-            <a href="/tags/Algorithm/" rel="tag"><i class="fa fa-tag"></i> Algorithm</a>
-          
-        </div>
-      
 
       
       
@@ -620,8 +568,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/12/OCaml Learning Notes/" rel="next" title="OCaml Learning Notes">
-                <i class="fa fa-chevron-left"></i> OCaml Learning Notes
+              <a href="/2020/02/21/Cryptology/" rel="next" title="Cryptology">
+                <i class="fa fa-chevron-left"></i> Cryptology
               </a>
             
           </div>
@@ -629,10 +577,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/11/09/Readling List/" rel="prev" title="Reading List">
-                Reading List <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -859,7 +803,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#欧拉回路"><span class="nav-number">1.</span> <span class="nav-text">欧拉回路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#枚举排列"><span class="nav-number">2.</span> <span class="nav-text">枚举排列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#子集生成"><span class="nav-number">3.</span> <span class="nav-text">子集生成</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#位向量法"><span class="nav-number">3.1.</span> <span class="nav-text">位向量法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二进制法"><span class="nav-number">3.2.</span> <span class="nav-text">二进制法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回溯"><span class="nav-number">4.</span> <span class="nav-text">回溯</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#八皇后"><span class="nav-number">4.1.</span> <span class="nav-text">八皇后</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#素数环"><span class="nav-number">4.2.</span> <span class="nav-text">素数环</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#状态空间搜索"><span class="nav-number">5.</span> <span class="nav-text">状态空间搜索</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#迭代加深搜索"><span class="nav-number">6.</span> <span class="nav-text">迭代加深搜索</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分治"><span class="nav-number">7.</span> <span class="nav-text">分治</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态规划"><span class="nav-number">8.</span> <span class="nav-text">动态规划</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#辗转相除法"><span class="nav-number">9.</span> <span class="nav-text">辗转相除法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Eratosthenes筛法"><span class="nav-number">10.</span> <span class="nav-text">Eratosthenes筛法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#扩展欧几里德算法"><span class="nav-number">11.</span> <span class="nav-text">扩展欧几里德算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#同余与模算术"><span class="nav-number">12.</span> <span class="nav-text">同余与模算术</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数论中的计数问题"><span class="nav-number">13.</span> <span class="nav-text">数论中的计数问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tab"><span class="nav-number">1.</span> <span class="nav-text">Tab</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Split-Pane"><span class="nav-number">2.</span> <span class="nav-text">Split Pane</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Search"><span class="nav-number">3.</span> <span class="nav-text">Search</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tmux-Integration"><span class="nav-number">4.</span> <span class="nav-text">Tmux Integration</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Display-Image-Inline"><span class="nav-number">5.</span> <span class="nav-text">Display Image Inline</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Broadcast-Input"><span class="nav-number">6.</span> <span class="nav-text">Broadcast Input</span></a></li></ol></div>
             
 
           </div>
