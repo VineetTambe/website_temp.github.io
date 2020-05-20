@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Sublime Text Tips</title>
+      <link href="/2020/05/19/Sublime%20Text%20Tips/"/>
+      <url>/2020/05/19/Sublime%20Text%20Tips/</url>
+      
+        <content type="html"><![CDATA[<p>Sublime Text is a powerful editor across platforms including macOS/Linux/Windows. Here I list some common tips for using Sublime Text gracefully.</p><a id="more"></a><h1 id="Package-Control"><a href="#Package-Control" class="headerlink" title="Package Control"></a>Package Control</h1><ul><li><code>cmd+shift+P</code> &amp;&amp; enter <code>Install Package</code>: invoke the package control panel.</li></ul><h1 id="Split-Pane"><a href="#Split-Pane" class="headerlink" title="Split Pane"></a>Split Pane</h1><ul><li><code>View</code> $\rightarrow$ <code>Layout</code>: change the layout, multiple rows or columns</li></ul><h1 id="Search"><a href="#Search" class="headerlink" title="Search"></a>Search</h1><ul><li><code>cmd+f</code>: search using regex</li></ul><h1 id="Remote-Session"><a href="#Remote-Session" class="headerlink" title="Remote Session"></a>Remote Session</h1><p>Continue to expand…</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Note </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>iTerm2 Tips</title>
       <link href="/2020/05/18/iTerm2%20Tips/"/>
       <url>/2020/05/18/iTerm2%20Tips/</url>
